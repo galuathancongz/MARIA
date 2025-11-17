@@ -1,0 +1,393 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d1b221c2d0056da4cafb2c8de7310137, type: 3}
+  m_Name: DB_PackSO
+  m_EditorClassIdentifier: 
+  dbPack:
+  - ePack: 1
+    productId: lorry.color.sort.puzzle.removeads
+    isRemoveAds: 1
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: settings
+    maxBuy: 1
+    levelShowIcon: 2
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 2
+    productId: lorry.color.sort.puzzle.removeadsbundle
+    isRemoveAds: 1
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      - type:
+          type: 1
+          id: 0
+        amount: 5000
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources:
+      - type:
+          type: 1
+          id: 0
+        amount: 2000
+      - type:
+          type: 3
+          id: 0
+        amount: 1800
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1
+    levelShowIcon: 2
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 9
+    productId: lorry.color.sort.puzzle.starterpack
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      - type:
+          type: 4
+          id: 3
+        amount: 1
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources:
+      - type:
+          type: 1
+          id: 0
+        amount: 5000
+      - type:
+          type: 3
+          id: 0
+        amount: 1800
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1
+    levelShowIcon: 2
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 10
+    productId: lorry.color.sort.puzzle.treasure
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 3
+    productId: lorry.color.sort.puzzle.coinbundle1
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 4
+    productId: lorry.color.sort.puzzle.coinbundle2
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 5
+    productId: lorry.color.sort.puzzle.coinbundle3
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 6
+    productId: lorry.color.sort.puzzle.coinbundle4
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 7
+    productId: lorry.color.sort.puzzle.coinbundle5
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 8
+    productId: lorry.color.sort.puzzle.coinbundle6
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 11
+    productId: lorry.color.sort.puzzle.treasure_1
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 12
+    productId: lorry.color.sort.puzzle.treasure_2
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 2
+      - type:
+          type: 4
+          id: 1
+        amount: 2
+      - type:
+          type: 4
+          id: 2
+        amount: 2
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 13
+    productId: lorry.color.sort.puzzle.recovery
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 14
+    productId: lorry.color.sort.puzzle.booster
+    isRemoveAds: 0
+    gift:
+      dataResources:
+      - type:
+          type: 4
+          id: 0
+        amount: 1
+      - type:
+          type: 4
+          id: 1
+        amount: 1
+      - type:
+          type: 4
+          id: 2
+        amount: 1
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
+  - ePack: 15
+    productId: lorry.color.sort.puzzle.battlepass
+    isRemoveAds: 0
+    gift:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    resourcesOther:
+      dataResources: []
+      typeChest:
+        type: 0
+        id: 0
+    where: 
+    maxBuy: 1000000000
+    levelShowIcon: 16
+    timeStartShow: -1
+    timeEndShow: -1
