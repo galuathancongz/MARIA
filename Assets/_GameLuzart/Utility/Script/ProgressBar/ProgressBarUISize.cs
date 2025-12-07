@@ -20,6 +20,7 @@ namespace Luzart
         public float width;
         public float height;
         public bool isGetWidth = false;
+        public bool isSetWidth = true;
         private void Awake()
         {
             width = rtContain.sizeDelta.x;
@@ -37,15 +38,26 @@ namespace Luzart
             targetPercent = Mathf.Clamp01(targetPercent);
             float preWidth = width * prePercent;
             float targetWidth = targetPercent * width;
+            if (!isSetWidth)
+            {
+                preWidth = height * prePercent;
+                targetWidth = targetPercent * height;
+            }
             if (prePercent == targetPercent || time <= 0)
             {
-                rtFill.sizeDelta = new Vector2(targetWidth, rtFill.sizeDelta.y);
+                if(isSetWidth)
+                    rtFill.sizeDelta = new Vector2(targetWidth, rtFill.sizeDelta.y);
+                else
+                    rtFill.sizeDelta = new Vector2(rtFill.sizeDelta.x, targetWidth);
                 onDone?.Invoke();
                 return;
             }
             GameUtil.Instance.StartLerpValue(this, preWidth, targetWidth, time, (x) =>
             {
-                rtFill.sizeDelta = new Vector2(x, rtFill.sizeDelta.y);
+                if (isSetWidth)
+                    rtFill.sizeDelta = new Vector2(x, rtFill.sizeDelta.y);
+                else
+                    rtFill.sizeDelta = new Vector2(rtFill.sizeDelta.x, x);
                 actionUpdate?.Invoke(x);
             }, onDone);
         }
@@ -56,9 +68,17 @@ namespace Luzart
             targetPercent = Mathf.Clamp01(targetPercent);
             float preWidth = width * prePercent;
             float targetWidth = targetPercent * width;
+            if (!isSetWidth)
+            {
+                preWidth = height * prePercent;
+                targetWidth = targetPercent * height;
+            }
             if (prePercent == targetPercent || time <= 0)
             {
-                rtFill.sizeDelta = new Vector2(targetWidth, rtFill.sizeDelta.y);
+                if (isSetWidth)
+                    rtFill.sizeDelta = new Vector2(targetWidth, rtFill.sizeDelta.y);
+                else
+                    rtFill.sizeDelta = new Vector2(rtFill.sizeDelta.x, targetWidth);
                 onDone?.Invoke();
                 return DOVirtual.DelayedCall(0,null);
             }
@@ -66,7 +86,10 @@ namespace Luzart
             {
                 return DOVirtual.Float(preWidth, targetWidth, time, (x) =>
                 {
-                    rtFill.sizeDelta = new Vector2(x, rtFill.sizeDelta.y);
+                    if (isSetWidth)
+                        rtFill.sizeDelta = new Vector2(targetWidth, rtFill.sizeDelta.y);
+                    else
+                        rtFill.sizeDelta = new Vector2(rtFill.sizeDelta.x, targetWidth);
                     actionUpdate?.Invoke(x);
                 }).OnComplete(() => onDone?.Invoke()).SetId(this);
             }

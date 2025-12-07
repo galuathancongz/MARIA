@@ -50,8 +50,17 @@ namespace Luzart
                 EditorApplication.QueuePlayerLoopUpdate();
 
             }
-            script.width = script.rtContain.sizeDelta.x;
-            script.height = script.rtFill.sizeDelta.y;
+            if (script.isSetWidth)
+            {
+                script.width = script.rtContain.sizeDelta.x;
+                script.height = script.rtFill.sizeDelta.y;
+            }
+            else
+            {
+                script.width = script.rtFill.sizeDelta.x;
+                script.height = script.rtContain.sizeDelta.y;
+            }
+
         }
     }
 }
