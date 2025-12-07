@@ -373,7 +373,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   apiKey: AIzaSyC38YBMw_BuQnFNwiaQZ3EKwPYYR5os9j0
-  modelName: gemini-pro
+  modelName: gemini-2.5-flash
   GEMINI_API_URL: https://generativelanguage.googleapis.com/v1/models/
   enableDebugLogs: 1
 --- !u!4 &1670748414

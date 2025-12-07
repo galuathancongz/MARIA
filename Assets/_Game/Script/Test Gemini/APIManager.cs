@@ -86,7 +86,7 @@ public class APIManager : MonoBehaviour
             OnErrorOccurred?.Invoke(errorMsg);
             return;
         }
-        
+        question = $"{question}. Nói ngắn gọn chỉ ít thôi.";
         StartCoroutine(SendRequestCoroutine(question, onSuccess, onError));
     }
     
