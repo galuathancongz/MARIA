@@ -284,66 +284,6 @@ namespace Luzart
             if (listScreenActive.Count == 0) return null;
             return listScreenActive.Last();
         }
-
-        //public void ShowCoinSpawn(Action onFirstTime = null, Action onLastTime = null, Transform target = null)
-        //{
-        //    var ui = ShowUI<UICoinSpawn>(UIName.CoinSpawn);
-        //    ui.InitCoinSpawn(onFirstTime, onLastTime, target);
-        //}
-
-
-        //public MainMenu_Home GetUIMainMenuHome()
-        //{
-        //    UIMainMenu uiMainMenu = GetUiActive<UIMainMenu>(UIName.MainMenu);
-        //    MainMenu_Home uiHome = null;
-        //    if (uiMainMenu != null)
-        //    {
-        //        uiHome = uiMainMenu.GetUIScreenMainMenu(EMainMenu.Home) as MainMenu_Home;
-        //    }
-        //    return uiHome;
-        //}
-        //public void ShowDataCacheMain()
-        //{
-        //    var ui = GetUIMainMenuHome();
-        //    if (ui != null)
-        //    {
-        //        ui.ShowDataCache();
-        //    }
-        //}
-        //public static UIName ConvertPack(EPack ePack)
-        //{
-        //    switch(ePack)
-        //    {
-        //        case EPack.SuperPack:
-        //            {
-        //                return UIName.PackSuper;
-        //            }
-        //        case EPack.VIPPack:
-        //            {
-        //                return UIName.PackVIP;
-        //            }
-        //        case EPack.MiniPack:
-        //            {
-        //                return UIName.PackMini;
-        //            }
-        //        case EPack.LargePack:
-        //            {
-        //                return UIName.PackLarge;
-        //            }
-        //        case EPack.LifeAndCoinPack:
-        //            {
-        //                return UIName.PackLifeAndCoin;
-        //            }
-        //        case EPack.ValentinePack:
-        //            {
-        //                return UIName.PackValentine;
-        //            }
-        //        default:
-        //            {
-        //                return UIName.PackStarter;
-        //            }
-        //    }
-        //}
     }
 
     public enum UIName
