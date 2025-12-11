@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 5d9e306d4fc36484a9f4800f9a2ee6a0
+guid: 39ad53faea2d2764084bdcccb5d6237e
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -39,11 +39,11 @@ TextureImporter:
     mipBias: 0
     wrapU: 1
     wrapV: 1
-    wrapW: 1
+    wrapW: 0
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 2
+  spriteMode: 1
   spriteExtrude: 1
   spriteMeshType: 1
   alignment: 0
@@ -123,123 +123,18 @@ TextureImporter:
     buildTarget: Android
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: -1
+    textureFormat: 65
     textureCompression: 1
-    compressionQuality: 50
+    compressionQuality: 100
     crunchedCompression: 0
     allowsAlphaSplitting: 0
-    overridden: 0
+    overridden: 1
     ignorePlatformSupport: 0
     androidETC2FallbackOverride: 0
     forceMaximumCompressionQuality_BC6H_BC7: 0
   spriteSheet:
     serializedVersion: 2
-    sprites:
-    - serializedVersion: 2
-      name: animation_idle_0
-      rect:
-        serializedVersion: 2
-        x: 5
-        y: 0
-        width: 141
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1da614ab63ecc56468832d1274f51ff3
-      internalID: -997976366
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animation_idle_1
-      rect:
-        serializedVersion: 2
-        x: 146
-        y: 0
-        width: 141
-        height: 113
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c3f29c3290e853442a1eed6e97ec509c
-      internalID: -1568191490
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animation_idle_2
-      rect:
-        serializedVersion: 2
-        x: 287
-        y: 1
-        width: 141
-        height: 112
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 3aef6ab19383240498e40c168e1c470f
-      internalID: -1669382965
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animation_idle_3
-      rect:
-        serializedVersion: 2
-        x: 428
-        y: 1
-        width: 141
-        height: 112
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: caa16be4672826f449dff58a613734e4
-      internalID: -2121754936
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: animation_idle_4
-      rect:
-        serializedVersion: 2
-        x: 570
-        y: 1
-        width: 141
-        height: 112
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: ade91a3992576f5459aa6b5d4c66d5c9
-      internalID: 1339541030
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
+    sprites: []
     outline: []
     physicsShape: []
     bones: []
@@ -250,17 +145,7 @@ TextureImporter:
     edges: []
     weights: []
     secondaryTextures: []
-    nameFileIdTable:
-      Gemini_Generated_Image_w49y5zw49y5zw49y_0: 1331480594
-      Gemini_Generated_Image_w49y5zw49y5zw49y_1: -869734904
-      Gemini_Generated_Image_w49y5zw49y5zw49y_2: -1867684273
-      Gemini_Generated_Image_w49y5zw49y5zw49y_3: 855563647
-      Gemini_Generated_Image_w49y5zw49y5zw49y_4: 1866914308
-      animation_idle_0: -997976366
-      animation_idle_1: -1568191490
-      animation_idle_2: -1669382965
-      animation_idle_3: -2121754936
-      animation_idle_4: 1339541030
+    nameFileIdTable: {}
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

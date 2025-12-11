@@ -122,37 +122,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &364898275
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 364898276}
-  m_Layer: 0
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &364898276
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364898275}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -2.213892, y: 0.12162073, z: 2.261252}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &862957808
 GameObject:
   m_ObjectHideFlags: 0
@@ -340,7 +309,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1670748414}
   - component: {fileID: 1670748413}
-  - component: {fileID: 1670748412}
   m_Layer: 0
   m_Name: APIManager
   m_TagString: Untagged
@@ -348,18 +316,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &1670748412
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1670748411}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 139a5ba1734146e4fb7ff8428691add4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!114 &1670748413
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -372,7 +328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 18e482e371bb4d440a313f6b29b3e8df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  apiKey: AIzaSyC38YBMw_BuQnFNwiaQZ3EKwPYYR5os9j0
+  apiKey: AIzaSyDp-0z7j0nSU5SyBPVjv41uTuWz4i0EUik
   modelName: gemini-2.5-flash
   GEMINI_API_URL: https://generativelanguage.googleapis.com/v1/models/
   enableDebugLogs: 1
@@ -569,5 +525,4 @@ SceneRoots:
   - {fileID: 1488418995322973819}
   - {fileID: 862957810}
   - {fileID: 1479921678}
-  - {fileID: 364898276}
   - {fileID: 1670748414}

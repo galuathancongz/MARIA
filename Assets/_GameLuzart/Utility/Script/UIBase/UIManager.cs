@@ -34,6 +34,7 @@ namespace Luzart
             {UIName.Splash,"0,0,UISplash" },
             {UIName.LoadScene,"3,0,UILoadScene" },
             {UIName.Toast,"4,0,UIToast" },
+            {UIName.Noti,"4,0,UINoti" },
 
     };
 
