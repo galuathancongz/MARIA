@@ -13,7 +13,7 @@ namespace Eco.TweenAnimation
         public void Initialized(AnimationFactory animationFactory)
         {
             _factory = animationFactory;
-            _transform = animationFactory.TweenAnimation.transform;
+            _transform = animationFactory.TweenAnimation.TargetTransform;
             _options = _factory.TweenAnimation.BaseOptions;
             _customOptions = _factory.TweenAnimation.Vector3Options;
             if(_customOptions.EndTo == Vector3.one * -1f)

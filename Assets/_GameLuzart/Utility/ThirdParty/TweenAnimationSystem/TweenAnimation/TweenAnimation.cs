@@ -21,6 +21,9 @@ namespace Eco.TweenAnimation
         /// <summary>
         /// Animation Setting Group
         /// </summary>
+        [SerializeField, LabelText("Target GameObject"), TabGroup("Animation Setting")]
+        private GameObject _targetGameObject;
+
         [SerializeField, LabelText("Select Animation"), TabGroup("Animation Setting")]
         private EAnimation _animation;
 
@@ -33,7 +36,7 @@ namespace Eco.TweenAnimation
         [SerializeField, LabelText("Canvas Group"), TabGroup("Animation Setting"), ShowIf("IsFadeAnimation")]
         private CanvasGroup _canvasGroup;
 
-        [SerializeField, LabelText("Canvas Group"), TabGroup("Animation Setting"), ShowIf("IsImageAnimation")]
+        [SerializeField, LabelText("Image"), TabGroup("Animation Setting"), ShowIf("IsImageAnimation")]
         private Image _image;
 
         [SerializeField, HideLabel, TabGroup("Animation Setting")]
@@ -60,6 +63,8 @@ namespace Eco.TweenAnimation
         private Sequence _sequence;
         private bool _isShow;
 
+        public GameObject TargetGameObject { get => _targetGameObject != null ? _targetGameObject : gameObject; }
+        public Transform TargetTransform { get => TargetGameObject.transform; }
         public EAnimation Animation { get => _animation; }
         public bool IsRegisterScreenToggle { get => _registerScreenToggle; }
         public bool IsShow { get => _isShow; }
@@ -100,7 +105,7 @@ namespace Eco.TweenAnimation
         {
             Kill();
             _isShow = true;
-            gameObject.SetActive(true);
+            TargetGameObject.SetActive(true);
             OnShowComplete = onComplete;
             if (_baseOptions.LoopTime > 0 || _baseOptions.LoopTime == -1)
             {
@@ -125,7 +130,7 @@ namespace Eco.TweenAnimation
         public override void Hide(TweenCallback onComplete = null)
         {
             CheckAndInitialized();
-            gameObject.SetActive(true);
+            TargetGameObject.SetActive(true);
             OnHideComplete = onComplete;
             _isShow = false;
             _tweener = _ianimation.Hide();
@@ -204,16 +209,18 @@ namespace Eco.TweenAnimation
 #if UNITY_EDITOR
         private void OnValidate()
         {
+            GameObject targetObj = TargetGameObject;
+            
             if (IsFadeAnimation() && _canvasGroup == null)
             {
-                if (!TryGetComponent(out _canvasGroup))
-                    _canvasGroup = gameObject.AddComponent<CanvasGroup>();
+                if (!targetObj.TryGetComponent(out _canvasGroup))
+                    _canvasGroup = targetObj.AddComponent<CanvasGroup>();
             }
 
             if (IsImageAnimation() && _image == null)
             {
-                if (!TryGetComponent(out _image))
-                    _image = gameObject.AddComponent<Image>();
+                if (!targetObj.TryGetComponent(out _image))
+                    _image = targetObj.AddComponent<Image>();
             }
         }
 #endif
