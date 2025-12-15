@@ -4,6 +4,7 @@ namespace Luzart
     using System.Linq;
     using UnityEngine;
     using System;
+    using UnityEngine.UI;
 
     public class UIManager : Singleton<UIManager>
     {
@@ -13,6 +14,7 @@ namespace Luzart
         public UIBase[] listSceneCache;
 
         public Canvas canvas;
+        public GraphicRaycaster graphicRaycaster;
 
         private List<UIBase> listScreenActive = new List<UIBase>();
         private Dictionary<UIName, UIBase> cacheScreen = new Dictionary<UIName, UIBase>();
@@ -35,6 +37,11 @@ namespace Luzart
             {UIName.LoadScene,"3,0,UILoadScene" },
             {UIName.Toast,"4,0,UIToast" },
             {UIName.Noti,"4,0,UINoti" },
+            
+            {UIName.Level1,"1,0,UILevel1" },
+            {UIName.Level2,"1,0,UILevel2" },
+            {UIName.Level3,"1,0,UILevel3" },
+            {UIName.TutorialScene,"1,0,UITutorialScene" },
 
     };
 
@@ -44,6 +51,8 @@ namespace Luzart
         public bool IsAction { get; set; }
         private void Awake()
         {
+            canvas ??= GetComponent<Canvas>();
+            graphicRaycaster ??= GetComponent<GraphicRaycaster>();
             dic2 = new Dictionary<UIName, DataUIBase>();
             foreach (var i in dir)
             {
@@ -60,6 +69,7 @@ namespace Luzart
                     cacheScreen.Add(listSceneCache[i].uiName, listSceneCache[i]);
                 }
             }
+            Observer.Instance.AddObserver(ObserverKey.BlockRaycast,BlockRaycast);
             //if (SdkUtil.isiPad())
             //{
             //    GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
@@ -69,6 +79,10 @@ namespace Luzart
             //    GetComponent<CanvasScaler>().matchWidthOrHeight = 0f;
             //}
             IsAction = false;
+        }
+        private void OnDestroy()
+        {
+            Observer.Instance.RemoveObserver(ObserverKey.BlockRaycast, BlockRaycast);
         }
         public void ShowUI(UIName uIScreen, Action onHideDone = null)
         {
@@ -285,6 +299,20 @@ namespace Luzart
             if (listScreenActive.Count == 0) return null;
             return listScreenActive.Last();
         }
+
+        private void BlockRaycast(object data = null)
+        {
+            if(data == null)
+            {
+                return;
+            }
+            bool isBlock = (bool)data;
+            graphicRaycaster.enabled = !isBlock;
+        }
+        public void BlockRaycast(bool isBlock)
+        {
+                       graphicRaycaster.enabled = !isBlock;
+        }
     }
 
     public enum UIName
@@ -300,7 +328,10 @@ namespace Luzart
         Toast = 8,
         Noti = 9,
         ReceiveRes = 10,
-
+        Level1 =11,
+        Level2 = 12,
+        Level3 = 13,
+        TutorialScene = 14,
     }
     public class DataUIBase
     {

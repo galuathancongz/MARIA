@@ -5,6 +5,7 @@ using UnityEngine;
 using DG.Tweening;
 using UnityEngine.UI;
 using Luzart;
+using UnityEditor;
 
 public class DialogueAction : StepAction
 {
@@ -15,10 +16,20 @@ public class DialogueAction : StepAction
     public Ease ease = Ease.Linear;       // Kiểu easing cho animate
     public Button btnClick;
     public bool isActiveButton = true;
+    [SerializeField] private Mode modeClick = Mode.Button;
+    enum Mode
+    {
+        Button = 0,
+        Mouse = 1
+    }
 
     private void Start()
     {
+        if(modeClick == Mode.Button)
+        {
         GameUtil.ButtonOnClick(btnClick, OnClickAction);
+
+        }
     }
 
     protected Tween _typingTween;
@@ -32,7 +43,8 @@ public class DialogueAction : StepAction
         // Bắt đầu gõ text với DOTween
         _typingTween = txt.DOText(str, timeDuration)
             .SetEase(ease);
-        btnClick.gameObject.SetActive(true);
+        if(btnClick != null)
+            btnClick.gameObject.SetActive(true);
     }
 
     public void OnClickAction()
@@ -45,5 +57,15 @@ public class DialogueAction : StepAction
         }
         gameObject.SetActive(isSetActiveAfter);
         onComplete?.Invoke(new ActionResult(actionResultType));
+    }
+    private void Update()
+    {
+        if(modeClick == Mode.Mouse)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClickAction();
+            }
+        }
     }
 }

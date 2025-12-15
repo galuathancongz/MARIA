@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using Unity.VisualScripting;
 using UnityEngine;
 
 namespace Eco.TweenAnimation
@@ -13,10 +14,28 @@ namespace Eco.TweenAnimation
         public void Initialized(AnimationFactory animationFactory)
         {
             _factory = animationFactory;
-            _canvasGroup = animationFactory.TweenAnimation.CanvasGroup;
+            if(animationFactory.TweenAnimation.CanvasGroup.gameObject != animationFactory.TweenAnimation.TargetGameObject)
+            {
+                _canvasGroup = animationFactory.TweenAnimation.TargetGameObject.GetComponent<CanvasGroup>();
+                if(_canvasGroup == null)
+                {
+                    _canvasGroup = animationFactory.TweenAnimation.TargetGameObject.AddComponent<CanvasGroup>();
+                }
+            }
+            else
+            {
+                _canvasGroup = animationFactory.TweenAnimation.CanvasGroup;
+            }
             _options = animationFactory.TweenAnimation.BaseOptions;
             _customOptions = animationFactory.TweenAnimation.CanvasGroupOptions;
-            _customOptions.To = _canvasGroup.alpha;
+            if (_customOptions.IsControlFromTo)
+            {
+                
+            }
+            else
+            {
+                _customOptions.To = _canvasGroup.alpha;
+            }
         }
 
         public void SetAnimationFrom()

@@ -37,7 +37,7 @@ public class GeminiCandidate
     public int index;
 }
 
-public class APIManager : MonoBehaviour
+public class APIManager : Singleton<APIManager>
 {
     [Header("Gemini API Configuration")]
     [SerializeField] private string apiKey = "YOUR_GEMINI_API_KEY_HERE";
@@ -53,6 +53,7 @@ public class APIManager : MonoBehaviour
     public static event Action<string> OnErrorOccurred;
     public static event Action OnRequestStarted;
     
+    public string ModelName => modelName;
     private void Start()
     {
         if (string.IsNullOrEmpty(apiKey) || apiKey == "YOUR_GEMINI_API_KEY_HERE")

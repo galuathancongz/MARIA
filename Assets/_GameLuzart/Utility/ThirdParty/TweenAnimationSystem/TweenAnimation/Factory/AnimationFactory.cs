@@ -34,6 +34,8 @@
                     return CreateObjectAnimation<AnchorMaxAnimation>();
                 case EAnimation.AnchorMin:
                     return CreateObjectAnimation<AnchorMinAnimation>();
+                case EAnimation.DOText:
+                    return CreateObjectAnimation<DOTextAnimation>();
             }
             return null;
         }

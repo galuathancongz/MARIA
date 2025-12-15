@@ -62,6 +62,7 @@ namespace Luzart
         public const string OnAddTicket = "OnAddTicket";
         public const string OnCheckNotiTreasure = "OnCheckNotiTreasure";
         public const string OnChangeVisualEventRacing = "OnChangeVisualEventRacing";
+        public const string BlockRaycast = "BlockRaycast";
 
     }
 }

@@ -3,6 +3,7 @@ using DG.Tweening;
 using Sirenix.OdinInspector;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 namespace Eco.TweenAnimation
 {
@@ -10,7 +11,7 @@ namespace Eco.TweenAnimation
     {
         Move = 0, MoveLocal = 1, MoveArchors = 2,
         Scale = 3, Rotation = 4, Fade = 5,
-        SizeDelta = 6, FillAmount = 7, AnchorMin = 8, AnchorMax = 9
+        SizeDelta = 6, FillAmount = 7, AnchorMin = 8, AnchorMax = 9, DOText = 10
     }
 
     public enum EShow { None, Awake, Enable }
@@ -28,7 +29,7 @@ namespace Eco.TweenAnimation
         private EAnimation _animation;
 
         [SerializeField, LabelText("Show On Action"), TabGroup("Animation Setting")]
-        private EShow _showOn = EShow.Awake;
+        private EShow _showOn = EShow.Enable;
 
         [SerializeField, LabelText("Register In Screen Toggle"), TabGroup("Animation Setting")]
         private bool _registerScreenToggle = true;
@@ -38,6 +39,9 @@ namespace Eco.TweenAnimation
 
         [SerializeField, LabelText("Image"), TabGroup("Animation Setting"), ShowIf("IsImageAnimation")]
         private Image _image;
+
+        [SerializeField, LabelText("TextMeshPro"), TabGroup("Animation Setting"), ShowIf("IsTextAnimation")]
+        private TextMeshProUGUI _textMeshProComponent;
 
         [SerializeField, HideLabel, TabGroup("Animation Setting")]
         private BaseOptions _baseOptions;
@@ -50,6 +54,9 @@ namespace Eco.TweenAnimation
 
         [SerializeField, HideLabel, TabGroup("Animation Setting"), ShowIf("IsFloatOption")]
         private FloatOptions _floatOptions;
+
+        [SerializeField, HideLabel, TabGroup("Animation Setting"), ShowIf("IsTextAnimation")]
+        private TextOptions _textOptions;
 
         /// <summary>
         /// Animation Setting Group
@@ -70,10 +77,12 @@ namespace Eco.TweenAnimation
         public bool IsShow { get => _isShow; }
         public CanvasGroup CanvasGroup { get => _canvasGroup; }
         public Image Image { get => _image; }
+        public TextMeshProUGUI TextMeshProComponent { get => _textMeshProComponent; }
         public BaseOptions BaseOptions { get => _baseOptions; }
         public Vector3Options Vector3Options { get => _vector3Options; }
         public CanvasGroupOptions CanvasGroupOptions { get => _canvasGroupOptions; }
         public FloatOptions FloatOptions { get => _floatOptions; }
+        public TextOptions TextOptions { get => _textOptions; }
 
         [OnInspectorInit]
         private void InitializedDebug()
@@ -181,12 +190,17 @@ namespace Eco.TweenAnimation
 
         private bool IsVector3Option()
         {
-            return _animation != EAnimation.Fade && !IsFloatOption();
+            return _animation != EAnimation.Fade && !IsFloatOption() && !IsTextAnimation();
         }
 
         private bool IsFloatOption()
         {
             return _animation == EAnimation.FillAmount;
+        }
+
+        private bool IsTextAnimation()
+        {
+            return _animation == EAnimation.DOText;
         }
 
         private bool IsImageAnimation()
@@ -221,6 +235,12 @@ namespace Eco.TweenAnimation
             {
                 if (!targetObj.TryGetComponent(out _image))
                     _image = targetObj.AddComponent<Image>();
+            }
+
+            if (IsTextAnimation() && _textMeshProComponent == null)
+            {
+                if (!targetObj.TryGetComponent(out _textMeshProComponent))
+                    _textMeshProComponent = targetObj.AddComponent<TextMeshProUGUI>();
             }
         }
 #endif

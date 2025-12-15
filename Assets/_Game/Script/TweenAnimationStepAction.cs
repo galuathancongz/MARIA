@@ -1,5 +1,6 @@
 using DG.Tweening;
 using Eco.TweenAnimation;
+using Luzart;
 using System;
 using System.Collections;
 using System.Collections.Generic;
@@ -7,6 +8,7 @@ using UnityEngine;
 
 public class TweenAnimationStepAction : StepAction
 {
+    private Tween tw;
     public TweenAnimation[] twAnimation;
     public override void Execute(Action<ActionResult> _onComplete)
     {
@@ -22,10 +24,17 @@ public class TweenAnimationStepAction : StepAction
             }
             Debug.Log($"Call {twAnimation[i].Vector3Options.From} to {twAnimation[i].Vector3Options.EndTo}");
         }
-        DOVirtual.DelayedCall(time, ()=> Call());
+        tw ?.Kill(true);
+        UIManager.Instance.BlockRaycast(true);
+        tw = DOVirtual.DelayedCall(time, ()=> Call());
     }
     public void Call()
     {
+        UIManager.Instance.BlockRaycast(false);
         onComplete?.Invoke(new ActionResult(actionResultType));
+    }
+    private void OnDisable()
+    {
+        tw ?.Kill(true);
     }
 }

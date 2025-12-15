@@ -54,7 +54,7 @@ namespace Luzart
         }
         public void OnPointerDown(PointerEventData eventData)
         {
-            if (!btn.interactable)
+            if (btn != null && !btn.interactable)
             {
                 return;
             }
@@ -72,7 +72,7 @@ namespace Luzart
     
         public void OnPointerUp(PointerEventData eventData)
         {
-            if (!btn.interactable)
+            if (btn != null && !btn.interactable)
             {
                 return;
             }

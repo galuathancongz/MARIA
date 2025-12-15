@@ -4,9 +4,25 @@ using UnityEngine;
 
 public class StepActionClick : StepAction
 {
+    public enum Mode
+    {
+        Button = 0,
+        Mouse = 1
+    } 
+    public Mode mode = Mode.Button;
     public void OnClickOnDone()
     {
         onComplete?.Invoke(new ActionResult(actionResultType));
         gameObject.SetActive(isSetActiveAfter);
+    }
+    private void Update()
+    {
+        if(mode == Mode.Mouse)
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                OnClickOnDone();
+            }
+        }   
     }
 }

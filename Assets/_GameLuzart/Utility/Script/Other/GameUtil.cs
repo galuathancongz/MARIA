@@ -550,6 +550,17 @@ namespace Luzart
             Array values = Enum.GetValues(typeof(T));
             return (T)values.GetValue(UnityEngine.Random.Range(0, values.Length));
         }
+
+        public static bool MatchByWordRatio(string source, string target, float threshold = 0.5f)
+        {
+            var srcWords = source.ToLower().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+            var tgtWords = target.ToLower().Split(' ', StringSplitOptions.RemoveEmptyEntries);
+
+            int matched = tgtWords.Count(w => srcWords.Contains(w));
+            float ratio = (float)matched / tgtWords.Length;
+
+            return ratio >= threshold;
+        }
     }
     public static class ConstColor
     {

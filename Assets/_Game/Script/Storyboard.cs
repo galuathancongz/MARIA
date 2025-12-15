@@ -1,4 +1,5 @@
 // File: Storyboard.cs
+using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,7 +9,7 @@ public class Storyboard : MonoBehaviour
     public List<StepAction> Steps;
 
     public int _currentStep;
-    public int currentStoryboard = 0;
+    [Sirenix.OdinInspector.ReadOnly] [SerializeField]int currentStoryboard = 0;
     public void InitStoryBoard(int index)
     {
         gameObject.SetActive(false);
@@ -21,6 +22,7 @@ public class Storyboard : MonoBehaviour
         {
             if( Steps[i] != null)
             {
+                Steps[i].SetActiveTarget(false);
                 Steps[i].gameObject.SetActive(false);
             }
         }
@@ -44,6 +46,7 @@ public class Storyboard : MonoBehaviour
         if(_currentStep <= Steps.Count - 1)
         {
             Steps[_currentStep].gameObject.SetActive(true);
+            Steps[_currentStep].SetActiveTarget(true);
             Steps[_currentStep].Execute(result => HandleResult(result, onComplete));
         }
     }

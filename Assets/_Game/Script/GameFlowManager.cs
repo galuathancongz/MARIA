@@ -6,7 +6,8 @@ using UnityEngine;
 public class GameFlowManager : MonoBehaviour
 {
     public List<Storyboard> Storyboards;
-    private int _currentStoryboard;
+    private List<Storyboard> _instantiatedStoryboards = new List<Storyboard>();
+    public int _currentStoryboardIndex;
 
     private void Start()
     {
@@ -15,24 +16,26 @@ public class GameFlowManager : MonoBehaviour
         {
             int index = i;
             Storyboard storyboard = Storyboards[index];
-            storyboard.InitStoryBoard(index);
+            var sbInstance = Instantiate(storyboard, transform);
+            sbInstance.InitStoryBoard(index);
+            _instantiatedStoryboards.Add(sbInstance);
         }
         RunCurrentStoryboard();
     }
 
     private void RunCurrentStoryboard()
     {
-        if (_currentStoryboard < 0 || _currentStoryboard >= Storyboards.Count)
+        if (_currentStoryboardIndex < 0 || _currentStoryboardIndex >= Storyboards.Count)
         {
             Debug.Log("Đã hoàn thành tất cả storyboard");
             return;
         }
 
-        var sb = Storyboards[_currentStoryboard];
+        var sb = _instantiatedStoryboards[_currentStoryboardIndex];
         sb.gameObject.SetActive(true);
         sb.StartStoryboard(nextIndex =>
         {
-            _currentStoryboard = _currentStoryboard + 1;
+            _currentStoryboardIndex = _currentStoryboardIndex + 1;
             RunCurrentStoryboard();
         });
     }
