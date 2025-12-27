@@ -2,7 +2,6 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Text.RegularExpressions;
 using TMPro;
 using UnityEditor;
 using UnityEditor.SceneManagement;
@@ -12,53 +11,6 @@ using UnityEngine.UI;
 
 public class CustomMenuLuzart : EditorWindow
 {
-    [MenuItem("Luzart/LuzartTool/Remove Missing Scripts")]
-    public static void Remove()
-    {
-        var objs = Resources.FindObjectsOfTypeAll<GameObject>();
-        int count = objs.Sum(GameObjectUtility.RemoveMonoBehavioursWithMissingScript);
-        foreach (var obj in objs)
-        {
-            EditorUtility.SetDirty(obj);
-        }
-        Debug.Log($"Removed {count} missing scripts");
-    }
-
-    //[MenuItem("Luzart/Game")]
-    //public static void Game()
-    //{
-    //    // Tên của scene bạn muốn chuyển đến
-    //    string sceneName = "Game";
-
-    //    // Kiểm tra xem scene có tồn tại trong Build Settings hay không
-    //    if (IsSceneInBuildSettings(sceneName))
-    //    {
-    //        // Chuyển scene
-    //        EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(GetBuildIndex(sceneName)));
-    //    }
-    //    else
-    //    {
-    //        AddSceneToBuildSettings(sceneName);
-    //        // Chuyển scene
-    //        EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(GetBuildIndex(sceneName)));
-    //    }
-
-    //}
-    //[MenuItem("Luzart/Gameplay")]
-    //public static void Gameplay()
-    //{
-    //    // Tên của scene bạn muốn chuyển đến
-    //    string sceneName = "GamePlay";
-
-    //    // Kiểm tra xem scene có tồn tại trong Build Settings hay không
-    //    if (IsSceneInBuildSettings(sceneName))
-    //    {
-    //        // Chuyển scene
-    //        EditorSceneManager.OpenScene(SceneUtility.GetScenePathByBuildIndex(GetBuildIndex(sceneName)));
-    //    }
-
-    //}
-    // Kiểm tra xem scene có tồn tại trong Build Settings hay không
     static bool IsSceneInBuildSettings(string sceneName)
     {
         for (int i = 0; i < SceneManager.sceneCountInBuildSettings; i++)
@@ -141,7 +93,7 @@ public static class DynamicMenuGenerator
 
             string sceneName = Path.GetFileNameWithoutExtension(scene.path);
             scriptContent += $@"
-        [MenuItem(""Luzart/_Scenes/{i}{sceneName}"")]
+        [MenuItem(""Luzart/_Scenes/{i:D2}.{sceneName}"")]
         public static void OpenScene_{i}()
         {{
             EditorSceneManager.OpenScene(@""{scene.path.Replace("\\", "/")}"");
@@ -179,345 +131,55 @@ public static class DynamicMenuGenerator
     }
 }
 
+    #region Helper Classes and Methods
 
-
-public class ScaleToOneAndKeepSize : Editor
+// Helper classes for the new features
+public class FileChangeInfo
 {
-    [MenuItem("Luzart/Reset Parent Scale & Keep Child Size")]
-    public static void ResetScaleForSelected()
-    {
-        Transform[] selectedTransforms = Selection.transforms;
-
-        if (selectedTransforms.Length == 0)
-        {
-            Debug.LogWarning("Please select at least one RectTransform in the hierarchy.");
-            return;
-        }
-
-        foreach (Transform selected in selectedTransforms)
-        {
-            if (selected is RectTransform parentTransform)
-            {
-                ResetScaleForParent(parentTransform);
-            }
-        }
-    }
-
-    private static void ResetScaleForParent(RectTransform parentTransform)
-    {
-        Vector2 originalParentSize = parentTransform.rect.size;
-        Vector3 originalParentScale = parentTransform.localScale;
-        Vector3 originalParentAnchors = parentTransform.anchoredPosition3D;
-
-        RectTransform[] childTransforms = parentTransform.GetComponentsInChildren<RectTransform>(true);
-        Vector3[] originalChildSizeDeltas = new Vector3[childTransforms.Length];
-        Vector2[] originalChildPositions = new Vector2[childTransforms.Length];
-        TMP_Text[] txts = parentTransform.GetComponentsInChildren<TMP_Text>(true);
-        Text[] txtNormals = parentTransform.GetComponentsInChildren<Text>(true); 
-
-        for (int i = 0; i < childTransforms.Length; i++)
-        {
-            var child = childTransforms[i];
-            if (child != null)
-            {
-                originalChildSizeDeltas[i] = child.sizeDelta;
-                originalChildPositions[i] = child.anchoredPosition;
-            }
-        }
-
-        parentTransform.localScale = Vector3.one;
-
-        for (int i = 0; i < childTransforms.Length; i++)
-        {
-            if (childTransforms[i] != null)
-            {
-                var child = childTransforms[i];
-
-                child.sizeDelta = new Vector2(
-                    originalChildSizeDeltas[i].x * originalParentScale.x,
-                    originalChildSizeDeltas[i].y * originalParentScale.y
-                );
-
-                child.anchoredPosition = new Vector2(
-                    originalChildPositions[i].x * originalParentScale.x,
-                    originalChildPositions[i].y * originalParentScale.y
-                );
-
-                EditorUtility.SetDirty(childTransforms[i]);
-            }
-        }
-
-        for (int i = 0; i < txts.Length; i++)
-        {
-            float size = txts[i].fontSize;
-            size = size * originalParentScale.x;
-            txts[i].fontSize = size;
-        }
-        for (int i = 0; i < txtNormals.Length; i++)
-        {
-            float size = txtNormals[i].fontSize;
-            size = size * originalParentScale.x;
-            int sizeInt = Mathf.RoundToInt(size);
-            txtNormals[i].fontSize = sizeInt;
-        }
-
-        parentTransform.anchoredPosition3D = originalParentAnchors;
-
-        EditorUtility.SetDirty(parentTransform);
-    }
+    public string FilePath { get; set; }
+    public ChangeType ChangeType { get; set; }
+    public string OldNamespace { get; set; }
+    public string NewNamespace { get; set; }
+    public string PreviewContent { get; set; }
 }
-public static class NativeSizeMatchArtResolution
+
+public enum ChangeType
 {
-    // Đây là kích thước gốc art team dùng để thiết kế layout UI
-    private static readonly Vector2 artReferenceResolution = new Vector2(1920, 1080);
+    Add,
+    Remove,
+    Replace
+}
 
-    [MenuItem("Luzart/LuzartTool/Set Native Size Match Art Resolution")]
-    public static void SetNativeSizeMatchArt()
+public class NamespaceTreeNode
+{
+    public string Name { get; set; }
+    public NodeType Type { get; set; }
+    public string FullPath { get; set; }
+    public string Namespace { get; set; }
+    public List<NamespaceTreeNode> Children { get; set; } = new List<NamespaceTreeNode>();
+
+    public NamespaceTreeNode(string name, NodeType type)
     {
-        foreach (GameObject obj in Selection.gameObjects)
-        {
-            Image img = obj.GetComponent<Image>();
-            if (img == null || img.sprite == null)
-            {
-                Debug.LogWarning($"❌ Skipped: {obj.name} (No Image or no Sprite)");
-                continue;
-            }
+        Name = name;
+        Type = type;
+    }
 
-            CanvasScaler scaler = obj.GetComponentInParent<CanvasScaler>();
-            if (scaler == null || scaler.uiScaleMode != CanvasScaler.ScaleMode.ScaleWithScreenSize)
-            {
-                Debug.LogWarning($"❌ Skipped: {obj.name} (CanvasScaler missing or not ScaleWithScreenSize)");
-                continue;
-            }
-
-            Vector2 currentReferenceResolution = scaler.referenceResolution;
-            float match = scaler.matchWidthOrHeight;
-
-            // ✅ Tính tỉ lệ lệch giữa resolution hiện tại và art reference
-            float widthRatio = currentReferenceResolution.x / artReferenceResolution.x;
-            float heightRatio = currentReferenceResolution.y / artReferenceResolution.y;
-            float compensateScale = 1;
-            // ✅ Xử lý chính xác theo screenMatchMode
-            switch (scaler.screenMatchMode)
-            {
-                case CanvasScaler.ScreenMatchMode.MatchWidthOrHeight:
-                    compensateScale = Mathf.Lerp(widthRatio, heightRatio, scaler.matchWidthOrHeight);
-                    break;
-                case CanvasScaler.ScreenMatchMode.Expand:
-                    compensateScale = Mathf.Max(widthRatio, heightRatio); // Expand = dùng tỉ lệ nhỏ hơn
-                    break;
-                case CanvasScaler.ScreenMatchMode.Shrink:
-                    compensateScale = Mathf.Min(widthRatio, heightRatio); // Shrink = dùng tỉ lệ lớn hơn
-                    break;
-            }
-
-            // ✅ Lấy kích thước thật của sprite (theo pixel)
-            Vector2 spritePixelSize = img.sprite.rect.size;
-
-            // ✅ Điều chỉnh lại sizeDelta sao cho trông giống y như bản thiết kế ở canvas 1920x1080
-            Vector2 finalSizeDelta = spritePixelSize * compensateScale/*/ (scaler.defaultSpriteDPI/100)*/;
-
-            Undo.RecordObject(img.rectTransform, "Set Native Size Match Art");
-            img.rectTransform.sizeDelta = finalSizeDelta;
-
-            Debug.Log($"✅ {obj.name} → sizeDelta = {finalSizeDelta} to match ArtLayout (1920x1080) scaleFactor {scaler.scaleFactor}");
-        }
+    public string GetPath()
+    {
+        return FullPath ?? Name;
     }
 }
 
-public class NamespaceAdder : EditorWindow
+public enum NodeType
 {
-    private string namespaceName = "Luzart";
-    private string folderPath = "";
-
-    [MenuItem("Luzart/LuzartTool/Add Namespace to Scripts")]
-    public static void ShowWindow()
-    {
-        GetWindow<NamespaceAdder>("Namespace Adder");
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Label("Add Namespace to Scripts", EditorStyles.boldLabel);
-        namespaceName = EditorGUILayout.TextField("Namespace", namespaceName);
-
-        GUILayout.BeginHorizontal();
-        folderPath = EditorGUILayout.TextField("Folder Path", folderPath);
-        if (GUILayout.Button("Browse"))
-        {
-            string selectedFolder = EditorUtility.OpenFolderPanel("Select Folder", "", "");
-            if (!string.IsNullOrEmpty(selectedFolder))
-            {
-                folderPath = selectedFolder;
-            }
-        }
-        GUILayout.EndHorizontal();
-
-        if (GUILayout.Button("Add Namespace"))
-        {
-            AddNamespaceToScripts();
-        }
-    }
-
-    private void AddNamespaceToScripts()
-    {
-        if (string.IsNullOrEmpty(folderPath))
-        {
-            Debug.LogError("Folder path is empty. Please select a folder.");
-            return;
-        }
-
-        string[] scriptFiles = Directory.GetFiles(folderPath, "*.cs", SearchOption.AllDirectories);
-
-        foreach (var scriptPath in scriptFiles)
-        {
-            string[] lines = File.ReadAllLines(scriptPath);
-
-            // Kiểm tra xem file đã có namespace hay chưa
-            if (HasNamespace(lines))
-            {
-                Debug.Log($"Skipped: {scriptPath} (Namespace already exists)");
-                continue;
-            }
-
-            // Thêm namespace nếu chưa có
-            using (StreamWriter writer = new StreamWriter(scriptPath))
-            {
-                writer.WriteLine($"namespace {namespaceName}");
-                writer.WriteLine("{");
-
-                foreach (var line in lines)
-                {
-                    writer.WriteLine($"    {line}");
-                }
-
-                writer.WriteLine("}");
-            }
-
-            Debug.Log($"Namespace added to: {scriptPath}");
-        }
-
-        AssetDatabase.Refresh();
-        Debug.Log("Namespace addition complete.");
-    }
-
-    private bool HasNamespace(string[] lines)
-    {
-        foreach (var line in lines)
-        {
-            if (line.TrimStart().StartsWith("namespace"))
-            {
-                return true; // Đã có namespace
-            }
-        }
-        return false;
-    }
-}
-public class NamespaceRemoverFixedBrace : EditorWindow
-{
-    private string folderPath = "";
-
-    [MenuItem("Luzart/LuzartTool/Remove 'namespace Luzart' (Fixed Brace)")]
-    public static void ShowWindow()
-    {
-        GetWindow<NamespaceRemoverFixedBrace>("Remove Namespace Luzart (Brace Fix)");
-    }
-
-    private void OnGUI()
-    {
-        GUILayout.Label("Safely Remove 'namespace Luzart' and matching braces", EditorStyles.boldLabel);
-
-        GUILayout.BeginHorizontal();
-        folderPath = EditorGUILayout.TextField("Folder Path", folderPath);
-        if (GUILayout.Button("Browse"))
-        {
-            string selectedFolder = EditorUtility.OpenFolderPanel("Select Folder", "", "");
-            if (!string.IsNullOrEmpty(selectedFolder))
-            {
-                folderPath = selectedFolder;
-            }
-        }
-        GUILayout.EndHorizontal();
-
-        if (GUILayout.Button("Remove Namespace"))
-        {
-            RemoveNamespace();
-        }
-    }
-
-    private void RemoveNamespace()
-    {
-        if (string.IsNullOrEmpty(folderPath))
-        {
-            Debug.LogError("Folder path is empty.");
-            return;
-        }
-
-        string[] csFiles = Directory.GetFiles(folderPath, "*.cs", SearchOption.AllDirectories);
-
-        foreach (var path in csFiles)
-        {
-            string[] lines = File.ReadAllLines(path);
-            var result = new List<string>();
-
-            bool insideNamespace = false;
-            bool skipNextBraceLine = false;
-            int braceDepth = 0;
-
-            foreach (var rawLine in lines)
-            {
-                string line = rawLine;
-
-                // Detect namespace Luzart
-                if (!insideNamespace && line.TrimStart().StartsWith("namespace Luzart"))
-                {
-                    insideNamespace = true;
-                    skipNextBraceLine = true; // we expect next line to be '{'
-                    continue; // skip namespace line
-                }
-
-                if (skipNextBraceLine)
-                {
-                    if (line.Trim() == "{" || line.Trim().StartsWith("{ ")) // line is just '{' or '{ // comment'
-                    {
-                        skipNextBraceLine = false;
-                        continue; // skip the opening brace line
-                    }
-                }
-
-                if (insideNamespace)
-                {
-                    if (line.Contains("{")) braceDepth++;
-                    if (line.Contains("}")) braceDepth--;
-
-                    // If braceDepth < 0, we passed closing }, skip it
-                    if (braceDepth < 0)
-                    {
-                        insideNamespace = false;
-                        continue;
-                    }
-
-                    // Remove one level of indent (4 spaces or tab)
-                    if (line.StartsWith("    ")) line = line.Substring(4);
-                    else if (line.StartsWith("\t")) line = line.Substring(1);
-                }
-
-                result.Add(line);
-            }
-
-            File.WriteAllLines(path, result);
-            Debug.Log($"✅ Cleaned namespace and braces: {path}");
-        }
-
-        AssetDatabase.Refresh();
-        Debug.Log("🎉 Namespace removal complete, no more extra braces.");
-    }
+    Folder,
+    File
 }
 public class MissingScriptFinder : EditorWindow
 {
     private List<string> missingScriptObjects = new List<string>();
 
-    [MenuItem("Luzart/LuzartTool/Find Missing Scripts in Project")]
+    [MenuItem("Luzart/LuzartTool/Missing Script Finder")]
     public static void ShowWindow()
     {
         GetWindow<MissingScriptFinder>("Missing Script Finder");
@@ -533,7 +195,24 @@ public class MissingScriptFinder : EditorWindow
         {
             FindMissingScriptInCurrent();
         }
+        if (GUILayout.Button("Remove Missing Scripts In Current"))
+        {
+            RemoveMissingScriptInCurrent();
+        }
+        if (GUILayout.Button("🧹 Remove All Missing Scripts In Project"))
+        {
+            RemoveAllMissingScriptsInProject();
+        }
+        if (GUILayout.Button("Clean Nested Missing Prefabs In Project"))
+        {
+            CleanNestedMissingPrefabsInProject();
+        }
+        if(GUILayout.Button("Quick Clean"))
+        {
+            Remove();
+        }
 
+        GUILayout.Space(10);
         GUILayout.Label("GameObjects with Missing Scripts:", EditorStyles.boldLabel);
         foreach (var obj in missingScriptObjects)
         {
@@ -541,6 +220,9 @@ public class MissingScriptFinder : EditorWindow
         }
     }
 
+    // =====================================================================
+    // FIND
+    // =====================================================================
     private void FindMissingScripts()
     {
         missingScriptObjects.Clear();
@@ -548,51 +230,248 @@ public class MissingScriptFinder : EditorWindow
         FindMissing(allObjects);
         Debug.Log("Missing script search complete.");
     }
+
     private void FindMissingScriptInCurrent()
     {
         missingScriptObjects.Clear();
-        // Kiểm tra có đang chỉnh sửa Prefab không
         var prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
         if (prefabStage != null)
-        {
-            GetInPrefabs();
-
-            return;
-        }
-
-        GetInScene();
-
-        void GetInPrefabs()
         {
             GameObject root = prefabStage.prefabContentsRoot;
             Transform[] allTransforms = root.GetComponentsInChildren<Transform>(true);
             var allObjects = allTransforms.Select(x => x.gameObject).ToArray();
             FindMissing(allObjects);
-            Debug.Log($"🟢 Bạn đang làm việc trong Prefabs: {prefabStage.name}");
-            Debug.Log("Missing script search complete.");
+            Debug.Log($"🟢 Bạn đang làm việc trong Prefab: {prefabStage.name}");
         }
-
-        void GetInScene()
+        else
         {
-            // Nếu không trong Prefab Mode, kiểm tra Scene đang mở
             var activeScene = EditorSceneManager.GetActiveScene();
             GameObject[] allObjects = activeScene.GetRootGameObjects();
             FindMissing(allObjects);
             Debug.Log($"🟢 Bạn đang làm việc trong Scene: {activeScene.name}");
-            Debug.Log("Missing script search complete.");
+        }
+        Debug.Log("Missing script search complete.");
+    }
 
+    // =====================================================================
+    // REMOVE MISSING IN CURRENT
+    // =====================================================================
+    private void Remove()
+    {
+        var objs = Resources.FindObjectsOfTypeAll<GameObject>();
+        int count = objs.Sum(GameObjectUtility.RemoveMonoBehavioursWithMissingScript);
+        foreach (var obj in objs)
+        {
+            EditorUtility.SetDirty(obj);
+        }
+        Debug.Log($"Removed {count} missing scripts");
+    }
+
+    private void RemoveMissingScriptInCurrent()
+    {
+        var prefabStage = PrefabStageUtility.GetCurrentPrefabStage();
+        if (prefabStage != null)
+        {
+            GameObject root = prefabStage.prefabContentsRoot;
+            Transform[] allTransforms = root.GetComponentsInChildren<Transform>(true);
+            var allObjects = allTransforms.Select(x => x.gameObject).ToArray();
+            RemoveMissing(allObjects);
+            PrefabUtility.SaveAsPrefabAsset(root, prefabStage.assetPath);
+            Debug.Log($"💾 Saved prefab: {prefabStage.assetPath}");
+            Debug.Log($"🟢 Removed Missing Scripts in Prefab: {prefabStage.name}");
+        }
+        else
+        {
+            var activeScene = EditorSceneManager.GetActiveScene();
+            GameObject[] allObjects = activeScene.GetRootGameObjects();
+            RemoveMissing(allObjects);
+            EditorSceneManager.MarkSceneDirty(activeScene);
+            Debug.Log($"🟢 Removed Missing Scripts in Scene: {activeScene.name}");
         }
     }
 
-    private bool HasMissingScripts(GameObject obj)
+    // =====================================================================
+    // REMOVE ALL MISSING IN PROJECT
+    // =====================================================================
+    public static void RemoveAllMissingScriptsInProject()
+    {
+        if (!EditorUtility.DisplayDialog(
+                "Confirm Remove Missing Scripts",
+                "This will scan ALL prefabs in the project and remove any missing MonoBehaviours.\n\nThis action cannot be undone.\nProceed?",
+                "Yes, Remove All", "Cancel"))
+            return;
+
+        string[] prefabGuids = AssetDatabase.FindAssets("t:Prefab");
+        int totalPrefabs = prefabGuids.Length;
+        int totalRemoved = 0;
+
+        try
+        {
+            for (int i = 0; i < totalPrefabs; i++)
+            {
+                string guid = prefabGuids[i];
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                var prefabAsset = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+                // Bỏ qua model prefab (FBX, OBJ...)
+                if (PrefabUtility.IsPartOfModelPrefab(prefabAsset))
+                    continue;
+
+                EditorUtility.DisplayProgressBar(
+                    "Removing Missing Scripts",
+                    $"{i + 1}/{totalPrefabs}\n{path}",
+                    i / (float)totalPrefabs);
+
+                GameObject prefabRoot = PrefabUtility.LoadPrefabContents(path);
+                int removedCount = 0;
+
+                foreach (var go in prefabRoot.GetComponentsInChildren<Transform>(true))
+                {
+                    removedCount += GameObjectUtility.RemoveMonoBehavioursWithMissingScript(go.gameObject);
+                    if (removedCount > 0)
+                        EditorUtility.SetDirty(go.gameObject);
+                }
+
+                if (removedCount > 0)
+                {
+                    PrefabUtility.SaveAsPrefabAsset(prefabRoot, path);
+                    Debug.Log($"🧹 Removed {removedCount} missing script(s) in prefab: {path}",
+                        AssetDatabase.LoadAssetAtPath<Object>(path));
+                    totalRemoved += removedCount;
+                }
+
+                PrefabUtility.UnloadPrefabContents(prefabRoot);
+            }
+
+            Debug.Log($"✅ Finished removing missing scripts from {totalPrefabs} prefabs. Total removed: {totalRemoved}.");
+        }
+        finally
+        {
+            EditorUtility.ClearProgressBar();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+    }
+
+    // =====================================================================
+    // CLEAN OR RESCUE BROKEN PREFABS
+    // =====================================================================
+    public static void CleanNestedMissingPrefabsInProject()
+    {
+        if (!EditorUtility.DisplayDialog(
+            "Remove Nested Missing Prefabs",
+            "This will scan ALL prefabs in the project.\n" +
+            "If a prefab contains broken or missing nested prefab instances, they will be deleted.\n\nProceed?",
+            "Yes, Proceed", "Cancel"))
+            return;
+
+        string[] prefabGuids = AssetDatabase.FindAssets("t:Prefab");
+        int total = prefabGuids.Length;
+        int cleanedCount = 0;
+        int totalNestedDeleted = 0;
+
+        try
+        {
+            for (int i = 0; i < total; i++)
+            {
+                string guid = prefabGuids[i];
+                string path = AssetDatabase.GUIDToAssetPath(guid);
+                var prefab = AssetDatabase.LoadAssetAtPath<GameObject>(path);
+
+                EditorUtility.DisplayProgressBar(
+                    "Cleaning Nested Missing Prefabs",
+                    $"{i + 1}/{total}\n{path}",
+                    i / (float)total);
+
+                if (prefab == null)
+                    continue;
+
+                // Bỏ qua model prefab
+                if (PrefabUtility.IsPartOfModelPrefab(prefab))
+                    continue;
+
+                GameObject prefabRoot = PrefabUtility.LoadPrefabContents(path);
+
+                // Tìm tất cả các Transform trong prefab
+                var allTransforms = prefabRoot.GetComponentsInChildren<Transform>(true);
+                int removedNested = 0;
+
+                foreach (var t in allTransforms)
+                {
+                    if (t == null) continue;
+                    // Nếu đây là 1 prefab instance con
+                    if (PrefabUtility.IsPartOfPrefabInstance(t.gameObject))
+                    {
+                        var asset = PrefabUtility.GetCorrespondingObjectFromSource(t.gameObject);
+                        if (asset == null)
+                        {
+                            // Prefab con bị mất gốc → xóa
+                            Debug.LogWarning($"🟥 Nested prefab missing in: {path} → {t.name}");
+                            Object.DestroyImmediate(t.gameObject);
+                            removedNested++;
+                        }
+                    }
+                }
+
+                if (removedNested > 0)
+                {
+                    PrefabUtility.SaveAsPrefabAsset(prefabRoot, path);
+                    Debug.Log($"🧹 Cleaned {removedNested} missing nested prefabs in: {path}");
+                    cleanedCount++;
+                    totalNestedDeleted += removedNested;
+                }
+
+                PrefabUtility.UnloadPrefabContents(prefabRoot);
+            }
+
+            Debug.Log($"✅ Finished cleaning nested missing prefabs.\n" +
+                      $"🧩 Prefabs modified: {cleanedCount}\n" +
+                      $"🗑 Nested missing prefabs removed: {totalNestedDeleted}");
+        }
+        finally
+        {
+            EditorUtility.ClearProgressBar();
+            AssetDatabase.SaveAssets();
+            AssetDatabase.Refresh();
+        }
+    }
+
+    private static void TryRescuePrefab(GameObject prefabRoot, string path, ref int rescued, ref int deleted)
+    {
+        TryDeletePrefab(path);
+
+        deleted++;
+    }
+
+    private static void TryDeletePrefab(string path)
+    {
+        if (File.Exists(path))
+        {
+            AssetDatabase.DeleteAsset(path);
+            Debug.Log($"🗑 Deleted broken prefab: {path}");
+        }
+    }
+
+    private static int RemoveAllMissingInObject(GameObject root)
+    {
+        int total = 0;
+        foreach (var go in root.GetComponentsInChildren<Transform>(true))
+        {
+            total += GameObjectUtility.RemoveMonoBehavioursWithMissingScript(go.gameObject);
+        }
+        return total;
+    }
+
+    // =====================================================================
+    // HELPERS
+    // =====================================================================
+    private static bool HasMissingScripts(GameObject obj)
     {
         Component[] components = obj.GetComponents<Component>();
-        foreach (var component in components)
+        foreach (var c in components)
         {
-            if (component == null)
-            {
+            if (c == null)
                 return true;
-            }
         }
         return false;
     }
@@ -607,66 +486,41 @@ public class MissingScriptFinder : EditorWindow
         }
         return path;
     }
+
     private void FindMissing(GameObject[] allObjects)
     {
         foreach (var obj in allObjects)
         {
             if (obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave)
                 continue;
+            if (PrefabUtility.GetPrefabInstanceStatus(obj) == PrefabInstanceStatus.Connected)
+                continue;
+            if (HasMissingScripts(obj))
+                missingScriptObjects.Add(GetFullPath(obj));
+        }
+    }
 
+    private void RemoveMissing(GameObject[] allObjects)
+    {
+        int totalRemoved = 0;
+        foreach (var obj in allObjects)
+        {
+            if (obj.hideFlags == HideFlags.NotEditable || obj.hideFlags == HideFlags.HideAndDontSave)
+                continue;
             if (PrefabUtility.GetPrefabInstanceStatus(obj) == PrefabInstanceStatus.Connected)
                 continue;
 
-            if (HasMissingScripts(obj))
+            int removed = GameObjectUtility.RemoveMonoBehavioursWithMissingScript(obj);
+            if (removed > 0)
             {
-                missingScriptObjects.Add(GetFullPath(obj));
+                totalRemoved += removed;
+                EditorUtility.SetDirty(obj);
+                Debug.Log($"🧹 Removed {removed} missing script(s) from {GetFullPath(obj)}", obj);
             }
         }
+        Debug.Log($"✅ Total removed in current context: {totalRemoved}");
     }
 }
-public class ReferenceFinder : EditorWindow
-{
 
-    [MenuItem("Luzart/LuzartTool/Find References In Scene")]
-    public static void Find()
-    {
-        Transform[] selectedTransforms = Selection.transforms;
-
-        if (selectedTransforms.Length == 0)
-        {
-            Debug.LogWarning("Please select at least one RectTransform in the hierarchy.");
-            return;
-        }
-
-        foreach (Transform selected in selectedTransforms)
-        {
-            if (selected is RectTransform parentTransform)
-            {
-                FindReferences(parentTransform.gameObject);
-            }
-        }
-    }
-    static void FindReferences(GameObject target)
-    {
-
-        var allObjects = GameObject.FindObjectsOfType<Component>();
-
-        foreach (var obj in allObjects)
-        {
-            SerializedObject so = new SerializedObject(obj);
-            SerializedProperty prop = so.GetIterator();
-
-            while (prop.NextVisible(true))
-            {
-                if (prop.propertyType == SerializedPropertyType.ObjectReference)
-                {
-                    if (prop.objectReferenceValue == target)
-                    {
-                        Debug.Log($"Reference found in: {obj.gameObject.name}, Component: {obj.GetType().Name}", obj.gameObject);
-                    }
-                }
-            }
-        }
-    }
-}
+#endregion
 #endif
