@@ -75,6 +75,7 @@ namespace Luzart
         public string subjectName;
         public int timeFirstTime = -1;
         public int adsLimit = 0;
+        public PersonaData personaData = new PersonaData();
     }
 
     public class GameRes

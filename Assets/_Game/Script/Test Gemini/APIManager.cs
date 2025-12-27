@@ -1,6 +1,8 @@
-﻿using System;
+﻿using Luzart;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.CompilerServices;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -171,16 +173,6 @@ public class APIManager : Singleton<APIManager>
             }
         }
     }
-    
-    /// <summary>
-    /// Thi?t l?p model name
-    /// </summary>
-    public void SetModel(string newModelName)
-    {
-        modelName = newModelName;
-        Log($"Model ?ã ???c thay ??i thành: {modelName}");
-    }
-    
     private void Log(string message)
     {
         if (enableDebugLogs)
@@ -192,12 +184,46 @@ public class APIManager : Singleton<APIManager>
         if (enableDebugLogs)
             Debug.LogError($"[APIManager] {message}");
     }
-    
-    private void OnDestroy()
+    public override void OnDestroy()
     {
-        // D?n d?p events
+        base.OnDestroy();
         OnResponseReceived = null;
         OnErrorOccurred = null;
         OnRequestStarted = null;
     }
+    private string myPrePrompt = "Tôi là một trợ lý AI phục vụ cho việc hỗ trợ giáo viên tiếp cận AI. Hãy trả lời các câu hỏi một cách ngắn gọn và chính xác.";
+    private string MyProfilePersona
+    {
+        get
+        {
+            if(PersonaManager.Instance == null)
+            {
+                return string.Empty;
+            }
+            EPersonaType ePersonaType = PersonaManager.Instance.GetMyPersonaType();
+            return "Tôi có tính cách " + ePersonaType.ToString() + ".";
+        }
+    }
+    private string MyPostStringNormal(string str = null)
+    {
+        StringBuilder sb  = new StringBuilder();
+        sb.AppendLine(myPrePrompt);
+        if (!string.IsNullOrEmpty(MyProfilePersona))
+        {
+            sb.AppendLine(MyProfilePersona);
+        }
+        sb.AppendLine("Đây là câu hỏi : ");
+        if (!string.IsNullOrEmpty(str))
+        {
+            sb.AppendLine(str);
+        }
+        return sb.ToString();
+    }
+    [Sirenix.OdinInspector.Button]
+    public void SendMessageToAI(string msg)
+    {
+        string str = MyPostStringNormal(msg);
+        SendQuestionToGemini(str);
+    }
+
 }

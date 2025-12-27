@@ -176,7 +176,7 @@ namespace Luzart
         {
             if (coroutineDictionary.TryGetValue(behaviour, out var coroutines))
             {
-                if(coroutines == null)
+                if (coroutines == null)
                 {
                     return;
                 }
@@ -462,7 +462,7 @@ namespace Luzart
         // Kiểm tra 2 list có giống cả từng phần tử
         public static bool AreListsEqual<T>(List<T> list1, List<T> list2)
         {
-            if(list1.Count != list2.Count)
+            if (list1.Count != list2.Count)
             {
                 return false;
             }
@@ -562,7 +562,7 @@ namespace Luzart
             return ratio >= threshold;
         }
     }
-    public static class ConstColor
+    public static class StringColor
     {
         public const string ColorRed = "#FF0000";
         public const string ColorGreen = "#00FF06";
@@ -572,6 +572,11 @@ namespace Luzart
         public const string ColorBlueDark = "#000FFF";
         public const string ColorYellow = "#FFFF00";
         public const string ColorPurple = "#7300B3";
+
+        public static string SetStringColor(string constColor, object value)
+        {
+            return $"<color={constColor}>{value}</color>";
+        }
     }
 
     public static class UIExtension
@@ -762,7 +767,7 @@ namespace Luzart
             {
                 normalizedPosition = 1 - normalizedPosition;
             }
-            if(timeMove == -1)
+            if (timeMove == -1)
             {
                 scrollRect.verticalNormalizedPosition = normalizedPosition;
             }
@@ -825,7 +830,7 @@ namespace Luzart
             float contentTopY = contentWorldCorners[1].y;
 
             // DỊCH target xuống nửa chiều cao viewport để nó nằm giữa
-            float adjustedTargetY = targetCenterY - viewportHeight * 0.5f* factor;
+            float adjustedTargetY = targetCenterY - viewportHeight * 0.5f * factor;
 
             // Tính normalized position
             float normalizedPosition = (contentTopY - adjustedTargetY) / (contentHeight - viewportHeight);
@@ -1064,5 +1069,27 @@ namespace Luzart
         //{
         //    applicationIsQuitting = true;
         //}
+    }
+    public abstract class SingletonSaveLoad<TData,T> : Singleton<T> where T : MonoBehaviour where TData : class,new()
+    {
+        protected abstract string KEYLOAD { get; }
+        public TData Data;
+        private void Awake()
+        {
+            Load();
+        }
+        public virtual void Load()
+        {
+            Data = SaveLoadUtil.LoadData<TData>(KEYLOAD);
+            if(Data == null)
+            {
+                Data = new TData();
+            }
+        }
+
+        public virtual void Save()
+        {
+            SaveLoadUtil.SaveData(Data, KEYLOAD);
+        }
     }
 }

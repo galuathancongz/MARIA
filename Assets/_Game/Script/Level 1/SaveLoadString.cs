@@ -35,8 +35,3 @@ public class SaveLoadString : MonoBehaviour
         ui.InitPopup($"Quota exceeded for model {APIManager.Instance.ModelName}. Please check your API usage limits in the Google Cloud Console.");
     }
 }
-public enum StepKey
-{
-    None = 0,
-    S1_1 = 1,
-}

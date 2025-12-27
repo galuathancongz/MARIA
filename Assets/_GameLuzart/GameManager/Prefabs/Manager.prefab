@@ -161,6 +161,52 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClick: {fileID: 0}
+--- !u!1 &2428759429993679483
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4183816533210458971}
+  - component: {fileID: 6891824525491028217}
+  m_Layer: 0
+  m_Name: PersonaManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4183816533210458971
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428759429993679483}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1748368523962841705}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &6891824525491028217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2428759429993679483}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 147f3223b67a50b49b22858582acd82a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Data:
+    personaStats: []
 --- !u!1 &2945237618997133233
 GameObject:
   m_ObjectHideFlags: 0
@@ -438,10 +484,11 @@ MonoBehaviour:
   _gameData:
     level: 0
     namePlayer: 
-    idAvt: 0
+    subjectName: 
     timeFirstTime: -1
-    isUserIAP: 0
     adsLimit: 0
+    personaData:
+      personaStats: []
 --- !u!1 &7062897448495686203
 GameObject:
   m_ObjectHideFlags: 0
@@ -477,5 +524,6 @@ Transform:
   - {fileID: 1743962222048723739}
   - {fileID: 1991339035143784031}
   - {fileID: 5435294819975328173}
+  - {fileID: 4183816533210458971}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

@@ -51,7 +51,7 @@ public class InputSubjectAction : StepAction
             return;
         }
         string subject = inputField.text.Trim();
-        if (string.IsNullOrEmpty(subject))
+        if (!TryDetectSubject(subject))
         {
             var ui = UIManager.Instance.ShowUI<UINoti>(UIName.Noti);
             ui.InitPopupFillName();
@@ -61,4 +61,66 @@ public class InputSubjectAction : StepAction
         DataManager.Instance.GameData.subjectName = subject.ToUpper();
         onComplete?.Invoke(new ActionResult(actionResultType));
     }
+    private readonly string[] coreSubjects = {
+        // Math
+        "math","algebra","geometry","calculus","statistics","probability",
+        "trigonometry","logic","number theory","linear algebra","discrete math",
+
+        // Physics
+        "physics","mechanics","thermodynamics","optics","electromagnetism",
+        "quantum physics","nuclear physics","astrophysics","relativity",
+
+        // Chemistry
+        "chemistry","organic chemistry","inorganic chemistry","physical chemistry",
+        "analytical chemistry","biochemistry","materials chemistry",
+
+        // Biology
+        "biology","cell biology","genetics","microbiology","ecology",
+        "evolution","zoology","botany","anatomy","physiology","neuroscience",
+
+        // Materials & Engineering
+        "materials","material science","materials science","metallurgy",
+        "polymer","ceramics","composites","nanomaterials",
+        "mechanical engineering","civil engineering","electrical engineering",
+        "electronics","mechatronics",
+
+        // Computer
+        "computer","computer science","programming","coding","software",
+        "algorithms","data structures","databases","web development",
+        "game development","artificial intelligence","machine learning",
+        "data science","computer graphics","networking","cyber security",
+
+        // Social
+        "history","geography","economics","politics","psychology","philosophy",
+        "sociology","law","ethics",
+
+        // Art
+        "art","music","drawing","painting","animation","film","photography",
+
+        // Health
+        "physical education","sports","fitness","nutrition","medicine",
+
+        // Environment
+        "environmental science","geology","climate science"
+    };
+    private bool TryDetectSubject(string input)
+    {
+        if (string.IsNullOrEmpty(input))
+            return false;
+
+        input = input.Trim().ToLowerInvariant();
+        for (int i = 0; i < coreSubjects.Length; i++)
+        {
+            var subject = coreSubjects[i];
+
+            if (input.Contains(subject))
+            {
+                return true;
+            }
+        }
+
+        return false;
+    }
+
+
 }
