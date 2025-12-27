@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using System.Reflection;
 using UnityEditor;
@@ -98,8 +98,8 @@ namespace Luzart
                 }
                 else
                 {
-                    // Try to get as computed property using reflection
-                    currentValue = GetComputedPropertyValue(property, path);
+                    // Try to get as computed property using reflection with proper path navigation
+                    currentValue = GetComputedPropertyValueWithNavigation(property, path);
                 }
 
                 if (currentValue == null)
@@ -119,37 +119,24 @@ namespace Luzart
             }
         }
 
-        private object GetComputedPropertyValue(SerializedProperty sourceProperty, string path)
+        private object GetComputedPropertyValueWithNavigation(SerializedProperty sourceProperty, string path)
         {
             try
             {
+                // Parse the path to handle navigation
+                var (targetObjectPath, finalPropertyName) = ParsePathWithNavigation(sourceProperty.propertyPath, path);
+                
                 // Get the target object that contains the property
                 var targetObject = sourceProperty.serializedObject.targetObject;
-                var propertyPath = sourceProperty.propertyPath;
                 
-                // Navigate to the correct object level based on the property path
-                var pathParts = propertyPath.Split('.');
-                object currentObject = targetObject;
+                // Navigate to the correct object level
+                object currentObject = GetObjectAtPath(targetObject, targetObjectPath);
                 
-                // Navigate to the parent object of the current property
-                for (int i = 0; i < pathParts.Length - 1; i++)
-                {
-                    var part = pathParts[i];
-                    if (part.Contains("[") && part.Contains("]"))
-                    {
-                        currentObject = GetArrayElement(currentObject, part);
-                    }
-                    else
-                    {
-                        currentObject = GetFieldOrPropertyValue(currentObject, part);
-                    }
-                    
-                    if (currentObject == null)
-                        return null;
-                }
+                if (currentObject == null)
+                    return null;
                 
-                // Now try to get the computed property from the current object
-                return GetFieldOrPropertyValue(currentObject, path);
+                // Get the final property from the current object
+                return GetFieldOrPropertyValue(currentObject, finalPropertyName);
             }
             catch (Exception ex)
             {
@@ -158,20 +145,61 @@ namespace Luzart
             }
         }
 
-        private SerializedProperty GetTargetProperty(SerializedProperty sourceProperty, string path)
+        private object GetObjectAtPath(object rootObject, string path)
         {
-            if (string.IsNullOrEmpty(path))
+            if (rootObject == null)
                 return null;
+                
+            if (string.IsNullOrEmpty(path))
+                return rootObject;
+
+            var parts = path.Split('.');
+            object current = rootObject;
+
+            foreach (var part in parts)
+            {
+                if (current == null)
+                    return null;
+
+                // Handle array elements
+                if (part.Contains("[") && part.Contains("]"))
+                {
+                    current = GetArrayElement(current, part);
+                }
+                else
+                {
+                    current = GetFieldOrPropertyValue(current, part);
+                }
+            }
+
+            return current;
+        }
+
+        private (string targetPath, string propertyName) ParsePathWithNavigation(string currentPropertyPath, string navigationPath)
+        {
+            if (string.IsNullOrEmpty(navigationPath))
+                return (string.Empty, string.Empty);
+
+            // Check if path contains navigation operators
+            bool hasNavigation = navigationPath.Contains("../") || navigationPath.Contains(".");
             
-            // Start from the current property's path
-            string currentPath = sourceProperty.propertyPath;
-            var pathParts = path.Split('/');
+            if (!hasNavigation)
+            {
+                // Simple sibling property - same level as current property
+                string parentPath = NavigateUpPath(currentPropertyPath);
+                return (parentPath, navigationPath);
+            }
+
+            // Start from the current property's parent path
+            string currentPath = NavigateUpPath(currentPropertyPath);
+            
+            // Split by "/" to handle "../" navigation
+            var pathParts = navigationPath.Split('/');
+            string remainingPath = string.Empty;
             
             // Process navigation parts
-            for (int i = 0; i < pathParts.Length; i++)
+            foreach (var part in pathParts)
             {
-                var part = pathParts[i];
-                
                 if (part == "..")
                 {
                     // Navigate up one level
@@ -179,32 +207,59 @@ namespace Luzart
                 }
                 else if (!string.IsNullOrEmpty(part))
                 {
-                    // This is a property name - it should be at the same level as currentPath
-                    // Get the parent of currentPath and append the new property name
-                    string parentPath = NavigateUpPath(currentPath);
-                    
-                    if (string.IsNullOrEmpty(parentPath))
-                    {
-                        // We're at root level
-                        currentPath = part;
-                    }
-                    else
-                    {
-                        currentPath = parentPath + "." + part;
-                    }
+                    // This is the property path (may contain "." for nested properties)
+                    remainingPath = part;
+                    break;
                 }
             }
 
-            // Find the property at the final path
-            if (string.IsNullOrEmpty(currentPath))
+            // Handle nested property access with "."
+            if (remainingPath.Contains("."))
             {
+                var nestedParts = remainingPath.Split('.');
+                string baseProperty = nestedParts[0];
+                string nestedProperty = string.Join(".", nestedParts, 1, nestedParts.Length - 1);
+                
+                // The base property is at the current level
+                string finalTargetPath = string.IsNullOrEmpty(currentPath) ? baseProperty : $"{currentPath}.{baseProperty}";
+                
+                return (finalTargetPath, nestedProperty);
+            }
+            
+            // Simple property at the current level
+            return (currentPath, remainingPath);
+        }
+
+        private SerializedProperty GetTargetProperty(SerializedProperty sourceProperty, string path)
+        {
+            if (string.IsNullOrEmpty(path))
                 return null;
+            
+            // Parse the path with proper navigation
+            var (targetObjectPath, finalPropertyName) = ParsePathWithNavigation(sourceProperty.propertyPath, path);
+            
+            // Build the final property path
+            string finalPath;
+            if (string.IsNullOrEmpty(targetObjectPath))
+            {
+                finalPath = finalPropertyName;
+            }
+            else if (string.IsNullOrEmpty(finalPropertyName))
+            {
+                finalPath = targetObjectPath;
+            }
+            else
+            {
+                finalPath = $"{targetObjectPath}.{finalPropertyName}";
             }
 
-            var targetProperty = sourceProperty.serializedObject.FindProperty(currentPath);
+            if (string.IsNullOrEmpty(finalPath))
+                return null;
+
+            var targetProperty = sourceProperty.serializedObject.FindProperty(finalPath);
             
-            // If not found and currentPath doesn't contain dots, it might be a direct property of the serialized object
-            if (targetProperty == null && !currentPath.Contains("."))
+            // If not found and finalPath doesn't contain dots, it might be a direct property of the serialized object
+            if (targetProperty == null && !finalPath.Contains("."))
             {
                 // Try to find it directly in the serialized object
                 var so = sourceProperty.serializedObject;
@@ -213,7 +268,7 @@ namespace Luzart
                 {
                     do
                     {
-                        if (iterator.name == currentPath)
+                        if (iterator.name == finalPath)
                         {
                             targetProperty = iterator.Copy();
                             break;
@@ -222,10 +277,7 @@ namespace Luzart
                     while (iterator.NextVisible(false));
                 }
             }
-            if (targetProperty == null)
-            {
-                return null;
-            }
+            
             return targetProperty;
         }
 

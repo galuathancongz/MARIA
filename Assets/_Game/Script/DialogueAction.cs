@@ -27,9 +27,9 @@ public class DialogueAction : StepAction
     {
         if(modeClick == Mode.Button)
         {
-        GameUtil.ButtonOnClick(btnClick, OnClickAction);
-
+            GameUtil.ButtonOnClick(btnClick, OnClickAction);
         }
+        txt.text = string.Empty;
     }
 
     protected Tween _typingTween;

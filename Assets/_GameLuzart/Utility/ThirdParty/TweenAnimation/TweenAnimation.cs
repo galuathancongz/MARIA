@@ -10,8 +10,18 @@ namespace Luzart
     {
         [SerializeField] private EAnimation typeAnimation;
         [SerializeField] private TweenAnimationSettings tweenAnimationSettings = new TweenAnimationSettings();
-        private ITweenAnimation _currentTweenAnimation;
         public TweenAnimationSettings TweenAnimationSettings => tweenAnimationSettings;
+        private ITweenAnimation _currentTweenAnimation;
+        public bool IsAnimationVector3 => typeAnimation == EAnimation.Move ||
+                                                typeAnimation == EAnimation.MoveLocal ||
+                                                typeAnimation == EAnimation.MoveAnchors ||
+                                                typeAnimation == EAnimation.Scale ||
+                                                typeAnimation == EAnimation.Rotation ||
+                                                typeAnimation == EAnimation.Euler ||
+                                                typeAnimation == EAnimation.SizeDelta ||
+                                                typeAnimation == EAnimation.AnchorMin ||
+                                                typeAnimation == EAnimation.AnchorMax;
+
         protected override Tween DoShow()
         {
             var tweenAnimation = GetTweenAnimation();
@@ -126,32 +136,18 @@ namespace Luzart
     [System.Serializable]
     public class TweenValueSettings
     {
-        [ShowIfAny( "../../typeAnimation", EAnimation.Move, 
-                         "../../typeAnimation", EAnimation.MoveLocal,
-                         "../../typeAnimation", EAnimation.MoveAnchors,
-                         "../../typeAnimation", EAnimation.Scale,
-                         "../../typeAnimation", EAnimation.Rotation,
-                         "../../typeAnimation", EAnimation.Euler,
-                         "../../typeAnimation", EAnimation.SizeDelta,
-                         "../../typeAnimation", EAnimation.AnchorMin,
-                         "../../typeAnimation", EAnimation.AnchorMax)]
+        [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3From = -Vector3Int.one;
         public bool _isVector3FromDefault => Vector3From == -Vector3Int.one;
-        [ShowIf("_isVector3FromDefault",true)]
+        [ShowIfAll("../../IsAnimationVector3", true,
+            "_isVector3FromDefault",true)]
         public bool IsSetRuntimeVector3From = false;
-        
-        [ShowIfAny( "../../typeAnimation", EAnimation.Move, 
-                         "../../typeAnimation", EAnimation.MoveLocal,
-                         "../../typeAnimation", EAnimation.MoveAnchors,
-                         "../../typeAnimation", EAnimation.Scale,
-                         "../../typeAnimation", EAnimation.Rotation,
-                         "../../typeAnimation", EAnimation.Euler,
-                         "../../typeAnimation", EAnimation.SizeDelta,
-                         "../../typeAnimation", EAnimation.AnchorMin,
-                         "../../typeAnimation", EAnimation.AnchorMax)]
+
+        [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3To = -Vector3Int.one;
         public bool _isVector3ToDefault => Vector3To == -Vector3Int.one;
-        [ShowIf("_isVector3ToDefault", true)]
+        [ShowIfAll("_isVector3ToDefault", true,
+            "../../IsAnimationVector3", true)]
         public bool IsSetRuntimeVector3To = false;
 
         [ShowIf("../../typeAnimation", EAnimation.Fade)]

@@ -137,7 +137,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &49631471
 Transform:
   m_ObjectHideFlags: 0
@@ -169,7 +169,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &862957809
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -218,7 +218,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!82 &1479921677
 AudioSource:
   m_ObjectHideFlags: 0
@@ -400,7 +400,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3748700735534717940, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3868446327429497608, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
       propertyPath: m_Pivot.x
@@ -482,6 +482,18 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 6415301488525013853, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
+      propertyPath: m_ScreenMatchMode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415301488525013853, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
+      propertyPath: m_ReferenceResolution.x
+      value: 1920
+      objectReference: {fileID: 0}
+    - target: {fileID: 6415301488525013853, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
+      propertyPath: m_ReferenceResolution.y
+      value: 1080
+      objectReference: {fileID: 0}
     - target: {fileID: 6908612785454524362, guid: a1f970f0a40067044bfc11988c253bec, type: 3}
       propertyPath: m_Camera
       value: 
@@ -553,7 +565,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7062897448495686203, guid: 1c97fd2be94bc6f4d9f81eb67d659b62, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
