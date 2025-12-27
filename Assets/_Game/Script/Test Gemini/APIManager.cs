@@ -49,13 +49,11 @@ public class APIManager : Singleton<APIManager>
     
     [Header("Debug")]
     [SerializeField] private bool enableDebugLogs = true;
+    public string ModelName => modelName;
     
-    // Events ?? UI có th? subscribe
     public static event Action<string> OnResponseReceived;
     public static event Action<string> OnErrorOccurred;
     public static event Action OnRequestStarted;
-    
-    public string ModelName => modelName;
     private void Start()
     {
         if (string.IsNullOrEmpty(apiKey) || apiKey == "YOUR_GEMINI_API_KEY_HERE")
@@ -63,13 +61,13 @@ public class APIManager : Singleton<APIManager>
             Debug.LogError("[APIManager] Vui lòng thiet lap API Key trong Inspector!");
         }
     }
-    
-    /// <summary>
-    /// G?i câu h?i t?i Gemini API
-    /// </summary>
-    /// <param name="question">Câu h?i c?a ng??i dùng</param>
-    /// <param name="onSuccess">Callback khi thành công</param>
-    /// <param name="onError">Callback khi có l?i</param>
+    public override void OnDestroy()
+    {
+        base.OnDestroy();
+        OnResponseReceived = null;
+        OnErrorOccurred = null;
+        OnRequestStarted = null;
+    }
     public void SendQuestionToGemini(string question, Action<string> onSuccess = null, Action<string> onError = null)
     {
         if (string.IsNullOrEmpty(question))
@@ -92,16 +90,13 @@ public class APIManager : Singleton<APIManager>
         question = $"{question}. Nói ngắn gọn chỉ ít thôi.";
         StartCoroutine(SendRequestCoroutine(question, onSuccess, onError));
     }
-    
     private IEnumerator SendRequestCoroutine(string question, Action<string> onSuccess, Action<string> onError)
     {
         OnRequestStarted?.Invoke();
         Log($"Dang gui cau hoi: {question}");
         
-        // T?o URL request
         string url = $"{GEMINI_API_URL}{modelName}:generateContent?key={apiKey}";
         
-        // T?o request body
         GeminiRequest requestData = new GeminiRequest
         {
             contents = new GeminiContent[]
@@ -127,10 +122,8 @@ public class APIManager : Singleton<APIManager>
             request.downloadHandler = new DownloadHandlerBuffer();
             request.SetRequestHeader("Content-Type", "application/json");
             
-            // G?i request
             yield return request.SendWebRequest();
             
-            // X? lý k?t qu?
             if (request.result == UnityWebRequest.Result.Success)
             {
                 string responseText = request.downloadHandler.text;
@@ -177,21 +170,16 @@ public class APIManager : Singleton<APIManager>
     {
         if (enableDebugLogs)
             Debug.Log($"[APIManager] {message}");
-    }
-    
+    } 
     private void LogError(string message)
     {
         if (enableDebugLogs)
             Debug.LogError($"[APIManager] {message}");
     }
-    public override void OnDestroy()
-    {
-        base.OnDestroy();
-        OnResponseReceived = null;
-        OnErrorOccurred = null;
-        OnRequestStarted = null;
-    }
+
     private string myPrePrompt = "Tôi là một trợ lý AI phục vụ cho việc hỗ trợ giáo viên tiếp cận AI. Hãy trả lời các câu hỏi một cách ngắn gọn và chính xác.";
+    private string myPrePromptVietNam = "Bạn là AI Mentor trong một trò chơi giáo dục tên là GameAid.\r\n\r\nVai trò của bạn là hỗ trợ giáo viên:\r\n- brainstorm ý tưởng\r\n- đồng sáng tạo hoạt động dạy học\r\n- gợi mở sự sáng tạo trong lớp học\r\n\r\nBạn KHÔNG phải là người thay thế giáo viên.\r\nBạn KHÔNG đánh giá, chấm điểm hay phán xét đúng – sai.\r\n\r\nGiọng điệu của bạn phải:\r\n- thân thiện\r\n- tò mò\r\n- hợp tác\r\n- không phán xét\r\n\r\nBạn luôn khuyến khích giáo viên khám phá theo cách riêng của họ.\r\nGiáo viên luôn là người quyết định cuối cùng.\r\n";
+    private string myPrePromptEnglish = "You are an AI Mentor inside an educational game called GameAid.\r\n\r\nYour role is to support teachers by brainstorming ideas, co-creating lesson activities, and sparking creativity.\r\nYou are NOT a teacher replacement, evaluator, or examiner.\r\nYou do NOT grade, judge, or assess correctness.\r\n\r\nYour tone must be:\r\n- Supportive\r\n- Curious\r\n- Collaborative\r\n- Non-judgmental\r\n\r\nYou respond as a subject-specific mentor with a clear personality.\r\nAlways encourage exploration and teacher agency.\r\n";
     private string MyProfilePersona
     {
         get
@@ -207,7 +195,7 @@ public class APIManager : Singleton<APIManager>
     private string MyPostStringNormal(string str = null)
     {
         StringBuilder sb  = new StringBuilder();
-        sb.AppendLine(myPrePrompt);
+        sb.AppendLine(myPrePromptVietNam);
         if (!string.IsNullOrEmpty(MyProfilePersona))
         {
             sb.AppendLine(MyProfilePersona);
@@ -219,6 +207,32 @@ public class APIManager : Singleton<APIManager>
         }
         return sb.ToString();
     }
+    public void SendQuestionRequireJsonToGemini<T>(string question, Action<T> onSuccess = null, Action<string> onError = null) where T : new()
+    {
+        // Mẹo Prompt để ép AI trả về đúng format
+        string jsonPrompt = $"{question}\n\nIMPORTANT: Output ONLY raw JSON. No markdown, no '```json'. Must follow the structure of the data class.";
+
+        SendQuestionToGemini(jsonPrompt, (rawResponse) => {
+            T result = ParseRawResponse<T>(rawResponse);
+            onSuccess?.Invoke(result);
+        }, onError);
+    }
+    private T ParseRawResponse<T>(string input) where T : new()
+    {
+        try
+        {
+            int start = input.IndexOf('{');
+            int end = input.LastIndexOf('}');
+
+            if (start != -1 && end != -1 && end > start)
+            {
+                string cleanJson = input.Substring(start, end - start + 1);
+                return JsonUtility.FromJson<T>(cleanJson);
+            }
+        }
+        catch (Exception e) { Debug.LogError("Lỗi Parse: " + e.Message); }
+        return new T();
+    }
     [Sirenix.OdinInspector.Button]
     public void SendMessageToAI(string msg)
     {
@@ -227,3 +241,14 @@ public class APIManager : Singleton<APIManager>
     }
 
 }
+
+//public interface IPromptHelper
+//{
+//    string PromptDefault { get; }
+//    string GetPrompString(string question); 
+//    string GetPromptStringScene2(string question);
+//}
+//public class IPromptHelperVietnamese : IPromptHelper
+//{
+
+//}
