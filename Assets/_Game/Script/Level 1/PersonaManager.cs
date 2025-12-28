@@ -24,6 +24,23 @@ namespace Luzart
             return currentType;
         }
 
+        public PersonaStat? GetPersonaByStepKey(StepKey stepKey)
+        {
+            for (int i = 0; i < Data.PersonaStats.Count; i++)
+            {
+                var data = Data.PersonaStats[i];
+                if (data.stepKey == stepKey)
+                {
+                    return data;
+                }
+            }
+            return null;
+        }
+        public void SetPersonaByStepKey(StepKey stepKey, EPersonaType type, int amount)
+        {
+            Data.SetPersonalAmount(stepKey, type, amount);
+        }
+
     }
 
     [System.Serializable]
@@ -45,22 +62,22 @@ namespace Luzart
             }
             return 0;
         }
-        public void SetPersonalAmount(EPersonaType type, int amount)
+        public void SetPersonalAmount(StepKey stepKey, EPersonaType type, int amount)
         {
             for (int i = 0; i < personaStats.Count; i++)
             {
-                if (personaStats[i].type == type)
+                if (personaStats[i].stepKey == stepKey)
                 {
                     var persona = personaStats[i];
                     persona.amount = amount;
+                    persona.type = type;
                     personaStats[i] = persona;
                     return;
                 }
             }
-
-            // Nếu chưa có thì thêm mới
             personaStats.Add(new PersonaStat()
             {
+                stepKey = stepKey,
                 type = type,
                 amount = amount
             });
@@ -72,6 +89,7 @@ namespace Luzart
     {
         public EPersonaType type;
         public int amount;
+        public StepKey stepKey;
     }
     [System.Serializable]
     public enum EPersonaType

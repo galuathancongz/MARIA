@@ -1,7 +1,8 @@
-﻿using DG.Tweening;
+using DG.Tweening;
 using System;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Luzart
 {
@@ -120,12 +121,23 @@ namespace Luzart
             {
                 gameObject = comp.gameObject;
             }
-
-            return gameObject?.GetComponent<T>() ?? gameObject?.AddComponent<T>();
+            if (gameObject == null)
+            {
+                Debug.LogError("GameObject in this is null");
+                return null;
+            }
+            if (gameObject.TryGetComponent<T>(out T componentGet))
+            {
+                return componentGet;
+            }
+            else
+            {
+                var component = gameObject.AddComponent<T>();
+                return component;
+            }
         }
     }
 
-    // Helper class for working with different settings types
     public static class TweenSettingsHelper
     {
         public static Sequence CreateBaseTween(ITweenSettings settings, bool ignoreTimeScale = false)
@@ -157,7 +169,7 @@ namespace Luzart
         }
     }
 
-    #region TweenAnimation Workers
+    #region Vector3 Based Animations
 
     public class TweenAnimationMove : TweenAnimationWorker
     {
@@ -177,6 +189,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -191,8 +204,8 @@ namespace Luzart
             Sequence tweenMove = DOTween.Sequence();
             tweenMove.AppendCallback(() =>
             {
-               SetSettingsDefaultFromTo(true);
-               Target.position = Settings.Values.GetVector3From();
+                SetSettingsDefaultFromTo(true);
+                SetValueFrom(true);
             });
             tweenMove.Append(Target.DOMove(Settings.Values.GetVector3To(), Settings.General.Duration)
                                   .SetEase(Settings.General.Easing));
@@ -203,19 +216,27 @@ namespace Luzart
         }
         private void SetSettingsDefaultFromTo(bool isRuntime)
         {
-            if ( Settings.Values.GetVector3From() == Vector3Int.one * -1 )
+            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.position;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if(isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.position;
                 }
+            }
+        }
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.position = Settings.Values.GetVector3From();
+
             }
         }
     }
@@ -239,6 +260,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -254,7 +276,7 @@ namespace Luzart
             tweenMove.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.localPosition = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
             tweenMove.Append(Target.DOLocalMove(Settings.Values.GetVector3To(), Settings.General.Duration)
                                   .SetEase(Settings.General.Easing));
@@ -268,17 +290,25 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.localPosition;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.localPosition;
                 }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.localPosition = Settings.Values.GetVector3From();
             }
         }
     }
@@ -302,6 +332,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -317,7 +348,7 @@ namespace Luzart
             tweenMove.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.anchoredPosition = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
             tweenMove.Append(Target.DOAnchorPos(Settings.Values.GetVector3To(), Settings.General.Duration)
                                   .SetEase(Settings.General.Easing));
@@ -331,143 +362,25 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.anchoredPosition;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.anchoredPosition;
                 }
             }
         }
-    }
 
-    public class TweenAnimationRotation : TweenAnimationWorker
-    {
-        private Transform _target;
-        private Transform Target
+        private void SetValueFrom(bool isRuntime)
         {
-            get
+            if (isRuntime == Settings.Values.IsSetFromInInit)
             {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationRotation: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenRotation = DOTween.Sequence();
-            tweenRotation.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                Target.rotation = Quaternion.Euler(Settings.Values.GetVector3From());
-            });
-            tweenRotation.Append(Target.DORotate(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                       .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenRotation);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
-                {
-                    Settings.Values.Vector3From = Target.rotation.eulerAngles;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
-                {
-                    Settings.Values.Vector3To = Target.rotation.eulerAngles;
-                }
-            }
-        }
-    }
-
-    public class TweenAnimationEuler : TweenAnimationWorker
-    {
-        private Transform _target;
-        private Transform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationEuler: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenEuler = DOTween.Sequence();
-            tweenEuler.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                Target.eulerAngles = Settings.Values.GetVector3From();
-            });
-            tweenEuler.Append(Target.DORotate(Settings.Values.GetVector3To(), Settings.General.Duration, RotateMode.FastBeyond360)
-                                    .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenEuler);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
-                {
-                    Settings.Values.Vector3From = Target.eulerAngles;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
-                {
-                    Settings.Values.Vector3To = Target.eulerAngles;
-                }
+                Target.anchoredPosition = Settings.Values.GetVector3From();
             }
         }
     }
@@ -491,6 +404,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -506,10 +420,10 @@ namespace Luzart
             tweenScale.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.localScale = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
             tweenScale.Append(Target.DOScale(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                    .SetEase(Settings.General.Easing));
+                                   .SetEase(Settings.General.Easing));
 
             AppendTweenToSequence(tweenScale);
             _tweener.SetTarget(Target);
@@ -520,17 +434,97 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.localScale;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.localScale;
                 }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.localScale = Settings.Values.GetVector3From();
+            }
+        }
+    }
+
+    public class TweenAnimationEuler : TweenAnimationWorker
+    {
+        private Transform _target;
+        private Transform Target
+        {
+            get
+            {
+                if (_target == null)
+                {
+                    _target = GetTargetComponent<Transform>();
+                }
+                return _target;
+            }
+        }
+
+        protected override void DoInitSetting(TweenAnimationSettings settings)
+        {
+            base.DoInitSetting(settings);
+            SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
+        }
+
+        protected override Tween DoShow()
+        {
+            if (Target == null)
+            {
+                Debug.LogWarning("TweenAnimationEuler: Target Transform is null");
+                return null;
+            }
+
+            _tweener = CreateBaseTween();
+            Sequence tweenRotation = DOTween.Sequence();
+            tweenRotation.AppendCallback(() =>
+            {
+                SetSettingsDefaultFromTo(true);
+                SetValueFrom(true);
+            });
+            tweenRotation.Append(Target.DORotate(Settings.Values.GetVector3To(), Settings.General.Duration)
+                                      .SetEase(Settings.General.Easing));
+
+            AppendTweenToSequence(tweenRotation);
+            _tweener.SetTarget(Target);
+            return _tweener;
+        }
+
+        private void SetSettingsDefaultFromTo(bool isRuntime)
+        {
+            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
+                {
+                    Settings.Values.Vector3From = Target.eulerAngles;
+                }
+            }
+            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
+                {
+                    Settings.Values.Vector3To = Target.eulerAngles;
+                }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.eulerAngles = Settings.Values.GetVector3From();
             }
         }
     }
@@ -554,6 +548,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -569,10 +564,10 @@ namespace Luzart
             tweenSize.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.sizeDelta = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
             tweenSize.Append(Target.DOSizeDelta(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                   .SetEase(Settings.General.Easing));
+                                  .SetEase(Settings.General.Easing));
 
             AppendTweenToSequence(tweenSize);
             _tweener.SetTarget(Target);
@@ -583,17 +578,25 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.sizeDelta;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.sizeDelta;
                 }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.sizeDelta = Settings.Values.GetVector3From();
             }
         }
     }
@@ -617,6 +620,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -628,16 +632,16 @@ namespace Luzart
             }
 
             _tweener = CreateBaseTween();
-            Sequence tweenAnchorMin = DOTween.Sequence();
-            tweenAnchorMin.AppendCallback(() =>
+            Sequence tweenAnchor = DOTween.Sequence();
+            tweenAnchor.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.anchorMin = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
-            tweenAnchorMin.Append(Target.DOAnchorMin(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                        .SetEase(Settings.General.Easing));
+            tweenAnchor.Append(Target.DOAnchorMin(Settings.Values.GetVector3To(), Settings.General.Duration)
+                                    .SetEase(Settings.General.Easing));
 
-            AppendTweenToSequence(tweenAnchorMin);
+            AppendTweenToSequence(tweenAnchor);
             _tweener.SetTarget(Target);
             return _tweener;
         }
@@ -646,17 +650,25 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.anchorMin;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.anchorMin;
                 }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.anchorMin = Settings.Values.GetVector3From();
             }
         }
     }
@@ -680,6 +692,7 @@ namespace Luzart
         {
             base.DoInitSetting(settings);
             SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
 
         protected override Tween DoShow()
@@ -691,16 +704,16 @@ namespace Luzart
             }
 
             _tweener = CreateBaseTween();
-            Sequence tweenAnchorMax = DOTween.Sequence();
-            tweenAnchorMax.AppendCallback(() =>
+            Sequence tweenAnchor = DOTween.Sequence();
+            tweenAnchor.AppendCallback(() =>
             {
                 SetSettingsDefaultFromTo(true);
-                Target.anchorMax = Settings.Values.GetVector3From();
+                SetValueFrom(true);
             });
-            tweenAnchorMax.Append(Target.DOAnchorMax(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                        .SetEase(Settings.General.Easing));
+            tweenAnchor.Append(Target.DOAnchorMax(Settings.Values.GetVector3To(), Settings.General.Duration)
+                                    .SetEase(Settings.General.Easing));
 
-            AppendTweenToSequence(tweenAnchorMax);
+            AppendTweenToSequence(tweenAnchor);
             _tweener.SetTarget(Target);
             return _tweener;
         }
@@ -709,20 +722,32 @@ namespace Luzart
         {
             if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3From)
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.Vector3From = Target.anchorMax;
                 }
             }
             if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
             {
-                if (isRuntime == Settings.Values.IsSetRuntimeVector3To)
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
                     Settings.Values.Vector3To = Target.anchorMax;
                 }
             }
         }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.anchorMax = Settings.Values.GetVector3From();
+            }
+        }
     }
+
+    #endregion
+
+    #region Float Based Animations
 
     public class TweenAnimationFade : TweenAnimationWorker
     {
@@ -739,6 +764,13 @@ namespace Luzart
             }
         }
 
+        protected override void DoInitSetting(TweenAnimationSettings settings)
+        {
+            base.DoInitSetting(settings);
+            SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
+        }
+
         protected override Tween DoShow()
         {
             if (Target == null)
@@ -751,44 +783,77 @@ namespace Luzart
             Sequence tweenFade = DOTween.Sequence();
             tweenFade.AppendCallback(() =>
             {
-                Target.alpha = Settings.Values.GetFloatFrom();
+                SetSettingsDefaultFromTo(true);
+                SetValueFrom(true);
             });
             tweenFade.Append(Target.DOFade(Settings.Values.GetFloatTo(), Settings.General.Duration)
-                                   .SetEase(Settings.General.Easing));
+                                  .SetEase(Settings.General.Easing));
 
             AppendTweenToSequence(tweenFade);
             _tweener.SetTarget(Target);
             return _tweener;
         }
+
+        private void SetSettingsDefaultFromTo(bool isRuntime)
+        {
+            // For float values, we don't use -1 as default, instead we use the current alpha value
+            if (Mathf.Approximately(Settings.Values.GetFloatFrom(), -1))
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
+                {
+                    Settings.Values.FloatFrom = Target.alpha;
+                }
+            }
+            if (Mathf.Approximately(Settings.Values.GetFloatTo(), -1))
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
+                {
+                    Settings.Values.FloatTo = Target.alpha;
+                }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime != Settings.Values.IsSetFromInInit)
+            {
+                float from = Settings.Values.GetFloatFrom();
+                Target.alpha = from;
+            }
+        }
     }
+
+    #endregion
+
+    #region Text Based Animations
 
     public class TweenAnimationTextMeshPro : TweenAnimationWorker
     {
-        private TMP_Text _target;
-        private TMP_Text Target
+        private TextMeshProUGUI _target;
+        private TextMeshProUGUI Target
         {
             get
             {
                 if (_target == null)
                 {
-                    _target = GetTargetComponent<TMP_Text>();
+                    _target = GetTargetComponent<TextMeshProUGUI>();
                 }
                 return _target;
             }
         }
+
         protected override void DoInitSetting(TweenAnimationSettings settings)
         {
             base.DoInitSetting(settings);
-            if(string.IsNullOrEmpty(Settings.Values.StringTo))
-            {
-                Settings.Values.StringTo = Target.text;
-            }
+            SetSettingsDefaultFromTo(false);
+            SetValueFrom(false);
         }
+
         protected override Tween DoShow()
         {
             if (Target == null)
             {
-                Debug.LogWarning("TweenAnimationTextMeshPro: Target TMP_Text is null");
+                Debug.LogWarning("TweenAnimationTextMeshPro: Target TextMeshProUGUI is null");
                 return null;
             }
 
@@ -796,17 +861,43 @@ namespace Luzart
             Sequence tweenText = DOTween.Sequence();
             tweenText.AppendCallback(() =>
             {
-                Target.text = Settings.Values.GetStringFrom();
+                SetSettingsDefaultFromTo(true);
+                SetValueFrom(true);
             });
             tweenText.Append(Target.DOText(Settings.Values.GetStringTo(), Settings.General.Duration)
-                                   .SetEase(Settings.General.Easing));
+                                  .SetEase(Settings.General.Easing));
 
             AppendTweenToSequence(tweenText);
             _tweener.SetTarget(Target);
             return _tweener;
         }
+
+        private void SetSettingsDefaultFromTo(bool isRuntime)
+        {
+            if (string.IsNullOrEmpty(Settings.Values.GetStringFrom()))
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
+                {
+                    Settings.Values.StringFrom = Target.text;
+                }
+            }
+            if (string.IsNullOrEmpty(Settings.Values.GetStringTo()))
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
+                {
+                    Settings.Values.StringTo = Target.text;
+                }
+            }
+        }
+
+        private void SetValueFrom(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                Target.text = Settings.Values.GetStringFrom();
+            }
+        }
     }
 
     #endregion
-
 }

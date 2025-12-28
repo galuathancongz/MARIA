@@ -17,7 +17,7 @@ namespace Eco.TweenAnimation
     public enum EShow { None, Awake, Enable }
 
     [HideMonoScript]
-    public class TweenAnimation : TweenAnimationBase
+    public class EcoTweenAnimation : TweenAnimationBase
     {
         /// <summary>
         /// Animation Setting Group

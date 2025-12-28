@@ -15,9 +15,9 @@ namespace Luzart
         [Header("Trigger Settings")]
         [SerializeField] private ETypeShow typeShow = ETypeShow.OnEnable;
         
-        [Header("Control Options")]
-        [SerializeField] private bool stopOnDisable = false;
-        [SerializeField] private bool resetOnEnable = false;
+        //[Header("Control Options")]
+        //[SerializeField] private bool stopOnDisable = false;
+        //[SerializeField] private bool resetOnEnable = false;
 
         private Tween _currentTween;
 
@@ -39,7 +39,7 @@ namespace Luzart
 
         private void OnEnable()
         {
-            if (resetOnEnable && _currentTween != null)
+            if (_currentTween != null)
             {
                 _currentTween.Kill();
                 _currentTween = null;
@@ -53,7 +53,7 @@ namespace Luzart
 
         private void OnDisable()
         {
-            if (stopOnDisable && _currentTween != null)
+            if (_currentTween != null)
             {
                 _currentTween.Kill();
                 _currentTween = null;
@@ -63,6 +63,7 @@ namespace Luzart
         /// <summary>
         /// Manually trigger the animation
         /// </summary>
+        [ContextMenu("Call Show")]
         public void CallShow()
         {
             if (tweenAnimation == null)

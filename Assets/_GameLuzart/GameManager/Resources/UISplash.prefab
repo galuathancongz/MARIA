@@ -73,4 +73,4 @@ MonoBehaviour:
   - {fileID: 5217254009116569031, guid: 4674d49ab8ffc8d4c9a7f8bcb2a63c77, type: 3}
   - {fileID: 5217254009116569031, guid: 210cc530b2e23ca418bfd9570db71336, type: 3}
   - {fileID: 5217254009116569031, guid: ae8003bcdf8e99e48b6a95d6b581c0b5, type: 3}
-  _currentStoryboardIndex: 0
+  _currentStoryboardIndex: 6

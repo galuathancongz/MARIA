@@ -27,11 +27,11 @@ namespace Eco.TweenAnimation
             gameObject.SetActive(true);
             OnShowComplete = onComplete;
             
-            TweenAnimation lastTweenAnimation = null;
+            EcoTweenAnimation lastTweenAnimation = null;
             for (var i = 0; i < _tweenAnimations.Count; i++)
             {
                 TweenAnimationBase tweenAnimationBase = _tweenAnimations[i];
-                if (tweenAnimationBase is TweenAnimation tweenAnimation)
+                if (tweenAnimationBase is EcoTweenAnimation tweenAnimation)
                 {
                     float totalTime = tweenAnimation.BaseOptions.StartDelay + tweenAnimation.BaseOptions.Duration;
                     if (lastTweenAnimation == null || totalTime > lastTweenAnimation.BaseOptions.StartDelay + lastTweenAnimation.BaseOptions.Duration)
@@ -47,11 +47,11 @@ namespace Eco.TweenAnimation
             gameObject.SetActive(true);
             OnHideComplete = onComplete;
             
-            TweenAnimation lastTweenAnimation = null;
+            EcoTweenAnimation lastTweenAnimation = null;
             for (var i = 0; i < _tweenAnimations.Count; i++)
             {
                 TweenAnimationBase tweenAnimationBase = _tweenAnimations[i];
-                if (tweenAnimationBase is TweenAnimation tweenAnimation)
+                if (tweenAnimationBase is EcoTweenAnimation tweenAnimation)
                 {
                     float totalTime = tweenAnimation.BaseOptions.StartDelay + tweenAnimation.BaseOptions.Duration;
                     if (lastTweenAnimation == null || totalTime > lastTweenAnimation.BaseOptions.StartDelay + lastTweenAnimation.BaseOptions.Duration)

@@ -6,21 +6,19 @@ namespace Luzart
 {
 	public class PersonaPointComponent : MonoBehaviour
 	{
-		public void SetPersonaData(EPersonaType type, int amount)
+		public void AddPersonaPoint(StepKey stepKey, EPersonaType personaType)
 		{
-			PersonaManager.Instance.Data.SetPersonalAmount(type, amount);
-		}
-		public void AddPersonaData(EPersonaType type, int amount)
-		{
-			var currentAmount = PersonaManager.Instance.Data.GetPersonaAmount(type);
-			int newAmount = currentAmount + amount;
-			PersonaManager.Instance.Data.SetPersonalAmount(type, newAmount);
-		}
-		public void RemovePersonaData(EPersonaType type, int amount)
-		{
-            var currentAmount = PersonaManager.Instance.Data.GetPersonaAmount(type);
-            int newAmount = currentAmount - amount;
-            PersonaManager.Instance.Data.SetPersonalAmount(type, newAmount);
+			var persona = PersonaManager.Instance.GetPersonaByStepKey(stepKey);
+			if(persona == null)
+			{
+				PersonaManager.Instance.SetPersonaByStepKey(stepKey, personaType, 1);
+			}
+			else
+			{
+				int currentPoint = persona.Value.amount;
+				int nextPoint = currentPoint + 1;
+				PersonaManager.Instance.SetPersonaByStepKey(stepKey, personaType, nextPoint);
+            }
         }
-	}
+    }
 }

@@ -3,7 +3,7 @@ using Eco.TweenAnimation;
 
 public class TestDOText : MonoBehaviour
 {
-    public TweenAnimation textAnimation;
+    public EcoTweenAnimation textAnimation;
     
     void Start()
     {

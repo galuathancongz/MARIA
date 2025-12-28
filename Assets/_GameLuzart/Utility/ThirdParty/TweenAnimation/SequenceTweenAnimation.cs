@@ -12,7 +12,18 @@ namespace Luzart
         [SerializeField] private TweenSequenceSettings sequenceSettings;
         
         private Sequence _sequenceTweener;
+        protected override void DoInitSetting(TweenAnimationSettings tweenAnimationSettings)
+        {
+            base.DoInitSetting(tweenAnimationSettings);
+            for (int i = 0; i < tweenSequences.Count; i++)
+            {
+                var tS = tweenSequences[i];
+                var tAB = tS.TweenAnimation;
+                ITweenAnimation iTA = tAB;
+                iTA.InitSetting(tweenAnimationSettings);
 
+            }
+        }
         protected override Tween DoShow()
         {
             _sequenceTweener = DOTween.Sequence();
@@ -36,12 +47,17 @@ namespace Luzart
                 var tween = tweenAnimation.Show();
                 if (tween != null)
                 {
-                    if(tweenSequence.SequenceType == ESequenceType.Append)
+                    if (tweenSequence.SequenceType == ESequenceType.Append)
                     {
                         mainSequence.Append(tween);
-                    }else if(tweenSequence.SequenceType == ESequenceType.Join)
+                    }
+                    else if (tweenSequence.SequenceType == ESequenceType.Join)
                     {
                         mainSequence.Join(tween);
+                    }
+                    else if (tweenSequence.SequenceType == ESequenceType.Insert)
+                    {
+                        mainSequence.Insert(tweenSequence.InsertTime, tween);
                     }
                 }
             }
@@ -91,11 +107,14 @@ namespace Luzart
         {
             public TweenAnimationBase TweenAnimation;
             public ESequenceType SequenceType;
+            [ShowIf("SequenceType", ESequenceType.Insert)]
+            public float InsertTime;
         }
         public enum ESequenceType
         {
             Append,
-            Join
+            Join,
+            Insert
         }
     }
     

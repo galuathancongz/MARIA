@@ -9,7 +9,7 @@ using UnityEngine;
 public class EcoTweenAnimationStepAction : StepAction
 {
     private Tween tw;
-    public Eco.TweenAnimation.TweenAnimation[] twAnimation;
+    public Eco.TweenAnimation.EcoTweenAnimation[] twAnimation;
     public override void Execute(Action<ActionResult> _onComplete)
     {
         base.Execute(_onComplete);

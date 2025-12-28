@@ -2,10 +2,10 @@
 {
     public class AnimationFactory
     {
-        private TweenAnimation _tweenAnimation;
-        public TweenAnimation TweenAnimation { get => _tweenAnimation; }
+        private EcoTweenAnimation _tweenAnimation;
+        public EcoTweenAnimation TweenAnimation { get => _tweenAnimation; }
 
-        public AnimationFactory(TweenAnimation tweenAnimation)
+        public AnimationFactory(EcoTweenAnimation tweenAnimation)
         {
             _tweenAnimation = tweenAnimation;
         }

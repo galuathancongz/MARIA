@@ -7,7 +7,7 @@ namespace Eco.TweenAnimation
 {
     public class ScreenToggle : MonoBehaviour
     {
-        private TweenAnimation[] _tweenAnimations;
+        private EcoTweenAnimation[] _tweenAnimations;
     
         [Button("Show All")]
         public void ShowAll()
@@ -25,7 +25,7 @@ namespace Eco.TweenAnimation
     
         private void Awake()
         {
-            _tweenAnimations = GetComponentsInChildren<TweenAnimation>();
+            _tweenAnimations = GetComponentsInChildren<EcoTweenAnimation>();
             this.RegisterScreenToggle();
         }
     

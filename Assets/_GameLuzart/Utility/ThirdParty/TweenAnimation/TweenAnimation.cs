@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System;
 using TMPro;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -16,11 +17,12 @@ namespace Luzart
                                                 typeAnimation == EAnimation.MoveLocal ||
                                                 typeAnimation == EAnimation.MoveAnchors ||
                                                 typeAnimation == EAnimation.Scale ||
-                                                typeAnimation == EAnimation.Rotation ||
                                                 typeAnimation == EAnimation.Euler ||
                                                 typeAnimation == EAnimation.SizeDelta ||
                                                 typeAnimation == EAnimation.AnchorMin ||
                                                 typeAnimation == EAnimation.AnchorMax;
+        public bool IsAnimationFloat => typeAnimation == EAnimation.FadeByCanvasGroup ||
+            typeAnimation == EAnimation.Float;
 
         protected override Tween DoShow()
         {
@@ -53,14 +55,14 @@ namespace Luzart
                 EAnimation.Move => new TweenAnimationMove(),
                 EAnimation.MoveLocal => new TweenAnimationMoveLocal(),
                 EAnimation.MoveAnchors => new TweenAnimationMoveAnchors(),
-                EAnimation.Rotation => new TweenAnimationRotation(),
                 EAnimation.Euler => new TweenAnimationEuler(),
                 EAnimation.Scale => new TweenAnimationScale(),
                 EAnimation.SizeDelta => new TweenAnimationSizeDelta(),
                 EAnimation.AnchorMin => new TweenAnimationAnchorMin(),
                 EAnimation.AnchorMax => new TweenAnimationAnchorMax(),
-                EAnimation.Fade => new TweenAnimationFade(),
-                EAnimation.TextMeshPro => new TweenAnimationTextMeshPro(),
+                EAnimation.FadeByCanvasGroup => new TweenAnimationFade(),
+                EAnimation.TextMeshProDOText => new TweenAnimationTextMeshPro(),
+                EAnimation.Float => new TweenAnimationFade(), // Float animation uses same logic as Fade
                 _ => null
             };
         }
@@ -71,6 +73,51 @@ namespace Luzart
             tweenAnimationSettings.Values.Vector3To = Vector3Int.one * -1;
             tweenAnimationSettings.Values.Vector3From = Vector3Int.one * -1;
         }
+
+        private void OnValidate()
+        {
+#if UNITY_EDITOR
+            if (tweenAnimationSettings == null || tweenAnimationSettings.General == null || tweenAnimationSettings.General.Target == null)
+            {
+                return;
+            }
+            AddTweenAnimation();
+#endif
+        }
+        private void Reset()
+        {
+            AddTweenAnimation();
+            tweenAnimationSettings.General.Target = gameObject;
+        }
+        private void AddTweenAnimation()
+        {
+            if (typeAnimation == EAnimation.FadeByCanvasGroup || typeAnimation == EAnimation.Float)
+            {
+                if (tweenAnimationSettings.General.Target is not CanvasGroup)
+                {
+                    GameObject go = tweenAnimationSettings.General.Target as GameObject;
+                    if (go == null)
+                    {
+                        var comp = tweenAnimationSettings.General.Target as Component;
+                        if (comp != null)
+                        {
+                            go = comp.gameObject;
+                        }
+                    }
+                    if(go == null)
+                    {
+                        throw new Exception("Tween Animation Fade: Target is not GameObject or Component");
+                    }
+                    var canvas = go.GetComponent<CanvasGroup>();
+                    if (canvas == null)
+                    {
+                        canvas = go.AddComponent<CanvasGroup>();
+                    }
+                    tweenAnimationSettings.General.Target = canvas;
+                }
+            }
+        }
+
     }
 
     #region Data Structures
@@ -111,7 +158,7 @@ namespace Luzart
     {
         public UnityEngine.Object Target;
         public float Duration = 1f;
-        public Ease Easing = Ease.OutQuart;
+        public Ease Easing = Ease.Linear;
         public bool IsIgnoreTimeScale = false;
     }
 
@@ -136,30 +183,29 @@ namespace Luzart
     [System.Serializable]
     public class TweenValueSettings
     {
+        public bool IsSetFromInInit = false;
+
+        public bool IsSetRuntimeFrom = false;
+        public bool IsSetRuntimeTo = false;
+
         [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3From = -Vector3Int.one;
-        public bool _isVector3FromDefault => Vector3From == -Vector3Int.one;
-        [ShowIfAll("../../IsAnimationVector3", true,
-            "_isVector3FromDefault",true)]
-        public bool IsSetRuntimeVector3From = false;
+        private bool _isVector3FromDefault => Vector3From == -Vector3Int.one;
 
         [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3To = -Vector3Int.one;
-        public bool _isVector3ToDefault => Vector3To == -Vector3Int.one;
-        [ShowIfAll("_isVector3ToDefault", true,
-            "../../IsAnimationVector3", true)]
-        public bool IsSetRuntimeVector3To = false;
+        private bool _isVector3ToDefault => Vector3To == -Vector3Int.one;
 
-        [ShowIf("../../typeAnimation", EAnimation.Fade)]
-        public float FloatFrom = 0f;
+        [ShowIf("../../IsAnimationFloat", true)]
+        public float FloatFrom = -1;
         
-        [ShowIf("../../typeAnimation", EAnimation.Fade)]
-        public float FloatTo = 1f;
+        [ShowIf("../../IsAnimationFloat", true)]
+        public float FloatTo = -1;
 
-        [ShowIf("../../typeAnimation", EAnimation.TextMeshPro)]
+        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
         public string StringFrom = "";
         
-        [ShowIf("../../typeAnimation", EAnimation.TextMeshPro)]
+        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
         [DisableIf("../General.Target", null)]
         public string StringTo = "";
 
@@ -186,14 +232,13 @@ namespace Luzart
         Move = 0,
         MoveLocal = 1,
         MoveAnchors = 2,
-        Rotation = 3,
         Euler = 4,
         Scale = 5,
         SizeDelta = 6,
         AnchorMin = 7,
         AnchorMax = 8,
-        Fade = 9,
-        TextMeshPro = 10,
+        FadeByCanvasGroup = 9,
+        TextMeshProDOText = 10,
         Float = 11,
     }
 

@@ -105,7 +105,7 @@ namespace Eco.TweenAnimation
 
         private void ToggleBase(bool isEnable)
         {
-            TweenAnimation animation = Base.GetComponent<TweenAnimation>();
+            EcoTweenAnimation animation = Base.GetComponent<EcoTweenAnimation>();
             if (animation != null && isEnable)
                 animation.Show();
             else if (animation == null && isEnable)
