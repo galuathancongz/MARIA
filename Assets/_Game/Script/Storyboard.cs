@@ -9,28 +9,28 @@ public class Storyboard : MonoBehaviour
     public List<StepAction> Steps;
 
     public int _currentStep;
-    [Sirenix.OdinInspector.ReadOnly] [SerializeField]int currentStoryboard = 0;
+    [ReadOnly] [SerializeField]int currentStoryboard = 0;
     public void InitStoryBoard(int index)
     {
         gameObject.SetActive(false);
-        DisableAllStep();
+        InitStepAction();
         this.currentStoryboard = index;
     }
-    private void DisableAllStep()
+    // Disable all steps at the beginning
+    private void InitStepAction()
     {
         for (int i = 0; i < Steps.Count; i++)
         {
             if( Steps[i] != null)
             {
-                Steps[i].SetActiveTarget(false);
-                Steps[i].gameObject.SetActive(false);
+                Steps[i].Initialize();
             }
         }
     }
     public Action<int> onDoneStoryBoard;
     public void StartStoryboard(Action<int> onComplete)
     {
-        DisableAllStep();
+        InitStepAction();
         _currentStep = 0;
         this.onDoneStoryBoard = onComplete;
         ExecuteCurrentStep(onComplete);
@@ -45,8 +45,7 @@ public class Storyboard : MonoBehaviour
         }
         if(_currentStep <= Steps.Count - 1)
         {
-            Steps[_currentStep].gameObject.SetActive(true);
-            Steps[_currentStep].SetActiveTarget(true);
+            Steps[_currentStep].PreExcute();
             Steps[_currentStep].Execute(result => HandleResult(result, onComplete));
         }
     }

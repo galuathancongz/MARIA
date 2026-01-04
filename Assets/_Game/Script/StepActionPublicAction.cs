@@ -9,4 +9,8 @@ public class StepActionPublicAction : StepAction
         onComplete?.Invoke(new ActionResult(actionResultType));
         gameObject.SetActive(isSetActiveAfter);
     }
+    private void OnValidate()
+    {
+        name = nameof(StepActionPublicAction);
+    }
 }

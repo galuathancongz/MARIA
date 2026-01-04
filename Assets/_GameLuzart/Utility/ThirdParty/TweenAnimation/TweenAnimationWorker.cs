@@ -12,6 +12,8 @@ namespace Luzart
         protected TweenAnimationSettings _settings;
         protected TweenAnimationSettings Settings => _settings;
 
+        ITweenSettings ITweenAnimation.Settings => Settings;
+
         void ITweenAnimation.InitSetting(TweenAnimationSettings settings)
         {
             DoInitSetting(settings);

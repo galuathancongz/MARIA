@@ -41,7 +41,7 @@ namespace Luzart
             {UIName.Level1,"1,0,UILevel1" },
             {UIName.Level2,"1,0,UILevel2" },
             {UIName.Level3,"1,0,UILevel3" },
-            {UIName.TutorialScene,"1,0,UITutorialScene" },
+            {UIName.Tutorial,"1,0,UITutorial" },
 
     };
 
@@ -331,7 +331,7 @@ namespace Luzart
         Level1 =11,
         Level2 = 12,
         Level3 = 13,
-        TutorialScene = 14,
+        Tutorial = 14,
     }
     public class DataUIBase
     {

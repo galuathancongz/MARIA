@@ -433,11 +433,13 @@ namespace Luzart
             if (value1 == null || value2 == null)
                 return false;
 
-            // Handle enum comparisons
+            // Handle enum comparisons more robustly
             if (value1 is int enumValue1 && value2 is Enum enumValue2)
                 return enumValue1 == Convert.ToInt32(enumValue2);
             if (value1 is Enum enumValue3 && value2 is int enumValue4)
                 return Convert.ToInt32(enumValue3) == enumValue4;
+            if (value1 is Enum enum1 && value2 is Enum enum2)
+                return Convert.ToInt32(enum1) == Convert.ToInt32(enum2);
 
             // Handle Unity Object references (including null checks)
             if (value1 is UnityEngine.Object unityObj1)

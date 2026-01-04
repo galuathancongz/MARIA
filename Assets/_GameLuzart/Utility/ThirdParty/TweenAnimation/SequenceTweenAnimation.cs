@@ -100,6 +100,63 @@ namespace Luzart
             {
                 sequenceSettings = new TweenSequenceSettings();
             }
+            ITweenSettings calculated = GetTweenAnimationSettings() as TweenSequenceSettings;
+            sequenceSettings.InitDuration(calculated.Duration);
+        }
+
+        public override ITweenSettings GetTweenAnimationSettings()
+        {
+            TweenSequenceSettings sq = sequenceSettings.Clone();
+
+            float duration = 0;
+            float lastAppendStart = 0;
+
+            foreach (var entry in tweenSequences)
+            {
+                if(entry == null || entry.TweenAnimation == null)
+                {
+                    continue;
+                }
+                ITweenSettings tweenSettings = entry.TweenAnimation.GetTweenAnimationSettings();
+                float dur = Mathf.Max(0f,tweenSettings.Duration);
+
+                switch (entry.SequenceType)
+                {
+                    case ESequenceType.Append:
+                        {
+                            float start = duration;
+                            float end = start + dur;
+
+                            lastAppendStart = start;
+                            duration = end;
+                            break;
+                        }
+
+                    case ESequenceType.Join:
+                        {
+                            float start = lastAppendStart;
+                            float end = start + dur;
+
+                            duration = Mathf.Max(duration, end);
+                            break;
+                        }
+
+                    case ESequenceType.Insert:
+                        {
+                            float start = Mathf.Max(0f, entry.InsertTime);
+                            float end = start + dur;
+                            if(end > duration)
+                            {
+                                duration = end;
+                            }
+                            lastAppendStart = entry.InsertTime;
+                            break;
+                        }
+                }
+            }
+
+            sq.InitDuration(duration);
+            return sq;
         }
 
         [System.Serializable]
@@ -117,24 +174,62 @@ namespace Luzart
             Insert
         }
     }
-    
+
     // Minimal settings for sequence animations with IgnoreTimeScale option
     [System.Serializable]
     public class TweenSequenceSettings : ITweenSettings
     {
+        [ReadOnly]
+        [SerializeField]
+        private float _duration = 0f;
+
         public bool IsIgnoreTimeScale = false;
-        
+
         public TweenTimingSettings Timing;
-        
+
         public TweenLoopSettings Loop;
 
         TweenTimingSettings ITweenSettings.Timing => Timing;
         TweenLoopSettings ITweenSettings.Loop => Loop;
 
+        float ITweenSettings.Duration
+        {
+            get
+            {
+                if(Loop.IsLoop)
+                {
+                    if(Loop.LoopCount < 0)
+                    {
+                        return float.MaxValue;
+                    }
+                    return Timing.DelayStart + (_duration + Timing.TimeDelayPreLoop + Timing.TimeDelayAfterLoop) * Loop.LoopCount;
+                }
+                else
+                {
+                    return Timing.DelayStart + _duration;
+                }
+            }
+        }
+
+        bool ITweenSettings.IgnoreTimeScale => IsIgnoreTimeScale;
+
         public TweenSequenceSettings()
         {
             Timing = new TweenTimingSettings();
             Loop = new TweenLoopSettings();
+        }
+        public void InitDuration(float dur)
+        {
+            _duration = dur;
+        }
+        public TweenSequenceSettings Clone()
+        {
+            TweenSequenceSettings clone = new TweenSequenceSettings();
+            clone._duration = this._duration;
+            clone.IsIgnoreTimeScale = this.IsIgnoreTimeScale;
+            clone.Timing = this.Timing;
+            clone.Loop = this.Loop;
+            return clone;
         }
     }
 }

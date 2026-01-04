@@ -842,7 +842,7 @@ GameObject:
   - component: {fileID: 5312251486193956407}
   - component: {fileID: 9117295359446888609}
   m_Layer: 5
-  m_Name: StepAction
+  m_Name: StepActionPublicAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10911,6 +10911,7 @@ MonoBehaviour:
   - {fileID: 8780243985672105494}
   actionResultType: 0
   isSetActiveAfter: 0
+  mode: 0
 --- !u!1 &5847548601129901789
 GameObject:
   m_ObjectHideFlags: 0

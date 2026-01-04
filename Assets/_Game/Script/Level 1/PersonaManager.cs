@@ -1,5 +1,7 @@
 ﻿using Sirenix.OdinInspector;
+using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace Luzart
@@ -81,6 +83,44 @@ namespace Luzart
                 type = type,
                 amount = amount
             });
+            Observer.Instance.Notify(ObserverKey.PersonaDataChange);
+        }
+        public int MaxPersonaPoint
+        {
+            get
+            {
+                int point = 1;
+                for (int i = 0; i < personaStats.Count; i++)
+                {
+                    if (point < personaStats[i].amount)
+                    {
+                        point = personaStats[i].amount;
+                    }
+                }
+                return point;
+            }
+        }
+        public bool IsUnlockedAllPersona
+        {
+            get
+            {
+                int lengthPersona = personaStats.Count;
+                int personaCount = Enum.GetValues(typeof(EPersonaType)).Length;
+                if(lengthPersona < personaCount)
+                {
+                    return false;
+                }
+                for (int i = 0; i < lengthPersona; i++)
+                {
+                    var persona = personaStats[i];
+                    if(persona.amount <= 0)
+                    {
+                        return false;
+                    }
+                }
+                return true;
+                
+            }
         }
 
     }
@@ -97,6 +137,5 @@ namespace Luzart
         Creative = 0,
         Logic = 1,
         Empathy = 2,
-        Structure = 3,
     }
 }

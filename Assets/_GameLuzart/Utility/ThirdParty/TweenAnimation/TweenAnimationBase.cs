@@ -8,6 +8,8 @@ namespace Luzart
     // Implements ITweenAnimation and provides base functionality for tween animations
     public abstract class TweenAnimationBase : MonoBehaviour, ITweenAnimation
     {
+        ITweenSettings ITweenAnimation.Settings => GetTweenAnimationSettings();
+        public abstract ITweenSettings GetTweenAnimationSettings();
         Tween ITweenAnimation.Show()
         {
             return DoShow();

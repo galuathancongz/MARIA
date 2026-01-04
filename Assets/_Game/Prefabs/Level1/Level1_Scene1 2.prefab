@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 3582508362917422260}
   - component: {fileID: 7953249728961774584}
   - component: {fileID: 289644554093475999}
-  - component: {fileID: 5788727291784205722}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -66,8 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Question 2: A student looks lost halfway through your lesson. What do
-    you do?'
+  m_text: "Question 3: The class feels flat. What\u2019s your go-to move?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -136,18 +134,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!225 &5788727291784205722
-CanvasGroup:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 512325506027639882}
-  m_Enabled: 1
-  m_Alpha: 1
-  m_Interactable: 1
-  m_BlocksRaycasts: 1
-  m_IgnoreParentGroups: 0
 --- !u!1 &852559966919770668
 GameObject:
   m_ObjectHideFlags: 0
@@ -160,7 +146,7 @@ GameObject:
   - component: {fileID: 5395209585041203293}
   - component: {fileID: 6780936872948644000}
   - component: {fileID: 220543633315505264}
-  - component: {fileID: 1368696835738278594}
+  - component: {fileID: 5806498063751866966}
   m_Layer: 5
   m_Name: Btn (2)
   m_TagString: Untagged
@@ -272,9 +258,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1368696835738278594}
-        m_TargetAssemblyTypeName: SaveLoadString, Assembly-CSharp
-        m_MethodName: OnClickFake
+      - m_Target: {fileID: 5806498063751866966}
+        m_TargetAssemblyTypeName: Luzart.PersonaPointComponent, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -284,7 +270,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1368696835738278594
+      - m_Target: {fileID: 3649380836888247646}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &5806498063751866966
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -293,11 +291,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 852559966919770668}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38cd805a5c79f94bb470dca0c56b7d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 0
-  arrayStepKey: []
+  stepKey: 1
+  personaType: 0
 --- !u!1 &1060729219610593245
 GameObject:
   m_ObjectHideFlags: 0
@@ -346,14 +344,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetStepAction: []
+  _targetStepAction:
+  - {fileID: 3660306288371249932}
   actionResultType: 0
   isSetActiveAfter: 0
-  txt: {fileID: 0}
-  str: Welcome to Level 1! It's time to reflect on who you are as a teacher/ Let's
-    start with how you respond to different teaching situations. These are not tests,
-    just glimpses into how you think and teach. You will see some classroom scenes
-    appear. Click the one that feels more natural to you.
+  txt: {fileID: 289644554093475999}
+  str: "Question 3: The class feels flat. What\u2019s your go-to move?"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
@@ -424,7 +420,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Recall how students reacted last time and adjust based on their needs '
+  m_text: "Pause for an open circle discussion: How\u2019s everyone feeling today? "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -677,8 +673,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _targetStepAction:
-  - {fileID: 2086443008482732975}
-  - {fileID: 3660306288371249932}
+  - {fileID: 7449231064740037112}
   actionResultType: 0
   isSetActiveAfter: 0
   twAnimation:
@@ -698,7 +693,7 @@ MonoBehaviour:
   typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 7908096699039911396}
+      Target: {fileID: 6552525413372513456}
       Duration: 0.5
       Easing: 6
       IsIgnoreTimeScale: 0
@@ -752,7 +747,6 @@ RectTransform:
   - {fileID: 2079161902501271907}
   - {fileID: 1577102655283444859}
   - {fileID: 7765947638461166156}
-  - {fileID: 8421250236714997180}
   m_Father: {fileID: 8472994650406765788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -794,8 +788,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 25.1373, y: 0}
+  m_SizeDelta: {x: -50.2747, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1112709556271550691
 CanvasRenderer:
@@ -825,7 +819,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Adaptability, student-centred, reflection
+  m_text: Emotional check-in, trust, connection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -959,7 +953,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Start with key learning objectives and build backwards from assessment
+  m_text: Quick recap quiz to re-focus attention with clear structure
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -1154,79 +1148,6 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
---- !u!1 &3942646621299298371
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8421250236714997180}
-  - component: {fileID: 8280594281821053174}
-  m_Layer: 5
-  m_Name: TwAnimText
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8421250236714997180
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942646621299298371}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 5698389287941888402}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8280594281821053174
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3942646621299298371}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeAnimation: 10
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 5788727291784205722}
-      Duration: 1
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: -1
-    Values:
-      IsSetFromInInit: 0
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
-      StringFrom: 
-      StringTo: 
 --- !u!1 &4912036644797431452
 GameObject:
   m_ObjectHideFlags: 0
@@ -1302,6 +1223,79 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &5022572404241583808
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4663530973394892198}
+  - component: {fileID: 7441209883348608784}
+  m_Layer: 5
+  m_Name: TweenAnim
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4663530973394892198
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022572404241583808}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7765947638461166156}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7441209883348608784
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5022572404241583808}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 7940153635402631701}
+      Duration: 0.5
+      Easing: 6
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 1
+      FloatTo: 0
+      StringFrom: 
+      StringTo: 
 --- !u!1 &5032331692212024802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1312,6 +1306,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4580845765792640254}
   - component: {fileID: 6247893043479483727}
+  - component: {fileID: 7940153635402631701}
   m_Layer: 5
   m_Name: Popup
   m_TagString: Untagged
@@ -1350,6 +1345,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5032331692212024802}
   m_CullTransparentMesh: 1
+--- !u!225 &7940153635402631701
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5032331692212024802}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5033248878914453040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1747,7 +1754,7 @@ GameObject:
   - component: {fileID: 5326970339159106339}
   - component: {fileID: 6495361726373107014}
   - component: {fileID: 2626761718315764107}
-  - component: {fileID: 7122872790579689256}
+  - component: {fileID: 3737492906526197240}
   m_Layer: 5
   m_Name: Btn
   m_TagString: Untagged
@@ -1859,9 +1866,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1368696835738278594}
-        m_TargetAssemblyTypeName: SaveLoadString, Assembly-CSharp
-        m_MethodName: OnClickFake
+      - m_Target: {fileID: 3737492906526197240}
+        m_TargetAssemblyTypeName: Luzart.PersonaPointComponent, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -1871,7 +1878,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &7122872790579689256
+      - m_Target: {fileID: 3649380836888247646}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &3737492906526197240
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1880,11 +1899,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5711976282376106363}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38cd805a5c79f94bb470dca0c56b7d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 0
-  arrayStepKey: []
+  stepKey: 1
+  personaType: 1
 --- !u!1 &5871014289821753160
 GameObject:
   m_ObjectHideFlags: 0
@@ -1897,7 +1916,7 @@ GameObject:
   - component: {fileID: 8584166437990494039}
   - component: {fileID: 3766898799393552433}
   - component: {fileID: 8449600308992237854}
-  - component: {fileID: 1076418415693690375}
+  - component: {fileID: 538850396171875679}
   m_Layer: 5
   m_Name: Btn (1)
   m_TagString: Untagged
@@ -2009,9 +2028,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1368696835738278594}
-        m_TargetAssemblyTypeName: SaveLoadString, Assembly-CSharp
-        m_MethodName: OnClickFake
+      - m_Target: {fileID: 538850396171875679}
+        m_TargetAssemblyTypeName: Luzart.PersonaPointComponent, Assembly-CSharp
+        m_MethodName: OnClick
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2021,7 +2040,19 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
---- !u!114 &1076418415693690375
+      - m_Target: {fileID: 3649380836888247646}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+--- !u!114 &538850396171875679
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2030,11 +2061,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 5871014289821753160}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b38cd805a5c79f94bb470dca0c56b7d6, type: 3}
+  m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 0
-  arrayStepKey: []
+  stepKey: 1
+  personaType: 2
 --- !u!1 &5912984680458465239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2179,7 +2210,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7765947638461166156}
   - component: {fileID: 2648813539515156934}
-  - component: {fileID: 654830041845182344}
+  - component: {fileID: 9016770606677269045}
   m_Layer: 5
   m_Name: TwAnimStepAction (1)
   m_TagString: Untagged
@@ -2198,7 +2229,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4663530973394892198}
   m_Father: {fileID: 5698389287941888402}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -2218,14 +2250,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetStepAction:
-  - {fileID: 5974322201374994981}
-  - {fileID: 3660306288371249932}
+  _targetStepAction: []
   actionResultType: 0
   isSetActiveAfter: 0
   twAnimation:
-  - {fileID: 654830041845182344}
---- !u!114 &654830041845182344
+  - {fileID: 9016770606677269045}
+--- !u!114 &9016770606677269045
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -2234,16 +2264,16 @@ MonoBehaviour:
   m_GameObject: {fileID: 5974322201374994981}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: 307604cd2247e0b4188afb83c7ec017c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 9
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 7908096699039911396}
-      Duration: 0.5
-      Easing: 6
-      IsIgnoreTimeScale: 0
+  tweenSequences:
+  - TweenAnimation: {fileID: 7441209883348608784}
+    SequenceType: 1
+    InsertTime: 0
+  sequenceSettings:
+    _duration: 0.5
+    IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
       TimeDelayPreLoop: 0
@@ -2251,17 +2281,7 @@ MonoBehaviour:
     Loop:
       IsLoop: 0
       LoopType: 0
-      LoopCount: -1
-    Values:
-      IsSetFromInInit: 1
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: 1
-      FloatTo: 0
-      StringFrom: 
-      StringTo: 
+      LoopCount: 0
 --- !u!1 &6725911640531656636
 GameObject:
   m_ObjectHideFlags: 0
@@ -2273,7 +2293,7 @@ GameObject:
   - component: {fileID: 1577102655283444859}
   - component: {fileID: 3649380836888247646}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: StepActionPublicAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2378,7 +2398,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Think of a compelling story, theme or visual book to introduce the topic
+  m_text: Throw in a spontaneous role play game to lighten the mood
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -2493,8 +2513,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3115043285549450341}
+  - component: {fileID: 6552525413372513456}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: ContentAnswer
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2522,6 +2543,18 @@ RectTransform:
   m_AnchoredPosition: {x: 15.694702, y: -132}
   m_SizeDelta: {x: 1398.7356, y: 435.2219}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!225 &6552525413372513456
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7449231064740037112}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7454485504629275870
 GameObject:
   m_ObjectHideFlags: 0
@@ -2686,7 +2719,7 @@ GameObject:
   - component: {fileID: 4219293310432015041}
   - component: {fileID: 7860128097155547489}
   m_Layer: 5
-  m_Name: L1_S1 1
+  m_Name: Level1_Scene1 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2785,8 +2818,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 23.6072, y: 0}
+  m_SizeDelta: {x: -47.2142, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7964059918668176200
 CanvasRenderer:
@@ -2816,7 +2849,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Narrative, Design, Engagement
+  m_text: Fun, Play, Novelty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -2919,8 +2952,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 24.0466, y: 0}
+  m_SizeDelta: {x: -48.0932, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3284891245318854644
 CanvasRenderer:
@@ -2950,7 +2983,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Structure, Outcomes, Planning
+  m_text: Control, Pacing, Focus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}

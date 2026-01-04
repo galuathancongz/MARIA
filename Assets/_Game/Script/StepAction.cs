@@ -21,7 +21,17 @@ public class StepAction : MonoBehaviour
             return _targetStepAction;
         }
     }
-    public void SetActiveTarget(bool isActive)
+    public virtual void Initialize()
+    {
+        this.gameObject.SetActive(false);
+        SetActiveTarget(false);
+    }
+    public virtual void PreExcute()
+    {
+        this.gameObject.SetActive(true);
+        SetActiveTarget(true);
+    }
+    private void SetActiveTarget(bool isActive)
     {
         if (TargetStepAction != null)
         {

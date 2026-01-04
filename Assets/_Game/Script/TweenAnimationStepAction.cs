@@ -11,7 +11,7 @@ namespace Luzart
     public class TweenAnimationStepAction : StepAction
     {
         private Tween tw;
-        public TweenAnimation[] twAnimation;
+        public TweenAnimationBase[] twAnimation;
         public override void Execute(Action<ActionResult> _onComplete)
         {
             base.Execute(_onComplete);
@@ -20,7 +20,8 @@ namespace Luzart
             for (int i = 0; i < length; i++)
             {
                 twAnimation[i].Show();
-                float duration = twAnimation[i].TweenAnimationSettings.General.Duration + twAnimation[i].TweenAnimationSettings.Timing.DelayStart;
+                ITweenAnimation tweenAnimation = twAnimation[i];
+                float duration = tweenAnimation.Settings.Duration;
                 if (time < duration)
                 {
                     time = duration;

@@ -11,7 +11,6 @@ namespace Luzart
     {
         [SerializeField] private EAnimation typeAnimation;
         [SerializeField] private TweenAnimationSettings tweenAnimationSettings = new TweenAnimationSettings();
-        public TweenAnimationSettings TweenAnimationSettings => tweenAnimationSettings;
         private ITweenAnimation _currentTweenAnimation;
         public bool IsAnimationVector3 => typeAnimation == EAnimation.Move ||
                                                 typeAnimation == EAnimation.MoveLocal ||
@@ -118,6 +117,10 @@ namespace Luzart
             }
         }
 
+        public override ITweenSettings GetTweenAnimationSettings()
+        {
+            return tweenAnimationSettings;
+        }
     }
 
     #region Data Structures
@@ -125,6 +128,8 @@ namespace Luzart
     // Interface for all settings types
     public interface ITweenSettings
     {
+        public float Duration { get; }
+        public bool IgnoreTimeScale { get; }
         TweenTimingSettings Timing { get; }
         TweenLoopSettings Loop { get; }
     }
@@ -143,6 +148,27 @@ namespace Luzart
 
         TweenTimingSettings ITweenSettings.Timing => Timing;
         TweenLoopSettings ITweenSettings.Loop => Loop;
+
+        float ITweenSettings.Duration
+        {
+            get
+            {
+                if(Loop.IsLoop)
+                {
+                    if (Loop.LoopCount < 0)
+                    {
+                        return float.MaxValue;
+                    }
+                    return Timing.DelayStart + (General.Duration + Timing.TimeDelayPreLoop + Timing.TimeDelayAfterLoop) * Loop.LoopCount;
+                }
+                else
+                {
+                    return Timing.DelayStart + General.Duration;
+                }
+            }
+        }
+
+        public bool IgnoreTimeScale => General.IsIgnoreTimeScale;
 
         public TweenAnimationSettings()
         {
@@ -163,21 +189,21 @@ namespace Luzart
     }
 
     [System.Serializable]
-    public class TweenTimingSettings
+    public struct TweenTimingSettings
     {
-        public float DelayStart = 0f;
+        public float DelayStart;
         [ShowIf("../Loop.IsLoop", true)]
-        public float TimeDelayPreLoop = 0f;
+        public float TimeDelayPreLoop;
         [ShowIf("../Loop.IsLoop", true)]
-        public float TimeDelayAfterLoop = 0f;
+        public float TimeDelayAfterLoop;
     }
 
     [System.Serializable]
-    public class TweenLoopSettings
+    public struct TweenLoopSettings
     {
-        public bool IsLoop = false;
-        public LoopType LoopType = LoopType.Restart;
-        public int LoopCount = -1;
+        public bool IsLoop;
+        public LoopType LoopType;
+        public int LoopCount;
     }
 
     [System.Serializable]
@@ -202,10 +228,10 @@ namespace Luzart
         [ShowIf("../../IsAnimationFloat", true)]
         public float FloatTo = -1;
 
-        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
+        [ShowIf("../../../typeAnimation", EAnimation.TextMeshProDOText)]
         public string StringFrom = "";
         
-        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
+        [ShowIf("../../../typeAnimation", EAnimation.TextMeshProDOText)]
         [DisableIf("../General.Target", null)]
         public string StringTo = "";
 
@@ -248,6 +274,7 @@ namespace Luzart
 
     public interface ITweenAnimation : IDisposable
     {
+        ITweenSettings Settings { get; }
         void InitSetting(TweenAnimationSettings settings);
         Tween Show();
     }

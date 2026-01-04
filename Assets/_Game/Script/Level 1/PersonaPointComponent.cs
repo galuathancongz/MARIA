@@ -6,7 +6,13 @@ namespace Luzart
 {
 	public class PersonaPointComponent : MonoBehaviour
 	{
-		public void AddPersonaPoint(StepKey stepKey, EPersonaType personaType)
+		[SerializeField] private StepKey stepKey;
+		[SerializeField] private EPersonaType personaType;
+		public void OnClick()
+		{
+			AddPersonaPoint(stepKey, personaType);
+        }
+        public void AddPersonaPoint(StepKey stepKey, EPersonaType personaType)
 		{
 			var persona = PersonaManager.Instance.GetPersonaByStepKey(stepKey);
 			if(persona == null)
