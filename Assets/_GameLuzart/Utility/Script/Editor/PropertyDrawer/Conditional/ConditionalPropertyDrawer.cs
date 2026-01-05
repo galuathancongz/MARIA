@@ -309,7 +309,7 @@ namespace Luzart
                 case SerializedPropertyType.String:
                     return property.stringValue;
                 case SerializedPropertyType.Enum:
-                    return property.enumValueIndex;
+                    return property.enumValueFlag;
                 case SerializedPropertyType.ObjectReference:
                     return property.objectReferenceValue;
                 case SerializedPropertyType.Vector2:
