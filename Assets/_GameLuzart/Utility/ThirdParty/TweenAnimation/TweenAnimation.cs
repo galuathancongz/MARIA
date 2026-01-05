@@ -228,10 +228,10 @@ namespace Luzart
         [ShowIf("../../IsAnimationFloat", true)]
         public float FloatTo = -1;
 
-        [ShowIf("../../../typeAnimation", EAnimation.TextMeshProDOText)]
+        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
         public string StringFrom = "";
         
-        [ShowIf("../../../typeAnimation", EAnimation.TextMeshProDOText)]
+        [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
         [DisableIf("../General.Target", null)]
         public string StringTo = "";
 
