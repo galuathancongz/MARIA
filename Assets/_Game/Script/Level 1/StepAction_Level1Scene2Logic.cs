@@ -11,7 +11,7 @@ namespace Luzart
         public override void Execute(Action<ActionResult> _onComplete)
         {
             base.Execute(_onComplete);
-            if (DataManager.Instance.GameData.personaData.IsUnlockedAllPersona)
+            if (PersonaManager.Instance.Data.IsUnlockedAllPersona)
             {
                 stepActionSwitch.UseStep(0);
             }

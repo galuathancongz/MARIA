@@ -258,6 +258,7 @@ namespace Luzart
         Move = 0,
         MoveLocal = 1,
         MoveAnchors = 2,
+        Float = 3,
         Euler = 4,
         Scale = 5,
         SizeDelta = 6,
@@ -265,7 +266,6 @@ namespace Luzart
         AnchorMax = 8,
         FadeByCanvasGroup = 9,
         TextMeshProDOText = 10,
-        Float = 11,
     }
 
     #endregion

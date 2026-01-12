@@ -60,6 +60,14 @@ namespace Luzart
             }
         }
 
+        private void Reset()
+        {
+            if(tweenAnimation == null)
+            {
+                tweenAnimation = GetComponent<TweenAnimation>();
+            }
+        }
+
         /// <summary>
         /// Manually trigger the animation
         /// </summary>

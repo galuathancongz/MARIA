@@ -11,6 +11,7 @@ public class StepActionPublicAction : StepAction
     }
     private void OnValidate()
     {
-        name = nameof(StepActionPublicAction);
+        if(!name.Contains(nameof(StepActionPublicAction)))
+            name = nameof(StepActionPublicAction);
     }
 }

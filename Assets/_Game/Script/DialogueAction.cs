@@ -31,7 +31,12 @@ public class DialogueAction : StepAction
         }
         txt.text = string.Empty;
     }
+    public override void PreExcute()
+    {
+        base.PreExcute();
+        txt.text = string.Empty;
 
+    }
     protected Tween _typingTween;
 
     public override void Execute(Action<ActionResult> _onComplete)

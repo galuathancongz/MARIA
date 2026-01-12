@@ -63,5 +63,6 @@ namespace Luzart
 		Level1_Scene3_3 = 11,
 		Level1_Scene3_4 = 12,
         Level1_Scene3_5 = 13,
+        Level1_Scene3_6 = 14,
     }
 }

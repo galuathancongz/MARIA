@@ -8,6 +8,20 @@
     public class ProgressBarUI : MonoBehaviour
     {
         public Image imFill;
+        protected float _prePercent = -1f;
+        public virtual void SetSliderCache(float targetPercent, float time, Action onDone = null, Action<float> actionUpdate = null)
+        {
+            bool isFirst = (Mathf.Approximately(_prePercent, -1f));
+            if (isFirst)
+            {
+                SetSlider(targetPercent, targetPercent, 0, onDone, actionUpdate);
+            }
+            else
+            {
+                SetSlider(_prePercent, targetPercent, time, onDone, actionUpdate);
+            }
+            _prePercent = targetPercent;
+        }
         public virtual void SetSlider(float prePercent, float targetPercent, float time = 0, Action onDone = null, Action<float> actionUpdate = null)
         {
             DestroyPreProgress();
@@ -60,5 +74,13 @@
             this.DOKill(true);
             GameUtil.Instance.StopAllCoroutinesForBehaviour(this);
         }
+    }
+    public interface IProgressBar
+    {
+        void SetSlider();
+    }
+    public interface IProgressBarT<T>
+    {
+        T SetSlider();
     }
 }

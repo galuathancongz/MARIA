@@ -6,26 +6,30 @@ using UnityEngine;
 public class ProgressUser : MonoBehaviour
 {
     public List<ProgressBarUI> listProgressBar = new List<ProgressBarUI>();
-    private void Awake()
+    private void OnEnable()
     {
         Observer.Instance.AddObserver(ObserverKey.PersonaDataChange, OnChangeProgress);
+        OnChangeProgress();
     }
-    private void OnDestroy()
+    private void OnDisable()
     {
         Observer.Instance.RemoveObserver(ObserverKey.PersonaDataChange, OnChangeProgress);
     }
-    private void OnChangeProgress(object data)
+    
+    private void OnChangeProgress(object data = null)
     {
-        float max = DataManager.Instance.GameData.personaData.MaxPersonaPoint;
+
+        float maxDict = PersonaManager.Instance.Data.MaxPersonaPoint;
+        float max = Mathf.Max(maxDict, 1);
         int length = listProgressBar.Count;
         for (int i = 0; i < length; i++)
         {
             int index = i;
             EPersonaType eType = (EPersonaType)index;
             var progressBar = listProgressBar[i];
-            float current = DataManager.Instance.GameData.personaData.GetPersonaAmount(eType);
+            float current = PersonaManager.Instance.Data.GetPersonaAmount(eType);
             float percentCurrent = current / max;
-            progressBar.SetSlider(percentCurrent, percentCurrent);
+            progressBar.SetSliderCache(percentCurrent, 0.2f);
         }
     }
 }

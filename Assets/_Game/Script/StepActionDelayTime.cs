@@ -26,5 +26,9 @@ public class StepActionDelayTime : StepAction
     {
         tweener?.Kill(true);    
     }
-
+    private void OnValidate()
+    {
+        if (!name.Contains(nameof(StepActionDelayTime)))
+            name = nameof(StepActionDelayTime);
+    }
 }

@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using UnityEditor;
 using UnityEngine;
 
 namespace Luzart
@@ -51,18 +52,20 @@ namespace Luzart
         [SerializeField]
         [ReadOnly]
         private List<PersonaStat> personaStats = new List<PersonaStat>();
+        
         public IReadOnlyList<PersonaStat> PersonaStats => personaStats;
+        
         public int GetPersonaAmount(EPersonaType type)
         {
-            int length = personaStats.Count;
-            for (int i = 0; i < length; i++)
+            var dict = GetDictPersona();
+            if (dict.ContainsKey(type))
             {
-                if (personaStats[i].type == type)
-                {
-                    return personaStats[i].amount;
-                }
+                return dict[type];
             }
-            return 0;
+            else
+            {
+                return 0;
+            }
         }
         public void SetPersonalAmount(StepKey stepKey, EPersonaType type, int amount)
         {
@@ -89,40 +92,51 @@ namespace Luzart
         {
             get
             {
-                int point = 1;
-                for (int i = 0; i < personaStats.Count; i++)
+                var dict = GetDictPersona();
+                if(dict.Count == 0)
                 {
-                    if (point < personaStats[i].amount)
-                    {
-                        point = personaStats[i].amount;
-                    }
+                    return 0;
                 }
-                return point;
+                int maxPointDict = dict.Max(x=>x.Value);
+                return maxPointDict;
             }
         }
         public bool IsUnlockedAllPersona
         {
             get
             {
-                int lengthPersona = personaStats.Count;
-                int personaCount = Enum.GetValues(typeof(EPersonaType)).Length;
-                if(lengthPersona < personaCount)
+                var dict = GetDictPersona();
+                var allValue = dict.Select(x => x.Value).ToList();
+                var countValueInEnum = Enum.GetValues(typeof(EPersonaType)).Length;
+                if (allValue.Count < countValueInEnum)
                 {
                     return false;
                 }
-                for (int i = 0; i < lengthPersona; i++)
+                foreach(var item in allValue)
                 {
-                    var persona = personaStats[i];
-                    if(persona.amount <= 0)
+                    if(item < 1)
                     {
                         return false;
                     }
                 }
                 return true;
-                
             }
         }
-
+        private Dictionary<EPersonaType, int> GetDictPersona()
+        {
+            Dictionary<EPersonaType, int> dict = new Dictionary<EPersonaType, int>();
+            int length = personaStats.Count;
+            for (int i = 0; i < length; i++)
+            {
+                var persona = personaStats[i];
+                if (!dict.ContainsKey(persona.type))
+                {
+                    dict[persona.type] = 0;
+                }
+                dict[persona.type] += persona.amount;
+            }
+            return dict;
+        }
     }
     [System.Serializable]
     public struct PersonaStat
@@ -135,7 +149,7 @@ namespace Luzart
     public enum EPersonaType
     {
         Creative = 0,
-        Logic = 1,
+        LogicOrStruct = 1,
         Empathy = 2,
     }
 }
