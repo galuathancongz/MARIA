@@ -247,7 +247,7 @@ namespace Luzart
                 ObjectNames.NicifyVariableName(method.Name);
             
             ParameterInfo[] parameters = method.GetParameters();
-            string methodKey = $"{target.GetType().Name}.{method.Name}";
+            string methodKey = $"{target.GetInstanceID()}.{method}";
             
             // Initialize parameter storage if not exists
             if (!methodParameters.ContainsKey(methodKey))
