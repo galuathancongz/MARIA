@@ -140,6 +140,154 @@ namespace Luzart
         }
     }
 
+    /// <summary>
+    /// Generic base class for tween animations that reduces code duplication
+    /// </summary>
+    /// <typeparam name="T">The component type to animate</typeparam>
+    public abstract class TweenAnimationWorker<T> : TweenAnimationWorker where T : Component
+    {
+        // Constants to avoid magic numbers
+        protected static readonly Vector3 DEFAULT_VECTOR3 = Vector3.one * -1;
+        protected const float DEFAULT_FLOAT = -1f;
+
+        private T _target;
+        
+        /// <summary>
+        /// Cached target component with lazy initialization
+        /// </summary>
+        protected T Target
+        {
+            get
+            {
+                if (_target == null)
+                {
+                    _target = GetTargetComponent();
+                }
+                return _target;
+            }
+        }
+
+        /// <summary>
+        /// Get the target component. Override if you need GetOrAddTargetComponent behavior
+        /// </summary>
+        protected virtual T GetTargetComponent()
+        {
+            return base.GetTargetComponent<T>();
+        }
+
+        protected override void DoInitSetting(TweenAnimationSettings settings)
+        {
+            base.DoInitSetting(settings);
+            SetDefaultValues(false);
+            ApplyFromValue(false);
+        }
+
+        protected override void DoDispose()
+        {
+            base.DoDispose();
+            _target = null; // Clear cached target reference
+        }
+
+        protected override Tween DoShow()
+        {
+            if (Target == null)
+            {
+                Debug.LogWarning($"{GetType().Name}: Target {typeof(T).Name} is null");
+                return null;
+            }
+
+            _tweener = CreateBaseTween();
+            
+            // Create the specific tween sequence
+            Sequence tweenSequence = DOTween.Sequence();
+            tweenSequence.AppendCallback(() =>
+            {
+                SetDefaultValues(true);
+                ApplyFromValue(true);
+            });
+            
+            // Add the specific animation tween
+            var animationTween = CreateAnimationTween();
+            if (animationTween != null)
+            {
+                tweenSequence.Append(animationTween);
+            }
+
+            AppendTweenToSequence(tweenSequence);
+            _tweener.SetTarget(Target);
+            return _tweener;
+        }
+
+        /// <summary>
+        /// Create the specific animation tween (DOMove, DOScale, etc.)
+        /// </summary>
+        protected abstract Tween CreateAnimationTween();
+
+        /// <summary>
+        /// Set default values based on current component state
+        /// </summary>
+        protected abstract void SetDefaultValues(bool isRuntime);
+
+        /// <summary>
+        /// Apply the 'from' value to the component if needed
+        /// </summary>
+        protected abstract void ApplyFromValue(bool isRuntime);
+    }
+
+    /// <summary>
+    /// Base class for Vector3-based animations (position, scale, rotation, etc.)
+    /// </summary>
+    /// <typeparam name="T">The component type to animate</typeparam>
+    public abstract class Vector3TweenAnimationWorker<T> : TweenAnimationWorker<T> where T : Component
+    {
+        protected override void SetDefaultValues(bool isRuntime)
+        {
+            if (Settings.Values.GetVector3From() == DEFAULT_VECTOR3)
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
+                {
+                    Settings.Values.Vector3From = GetCurrentVector3Value();
+                }
+            }
+            if (Settings.Values.GetVector3To() == DEFAULT_VECTOR3)
+            {
+                if (isRuntime == Settings.Values.IsSetRuntimeTo)
+                {
+                    Settings.Values.Vector3To = GetCurrentVector3Value();
+                }
+            }
+        }
+
+        protected override void ApplyFromValue(bool isRuntime)
+        {
+            if (isRuntime == Settings.Values.IsSetFromInInit)
+            {
+                SetVector3Value(Settings.Values.GetVector3From());
+            }
+        }
+
+        protected override Tween CreateAnimationTween()
+        {
+            return CreateVector3Tween(Settings.Values.GetVector3To(), Settings.General.Duration)
+                .SetEase(Settings.General.Easing);
+        }
+
+        /// <summary>
+        /// Get the current Vector3 value from the component (position, scale, etc.)
+        /// </summary>
+        protected abstract Vector3 GetCurrentVector3Value();
+
+        /// <summary>
+        /// Set the Vector3 value on the component
+        /// </summary>
+        protected abstract void SetVector3Value(Vector3 value);
+
+        /// <summary>
+        /// Create the specific Vector3 tween (DOMove, DOScale, etc.)
+        /// </summary>
+        protected abstract Tween CreateVector3Tween(Vector3 targetValue, float duration);
+    }
+
     public static class TweenSettingsHelper
     {
         public static Sequence CreateBaseTween(ITweenSettings settings, bool ignoreTimeScale = false)
@@ -173,640 +321,91 @@ namespace Luzart
 
     #region Vector3 Based Animations
 
-    public class TweenAnimationMove : TweenAnimationWorker
+    public class TweenAnimationMove : Vector3TweenAnimationWorker<Transform>
     {
-        private Transform _target;
-        private Transform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationMove: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenMove = DOTween.Sequence();
-            tweenMove.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenMove.Append(Target.DOMove(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenMove);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.position;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.position;
-                }
-            }
-        }
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.position = Settings.Values.GetVector3From();
-
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.position;
+        protected override void SetVector3Value(Vector3 value) => Target.position = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOMove(targetValue, duration);
     }
 
-    public class TweenAnimationMoveLocal : TweenAnimationWorker
+    public class TweenAnimationMoveLocal : Vector3TweenAnimationWorker<Transform>
     {
-        private Transform _target;
-        private Transform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationMoveLocal: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenMove = DOTween.Sequence();
-            tweenMove.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenMove.Append(Target.DOLocalMove(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenMove);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.localPosition;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.localPosition;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.localPosition = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.localPosition;
+        protected override void SetVector3Value(Vector3 value) => Target.localPosition = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOLocalMove(targetValue, duration);
     }
 
-    public class TweenAnimationMoveAnchors : TweenAnimationWorker
+    public class TweenAnimationMoveAnchors : Vector3TweenAnimationWorker<RectTransform>
     {
-        private RectTransform _target;
-        private RectTransform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<RectTransform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationMoveAnchors: Target RectTransform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenMove = DOTween.Sequence();
-            tweenMove.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenMove.Append(Target.DOAnchorPos(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenMove);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.anchoredPosition;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.anchoredPosition;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.anchoredPosition = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.anchoredPosition;
+        protected override void SetVector3Value(Vector3 value) => Target.anchoredPosition = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOAnchorPos(targetValue, duration);
     }
 
-    public class TweenAnimationScale : TweenAnimationWorker
+    public class TweenAnimationScale : Vector3TweenAnimationWorker<Transform>
     {
-        private Transform _target;
-        private Transform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationScale: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenScale = DOTween.Sequence();
-            tweenScale.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenScale.Append(Target.DOScale(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                   .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenScale);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.localScale;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.localScale;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.localScale = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.localScale;
+        protected override void SetVector3Value(Vector3 value) => Target.localScale = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOScale(targetValue, duration);
     }
 
-    public class TweenAnimationEuler : TweenAnimationWorker
+    public class TweenAnimationEuler : Vector3TweenAnimationWorker<Transform>
     {
-        private Transform _target;
-        private Transform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<Transform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationEuler: Target Transform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenRotation = DOTween.Sequence();
-            tweenRotation.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenRotation.Append(Target.DORotate(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                      .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenRotation);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.eulerAngles;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.eulerAngles;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.eulerAngles = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.eulerAngles;
+        protected override void SetVector3Value(Vector3 value) => Target.eulerAngles = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DORotate(targetValue, duration);
     }
 
-    public class TweenAnimationSizeDelta : TweenAnimationWorker
+    public class TweenAnimationSizeDelta : Vector3TweenAnimationWorker<RectTransform>
     {
-        private RectTransform _target;
-        private RectTransform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<RectTransform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationSizeDelta: Target RectTransform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenSize = DOTween.Sequence();
-            tweenSize.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenSize.Append(Target.DOSizeDelta(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenSize);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.sizeDelta;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.sizeDelta;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.sizeDelta = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.sizeDelta;
+        protected override void SetVector3Value(Vector3 value) => Target.sizeDelta = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOSizeDelta(targetValue, duration);
     }
 
-    public class TweenAnimationAnchorMin : TweenAnimationWorker
+    public class TweenAnimationAnchorMin : Vector3TweenAnimationWorker<RectTransform>
     {
-        private RectTransform _target;
-        private RectTransform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<RectTransform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationAnchorMin: Target RectTransform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenAnchor = DOTween.Sequence();
-            tweenAnchor.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenAnchor.Append(Target.DOAnchorMin(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                    .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenAnchor);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.anchorMin;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.anchorMin;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.anchorMin = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.anchorMin;
+        protected override void SetVector3Value(Vector3 value) => Target.anchorMin = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOAnchorMin(targetValue, duration);
     }
 
-    public class TweenAnimationAnchorMax : TweenAnimationWorker
+    public class TweenAnimationAnchorMax : Vector3TweenAnimationWorker<RectTransform>
     {
-        private RectTransform _target;
-        private RectTransform Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<RectTransform>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationAnchorMax: Target RectTransform is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenAnchor = DOTween.Sequence();
-            tweenAnchor.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenAnchor.Append(Target.DOAnchorMax(Settings.Values.GetVector3To(), Settings.General.Duration)
-                                    .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenAnchor);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            if (Settings.Values.GetVector3From() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeFrom)
-                {
-                    Settings.Values.Vector3From = Target.anchorMax;
-                }
-            }
-            if (Settings.Values.GetVector3To() == Vector3Int.one * -1)
-            {
-                if (isRuntime == Settings.Values.IsSetRuntimeTo)
-                {
-                    Settings.Values.Vector3To = Target.anchorMax;
-                }
-            }
-        }
-
-        private void SetValueFrom(bool isRuntime)
-        {
-            if (isRuntime == Settings.Values.IsSetFromInInit)
-            {
-                Target.anchorMax = Settings.Values.GetVector3From();
-            }
-        }
+        protected override Vector3 GetCurrentVector3Value() => Target.anchorMax;
+        protected override void SetVector3Value(Vector3 value) => Target.anchorMax = value;
+        protected override Tween CreateVector3Tween(Vector3 targetValue, float duration) => 
+            Target.DOAnchorMax(targetValue, duration);
     }
 
     #endregion
 
     #region Float Based Animations
 
-    public class TweenAnimationFade : TweenAnimationWorker
+    public class TweenAnimationFade : TweenAnimationWorker<CanvasGroup>
     {
-        private CanvasGroup _target;
-        private CanvasGroup Target
+        protected override CanvasGroup GetTargetComponent()
         {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetOrAddTargetComponent<CanvasGroup>();
-                }
-                return _target;
-            }
+            return GetOrAddTargetComponent<CanvasGroup>();
         }
 
-        protected override void DoInitSetting(TweenAnimationSettings settings)
+        protected override void SetDefaultValues(bool isRuntime)
         {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationFade: Target CanvasGroup is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenFade = DOTween.Sequence();
-            tweenFade.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenFade.Append(Target.DOFade(Settings.Values.GetFloatTo(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenFade);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
-        {
-            // For float values, we don't use -1 as default, instead we use the current alpha value
-            if (Mathf.Approximately(Settings.Values.GetFloatFrom(), -1))
+            if (Mathf.Approximately(Settings.Values.GetFloatFrom(), DEFAULT_FLOAT))
             {
                 if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
                     Settings.Values.FloatFrom = Target.alpha;
                 }
             }
-            if (Mathf.Approximately(Settings.Values.GetFloatTo(), -1))
+            if (Mathf.Approximately(Settings.Values.GetFloatTo(), DEFAULT_FLOAT))
             {
                 if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
@@ -815,7 +414,7 @@ namespace Luzart
             }
         }
 
-        private void SetValueFrom(bool isRuntime)
+        protected override void ApplyFromValue(bool isRuntime)
         {
             if (isRuntime != Settings.Values.IsSetFromInInit)
             {
@@ -823,58 +422,21 @@ namespace Luzart
                 Target.alpha = from;
             }
         }
+
+        protected override Tween CreateAnimationTween()
+        {
+            return Target.DOFade(Settings.Values.GetFloatTo(), Settings.General.Duration)
+                .SetEase(Settings.General.Easing);
+        }
     }
 
     #endregion
 
     #region Text Based Animations
 
-    public class TweenAnimationTextMeshPro : TweenAnimationWorker
+    public class TweenAnimationTextMeshPro : TweenAnimationWorker<TextMeshProUGUI>
     {
-        private TextMeshProUGUI _target;
-        private TextMeshProUGUI Target
-        {
-            get
-            {
-                if (_target == null)
-                {
-                    _target = GetTargetComponent<TextMeshProUGUI>();
-                }
-                return _target;
-            }
-        }
-
-        protected override void DoInitSetting(TweenAnimationSettings settings)
-        {
-            base.DoInitSetting(settings);
-            SetSettingsDefaultFromTo(false);
-            SetValueFrom(false);
-        }
-
-        protected override Tween DoShow()
-        {
-            if (Target == null)
-            {
-                Debug.LogWarning("TweenAnimationTextMeshPro: Target TextMeshProUGUI is null");
-                return null;
-            }
-
-            _tweener = CreateBaseTween();
-            Sequence tweenText = DOTween.Sequence();
-            tweenText.AppendCallback(() =>
-            {
-                SetSettingsDefaultFromTo(true);
-                SetValueFrom(true);
-            });
-            tweenText.Append(Target.DOText(Settings.Values.GetStringTo(), Settings.General.Duration)
-                                  .SetEase(Settings.General.Easing));
-
-            AppendTweenToSequence(tweenText);
-            _tweener.SetTarget(Target);
-            return _tweener;
-        }
-
-        private void SetSettingsDefaultFromTo(bool isRuntime)
+        protected override void SetDefaultValues(bool isRuntime)
         {
             if (string.IsNullOrEmpty(Settings.Values.GetStringFrom()))
             {
@@ -892,12 +454,18 @@ namespace Luzart
             }
         }
 
-        private void SetValueFrom(bool isRuntime)
+        protected override void ApplyFromValue(bool isRuntime)
         {
             if (isRuntime == Settings.Values.IsSetFromInInit)
             {
                 Target.text = Settings.Values.GetStringFrom();
             }
+        }
+
+        protected override Tween CreateAnimationTween()
+        {
+            return Target.DOText(Settings.Values.GetStringTo(), Settings.General.Duration)
+                .SetEase(Settings.General.Easing);
         }
     }
 

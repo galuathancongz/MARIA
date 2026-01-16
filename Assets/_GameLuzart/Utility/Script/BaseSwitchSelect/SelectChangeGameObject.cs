@@ -35,7 +35,6 @@ namespace Luzart
             {
                 ob.SetActive(status);
             }
-    
         }
     }
 
