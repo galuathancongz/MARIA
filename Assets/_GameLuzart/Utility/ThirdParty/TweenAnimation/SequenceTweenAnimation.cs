@@ -96,6 +96,11 @@ namespace Luzart
 
         private void OnValidate()
         {
+            InitTweenSettings();
+        }
+        [ContextMenu("Init Tween Settings")]
+        private void InitTweenSettings()
+        {
             if (sequenceSettings == null)
             {
                 sequenceSettings = new TweenSequenceSettings();

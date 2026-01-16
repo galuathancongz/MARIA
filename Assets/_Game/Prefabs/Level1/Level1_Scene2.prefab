@@ -639,7 +639,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 694198175155217306}
-      Duration: 0.2
+      Duration: 1
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -731,7 +731,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8476761084232346599}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -1261,7 +1261,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 3583334847965079670}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -1883,7 +1883,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 1456149619529605510}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -2050,7 +2050,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8532371800182098124}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -2284,7 +2284,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 3583334847965079670}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -2650,7 +2650,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 0.2
+    _duration: 1
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -10185,7 +10185,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5148829203105502512}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -13984,7 +13984,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 4429386493655675341}
-      Duration: 0.2
+      Duration: 1
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -24159,7 +24159,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8476761084232346599}
-      Duration: 0.3
+      Duration: 0.8
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:

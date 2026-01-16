@@ -356,7 +356,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
-  isActiveButton: 1
   modeClick: 1
 --- !u!1 &1256394915777667716
 GameObject:

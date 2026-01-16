@@ -15,7 +15,7 @@ public class DialogueAction : StepAction
     public float timeDuration = 1f;       // Thời gian gõ chữ
     public Ease ease = Ease.Linear;       // Kiểu easing cho animate
     public Button btnClick;
-    public bool isActiveButton = true;
+    //public bool isActiveButton = true;
     [SerializeField] private Mode modeClick = Mode.Button;
     enum Mode
     {
@@ -29,6 +29,10 @@ public class DialogueAction : StepAction
         {
             GameUtil.ButtonOnClick(btnClick, OnClickAction);
         }
+        txt.text = string.Empty;
+    }
+    private void OnEnable()
+    {
         txt.text = string.Empty;
     }
     public override void PreExcute()

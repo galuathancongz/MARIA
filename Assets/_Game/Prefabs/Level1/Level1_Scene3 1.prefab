@@ -304,7 +304,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
-  isActiveButton: 1
   modeClick: 1
 --- !u!1 &2218271971242281549
 GameObject:
@@ -547,7 +546,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 0.3
+      Duration: 1
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -5510,7 +5509,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 0.6
+    _duration: 2
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -5572,7 +5571,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9117857965482818907}
-      Duration: 0.3
+      Duration: 1
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -10455,7 +10454,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 0.3
+      Duration: 1
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:

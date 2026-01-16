@@ -18,11 +18,6 @@ namespace Luzart
         public void Initialize()
         {
             LoadGameData();
-            if (GameData.timeFirstTime == -1)
-            {
-                GameData.timeFirstTime = (int)TimeUtils.GetLongTimeCurrent;
-                SaveGameData();
-            }
         }
         private void LoadGameData()
         {
@@ -46,13 +41,6 @@ namespace Luzart
         }
         #endregion
         public static int ADSLIMIT = 3;
-        public bool IsCanGetAdsRewardCoin
-        {
-            get
-            {
-                return GameData.adsLimit < ADSLIMIT;
-            }
-        }
         private void Start()
         {
             Observer.Instance?.AddObserver(ObserverKey.OnNewDay, OnNewDay);
@@ -63,7 +51,6 @@ namespace Luzart
         }
         private void OnNewDay(object data)
         {
-            GameData.adsLimit = 0;
             SaveGameData();
         }
     }
@@ -73,8 +60,7 @@ namespace Luzart
         public int level = 1;
         public string namePlayer;
         public string subjectName;
-        public int timeFirstTime = -1;
-        public int adsLimit = 0;
+        public ESubject subject;
     }
 
     public class GameRes

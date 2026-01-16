@@ -359,6 +359,79 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &943214573785165656
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6169690172665491183}
+  - component: {fileID: 3573751996548769925}
+  m_Layer: 5
+  m_Name: Fade (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6169690172665491183
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943214573785165656}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045714011465270377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3573751996548769925
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 943214573785165656}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 6732024769082155123}
+      Duration: 1
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0.05
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 1
+      FloatTo: 0
+      StringFrom: 
+      StringTo: 
 --- !u!1 &1060729219610593245
 GameObject:
   m_ObjectHideFlags: 0
@@ -418,7 +491,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
-  isActiveButton: 1
   modeClick: 1
 --- !u!1 &1536489337844199880
 GameObject:
@@ -470,6 +542,7 @@ GameObject:
   - component: {fileID: 1984318233776779734}
   - component: {fileID: 2672395730795450796}
   - component: {fileID: 5301849689570526269}
+  - component: {fileID: 1383198731781208351}
   m_Layer: 5
   m_Name: Btn (2)
   m_TagString: Untagged
@@ -582,7 +655,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 5377091502694875959}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1383198731781208351}
+        m_TargetAssemblyTypeName: Luzart.Level2_PickSubject, Assembly-CSharp
+        m_MethodName: OnClickSubject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1411807543197314945}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2672395730795450796
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -610,6 +707,92 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &1383198731781208351
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1703758247089402675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db754858ffba44c8c3d961ba47dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: 2
+--- !u!1 &1872393727116816758
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4963885292814367521}
+  - component: {fileID: 5104906622995636266}
+  m_Layer: 5
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4963885292814367521
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872393727116816758}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045714011465270377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5104906622995636266
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1872393727116816758}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 8117093831931740629}
+      Duration: 1
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 1
+      FloatTo: 0
+      StringFrom: 
+      StringTo: 
 --- !u!1 &1893822362505528922
 GameObject:
   m_ObjectHideFlags: 0
@@ -790,6 +973,8 @@ RectTransform:
   m_Children:
   - {fileID: 1967208196083798492}
   - {fileID: 6499041662602138322}
+  - {fileID: 8802021849964176587}
+  - {fileID: 7671737837836518313}
   m_Father: {fileID: 7948079830751271391}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -806,8 +991,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6499041662602138322}
+  - component: {fileID: 6904637670263562503}
   - component: {fileID: 1154559683630405574}
-  - component: {fileID: 7005389659037714485}
   m_Layer: 5
   m_Name: Tween
   m_TagString: Untagged
@@ -836,6 +1021,27 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &6904637670263562503
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2287657143418352044}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction:
+  - {fileID: 5154924738902448043}
+  - {fileID: 3420468689228009274}
+  - {fileID: 1703758247089402675}
+  - {fileID: 4211081513048331505}
+  actionResultType: 0
+  isSetActiveAfter: 0
+  twAnimation:
+  - {fileID: 1154559683630405574}
 --- !u!114 &1154559683630405574
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -856,6 +1062,7 @@ MonoBehaviour:
     SequenceType: 0
     InsertTime: 0
   sequenceSettings:
+    _duration: 2.15
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -865,22 +1072,6 @@ MonoBehaviour:
       IsLoop: 0
       LoopType: 0
       LoopCount: -1
---- !u!114 &7005389659037714485
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2287657143418352044}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenAnimation: {fileID: 1154559683630405574}
-  typeShow: 3
-  stopOnDisable: 0
-  resetOnEnable: 0
 --- !u!1 &2371218214226785142
 GameObject:
   m_ObjectHideFlags: 0
@@ -933,8 +1124,8 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5912788333961647997}
-      Duration: 0.2
-      Easing: 6
+      Duration: 1
+      Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -1386,6 +1577,7 @@ GameObject:
   - component: {fileID: 5388333678336465855}
   - component: {fileID: 8329003913923932799}
   - component: {fileID: 6732024769082155123}
+  - component: {fileID: 2471099144802246484}
   m_Layer: 5
   m_Name: Btn (1)
   m_TagString: Untagged
@@ -1498,7 +1690,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 7733393004356700474}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1383198731781208351}
+        m_TargetAssemblyTypeName: Luzart.Level2_PickSubject, Assembly-CSharp
+        m_MethodName: OnClickSubject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1411807543197314945}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &8329003913923932799
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1526,6 +1742,178 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2471099144802246484
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3420468689228009274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db754858ffba44c8c3d961ba47dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: 1
+--- !u!1 &3554672555559866515
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7671737837836518313}
+  - component: {fileID: 3329775672121920841}
+  - component: {fileID: 2833097718271247893}
+  m_Layer: 5
+  m_Name: Tween (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7671737837836518313
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554672555559866515}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1753608809808272218}
+  - {fileID: 5045714011465270377}
+  m_Father: {fileID: 5698389287941888402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3329775672121920841
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554672555559866515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  isSetActiveAfter: 0
+  twAnimation:
+  - {fileID: 2833097718271247893}
+--- !u!114 &2833097718271247893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3554672555559866515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307604cd2247e0b4188afb83c7ec017c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenSequences:
+  - TweenAnimation: {fileID: 7062171124196537510}
+    SequenceType: 0
+    InsertTime: 0
+  - TweenAnimation: {fileID: 9023548622542550918}
+    SequenceType: 0
+    InsertTime: 0
+  sequenceSettings:
+    _duration: 2.15
+    IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+--- !u!1 &3582143615724700396
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 4646980716717562141}
+  - component: {fileID: 5880026229749225294}
+  m_Layer: 5
+  m_Name: Fade (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &4646980716717562141
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582143615724700396}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045714011465270377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5880026229749225294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3582143615724700396}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 5301849689570526269}
+      Duration: 1
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0.1
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 1
+      FloatTo: 0
+      StringFrom: 
+      StringTo: 
 --- !u!1 &3615405076745950290
 GameObject:
   m_ObjectHideFlags: 0
@@ -6433,6 +6821,7 @@ GameObject:
   - component: {fileID: 5894337022698086323}
   - component: {fileID: 5590598708343372299}
   - component: {fileID: 9055896756919739296}
+  - component: {fileID: 9186170622394411526}
   m_Layer: 5
   m_Name: Btn (3)
   m_TagString: Untagged
@@ -6545,7 +6934,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2123169858597440514}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1383198731781208351}
+        m_TargetAssemblyTypeName: Luzart.Level2_PickSubject, Assembly-CSharp
+        m_MethodName: OnClickSubject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1411807543197314945}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &5590598708343372299
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6573,6 +6986,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &9186170622394411526
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4211081513048331505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db754858ffba44c8c3d961ba47dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: 3
 --- !u!1 &4302814108300703017
 GameObject:
   m_ObjectHideFlags: 0
@@ -6775,11 +7201,84 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9055896756919739296}
-      Duration: 0.2
-      Easing: 6
+      Duration: 1
+      Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0.15
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 0
+      FloatTo: 1
+      StringFrom: 
+      StringTo: 
+--- !u!1 &4961784456644127675
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1753608809808272218}
+  - component: {fileID: 9023548622542550918}
+  m_Layer: 5
+  m_Name: Fade
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1753608809808272218
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961784456644127675}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 7671737837836518313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9023548622542550918
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4961784456644127675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 5912788333961647997}
+      Duration: 1
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
       TimeDelayPreLoop: 0
       TimeDelayAfterLoop: 0
     Loop:
@@ -6999,6 +7498,7 @@ GameObject:
   - component: {fileID: 5043054428161347583}
   - component: {fileID: 2735825522066327832}
   - component: {fileID: 8117093831931740629}
+  - component: {fileID: 7909033009165390528}
   m_Layer: 5
   m_Name: Btn
   m_TagString: Untagged
@@ -7111,7 +7611,31 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 8034168882474746215}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1383198731781208351}
+        m_TargetAssemblyTypeName: Luzart.Level2_PickSubject, Assembly-CSharp
+        m_MethodName: OnClickSubject
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1411807543197314945}
+        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
+        m_MethodName: OnClickOnDone
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2735825522066327832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7139,6 +7663,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &7909033009165390528
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5154924738902448043}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 90db754858ffba44c8c3d961ba47dcbd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  subject: 0
 --- !u!1 &5258037969353161601
 GameObject:
   m_ObjectHideFlags: 0
@@ -7280,6 +7817,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
+    _duration: 1.15
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -12299,6 +12837,57 @@ MonoBehaviour:
   m_UseCustomView: 0
   m_CustomViewSize: 10
   m_TimeScaleMultiplier: 1
+--- !u!1 &6724095666529593118
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8802021849964176587}
+  - component: {fileID: 1411807543197314945}
+  m_Layer: 5
+  m_Name: StepActionPublicAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8802021849964176587
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724095666529593118}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5698389287941888402}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1411807543197314945
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6724095666529593118}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a972abd877823bc4da867bb36c02c539, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  isSetActiveAfter: 0
 --- !u!1 &6832365788218205407
 GameObject:
   m_ObjectHideFlags: 0
@@ -12406,12 +12995,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 11
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
       Target: {fileID: 8117093831931740629}
-      Duration: 0.2
-      Easing: 6
+      Duration: 1
+      Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -12780,6 +13369,79 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!1 &7879623696163824135
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7810953226894736054}
+  - component: {fileID: 7153765089359796551}
+  m_Layer: 5
+  m_Name: Fade (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7810953226894736054
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879623696163824135}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 5045714011465270377}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7153765089359796551
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7879623696163824135}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 9055896756919739296}
+      Duration: 1
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0.15
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 1
+      FloatTo: 0
+      StringFrom: 
+      StringTo: 
 --- !u!1 &8003036795065091559
 GameObject:
   m_ObjectHideFlags: 0
@@ -13002,7 +13664,7 @@ GameObject:
   - component: {fileID: 4219293310432015041}
   - component: {fileID: 7860128097155547489}
   m_Layer: 5
-  m_Name: Level2_Scene 1
+  m_Name: Level2_Scene1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -13050,9 +13712,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Steps:
   - {fileID: 3676763826879938090}
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 6904637670263562503}
+  - {fileID: 1411807543197314945}
+  - {fileID: 3329775672121920841}
   _currentStep: 0
   currentStoryboard: 0
 --- !u!225 &7860128097155547489
@@ -13247,8 +13909,8 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5301849689570526269}
-      Duration: 0.2
-      Easing: 6
+      Duration: 1
+      Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0.1
@@ -13320,8 +13982,8 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 6732024769082155123}
-      Duration: 0.2
-      Easing: 6
+      Duration: 1
+      Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0.05
@@ -13341,6 +14003,82 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+--- !u!1 &9001778284119141803
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 5045714011465270377}
+  - component: {fileID: 7062171124196537510}
+  m_Layer: 5
+  m_Name: Tween (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &5045714011465270377
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001778284119141803}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 4963885292814367521}
+  - {fileID: 6169690172665491183}
+  - {fileID: 4646980716717562141}
+  - {fileID: 7810953226894736054}
+  m_Father: {fileID: 7671737837836518313}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &7062171124196537510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9001778284119141803}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307604cd2247e0b4188afb83c7ec017c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenSequences:
+  - TweenAnimation: {fileID: 5104906622995636266}
+    SequenceType: 1
+    InsertTime: 0
+  - TweenAnimation: {fileID: 3573751996548769925}
+    SequenceType: 1
+    InsertTime: 0
+  - TweenAnimation: {fileID: 5880026229749225294}
+    SequenceType: 1
+    InsertTime: 0
+  - TweenAnimation: {fileID: 7153765089359796551}
+    SequenceType: 1
+    InsertTime: 0
+  sequenceSettings:
+    _duration: 1.15
+    IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: -1
 --- !u!1 &9053903107917013314
 GameObject:
   m_ObjectHideFlags: 0
