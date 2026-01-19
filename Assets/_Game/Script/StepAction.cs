@@ -48,4 +48,8 @@ public class StepAction : MonoBehaviour
     {
         this.onComplete = _onComplete;
     }
+    public virtual void CallOnComplete()
+    {
+        onComplete?.Invoke(new ActionResult(actionResultType));
+    }
 }

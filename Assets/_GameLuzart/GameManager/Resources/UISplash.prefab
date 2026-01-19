@@ -212,7 +212,7 @@ MonoBehaviour:
   closeBtn: {fileID: 0}
   isAnimBtnClose: 0
   isCache: 0
-  nextUI: 11
+  nextUI: 12
   tweenAnimation: {fileID: 5643009633050955122}
 --- !u!1 &7762507334345957679
 GameObject:

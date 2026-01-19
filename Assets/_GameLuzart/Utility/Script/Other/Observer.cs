@@ -64,6 +64,7 @@ namespace Luzart
         public const string OnChangeVisualEventRacing = "OnChangeVisualEventRacing";
         public const string BlockRaycast = "BlockRaycast";
         public const string PersonaDataChange = "PersonaDataChange";
+        public const string OnUpdateNewChat = "OnUpdateNewChat";
 
     }
 }

@@ -12,7 +12,7 @@ namespace Luzart
         [SerializeField] private ESubject subject;
         public void OnClickSubject()
         {
-            DataManager.Instance.GameData.subject = subject;
+            TalkAILevel2Manager.Instance.Data.subject = subject;
         }
     }
     public enum ESubject

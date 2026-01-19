@@ -4,6 +4,7 @@ namespace Luzart
     using System.Collections;
     using System.Collections.Generic;
     using System.Linq;
+    using UnityEditor;
     using UnityEngine;
     using UnityEngine.Events;
     using UnityEngine.UI;
@@ -875,6 +876,23 @@ namespace Luzart
                 graphics[i].color = interactable ? bt.colors.normalColor : bt.colors.disabledColor;
             }
         }
+        public static void SetPersistentOnClick(this Button button, UnityEngine.Object newTarget, string newMethodName)
+        {
+            //SerializedObject so = new SerializedObject(button);
+            //SerializedProperty calls =
+            //    so.FindProperty("m_OnClick.m_PersistentCalls.m_Calls");
+
+            //for (int i = 0; i < calls.arraySize; i++)
+            //{
+            //    var call = calls.GetArrayElementAtIndex(i);
+
+            //    call.FindPropertyRelative("m_Target").objectReferenceValue = newTarget;
+            //    call.FindPropertyRelative("m_MethodName").stringValue = newMethodName;
+            //}
+
+            //so.ApplyModifiedProperties();
+            //EditorUtility.SetDirty(button);
+        }
 
         public static int SumRange(this IList<int> collection, int min, int max)
         {
@@ -1086,7 +1104,10 @@ namespace Luzart
                 Data = new TData();
             }
         }
-
+        private void OnApplicationFocus(bool focus)
+        {
+            Save();
+        }
         public virtual void Save()
         {
             SaveLoadUtil.SaveData(Data, KEYLOAD);

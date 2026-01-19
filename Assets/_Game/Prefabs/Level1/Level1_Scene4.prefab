@@ -1313,7 +1313,7 @@ MonoBehaviour:
   rtContain: {fileID: 2020067879853957979}
   width: 56
   height: 139
-  isGetWidth: 0
+  isGetWidth: 1
   isSetWidth: 0
 --- !u!1 &2968663357268523701
 GameObject:
@@ -2036,7 +2036,7 @@ MonoBehaviour:
   rtContain: {fileID: 3940413052554638234}
   width: 56
   height: 139
-  isGetWidth: 0
+  isGetWidth: 1
   isSetWidth: 0
 --- !u!1 &3879706900512573880
 GameObject:
@@ -3446,7 +3446,7 @@ MonoBehaviour:
   rtContain: {fileID: 685922265477022592}
   width: 56
   height: 139
-  isGetWidth: 0
+  isGetWidth: 1
   isSetWidth: 0
 --- !u!1 &6079423854613678481
 GameObject:

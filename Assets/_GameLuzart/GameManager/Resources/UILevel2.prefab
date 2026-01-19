@@ -66,15 +66,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Storyboards:
-  - {fileID: 4219293310432015041, guid: 0d7ad505470a79144aa4fe504d084aec, type: 3}
-  - {fileID: 4219293310432015041, guid: 71ad264942b45f048a30cc917802401b, type: 3}
-  - {fileID: 4219293310432015041, guid: 7621df530808e1347bfa982dcbdf1e50, type: 3}
-  - {fileID: 1531361246996229946, guid: 6fa5303c2e555ad46b87841051eef83d, type: 3}
-  - {fileID: 5882489668006921571, guid: b5a91efc0878cfe4cb68622308a4e788, type: 3}
-  - {fileID: 1531361246996229946, guid: 296bef4ed7067fa4b81401c7800c5bba, type: 3}
-  - {fileID: 5882489668006921571, guid: 2f7a871e30ebe904eb413e4307853b1b, type: 3}
-  - {fileID: 1531361246996229946, guid: 4bfac623c861e8348b7281b883660504, type: 3}
-  - {fileID: 4191979110181103684, guid: 04048d1681308cf4ca87632e1b795e7c, type: 3}
-  - {fileID: 1531361246996229946, guid: a3ef21eb19dc36c4fb738367db7f8cb4, type: 3}
-  - {fileID: 9034201047338280061, guid: 8358b6fcc90e0684b92ffccba6c043cc, type: 3}
+  - {fileID: 4219293310432015041, guid: b6568b2b18eee3549b84da50b765393f, type: 3}
+  - {fileID: 4219293310432015041, guid: 18da2a76b04188f47ba4e99a3b1ac718, type: 3}
+  - {fileID: 4219293310432015041, guid: 63aa3947ee6874a49a7f6b7afa163d2f, type: 3}
+  - {fileID: 4219293310432015041, guid: 821d127015763ca49ae195490fa6bd40, type: 3}
   _currentStoryboardIndex: 0
