@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using System.Text;
 using UnityEngine;
 using UnityEngine.Networking;
@@ -18,7 +19,25 @@ namespace Luzart
         #region === Config ===
 
         [Header("OpenAI")]
-        [SerializeField] private string apiKey;
+        [SerializeField]
+        private List<string> listAPIKey;
+        private string _apiKey = null;
+        [SerializeField] private string apiKey
+        {
+            get
+            {
+                if (string.IsNullOrEmpty(_apiKey))
+                {
+                    StringBuilder strBuilder = new StringBuilder();
+                    foreach(string key in listAPIKey)
+                    {
+                        strBuilder.Append(key);
+                    }
+                    _apiKey = strBuilder.ToString();
+                }
+                return _apiKey;
+            }
+        }
         [SerializeField] private string model = "gpt-5";
 
         private const string ENDPOINT = "https://api.openai.com/v1/responses";
