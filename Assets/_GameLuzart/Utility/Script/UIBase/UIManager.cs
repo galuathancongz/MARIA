@@ -5,6 +5,7 @@ namespace Luzart
     using UnityEngine;
     using System;
     using UnityEngine.UI;
+    using Unity.VisualScripting;
 
     public class UIManager : Singleton<UIManager>
     {
@@ -43,6 +44,14 @@ namespace Luzart
             {UIName.Level3,"1,0,UILevel3" },
             {UIName.Tutorial,"1,0,UITutorial" },
 
+
+            {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
+            {UIName.Tut2,"1,0,Level/Tutorial/UITut2" },
+            {UIName.Tut3,"1,0,Level/Tutorial/UITut3" },
+            {UIName.Tut4,"1,0,Level/Tutorial/UITut4" },
+            {UIName.Tut5,"1,0,Level/Tutorial/UITut5" },
+            {UIName.Tut5_1,"1,0,Level/Tutorial/UITut5_1" },
+            {UIName.Tut6,"1,0,Level/Tutorial/UITut6" },
             {UIName.Level1_1,"1,0,Level/Level1/UILevel1_1" },
             {UIName.Level1_1_1,"1,0,Level/Level1/UILevel1_1_1" },
             {UIName.Level1_1_2,"1,0,Level/Level1/UILevel1_1_2" },
@@ -74,6 +83,13 @@ namespace Luzart
     };
         private List<UIName> listScenario = new List<UIName>()
         {
+            UIName.Tut1,
+            UIName.Tut2,
+            UIName.Tut3,
+            UIName.Tut4,
+            UIName.Tut5,
+            UIName.Tut5_1,
+            UIName.Tut6,
             UIName.Level1_1,
             UIName.Level1_2,
             UIName.Level1_3,
@@ -92,13 +108,26 @@ namespace Luzart
             UIName.Level3_6,
             UIName.Level3_7,
         };
-
+        private UIName currentScenario = UIName.Tut1;
+        public void ShowScenario(UIName uiName)
+        {
+            var ui = ShowScenario<UIBase>(uiName);
+        }
+        public T ShowScenario<T>(UIName uiName) where T : UIBase
+        {
+            currentScenario = uiName;
+            return ShowUI<T>(currentScenario);
+        }
         public T ShowNextScenario<T>() where T : UIBase
         {
-            var ui = GetUiActive(CurrentName);
-            var idx = listScenario.FindIndex(x => x == CurrentName);
+            var idx = listScenario.FindIndex(x => x == currentScenario);
             var nextIdx = idx + 1;
-            return ShowUI<T>(listScenario[nextIdx]);
+            currentScenario = listScenario[nextIdx];
+            return ShowScenario<T>(currentScenario);
+        }
+        public void ShowNextScenario()
+        {
+            var ui = ShowNextScenario<UIBase>();
         }
 
         private Dictionary<UIName, DataUIBase> dic2;
@@ -389,32 +418,43 @@ namespace Luzart
         Level3 = 13,
         Tutorial = 14,
         
-        Level1_1 = 110,
-        Level1_1_1 = 111,
-        Level1_1_2 = 112,
-        Level1_1_3 = 113,
-        Level1_2 = 120,
-        Level1_2_1 = 121,
-        Level1_3 = 130,
-        Level1_3_1 = 131,
-        Level1_4 = 140,
-        Level1_4_1 = 141,
-        Level1_5 = 150,
-        Level2_1 = 211,
-        Level2_1_1 = 212,
-        Level2_2 = 220,
-        Level2_2_1 = 221,
-        Level2_3 = 230,
-        Level2_3_1 = 231,
-        Level2_4 = 240,
-        Level2_5 = 250,
-        Level3_1 = 310,
-        Level3_2 = 320,
-        Level3_3 = 330,
-        Level3_4 = 340,
-        Level3_5 = 350,
-        Level3_6 = 360,
-        Level3_7 = 370,
+
+        //Tutorial =50,
+        //Tutorial
+        Tut1 = 100,
+        Tut2 = 200,
+        Tut3 = 300,
+        Tut4 = 400,
+        Tut5 = 500,
+        Tut5_1 = 501,
+        Tut6 = 600,
+
+        Level1_1 = 1100,
+        Level1_1_1 = 1110,
+        Level1_1_2 = 1120,
+        Level1_1_3 = 1130,
+        Level1_2 = 1200,
+        Level1_2_1 = 1210,
+        Level1_3 = 1300,
+        Level1_3_1 = 1310,
+        Level1_4 = 1400,
+        Level1_4_1 = 1410,
+        Level1_5 = 1500,
+        Level2_1 = 2100,
+        Level2_1_1 = 2110,
+        Level2_2 = 2200,
+        Level2_2_1 = 2210,
+        Level2_3 = 2300,
+        Level2_3_1 = 2310,
+        Level2_4 = 2400,
+        Level2_5 = 2500,
+        Level3_1 = 3100,
+        Level3_2 = 3200,
+        Level3_3 = 3300,
+        Level3_4 = 3400,
+        Level3_5 = 3500,
+        Level3_6 = 3600,
+        Level3_7 = 3700,
     }
     public class DataUIBase
     {

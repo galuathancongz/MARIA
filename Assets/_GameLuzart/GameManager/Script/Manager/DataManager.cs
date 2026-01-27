@@ -57,7 +57,7 @@ namespace Luzart
     [System.Serializable]
     public class GameData
     {
-        public int level = 1;
+        public int level = 0;
         public string namePlayer;
         public string subjectName;
         public ESubject subject;

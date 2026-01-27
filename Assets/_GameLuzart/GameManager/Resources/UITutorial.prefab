@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3130964455236118712}
   - component: {fileID: 4212870775795926211}
-  - component: {fileID: 7526006336737204867}
+  - component: {fileID: 2286992615849056351}
   m_Layer: 5
   m_Name: UITutorial
   m_TagString: Untagged
@@ -45,7 +45,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5775590601422065788}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: f33da9dc6f9c3824fafd8341e5d7fbb5, type: 3}
   m_Name: 
@@ -59,7 +59,7 @@ MonoBehaviour:
   - {fileID: 5217254009116569031, guid: 210cc530b2e23ca418bfd9570db71336, type: 3}
   - {fileID: 5217254009116569031, guid: ae8003bcdf8e99e48b6a95d6b581c0b5, type: 3}
   _currentStoryboardIndex: 0
---- !u!114 &7526006336737204867
+--- !u!114 &2286992615849056351
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -68,7 +68,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 5775590601422065788}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea0b83b2715d084297f0c5cd7d76530, type: 3}
+  m_Script: {fileID: 11500000, guid: 04b263c5da69e5245b3c7e412aa2398a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiName: 0

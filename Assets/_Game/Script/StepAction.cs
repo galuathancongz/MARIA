@@ -52,4 +52,12 @@ public class StepAction : MonoBehaviour
     {
         onComplete?.Invoke(new ActionResult(actionResultType));
     }
+
+    private void OnValidate()
+    {
+        if (!name.Contains("Step"))
+        {
+            name = this.GetType().Name;
+        }
+    }
 }

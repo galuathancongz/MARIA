@@ -1,0 +1,18 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using UnityEngine;
+
+namespace Luzart
+{
+    public class UILevel1 : UIBase
+    {
+        public override void Show(Action onHideDone)
+        {
+            base.Show(onHideDone);
+            UIManager.Instance.ShowScenario(UIName.Level1_1);
+        }
+    }
+}

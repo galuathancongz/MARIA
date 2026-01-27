@@ -11,9 +11,14 @@ namespace Luzart
 
         public int _currentStep;
         [ReadOnly][SerializeField] int currentStoryboard = 0;
+        public override void Show(Action onHideDone)
+        {
+            base.Show(onHideDone);
+            InitStoryBoard(0);
+            StartStoryboard(null);
+        }
         public void InitStoryBoard(int index)
         {
-            gameObject.SetActive(false);
             InitStepAction();
             this.currentStoryboard = index;
         }
@@ -41,7 +46,9 @@ namespace Luzart
         {
             if (_currentStep < 0 || _currentStep >= Steps.Count)
             {
-                onDoneStoryBoard?.Invoke(currentStoryboard);
+                Hide();
+                UIManager.Instance.ShowNextScenario();
+                //onDoneStoryBoard?.Invoke(currentStoryboard);
                 return;
             }
             if (_currentStep <= Steps.Count - 1)

@@ -21,7 +21,15 @@ namespace Luzart
         private void NextScene()
         {
             Hide();
-            UIManager.Instance.ShowUI(nextUI);
+            if (DataManager.Instance.CurrentLevel == 0)
+            {
+                nextUI = UIName.Tutorial;
+            }
+            else
+            {
+                nextUI = UIName.MainMenu;
+            }
+                UIManager.Instance.ShowUI(nextUI);
         }
     }
 }
