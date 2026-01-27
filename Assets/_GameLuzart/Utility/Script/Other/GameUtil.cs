@@ -962,40 +962,6 @@ namespace Luzart
     // Sinh vat the va tu pool
     public static class MasterHelper
     {
-        public static void InitListObj<Tobj, Tdata>(IList<Tdata> data, Tobj objPf, IList<Tobj> objs, Transform holdObj, System.Action<Tobj, int> onSetup) where Tobj : MonoBehaviour
-        {
-            if (objs == null)
-            {
-                objs = new List<Tobj>();
-            }
-            objPf.gameObject.SetActive(false);
-            if (data != null)
-            {
-                for (int i = 0; i < data.Count; i++)
-                {
-                    Tobj n;
-                    var idx = i;
-                    if (i < objs.Count)
-                    {
-                        n = objs[idx];
-                    }
-                    else
-                    {
-                        n = UnityEngine.Object.Instantiate(objPf, holdObj);
-                        objs.Add(n);
-                    }
-                    onSetup?.Invoke(n, idx);
-                }
-            }
-            var c = data == null ? 0 : data.Count;
-            if (c < objs.Count)
-            {
-                for (int i = c; i < objs.Count; i++)
-                {
-                    objs[i].gameObject.SetActive(false);
-                }
-            }
-        }
         public static void InitListObj<Tobj>(int num, Tobj objPf, IList<Tobj> objs, Transform holdObj, System.Action<Tobj, int> onSetup) where Tobj : MonoBehaviour
         {
             if (objs == null)

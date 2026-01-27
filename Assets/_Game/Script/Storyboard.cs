@@ -46,7 +46,7 @@ namespace Luzart
         {
             if (_currentStep < 0 || _currentStep >= Steps.Count)
             {
-                Hide();
+                //Hide();
                 UIManager.Instance.ShowNextScenario();
                 //onDoneStoryBoard?.Invoke(currentStoryboard);
                 return;
@@ -76,6 +76,11 @@ namespace Luzart
                     ExecuteCurrentStep(onComplete);
                     break;
             }
+        }
+        [ContextMenu("ClearNullInSteps")]
+        public void ClearNullInSteps()
+        {
+            Steps.RemoveAll(item => item == null);
         }
     }
 }

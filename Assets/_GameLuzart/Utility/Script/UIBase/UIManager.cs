@@ -13,6 +13,7 @@ namespace Luzart
         //public UITop topUI;
         public Transform[] rootOb;
         public UIBase[] listSceneCache;
+        public UITop uiTop;
 
         public Canvas canvas;
         public GraphicRaycaster graphicRaycaster;
@@ -38,11 +39,12 @@ namespace Luzart
             {UIName.LoadScene,"3,0,UILoadScene" },
             {UIName.Toast,"4,0,UIToast" },
             {UIName.Noti,"4,0,UINoti" },
-            
+
             {UIName.Level1,"1,0,UILevel1" },
             {UIName.Level2,"1,0,UILevel2" },
             {UIName.Level3,"1,0,UILevel3" },
             {UIName.Tutorial,"1,0,UITutorial" },
+            {UIName.Loading,"2,0,UILoading" },
 
 
             {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
@@ -58,11 +60,20 @@ namespace Luzart
             {UIName.Level1_1_3,"1,0,Level/Level1/UILevel1_1_3" },
             {UIName.Level1_2,"1,0,Level/Level1/UILevel1_2" },
             {UIName.Level1_2_1,"1,0,Level/Level1/UILevel1_2_1" },
+            {UIName.Level1_2_2,"1,0,Level/Level1/UILevel1_2_2" },
+            {UIName.Level1_2_3,"1,0,Level/Level1/UILevel1_2_3" },
+            {UIName.Level1_2_4,"1,0,Level/Level1/UILevel1_2_4" },
             {UIName.Level1_3,"1,0,Level/Level1/UILevel1_3" },
             {UIName.Level1_3_1,"1,0,Level/Level1/UILevel1_3_1" },
+            {UIName.Level1_3_2,"1,0,Level/Level1/UILevel1_3_2" },
+            {UIName.Level1_3_3,"1,0,Level/Level1/UILevel1_3_3" },
+            {UIName.Level1_3_4,"1,0,Level/Level1/UILevel1_3_4" },
+            {UIName.Level1_3_5,"1,0,Level/Level1/UILevel1_3_5" },
+            {UIName.Level1_3_6,"1,0,Level/Level1/UILevel1_3_6" },
             {UIName.Level1_4,"1,0,Level/Level1/UILevel1_4" },
             {UIName.Level1_4_1,"1,0,Level/Level1/UILevel1_4_1" },
             {UIName.Level1_5,"1,0,Level/Level1/UILevel1_5" },
+            {UIName.Level1_6,"1,0,Level/Level1/UILevel1_6" },
             {UIName.Level2_1,"1,0,Level/Level2/UILevel2_1" },
             {UIName.Level2_1_1,"1,0,Level/Level2/UILevel2_1_1" },
             {UIName.Level2_2,"1,0,Level/Level2/UILevel2_2" },
@@ -71,6 +82,7 @@ namespace Luzart
             {UIName.Level2_3_1,"1,0,Level/Level2/UILevel2_3_1" },
             {UIName.Level2_4,"1,0,Level/Level2/UILevel2_4" },
             {UIName.Level2_5,"1,0,Level/Level2/UILevel2_5" },
+            {UIName.Level2_6,"1,0,Level/Level2/UILevel2_6" },
             {UIName.Level3_1,"1,0,Level/Level3/UILevel3_1" },
             {UIName.Level3_2,"1,0,Level/Level3/UILevel3_2" },
             {UIName.Level3_3,"1,0,Level/Level3/UILevel3_3" },
@@ -91,15 +103,34 @@ namespace Luzart
             UIName.Tut5_1,
             UIName.Tut6,
             UIName.Level1_1,
+            UIName.Level1_1_1,
+            UIName.Level1_1_2,
+            UIName.Level1_1_3,
             UIName.Level1_2,
+            UIName.Level1_2_1,
+            UIName.Level1_2_2,
+            UIName.Level1_2_3,
+            UIName.Level1_2_4,
             UIName.Level1_3,
+            UIName.Level1_3_1,
+            UIName.Level1_3_2,
+            UIName.Level1_3_3,
+            UIName.Level1_3_4,
+            UIName.Level1_3_5,
+            UIName.Level1_3_6,
             UIName.Level1_4,
+            UIName.Level1_4_1,
             UIName.Level1_5,
+            UIName.Level1_6,
             UIName.Level2_1,
+            UIName.Level2_1_1,
             UIName.Level2_2,
+            UIName.Level2_2_1,
             UIName.Level2_3,
+            UIName.Level2_3_1,
             UIName.Level2_4,
             UIName.Level2_5,
+            UIName.Level2_6,
             UIName.Level3_1,
             UIName.Level3_2,
             UIName.Level3_3,
@@ -125,9 +156,94 @@ namespace Luzart
             currentScenario = listScenario[nextIdx];
             return ShowScenario<T>(currentScenario);
         }
+        public T ShowBackScenario<T>() where T : UIBase
+        {
+            var idx = listScenario.FindIndex(x => x == currentScenario);
+            var nextIdx = idx - 1;
+            currentScenario = listScenario[nextIdx];
+            return ShowScenario<T>(currentScenario);
+        }
         public void ShowNextScenario()
         {
+            HideUiActive(currentScenario);
             var ui = ShowNextScenario<UIBase>();
+        }
+        public void ShowBackScenario()
+        {
+            HideUiActive(currentScenario);
+            var ui = ShowBackScenario<UIBase>();
+        }
+        public void CheckShowBtnBack(UIName uiName)
+        {
+            bool isShow = false;
+            if (uiName == UIName.Tut1 ||
+                uiName == UIName.Tut2 ||
+                uiName == UIName.Tut3 ||
+                uiName == UIName.Tut4 ||
+                uiName == UIName.Tut5 ||
+                uiName == UIName.Tut5_1 ||
+                uiName == UIName.Tut6 ||
+                uiName == UIName.Level1_1_1 ||
+                uiName == UIName.Level1_1_2 ||
+                uiName == UIName.Level1_1_3 ||
+                uiName == UIName.Level1_2 ||
+                uiName == UIName.Level1_2_1 ||
+                uiName == UIName.Level1_2_2 ||
+                uiName == UIName.Level1_2_3 ||
+                uiName == UIName.Level1_2_4 ||
+                uiName == UIName.Level1_3 ||
+                uiName == UIName.Level1_3_1 ||
+                uiName == UIName.Level1_3_2 ||
+                uiName == UIName.Level1_3_3 ||
+                uiName == UIName.Level1_3_4 ||
+                uiName == UIName.Level1_3_5 ||
+                uiName == UIName.Level1_3_6 ||
+                uiName == UIName.Level1_4 ||
+                uiName == UIName.Level1_4_1 ||
+                uiName == UIName.Level1_5 ||
+                uiName == UIName.Level1_6 ||
+                uiName == UIName.Level2_1_1 ||
+                uiName == UIName.Level2_2_1 ||
+                uiName == UIName.Level2_3_1 ||
+                uiName == UIName.Level2_4 ||
+                uiName == UIName.Level2_5 ||
+                uiName == UIName.Level2_6 ||
+                uiName == UIName.Level3_2 ||
+                uiName == UIName.Level3_3 ||
+                uiName == UIName.Level3_4 ||
+                uiName == UIName.Level3_5 ||
+                uiName == UIName.Level3_6 ||
+                uiName == UIName.Level3_7
+                )
+            {
+                isShow = true;
+            }
+            uiTop.ShowBtnBack(isShow);
+
+        }
+        public void CheckShowBtnNext(UIName uiName)
+        {
+            bool isShow = false;
+            if(uiName == UIName.Level2_2_1||
+                uiName == UIName.Level2_3_1
+                )
+            {
+                isShow = true;
+            }
+            uiTop.ShowBtnNext(isShow);
+        }
+        public void CheckShowUITop(UIName uiName)
+        {
+            bool isShow = true;
+            if (uiName == UIName.Splash ||
+                uiName == UIName.Tut1 ||
+                uiName == UIName.Tut2
+                )
+            {
+                isShow = false;
+
+            }
+            uiTop.gameObject.SetActive(isShow);
         }
 
         private Dictionary<UIName, DataUIBase> dic2;
@@ -154,7 +270,7 @@ namespace Luzart
                     cacheScreen.Add(listSceneCache[i].uiName, listSceneCache[i]);
                 }
             }
-            Observer.Instance.AddObserver(ObserverKey.BlockRaycast,BlockRaycast);
+            Observer.Instance.AddObserver(ObserverKey.BlockRaycast, BlockRaycast);
             //if (SdkUtil.isiPad())
             //{
             //    GetComponent<CanvasScaler>().matchWidthOrHeight = 1f;
@@ -169,12 +285,18 @@ namespace Luzart
         {
             Observer.Instance.RemoveObserver(ObserverKey.BlockRaycast, BlockRaycast);
         }
-        public void ShowUI(UIName uIScreen, Action onHideDone = null)
+        public void ShowUI(UIName uIScreen, Action onHideDone = null, bool isNeedCheck = true)
         {
-            ShowUI<UIBase>(uIScreen, onHideDone);
+            ShowUI<UIBase>(uIScreen, onHideDone, isNeedCheck);
         }
-        public T ShowUI<T>(UIName uIScreen, Action onHideDone = null) where T : UIBase
+        public T ShowUI<T>(UIName uIScreen, Action onHideDone = null, bool isNeedCheck = true) where T : UIBase
         {
+            if (isNeedCheck)
+            {
+                CheckShowUITop(uIScreen);
+                CheckShowBtnBack(uIScreen);
+                CheckShowBtnNext(uIScreen);
+            }
             UIBase current = listScreenActive.Find(x => x.uiName == uIScreen);
             if (!current)
             {
@@ -387,7 +509,7 @@ namespace Luzart
 
         private void BlockRaycast(object data = null)
         {
-            if(data == null)
+            if (data == null)
             {
                 return;
             }
@@ -396,7 +518,15 @@ namespace Luzart
         }
         public void BlockRaycast(bool isBlock)
         {
-                       graphicRaycaster.enabled = !isBlock;
+            graphicRaycaster.enabled = !isBlock;
+        }
+        public void ShowLoading()
+        {
+            ShowUI(UIName.Loading, isNeedCheck: false);
+        }
+        public void HideLoading()
+        {
+            HideUiActive(UIName.Loading);
         }
     }
 
@@ -413,11 +543,12 @@ namespace Luzart
         Toast = 8,
         Noti = 9,
         ReceiveRes = 10,
-        Level1 =11,
+        Level1 = 11,
         Level2 = 12,
         Level3 = 13,
         Tutorial = 14,
-        
+        Loading = 15,
+
 
         //Tutorial =50,
         //Tutorial
@@ -435,11 +566,20 @@ namespace Luzart
         Level1_1_3 = 1130,
         Level1_2 = 1200,
         Level1_2_1 = 1210,
+        Level1_2_2 = 1220,
+        Level1_2_3 = 1230,
+        Level1_2_4 = 1240,
         Level1_3 = 1300,
         Level1_3_1 = 1310,
+        Level1_3_2 = 1320,
+        Level1_3_3 = 1330,
+        Level1_3_4 = 1340,
+        Level1_3_5 = 1350,
+        Level1_3_6 = 1360,
         Level1_4 = 1400,
         Level1_4_1 = 1410,
         Level1_5 = 1500,
+        Level1_6 = 1600,
         Level2_1 = 2100,
         Level2_1_1 = 2110,
         Level2_2 = 2200,
@@ -448,6 +588,7 @@ namespace Luzart
         Level2_3_1 = 2310,
         Level2_4 = 2400,
         Level2_5 = 2500,
+        Level2_6 = 2600,
         Level3_1 = 3100,
         Level3_2 = 3200,
         Level3_3 = 3300,

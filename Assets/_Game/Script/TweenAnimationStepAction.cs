@@ -40,5 +40,11 @@ namespace Luzart
         {
             tw?.Kill(true);
         }
+
+        [ContextMenu("AutoSet")]
+        public void AutoSet()
+        {
+            twAnimation = GetComponents<TweenAnimationBase>();
+        }
     }
 }

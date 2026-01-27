@@ -11,19 +11,36 @@ public class Level2_ConversationItem : MonoBehaviour
     public void ShowText(string str)
     {
         tw?.Kill();
+        if (!gameObject)
+        {
+            return;
+        }
         gameObject.SetActive(true);
         txt.text = str;
     }
     public void ShowTextAnim(string str)
     {
         tw?.Kill();
+        if (!gameObject)
+        {
+            return;
+        }
         gameObject.SetActive(true);
         txt.DOSetTextCharByChar(str, displaySpeedChar);
     }
     public void SetThinking()
     {
         tw?.Kill(true);
+        if (!gameObject)
+        {
+            return;
+        }
         tw = txt.DOText("Thinking ...",3f).SetLoops(-1, LoopType.Restart);
+    }
+    public void SetLoading()
+    {
+        tw?.Kill(true);
+        tw = txt.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart);
     }
 
 }

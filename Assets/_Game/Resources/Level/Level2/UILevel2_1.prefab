@@ -411,7 +411,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 6732024769082155123}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -772,7 +772,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8117093831931740629}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -994,7 +994,7 @@ GameObject:
   - component: {fileID: 6904637670263562503}
   - component: {fileID: 1154559683630405574}
   m_Layer: 5
-  m_Name: Tween
+  m_Name: TweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1058,7 +1058,7 @@ MonoBehaviour:
     SequenceType: 0
     InsertTime: 0
   sequenceSettings:
-    _duration: 1.15
+    _duration: 0.65
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -1690,7 +1690,7 @@ GameObject:
   - component: {fileID: 3329775672121920841}
   - component: {fileID: 2833097718271247893}
   m_Layer: 5
-  m_Name: Tween (1)
+  m_Name: TweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1754,7 +1754,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 1.15
+    _duration: 0.65
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -1816,7 +1816,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5301849689570526269}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -7124,7 +7124,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9055896756919739296}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -7197,7 +7197,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5912788333961647997}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -7740,7 +7740,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 1.15
+    _duration: 0.65
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -12922,7 +12922,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8117093831931740629}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -13344,7 +13344,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9055896756919739296}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -13633,6 +13633,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 3676763826879938090}
   - {fileID: 6904637670263562503}
@@ -13747,7 +13751,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 0}
-      Duration: 1
+      Duration: 0.5
       Easing: 12
       IsIgnoreTimeScale: 0
     Timing:
@@ -13832,7 +13836,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 5301849689570526269}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -13905,7 +13909,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 6732024769082155123}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -13992,7 +13996,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 1.15
+    _duration: 0.65
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0

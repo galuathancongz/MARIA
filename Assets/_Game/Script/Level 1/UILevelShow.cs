@@ -7,12 +7,13 @@ using UnityEngine;
 
 namespace Luzart
 {
-    public class UILevel1 : UIBase
+    public class UILevelShow : UIBase
     {
+        public UIName scenarioShow = UIName.Level1_1;
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
-            UIManager.Instance.ShowScenario(UIName.Level1_1);
+            UIManager.Instance.ShowScenario(scenarioShow);
         }
     }
 }

@@ -12,9 +12,9 @@ public class Level2_Scene2_1_Logic : MonoBehaviour
     }
     public void OnCallMsg(string str)
     {
-        TalkAILevel2Manager.Instance.Send(0,str, (result) =>
+        Level2Manager.Instance.Send(0,str, (result) =>
         {
-            if (_isCall)
+            if (!_isCall)
             {
                 Observer.Instance.Notify(ObserverKey.OnUpdateNewChat, result);
             }

@@ -333,7 +333,7 @@ GameObject:
   - component: {fileID: 946723448470518436}
   - component: {fileID: 3456605741472458322}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1067,7 +1067,7 @@ GameObject:
   - component: {fileID: 2690440132846663853}
   - component: {fileID: 5904260436298425431}
   m_Layer: 5
-  m_Name: GameObject (2)
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1201,7 +1201,7 @@ GameObject:
   - component: {fileID: 268198096820654019}
   - component: {fileID: 6430337053937955722}
   m_Layer: 5
-  m_Name: GameObject (3)
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1260,7 +1260,7 @@ GameObject:
   - component: {fileID: 5544629353662016767}
   - component: {fileID: 5869665815815774750}
   m_Layer: 5
-  m_Name: GameObject (1)
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3490,6 +3490,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 3155118581944497718}
   - {fileID: 6260501819636762007}

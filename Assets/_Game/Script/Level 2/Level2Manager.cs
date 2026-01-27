@@ -5,7 +5,7 @@ using System.Runtime.CompilerServices;
 using UnityEngine;
 namespace Luzart
 {
-    public class TalkAILevel2Manager : SingletonSaveLoad<TalkAILevel2Data, TalkAILevel2Manager>
+    public class Level2Manager : SingletonSaveLoad<Level2Data, Level2Manager>
     {
         protected override string KEYLOAD => "Level2_AI";
         public void Send(byte indexConversation, string str, Action<string> onResult)
@@ -24,12 +24,30 @@ namespace Luzart
         {
             return Data.GetConverstationData(index);
         }
+        public string GetNameMentor()
+        {
+             switch (Data.subject)
+            {
+                case ESubject.English:
+                    return "Austen";
+                case ESubject.Math:
+                    return "Euclidea";
+                case ESubject.History:
+                    return "Thucy";
+                case ESubject.Science:
+                    return "Drawina";
+                default:
+                    return "Mentor";
+            }
+        }
     }
 
     [System.Serializable]
-    public class TalkAILevel2Data
+    public class Level2Data
     {
         public ESubject subject;
+        
+        public string question2_3_1;
         public List<ConversationState> listConverstationState;
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)
         {

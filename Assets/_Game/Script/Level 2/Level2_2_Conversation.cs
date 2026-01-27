@@ -4,7 +4,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class Level2_Scene2_Conversation : MonoBehaviour
+public class Level2_Conversation_MeAndAI : MonoBehaviour
 {
     [SerializeField] private ScrollRect scrollRect;
     [SerializeField] private Transform contentTransform;
@@ -14,7 +14,7 @@ public class Level2_Scene2_Conversation : MonoBehaviour
     private Level2_ConversationItem _itemThinkingAIFirst = null;
     private void OnEnable()
     {
-        var allList = TalkAILevel2Manager.Instance.GetCurrentConverstation(1);
+        var allList = Level2Manager.Instance.GetCurrentConverstation(1);
         foreach (var item in allList)
         {
             Level2_ConversationItem newItem = SpawnItem(item);
@@ -54,7 +54,7 @@ public class Level2_Scene2_Conversation : MonoBehaviour
         var itemAI = SpawnItem(new ConverstationData() { str = "...", role = ERole.AI });
         itemAI.SetThinking();
         listItems.Add(itemAI);
-        TalkAILevel2Manager.Instance.Send(0, question, (response) =>
+        Level2Manager.Instance.Send(0, question, (response) =>
         {
             itemAI.ShowTextAnim(response);
         });

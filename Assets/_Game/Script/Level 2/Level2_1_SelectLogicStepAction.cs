@@ -14,7 +14,7 @@ namespace Luzart
         public override void Execute(Action<ActionResult> _onComplete)
         {
             base.Execute(_onComplete);
-            int index = (int)TalkAILevel2Manager.Instance.Data.subject;
+            int index = (int)Level2Manager.Instance.Data.subject;
             bs.Select(index);
             stepActionSwitch.UseStep(index);
             CallOnComplete();

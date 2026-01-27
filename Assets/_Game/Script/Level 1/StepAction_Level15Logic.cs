@@ -10,6 +10,8 @@ namespace Luzart
         {
             base.Execute(_onComplete);
             DataManager.Instance.GameData.level = 2;
+            DataManager.Instance.SaveGameData();
+            onComplete?.Invoke(new ActionResult(actionResultType));
         }
     }
 }

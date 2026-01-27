@@ -9,8 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1921146291595572137}
-  - component: {fileID: 6674401651038545432}
-  - component: {fileID: 4239488939248029170}
+  - component: {fileID: 4321720145187598104}
   m_Layer: 5
   m_Name: UILevel2
   m_TagString: Untagged
@@ -37,7 +36,7 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &6674401651038545432
+--- !u!114 &4321720145187598104
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,28 +45,11 @@ MonoBehaviour:
   m_GameObject: {fileID: 639110657004962133}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ea0b83b2715d084297f0c5cd7d76530, type: 3}
+  m_Script: {fileID: 11500000, guid: cc9eba330cb54b445aee079fca62bf5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   uiName: 0
   closeBtn: {fileID: 0}
   isAnimBtnClose: 0
   isCache: 0
---- !u!114 &4239488939248029170
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 639110657004962133}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f33da9dc6f9c3824fafd8341e5d7fbb5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  Storyboards:
-  - {fileID: 4219293310432015041, guid: b6568b2b18eee3549b84da50b765393f, type: 3}
-  - {fileID: 4219293310432015041, guid: 18da2a76b04188f47ba4e99a3b1ac718, type: 3}
-  - {fileID: 4219293310432015041, guid: 63aa3947ee6874a49a7f6b7afa163d2f, type: 3}
-  - {fileID: 4219293310432015041, guid: 821d127015763ca49ae195490fa6bd40, type: 3}
-  _currentStoryboardIndex: 0
+  scenarioShow: 2100

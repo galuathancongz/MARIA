@@ -10,7 +10,7 @@ public class CallSelectSubject : MonoBehaviour
     private UnityEvent<int> onCall;
     private void OnEnable()
     {
-        int index = (int)TalkAILevel2Manager.Instance.Data.subject;
+        int index = (int)Level2Manager.Instance.Data.subject;
         onCall?.Invoke(index);
     }
     [Sirenix.OdinInspector.Button]

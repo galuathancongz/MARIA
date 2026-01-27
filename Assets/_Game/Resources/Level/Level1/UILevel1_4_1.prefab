@@ -545,7 +545,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -5438,7 +5438,7 @@ GameObject:
   - component: {fileID: 2990515722445570754}
   - component: {fileID: 459735437244349077}
   m_Layer: 5
-  m_Name: TweenAnimation
+  m_Name: TweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5508,7 +5508,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 2
+    _duration: 1
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -5570,7 +5570,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9117857965482818907}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -5652,6 +5652,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 2990515722445570754}
   - {fileID: 7105047041580982443}
@@ -10453,7 +10457,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 1
+      Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
