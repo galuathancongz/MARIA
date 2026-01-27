@@ -30,21 +30,30 @@ namespace Luzart
     public class TalkAILevel2Data
     {
         public ESubject subject;
-        public List<ConversationState> listConverstation;
+        public List<ConversationState> listConverstationState;
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)
         {
-            var converstationDataList = listConverstation.Find(x => x.indexConverstation == indexConverstation);
-            converstationDataList.listConverstation.Add(data);
+            var converstationDataList = listConverstationState.Find(x => x.indexConverstation == indexConverstation);
+            if(converstationDataList == null)
+            {
+                converstationDataList = new ConversationState()
+                {
+                    indexConverstation = indexConverstation,
+                    listConverstationData = new List<ConverstationData>(),
+                };
+                listConverstationState.Add(converstationDataList);
+            }
+            converstationDataList.listConverstationData.Add(data);
             return converstationDataList;
         }
         public List<ConverstationData> GetConverstationData(byte indexConverstation)
         {
-            var converstationDataList = listConverstation.Find(x => x.indexConverstation == indexConverstation);
+            var converstationDataList = listConverstationState.Find(x => x.indexConverstation == indexConverstation);
             if (converstationDataList == null)
             {
                 return new List<ConverstationData>();
             }
-            return converstationDataList.listConverstation;
+            return converstationDataList.listConverstationData;
         }
     }
     [System.Serializable]
@@ -52,7 +61,7 @@ namespace Luzart
     {
         public EState State = EState.CanWrite;
         public byte indexConverstation;
-        public List<ConverstationData> listConverstation;
+        public List<ConverstationData> listConverstationData;
     }
     [System.Serializable]
     public class ConverstationData
