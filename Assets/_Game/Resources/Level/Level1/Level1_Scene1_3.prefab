@@ -298,9 +298,9 @@ MonoBehaviour:
   actionResultType: 0
   isSetActiveAfter: 0
   txt: {fileID: 3385881209559614052}
-  str: "You have just taken an important step in discovering your educator identity.
-    This insight will guide how to explore AI tools in the next levels. But first
-    let\u2019s hear your thoughts..."
+  str: "Thanks for sharing your instincts. I am starting to see how you approach
+    your classroom and it\u2019s already giving me clues about your unique teaching
+    style."
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
@@ -370,9 +370,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "You have just taken an important step in discovering your educator identity.
-    This insight will guide how to explore AI tools in the next levels. But first
-    let\u2019s hear your thoughts.."
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -545,7 +543,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 1
+      Duration: 0.3
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -5508,7 +5506,7 @@ MonoBehaviour:
     SequenceType: 1
     InsertTime: 0
   sequenceSettings:
-    _duration: 2
+    _duration: 0.6
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -5570,7 +5568,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 9117857965482818907}
-      Duration: 1
+      Duration: 0.3
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:
@@ -5603,7 +5601,7 @@ GameObject:
   - component: {fileID: 5139988789813940890}
   - component: {fileID: 1531361246996229946}
   m_Layer: 5
-  m_Name: Level1_Scene4 1
+  m_Name: Level1_Scene1_3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10453,7 +10451,7 @@ MonoBehaviour:
   tweenAnimationSettings:
     General:
       Target: {fileID: 8944338402714019046}
-      Duration: 1
+      Duration: 0.3
       Easing: 1
       IsIgnoreTimeScale: 0
     Timing:

@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4471637635099489947}
   - component: {fileID: 2645623764456725236}
   - component: {fileID: 4328044877171662677}
+  - component: {fileID: 7173190616888806466}
   - component: {fileID: 8944338402714019046}
   m_Layer: 5
   m_Name: Frame
@@ -18,7 +19,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4471637635099489947
 RectTransform:
   m_ObjectHideFlags: 0
@@ -77,6 +78,51 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &7173190616888806466
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 314278465599137399}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetGameObject: {fileID: 0}
+  _animation: 3
+  _showOn: 2
+  _registerScreenToggle: 1
+  _canvasGroup: {fileID: 8944338402714019046}
+  _image: {fileID: 0}
+  _textMeshProComponent: {fileID: 0}
+  _baseOptions:
+    ShowEase: 6
+    HideEase: 26
+    Duration: 0.3
+    StartDelay: 0.3
+    IgnoreTimeScale: 0
+    LoopTime: 0
+    LoopType: 0
+    DelayPerOneTimeLoop: 0
+  _vector3Options:
+    From: {x: 0, y: 1, z: 1}
+    EndTo: {x: -1, y: -1, z: -1}
+  _canvasGroupOptions:
+    From: 0
+    To: 1
+    IsControlFromTo: 0
+    BlockRaycast: 1
+  _floatOptions:
+    From: 0
+    To: 1
+  _textOptions:
+    FromStr: 
+    ToStr: 
+    RichTextEnabled: 1
+    ScrambleMode: 0
+    ScrambleChars: 
 --- !u!225 &8944338402714019046
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -261,7 +307,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &460849581360073200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -298,12 +344,14 @@ MonoBehaviour:
   actionResultType: 0
   isSetActiveAfter: 0
   txt: {fileID: 3385881209559614052}
-  str: "Wonderful! I am getting a clear picture of how you think, teach and connect
-    with your students. Now let\u2019s see how you interpret ideas and language \u2013
-    ready for a little word association challenge. "
+  str: 'See that? AI can be a creative brainstorming partner, not just giving answers,
+    but inspiring new ideas.
+
+    You can accept, tweak or toss away any suggestion'
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isActiveButton: 1
   modeClick: 1
 --- !u!1 &2218271971242281549
 GameObject:
@@ -370,9 +418,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: "Wonderful! I am getting a clear picture of how you think, teach and connect
-    with your students. Now let\u2019s see how you interpret ideas and language \u2013
-    ready for a little word association challenge.   "
+  m_text: 
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -457,7 +503,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2556433060469663200
 RectTransform:
   m_ObjectHideFlags: 0
@@ -493,7 +539,7 @@ MonoBehaviour:
   actionResultType: 0
   isSetActiveAfter: 0
   mode: 1
---- !u!1 &2584608267579954719
+--- !u!1 &3631726596873170816
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -501,71 +547,52 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4706509352517959376}
-  - component: {fileID: 4148288206010139622}
+  - component: {fileID: 5312251486193956407}
+  - component: {fileID: 4575633542056982437}
   m_Layer: 5
-  m_Name: GameObject (1)
+  m_Name: StepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &4706509352517959376
+  m_IsActive: 0
+--- !u!224 &5312251486193956407
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584608267579954719}
+  m_GameObject: {fileID: 3631726596873170816}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 8651208572825718596}
+  m_Father: {fileID: 5451239596659905467}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &4148288206010139622
+--- !u!114 &4575633542056982437
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2584608267579954719}
+  m_GameObject: {fileID: 3631726596873170816}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: 7cd32e6d0f2beb14299aa11d2e8007f0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 9
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 8944338402714019046}
-      Duration: 1
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 1
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1000, y: 0, z: 0}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: 0
-      FloatTo: 1
-      StringFrom: 
-      StringTo: 
+  _targetStepAction:
+  - {fileID: 9117857965482818907}
+  - {fileID: 314278465599137399}
+  actionResultType: 0
+  isSetActiveAfter: 0
+  delayTime: 0.7
 --- !u!1 &3853110569453619115
 GameObject:
   m_ObjectHideFlags: 0
@@ -5426,171 +5453,6 @@ MonoBehaviour:
   m_UseCustomView: 0
   m_CustomViewSize: 10
   m_TimeScaleMultiplier: 1
---- !u!1 &4111411219657023839
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 8651208572825718596}
-  - component: {fileID: 2990515722445570754}
-  - component: {fileID: 459735437244349077}
-  m_Layer: 5
-  m_Name: TweenAnimation
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &8651208572825718596
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4111411219657023839}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children:
-  - {fileID: 6270580567422958830}
-  - {fileID: 4706509352517959376}
-  - {fileID: 5654522970016660087}
-  m_Father: {fileID: 5451239596659905467}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &2990515722445570754
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4111411219657023839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetStepAction:
-  - {fileID: 9117857965482818907}
-  - {fileID: 314278465599137399}
-  actionResultType: 0
-  isSetActiveAfter: 0
-  twAnimation:
-  - {fileID: 459735437244349077}
---- !u!114 &459735437244349077
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4111411219657023839}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 307604cd2247e0b4188afb83c7ec017c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenSequences:
-  - TweenAnimation: {fileID: 5161639200436401319}
-    SequenceType: 0
-    InsertTime: 0
-  - TweenAnimation: {fileID: 4148288206010139622}
-    SequenceType: 0
-    InsertTime: 0
-  - TweenAnimation: {fileID: 5372839285704400886}
-    SequenceType: 1
-    InsertTime: 0
-  sequenceSettings:
-    _duration: 2
-    IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
---- !u!1 &4299983875636795309
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6270580567422958830}
-  - component: {fileID: 5161639200436401319}
-  m_Layer: 5
-  m_Name: GameObject
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6270580567422958830
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4299983875636795309}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8651208572825718596}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5161639200436401319
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4299983875636795309}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeAnimation: 2
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 9117857965482818907}
-      Duration: 1
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 1
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1000, y: 0, z: 0}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
-      StringFrom: 
-      StringTo: 
 --- !u!1 &4403411743226774304
 GameObject:
   m_ObjectHideFlags: 0
@@ -5603,7 +5465,7 @@ GameObject:
   - component: {fileID: 5139988789813940890}
   - component: {fileID: 1531361246996229946}
   m_Layer: 5
-  m_Name: Level1_Scene2 1
+  m_Name: Tut_Scene4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -5653,9 +5515,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   Steps:
-  - {fileID: 2990515722445570754}
+  - {fileID: 4575633542056982437}
   - {fileID: 7105047041580982443}
-  - {fileID: 3404547196071502587}
   _currentStep: 0
   currentStoryboard: 3
 --- !u!1 &4472915228238669393
@@ -10401,79 +10262,6 @@ ParticleSystemRenderer:
   m_MeshWeighting2: 1
   m_MeshWeighting3: 1
   m_MaskInteraction: 0
---- !u!1 &4964258406866713490
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 5654522970016660087}
-  - component: {fileID: 5372839285704400886}
-  m_Layer: 5
-  m_Name: GameObject (2)
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &5654522970016660087
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964258406866713490}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 8651208572825718596}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &5372839285704400886
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4964258406866713490}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeAnimation: 5
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 8944338402714019046}
-      Duration: 1
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 1
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: 0, y: 1, z: 1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: 0
-      FloatTo: 1
-      StringFrom: 
-      StringTo: 
 --- !u!1 &5847548601129901789
 GameObject:
   m_ObjectHideFlags: 0
@@ -15472,7 +15260,7 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8651208572825718596}
+  - {fileID: 5312251486193956407}
   - {fileID: 460849581360073200}
   - {fileID: 2556433060469663200}
   m_Father: {fileID: 7276304187677924814}
@@ -15536,13 +15324,14 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3872225419734676142}
+  - component: {fileID: 9124549773626729217}
   m_Layer: 5
   m_Name: MARIA
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &3872225419734676142
 RectTransform:
   m_ObjectHideFlags: 0
@@ -15563,3 +15352,48 @@ RectTransform:
   m_AnchoredPosition: {x: 263, y: 2}
   m_SizeDelta: {x: 200, y: 200}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9124549773626729217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9117857965482818907}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetGameObject: {fileID: 0}
+  _animation: 0
+  _showOn: 2
+  _registerScreenToggle: 1
+  _canvasGroup: {fileID: 0}
+  _image: {fileID: 0}
+  _textMeshProComponent: {fileID: 0}
+  _baseOptions:
+    ShowEase: 27
+    HideEase: 26
+    Duration: 0.3
+    StartDelay: 0
+    IgnoreTimeScale: 0
+    LoopTime: 0
+    LoopType: 0
+    DelayPerOneTimeLoop: 0
+  _vector3Options:
+    From: {x: -1000, y: 0, z: 0}
+    EndTo: {x: -1, y: -1, z: -1}
+  _canvasGroupOptions:
+    From: 0
+    To: 1
+    IsControlFromTo: 0
+    BlockRaycast: 1
+  _floatOptions:
+    From: 0
+    To: 1
+  _textOptions:
+    FromStr: 
+    ToStr: 
+    RichTextEnabled: 1
+    ScrambleMode: 0
+    ScrambleChars: 

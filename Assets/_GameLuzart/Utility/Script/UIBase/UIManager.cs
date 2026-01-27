@@ -43,7 +43,63 @@ namespace Luzart
             {UIName.Level3,"1,0,UILevel3" },
             {UIName.Tutorial,"1,0,UITutorial" },
 
+            {UIName.Level1_1,"1,0,Level/Level1/UILevel1_1" },
+            {UIName.Level1_1_1,"1,0,Level/Level1/UILevel1_1_1" },
+            {UIName.Level1_1_2,"1,0,Level/Level1/UILevel1_1_2" },
+            {UIName.Level1_1_3,"1,0,Level/Level1/UILevel1_1_3" },
+            {UIName.Level1_2,"1,0,Level/Level1/UILevel1_2" },
+            {UIName.Level1_2_1,"1,0,Level/Level1/UILevel1_2_1" },
+            {UIName.Level1_3,"1,0,Level/Level1/UILevel1_3" },
+            {UIName.Level1_3_1,"1,0,Level/Level1/UILevel1_3_1" },
+            {UIName.Level1_4,"1,0,Level/Level1/UILevel1_4" },
+            {UIName.Level1_4_1,"1,0,Level/Level1/UILevel1_4_1" },
+            {UIName.Level1_5,"1,0,Level/Level1/UILevel1_5" },
+            {UIName.Level2_1,"1,0,Level/Level2/UILevel2_1" },
+            {UIName.Level2_1_1,"1,0,Level/Level2/UILevel2_1_1" },
+            {UIName.Level2_2,"1,0,Level/Level2/UILevel2_2" },
+            {UIName.Level2_2_1,"1,0,Level/Level2/UILevel2_2_1" },
+            {UIName.Level2_3,"1,0,Level/Level2/UILevel2_3" },
+            {UIName.Level2_3_1,"1,0,Level/Level2/UILevel2_3_1" },
+            {UIName.Level2_4,"1,0,Level/Level2/UILevel2_4" },
+            {UIName.Level2_5,"1,0,Level/Level2/UILevel2_5" },
+            {UIName.Level3_1,"1,0,Level/Level3/UILevel3_1" },
+            {UIName.Level3_2,"1,0,Level/Level3/UILevel3_2" },
+            {UIName.Level3_3,"1,0,Level/Level3/UILevel3_3" },
+            {UIName.Level3_4,"1,0,Level/Level3/UILevel3_4" },
+            {UIName.Level3_5,"1,0,Level/Level3/UILevel3_5" },
+            {UIName.Level3_6,"1,0,Level/Level3/UILevel3_6" },
+            {UIName.Level3_7,"1,0,Level/Level3/UILevel3_7" },
+
+
     };
+        private List<UIName> listScenario = new List<UIName>()
+        {
+            UIName.Level1_1,
+            UIName.Level1_2,
+            UIName.Level1_3,
+            UIName.Level1_4,
+            UIName.Level1_5,
+            UIName.Level2_1,
+            UIName.Level2_2,
+            UIName.Level2_3,
+            UIName.Level2_4,
+            UIName.Level2_5,
+            UIName.Level3_1,
+            UIName.Level3_2,
+            UIName.Level3_3,
+            UIName.Level3_4,
+            UIName.Level3_5,
+            UIName.Level3_6,
+            UIName.Level3_7,
+        };
+
+        public T ShowNextScenario<T>() where T : UIBase
+        {
+            var ui = GetUiActive(CurrentName);
+            var idx = listScenario.FindIndex(x => x == CurrentName);
+            var nextIdx = idx + 1;
+            return ShowUI<T>(listScenario[nextIdx]);
+        }
 
         private Dictionary<UIName, DataUIBase> dic2;
 
@@ -332,6 +388,33 @@ namespace Luzart
         Level2 = 12,
         Level3 = 13,
         Tutorial = 14,
+        
+        Level1_1 = 110,
+        Level1_1_1 = 111,
+        Level1_1_2 = 112,
+        Level1_1_3 = 113,
+        Level1_2 = 120,
+        Level1_2_1 = 121,
+        Level1_3 = 130,
+        Level1_3_1 = 131,
+        Level1_4 = 140,
+        Level1_4_1 = 141,
+        Level1_5 = 150,
+        Level2_1 = 211,
+        Level2_1_1 = 212,
+        Level2_2 = 220,
+        Level2_2_1 = 221,
+        Level2_3 = 230,
+        Level2_3_1 = 231,
+        Level2_4 = 240,
+        Level2_5 = 250,
+        Level3_1 = 310,
+        Level3_2 = 320,
+        Level3_3 = 330,
+        Level3_4 = 340,
+        Level3_5 = 350,
+        Level3_6 = 360,
+        Level3_7 = 370,
     }
     public class DataUIBase
     {

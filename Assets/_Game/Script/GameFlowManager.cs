@@ -3,40 +3,43 @@ using System;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class GameFlowManager : MonoBehaviour
+namespace Luzart
 {
-    public List<Storyboard> Storyboards;
-    private List<Storyboard> _instantiatedStoryboards = new List<Storyboard>();
-    public int _currentStoryboardIndex;
-
-    private void Start()
+    public class GameFlowManager : MonoBehaviour
     {
-        int length = Storyboards.Count;
-        for (int i = 0; i < length; i++)
-        {
-            int index = i;
-            Storyboard storyboard = Storyboards[index];
-            var sbInstance = Instantiate(storyboard, transform);
-            sbInstance.InitStoryBoard(index);
-            _instantiatedStoryboards.Add(sbInstance);
-        }
-        RunCurrentStoryboard();
-    }
+        public List<Storyboard> Storyboards;
+        private List<Storyboard> _instantiatedStoryboards = new List<Storyboard>();
+        public int _currentStoryboardIndex;
 
-    private void RunCurrentStoryboard()
-    {
-        if (_currentStoryboardIndex < 0 || _currentStoryboardIndex >= Storyboards.Count)
+        private void Start()
         {
-            Debug.Log("Đã hoàn thành tất cả storyboard");
-            return;
-        }
-
-        var sb = _instantiatedStoryboards[_currentStoryboardIndex];
-        sb.gameObject.SetActive(true);
-        sb.StartStoryboard(nextIndex =>
-        {
-            _currentStoryboardIndex = _currentStoryboardIndex + 1;
+            int length = Storyboards.Count;
+            for (int i = 0; i < length; i++)
+            {
+                int index = i;
+                Storyboard storyboard = Storyboards[index];
+                var sbInstance = Instantiate(storyboard, transform);
+                sbInstance.InitStoryBoard(index);
+                _instantiatedStoryboards.Add(sbInstance);
+            }
             RunCurrentStoryboard();
-        });
+        }
+
+        private void RunCurrentStoryboard()
+        {
+            if (_currentStoryboardIndex < 0 || _currentStoryboardIndex >= Storyboards.Count)
+            {
+                Debug.Log("Đã hoàn thành tất cả storyboard");
+                return;
+            }
+
+            var sb = _instantiatedStoryboards[_currentStoryboardIndex];
+            sb.gameObject.SetActive(true);
+            sb.StartStoryboard(nextIndex =>
+            {
+                _currentStoryboardIndex = _currentStoryboardIndex + 1;
+                RunCurrentStoryboard();
+            });
+        }
     }
 }

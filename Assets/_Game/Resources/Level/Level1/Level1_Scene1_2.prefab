@@ -65,8 +65,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Question 2: A student looks lost halfway through your lesson. What do
-    you do?'
+  m_text: "Question 3: The class feels flat. What\u2019s your go-to move?"
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -295,7 +294,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 2
+  stepKey: 3
   personaType: 0
 --- !u!1 &1060729219610593245
 GameObject:
@@ -350,8 +349,7 @@ MonoBehaviour:
   actionResultType: 0
   isSetActiveAfter: 0
   txt: {fileID: 289644554093475999}
-  str: 'Question 2: A student looks lost halfway through your lesson. What do you
-    do?'
+  str: "Question 3: The class feels flat. What\u2019s your go-to move?"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
@@ -421,7 +419,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Invite them to express where they got stuck and reassure them it is okay
+  m_text: "Pause for an open circle discussion: How\u2019s everyone feeling today? "
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -820,7 +818,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Care, Dialogue encouragement
+  m_text: Emotional check-in, trust, connection
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -954,7 +952,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Pause and re-explain using a structured, step-by-step breakdown '
+  m_text: Quick recap quiz to re-focus attention with clear structure
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -1275,7 +1273,7 @@ MonoBehaviour:
   typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 7908096699039911396}
+      Target: {fileID: 7940153635402631701}
       Duration: 0.5
       Easing: 6
       IsIgnoreTimeScale: 0
@@ -1307,6 +1305,7 @@ GameObject:
   m_Component:
   - component: {fileID: 4580845765792640254}
   - component: {fileID: 6247893043479483727}
+  - component: {fileID: 7940153635402631701}
   m_Layer: 5
   m_Name: Popup
   m_TagString: Untagged
@@ -1345,6 +1344,18 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5032331692212024802}
   m_CullTransparentMesh: 1
+--- !u!225 &7940153635402631701
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5032331692212024802}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5033248878914453040
 GameObject:
   m_ObjectHideFlags: 0
@@ -1890,7 +1901,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 2
+  stepKey: 3
   personaType: 1
 --- !u!1 &5871014289821753160
 GameObject:
@@ -2052,7 +2063,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 725cb00da53056b4fbd149f7f5a38bce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  stepKey: 2
+  stepKey: 3
   personaType: 2
 --- !u!1 &5912984680458465239
 GameObject:
@@ -2238,8 +2249,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetStepAction:
-  - {fileID: 3660306288371249932}
+  _targetStepAction: []
   actionResultType: 0
   isSetActiveAfter: 0
   twAnimation:
@@ -2387,7 +2397,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Try an analogy, story or visual to reframe the concept
+  m_text: Throw in a spontaneous role play game to lighten the mood
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -2708,7 +2718,7 @@ GameObject:
   - component: {fileID: 4219293310432015041}
   - component: {fileID: 7860128097155547489}
   m_Layer: 5
-  m_Name: Level1_Scene1 1
+  m_Name: Level1_Scene1_2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2838,7 +2848,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Improvisation, Playful explanation
+  m_text: Fun, Play, Novelty
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -2972,7 +2982,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Structure, Outcomes, Planning
+  m_text: Control, Pacing, Focus
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}

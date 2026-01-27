@@ -17848,7 +17848,7 @@ GameObject:
   - component: {fileID: 3433841965090090736}
   - component: {fileID: 5217254009116569031}
   m_Layer: 5
-  m_Name: Tut_Scene 3
+  m_Name: Tut_Scene5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
