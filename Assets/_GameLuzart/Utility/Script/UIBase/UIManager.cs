@@ -311,7 +311,7 @@ namespace Luzart
         }
         public void ShowToast(string toast)
         {
-            var ui = ShowUI<UIToast>(UIName.Toast);
+            var ui = ShowUI<UIToast>(UIName.Toast, isNeedCheck: false);
             ui.Init(toast);
         }
         private void AddScreenActive(UIBase current, bool isTop)

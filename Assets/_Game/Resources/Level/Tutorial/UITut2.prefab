@@ -38,7 +38,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!198 &850223562452843495
@@ -5432,7 +5432,7 @@ GameObject:
   - component: {fileID: 34309200015897189}
   - component: {fileID: 3900378571234875031}
   m_Layer: 5
-  m_Name: MARIA
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10607,15 +10607,15 @@ RectTransform:
   m_GameObject: {fileID: 1828785206887116082}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 6932540702421949247}
   m_Father: {fileID: 2162998457502505860}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 574.7925, y: 0}
+  m_AnchoredPosition: {x: 409.4, y: 0}
   m_SizeDelta: {x: 800, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5080578461434972361
@@ -12221,7 +12221,7 @@ GameObject:
   - component: {fileID: 7572005518134044715}
   - component: {fileID: 604791200025478379}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: StepActionUnityEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12438,7 +12438,7 @@ GameObject:
   - component: {fileID: 6721070285025401369}
   - component: {fileID: 8044737404621008419}
   m_Layer: 5
-  m_Name: BG
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -12587,7 +12587,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 5735603818950185637}
-  isActiveButton: 1
   modeClick: 0
 --- !u!1 &7269116005988375629
 GameObject:
@@ -12692,15 +12691,15 @@ RectTransform:
   m_GameObject: {fileID: 7414736013329396122}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 1436992232526296029}
   m_Father: {fileID: 8437755992770764090}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 604, y: 0}
+  m_AnchoredPosition: {x: 409.4, y: 0}
   m_SizeDelta: {x: 800, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8738048304697838807
@@ -17600,15 +17599,15 @@ RectTransform:
   m_GameObject: {fileID: 8157270777122087686}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
+  m_LocalScale: {x: 0.8, y: 0.8, z: 0.8}
+  m_ConstrainProportionsScale: 1
   m_Children:
   - {fileID: 2452528832018577213}
   m_Father: {fileID: 3076692113706029304}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 604, y: 0}
+  m_AnchoredPosition: {x: 409.4, y: 0}
   m_SizeDelta: {x: 800, y: 240}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &148163195193597655
@@ -17675,7 +17674,7 @@ GameObject:
   - component: {fileID: 3846298331189736216}
   - component: {fileID: 4688694841247773246}
   m_Layer: 5
-  m_Name: BG (1)
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17806,7 +17805,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 1158860237952124936}
-  isActiveButton: 1
   modeClick: 0
 --- !u!1 &8303765505648909042
 GameObject:
@@ -17895,7 +17893,7 @@ GameObject:
   - component: {fileID: 7722208700243528446}
   - component: {fileID: 3452919344334540186}
   m_Layer: 5
-  m_Name: Hide
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18084,7 +18082,7 @@ GameObject:
   - component: {fileID: 2448707526412202421}
   - component: {fileID: 455823713799179301}
   m_Layer: 5
-  m_Name: Canvas0
+  m_Name: StepActionUnityEvent
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18154,7 +18152,7 @@ GameObject:
   - component: {fileID: 8220960682876577326}
   - component: {fileID: 6843901518988521592}
   m_Layer: 5
-  m_Name: Btn (1)
+  m_Name: StepActionClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18304,7 +18302,7 @@ GameObject:
   - component: {fileID: 8109233595422773092}
   - component: {fileID: 6663550325452544916}
   m_Layer: 5
-  m_Name: Btn
+  m_Name: StepActionClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18401,7 +18399,7 @@ GameObject:
   - component: {fileID: 5898332063185750109}
   - component: {fileID: 687052161975618393}
   m_Layer: 5
-  m_Name: UITut2
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18459,6 +18457,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 5898332063185750109}
   - {fileID: 4002964854886882150}

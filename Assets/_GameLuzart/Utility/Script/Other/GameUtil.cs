@@ -1064,7 +1064,7 @@ namespace Luzart
         }
         public virtual void Load()
         {
-            Data = SaveLoadUtil.LoadData<TData>(KEYLOAD);
+            Data = SaveLoadUtil.LoadDataPrefs<TData>(KEYLOAD);
             if(Data == null)
             {
                 Data = new TData();
@@ -1076,7 +1076,7 @@ namespace Luzart
         }
         public virtual void Save()
         {
-            SaveLoadUtil.SaveData(Data, KEYLOAD);
+            SaveLoadUtil.SaveDataPrefs(Data, KEYLOAD);
         }
     }
 }

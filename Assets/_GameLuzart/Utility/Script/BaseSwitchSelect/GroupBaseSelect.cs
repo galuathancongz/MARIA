@@ -4,7 +4,7 @@ namespace Luzart
     using System.Collections.Generic;
     using UnityEngine;
     
-    public class GroupBaseSelect : BaseSelect
+    public class GroupBaseSelect : BaseToggle
     {
         public BaseSelect[] groupBaseSelect;
         public override void Select(bool isStatus)

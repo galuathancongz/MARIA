@@ -35,11 +35,17 @@ public class Level2_ConversationItem : MonoBehaviour
         {
             return;
         }
+        txt.text = "";
         tw = txt.DOText("Thinking ...",3f).SetLoops(-1, LoopType.Restart);
     }
     public void SetLoading()
     {
         tw?.Kill(true);
+        if (!gameObject)
+        {
+            return;
+        }
+        txt.text = "";
         tw = txt.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart);
     }
 

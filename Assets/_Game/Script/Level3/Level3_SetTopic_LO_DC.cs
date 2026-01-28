@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using TMPro;
 using UnityEngine;
 
 namespace Luzart
@@ -18,6 +19,26 @@ namespace Luzart
             Level3Manager.Instance.Data.learningObjective = learningObjective;
             Level3Manager.Instance.Data.designContraints = designContraints;
             Level3Manager.Instance.Save();
+        }
+        [ContextMenu("Auto Set Text")]
+        private void OnAutoSetText()
+        {
+            var allTxt = transform.parent.GetComponentsInChildren<TMP_Text>();
+            foreach (var txt in allTxt)
+            {
+                if (txt.name.Equals("txtTitle"))
+                {
+                    topic = txt.text;
+                }
+                else if (txt.name.Contains("LearningObject"))
+                {
+                    learningObjective = txt.text;
+                }
+                else if (txt.name.Contains("Design"))
+                {
+                    designContraints = txt.text;
+                }
+            }
         }
     }
 }

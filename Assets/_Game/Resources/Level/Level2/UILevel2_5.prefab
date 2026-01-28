@@ -6694,6 +6694,7 @@ MonoBehaviour:
   _targetStepAction: []
   actionResultType: 0
   isSetActiveAfter: 0
+  level: 3
 --- !u!1 &7860715427496686881
 GameObject:
   m_ObjectHideFlags: 0
