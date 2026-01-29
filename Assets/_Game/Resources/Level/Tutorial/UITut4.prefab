@@ -351,7 +351,6 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
-  isActiveButton: 1
   modeClick: 1
 --- !u!1 &2218271971242281549
 GameObject:
@@ -550,7 +549,7 @@ GameObject:
   - component: {fileID: 5312251486193956407}
   - component: {fileID: 4575633542056982437}
   m_Layer: 5
-  m_Name: StepAction
+  m_Name: StepActionDelayTime
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -631,7 +630,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 9, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!198 &7472741747239092997
@@ -5514,6 +5513,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 4575633542056982437}
   - {fileID: 7105047041580982443}

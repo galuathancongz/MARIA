@@ -90,7 +90,7 @@ GameObject:
   - component: {fileID: 7852088515483227684}
   - component: {fileID: 6776976940589092688}
   m_Layer: 5
-  m_Name: txtTitlePersona (1)
+  m_Name: txtTitleColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1655,7 +1655,7 @@ GameObject:
   - component: {fileID: 5546496628573120659}
   - component: {fileID: 8044628080579754270}
   m_Layer: 5
-  m_Name: txtPersona (1)
+  m_Name: txtColor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2209,9 +2209,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6787465666451116452}
-        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
-        m_MethodName: OnClickOnDone
+      - m_Target: {fileID: 5400065953275940750}
+        m_TargetAssemblyTypeName: Luzart.UIStoryboard_Level3_7, Assembly-CSharp
+        m_MethodName: OnBackToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -2501,7 +2501,7 @@ GameObject:
   - component: {fileID: 7059793694685155476}
   - component: {fileID: 4906652810970623030}
   m_Layer: 5
-  m_Name: txtPersona (2)
+  m_Name: txtMentor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2822,7 +2822,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 3
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -3117,6 +3117,13 @@ MonoBehaviour:
   - {fileID: 2847778437666540506}
   _currentStep: 0
   currentStoryboard: 0
+  txtPersona: {fileID: 7180803120902986974}
+  txtColor: {fileID: 8044628080579754270}
+  progressLevel2: {fileID: 8743998932752575371}
+  progressLevel3: {fileID: 8993548726244367930}
+  txtProgressLevel2: {fileID: 4708897843064986826}
+  txtProgressLevel3: {fileID: 842407949302823512}
+  txtResponse: {fileID: 554286917945590827}
 --- !u!1 &5538769202595025013
 GameObject:
   m_ObjectHideFlags: 0
@@ -3624,6 +3631,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e223becf4b90a41a2303fa821c29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 3
   onCall:
     m_PersistentCalls:
       m_Calls:
@@ -3809,12 +3817,12 @@ MonoBehaviour:
   m_fontSize: 36
   m_fontSizeBase: 36
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 36
   m_fontStyle: 0
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 4096
+  m_VerticalAlignment: 256
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -3969,9 +3977,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 6787465666451116452}
-        m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
-        m_MethodName: OnClickOnDone
+      - m_Target: {fileID: 5400065953275940750}
+        m_TargetAssemblyTypeName: Luzart.UIStoryboard_Level3_7, Assembly-CSharp
+        m_MethodName: OnBackToMain
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -4338,7 +4346,7 @@ GameObject:
   - component: {fileID: 585280038271074630}
   - component: {fileID: 3309134144077913787}
   m_Layer: 5
-  m_Name: txtTitlePersona (2)
+  m_Name: txtTitleMentor
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4600,7 +4608,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Level 1
+  m_text: Level 2
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}

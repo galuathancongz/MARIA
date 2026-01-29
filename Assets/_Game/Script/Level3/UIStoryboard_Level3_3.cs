@@ -34,7 +34,7 @@ namespace Luzart
             }
             else
             {
-                conversationMain.ShowText("Bạn đã hoàn thành tất cả các mục trong giáo án!");
+                conversationMain.ShowText("You have completed all the items in the lesson plan!");
                 conversationTip.ShowText("");
                 UIManager.Instance.uiTop.ShowBtnNext(true);
             }
@@ -80,7 +80,7 @@ namespace Luzart
         {
             if (Data.GetConverstationState(0) == EState.WaitAI)
             {
-                UIManager.Instance.ShowToast("Vui lòng chờ AI hoàn thành phản hồi.");
+                UIManager.Instance.ShowToast("Please wait AI complete response !");
                 return;
             }
 
@@ -99,9 +99,14 @@ namespace Luzart
         }
         public void OnClickRegenerate()
         {
+            if (Data.GetConverstationState(0) == EState.WaitAI)
+            {
+                UIManager.Instance.ShowToast("Please wait AI complete response !");
+                return;
+            }
             var strTitle = CurrentTitle();
             var strRequest = GetLevel3Prompt(strTitle, "");
-            strRequest = strRequest + "\n\nYêu cầu: Hãy tạo lại nội dung cho mục này.";
+            strRequest = strRequest + "\n\nRequest: Please recreate the content for this section.";
             Send(strRequest);
         }
         private void OnDoneResults(string str)
@@ -116,7 +121,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("OnDoneResults Level3_3: " + ex.Message);
-                conversationMain.ShowText("Đã có lỗi xảy ra, vui lòng thử lại.");
+                conversationMain.ShowText("Error! Try again !");
             }
         }
         private void Send(string strRequest)
@@ -129,39 +134,42 @@ namespace Luzart
         {
             Level3Data data = Level3Manager.Instance.Data;
             string topic = data.topic;
+
             StringBuilder stringBuilder = new StringBuilder();
             for (int i = 0; i < data.optionalFilters.Count; i++)
             {
                 stringBuilder.Append(data.optionalFilters[i]);
                 if (i < data.optionalFilters.Count - 1)
-                    stringBuilder.Append(',');
+                    stringBuilder.Append(", ");
             }
+
             var baseObjective = data.learningObjective;
             var constraints = data.designContraints;
             var filters = stringBuilder.ToString();
-            return "Context: Bạn là trợ lý thiết kế bài giảng trong một 'Co-design studio'. Giáo viên là người dẫn dắt, bạn là trợ lý đáp ứng.\n" +
-                       "Thông tin thiết lập từ Scene 2:\n" +
-                       $"- Chủ đề: {topic} \n" +
-                       $"- Mục tiêu học tập gốc: {baseObjective} \n" +
-                       $"- Ràng buộc thiết kế: {constraints} \n" +
-                       $"- Bộ lọc bổ sung (Optional Filters): {filters} \n\n" +
 
-                       $"Nhiệm vụ: Hỗ trợ soạn nội dung cho mục '{currentField}' trong giáo án.\n" +
-                       $"Yêu cầu cụ thể của giáo viên: \"{userRequest}\"\n\n" +
+            return "Context: You are a lesson design assistant in a 'Co-design Studio'. The teacher leads the process, and you provide supportive, high-quality content.\n" +
+                   "Established Setup from Scene 2:\n" +
+                   $"- Topic: {topic} \n" +
+                   $"- Core Learning Objective: {baseObjective} \n" +
+                   $"- Design Constraints: {constraints} \n" +
+                   $"- Optional Filters: {filters} \n\n" +
 
-                       "Yêu cầu kỹ thuật:\n" +
-                       "1. Tính thực tế: Nội dung phải bám sát mục tiêu gốc và ràng buộc thiết kế.\n" +
-                       "2. Bản địa hóa: Sử dụng ví dụ phù hợp văn hóa Việt Nam.\n" +
-                       "3. Gợi ý sư phạm: Phần 'tips' phải đưa ra các mẹo thực tế (ví dụ: cách làm cho hoạt động tập trung vào học sinh hơn).\n" +
-                       "4. Định dạng: CHỈ trả về JSON duy nhất theo cấu trúc bên dưới, không có văn bản giải thích thừa.\n" +
-                       "5. Lời khuyên của MARIA hoặc Mentor ngắn thôi chỉ 20 chữ\n" +
-                       "6. Tập trung chủ yếu vào phần nhiệm vụ, đảm bảo ngắn gọn và khả thi\n\n" +
+                   $"Task: Generate content for the '{currentField}' section of the lesson plan.\n" +
+                   $"Teacher's Specific Request: \"{userRequest}\"\n\n" +
 
-                       "Output JSON Format:\n" +
-                       "{\n" +
-                       "  \"suggestion\": \"nội dung gợi ý chi tiết cho mục này (bao gồm cả kịch bản, vật liệu nếu cần)\",\n" +
-                       "  \"tips\": \"lời khuyên của MARIA hoặc Mentor để cải thiện hoạt động\"\n" +
-                       "}";
+                   "Technical Requirements:\n" +
+                   "1. Practicality: Content must align strictly with the core objective and design constraints.\n" +
+                   "2. Localization: Use examples suitable for the England educational context.\n" +
+                   "3. Pedagogical Insight: The 'tips' section should offer actionable advice, including many small tips (e.g., how to make activities more student-centered).\n" +
+                   "4. Formatting: Return ONLY a single JSON object. No markdown, no backticks, no introductory text.\n" +
+                   "5. Conciseness: The Mentor/MARIA's advice (tips) must be extremely brief, under 20 words.\n" +
+                   "6. Focus: Prioritize the main task content, ensuring it is concise and feasible.\n\n" +
+
+                   "Output JSON Format:\n" +
+                   "{\n" +
+                   "  \"suggestion\": \"detailed suggested content for this section (including scripts, materials if needed)\",\n" +
+                   "  \"tips\": \"brief advice from MARIA or the Mentor to improve the activity\"\n" +
+                   "}";
         }
     }
     public class Level3_3Data

@@ -9,6 +9,7 @@ namespace Luzart
 {
     public class Level3Manager : SingletonSaveLoad<Level3Data, Level3Manager>
     {
+        public static bool IsSendStartCoCreatorStudio = false;
         protected override string KEYLOAD => "Level3_Data";
         public void Send(byte indexConversation, string str, Action<string> onResult)
         {
@@ -33,6 +34,7 @@ namespace Luzart
     [Serializable]
     public class Level3Data
     {
+        public ESubject subject;
         public string topic;
         public string learningObjective;
         public string designContraints;
@@ -43,6 +45,10 @@ namespace Luzart
         public List<FeedbackSuggestion> listFeedbackSuggestions = new List<FeedbackSuggestion>();
         public List<string> listFeedbackSelected = new List<string>();
 
+        public int GetAllSendAI()
+        {
+            return listConverstationState.Sum(x => x.listConverstationData.Count(y => y.role == ERole.Me));
+        }
         public string GetObjectiveSummary() => learningObjective;
 
         public string GetTitleSummary()

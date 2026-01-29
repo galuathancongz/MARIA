@@ -29,9 +29,9 @@ namespace Luzart
         private void StartGame()
         {
             Application.targetFrameRate = 60;
-            UIManager.Instance.ShowUI(UIName.Splash);
             LoadReferent();
             DataManager.Instance.Initialize();
+            UIManager.Instance.ShowUI(UIName.Splash);
         }
     
         private void LoadReferent()

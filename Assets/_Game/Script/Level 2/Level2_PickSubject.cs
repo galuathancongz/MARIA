@@ -9,10 +9,18 @@ namespace Luzart
 {
     public class Level2_PickSubject : MonoBehaviour
     {
+        [SerializeField] private int level = 2;
         [SerializeField] private ESubject subject;
         public void OnClickSubject()
         {
-            Level2Manager.Instance.Data.subject = subject;
+            if (level == 2)
+            {
+                Level2Manager.Instance.Data.subject = subject;
+            }
+            else if (level == 3)
+            {
+                Level3Manager.Instance.Data.subject = subject;
+            }
         }
     }
     public enum ESubject

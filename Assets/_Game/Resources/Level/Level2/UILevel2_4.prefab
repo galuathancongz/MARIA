@@ -66,7 +66,6 @@ GameObject:
   - component: {fileID: 6276988670447496992}
   - component: {fileID: 5913504672555248158}
   - component: {fileID: 2076963244781281796}
-  - component: {fileID: 8437347243661408891}
   - component: {fileID: 8326993086548663151}
   m_Layer: 5
   m_Name: Avt
@@ -132,29 +131,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8437347243661408891
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 342817555628116629}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee94d16eb919f0419bb50a9b4721a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imSelects:
-  - {fileID: 2076963244781281796}
-  groupSprite:
-  - sp:
-    - {fileID: 21300000, guid: 0dc66cf689c940b45bca0c50e18d5f33, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 4105420e461ac8344bb60442cfce419c, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 856b9867f05aead44adf1590d21f0e50, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 11b6d38bef1781644a78b0756e307cd2, type: 3}
 --- !u!114 &8326993086548663151
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -170,7 +146,7 @@ MonoBehaviour:
   onCall:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8437347243661408891}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Luzart.SelectChangeImageIndex, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 0
@@ -1979,7 +1955,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 251.28601, y: -1.699997}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &1280670269014480864
 CanvasRenderer:
@@ -2149,7 +2125,6 @@ GameObject:
   - component: {fileID: 2433587312658747966}
   - component: {fileID: 5435284223137842876}
   - component: {fileID: 1303229292870606269}
-  - component: {fileID: 3290797512171810441}
   - component: {fileID: 5046420981088813612}
   m_Layer: 5
   m_Name: Avt
@@ -2215,29 +2190,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &3290797512171810441
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3395715934435876778}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee94d16eb919f0419bb50a9b4721a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imSelects:
-  - {fileID: 1303229292870606269}
-  groupSprite:
-  - sp:
-    - {fileID: 21300000, guid: 0dc66cf689c940b45bca0c50e18d5f33, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 4105420e461ac8344bb60442cfce419c, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 856b9867f05aead44adf1590d21f0e50, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 11b6d38bef1781644a78b0756e307cd2, type: 3}
 --- !u!114 &5046420981088813612
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2253,7 +2205,7 @@ MonoBehaviour:
   onCall:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 3290797512171810441}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Luzart.SelectChangeImageIndex, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 0
@@ -2561,7 +2513,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 195, y: -195}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7362586124106062958
 MonoBehaviour:
@@ -2931,7 +2883,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 251.28601, y: -1.699997}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &7512168234553213032
 CanvasRenderer:
@@ -3193,7 +3145,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5875248096670128892}
   padding: {x: 0, y: 0}
-  minSizeTarget: {x: 0, y: 390}
+  minSizeTarget: {x: 0, y: 0}
 --- !u!114 &745136627662082854
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4256,7 +4208,6 @@ GameObject:
   - component: {fileID: 7730901973866423912}
   - component: {fileID: 4102308585426010153}
   - component: {fileID: 5748503930571434408}
-  - component: {fileID: 8763702525313331473}
   - component: {fileID: 4255647356373507737}
   m_Layer: 5
   m_Name: Avt
@@ -4322,29 +4273,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &8763702525313331473
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6111003937776384297}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6ee94d16eb919f0419bb50a9b4721a82, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  imSelects:
-  - {fileID: 5748503930571434408}
-  groupSprite:
-  - sp:
-    - {fileID: 21300000, guid: 0dc66cf689c940b45bca0c50e18d5f33, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 4105420e461ac8344bb60442cfce419c, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 856b9867f05aead44adf1590d21f0e50, type: 3}
-  - sp:
-    - {fileID: 21300000, guid: 11b6d38bef1781644a78b0756e307cd2, type: 3}
 --- !u!114 &4255647356373507737
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4360,7 +4288,7 @@ MonoBehaviour:
   onCall:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 8763702525313331473}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: Luzart.SelectChangeImageIndex, Assembly-CSharp
         m_MethodName: Select
         m_Mode: 0
@@ -4522,7 +4450,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 5506765507913144908}
   padding: {x: 0, y: 0}
-  minSizeTarget: {x: 0, y: 390}
+  minSizeTarget: {x: 0, y: 0}
 --- !u!114 &4572924801728923496
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4707,7 +4635,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 251.28601, y: -1.699997}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 1}
 --- !u!222 &8661423307973217838
 CanvasRenderer:
@@ -4768,7 +4696,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 195, y: -195}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &7697663667799401583
 MonoBehaviour:
@@ -5040,7 +4968,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   target: {fileID: 6902270457083923167}
   padding: {x: 0, y: 0}
-  minSizeTarget: {x: 0, y: 390}
+  minSizeTarget: {x: 0, y: 0}
 --- !u!114 &1705960627300865302
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6149,7 +6077,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
   m_AnchoredPosition: {x: 195, y: -195}
-  m_SizeDelta: {x: 390, y: 390}
+  m_SizeDelta: {x: 390, y: 49.26001}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &6026242248205699809
 MonoBehaviour:

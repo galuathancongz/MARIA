@@ -36,13 +36,13 @@ namespace Luzart
                 var studentWorkDTO = JsonUtility.FromJson<StudentWorkDTO>(str);
                 string studentWork = studentWorkDTO.studentWork;
                 Data.studentWork= studentWork;
-                conversationItemMain.ShowText($"Bài làm của học sinh:\n\"{studentWork}\"");
+                conversationItemMain.ShowText($"Student response:\n\"{studentWork}\"");
                 GenerateFeedback();
             }
             catch (Exception ex)
             {
                 Debug.LogError($"Error parsing student work response: {ex.Message}");
-                conversationItemMain.ShowText("Lỗi phân tích bài làm của học sinh.");
+                conversationItemMain.ShowText("Error parsing student response.");
             }
 
 
@@ -71,14 +71,14 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError($"Error parsing feedback suggestions response: {ex.Message}");
-                UIManager.Instance.ShowToast("Lỗi phân tích gợi ý phản hồi.");
+                UIManager.Instance.ShowToast("Error parsing feedback suggestions.");
             }
         }
         public void OnClickGenerateFeedback()
         {
             if(Data.GetConverstationState(2) == EState.WaitAI)
             {
-                UIManager.Instance.ShowToast("Đang tạo phản hồi, vui lòng chờ.");
+                UIManager.Instance.ShowToast("Generating feedback, please wait.");
                 return;
             }
             GenerateFeedback();
@@ -90,7 +90,7 @@ namespace Luzart
             MasterHelper.InitListObj(1, itemPrefab, listItemClickToImport, content, (item, index) =>
             {
                 item.gameObject.SetActive(true);
-                item.Initialize(EFeedback.Strength, "Đang tạo gợi ý phản hồi...", null);
+                item.Initialize(EFeedback.Strength, "Generating feedback suggestion...", null);
             });
             Level3Manager.Instance.Send(2, promptFeedback, OnGetFeedbackSuggestions);
         }
@@ -158,36 +158,40 @@ namespace Luzart
             string topic = Data.topic;
             string objective = Data.learningObjective;
             string lessonContent = Data.GetStringFullContent();
+            string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
 
-            return $@"Context: Bạn là AI giả lập học sinh. 
-Dựa trên bài giảng:
-Chủ đề: {topic}
-Mục tiêu: {objective}
-Nội dung giáo án:
+            return $@"Context: You are an AI simulating a student.
+Based on the following lesson materials:
+Subject: {subject}
+Topic: {topic}
+Objective: {objective}
+Lesson Content:
 {lessonContent}
 
-Nhiệm vụ: Bạn là học sinh tên {studentName} ({studentStyle}). Hãy nộp 1 bài làm giả lập.
-Yêu cầu:
-1. Bài làm thể hiện phong cách {studentStyle} (VARK).
-2. Nội dung thực tế, ngắn gọn (dưới 40 từ), có thể có 1 lỗi nhỏ.
-3. Trả về JSON duy nhất: {{ ""studentWork"": ""..."" }}";
+Task: You are a student named {studentName} with a {studentStyle} learning style. Submit a simulated assignment.
+Requirements:
+1. The submission must reflect the {studentStyle} (VARK) learning style.
+2. The content should be realistic and concise (under 40 words), and may include one minor mistake.
+3. Return ONLY a single JSON object: {{ ""studentWork"": ""..."" }}";
         }
 
         // Hàm 2: Gợi ý Feedback cho giáo viên
         public string GetFeedbackSuggestionsPrompt(string studentWork, string objective)
         {
-            return $@"Context: Bạn là AI Mentor sư phạm.
-Học sinh nộp bài: ""{studentWork}""
-Mục tiêu bài học: ""{objective}""
+            string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
+            return $@"Context: You are a Pedagogical AI Mentor.
+Subject: {subject}
+Student Submission: ""{studentWork}""
+Learning Objective: ""{objective}""
 
-Nhiệm vụ: Gợi ý các đoạn phản hồi ngắn gọn để giáo viên chọn.
-Yêu cầu:
-1. Trả về JSON duy nhất.
-2. Mỗi mảng (strengths, improvements, nextSteps) đúng 3 phần tử.
-3. Mỗi phần tử siêu ngắn gọn (dưới 10 từ).
-4. Ngôn ngữ: Tiếng Việt, khích lệ.
+Task: Suggest concise feedback snippets for the teacher to choose from.
+Requirements:
+1. Return ONLY a single JSON object.
+2. Each array (strengths, improvements, nextSteps) must contain exactly 3 items.
+3. Each item must be extremely concise (under 10 words).
+4. Language: Encouraging English.
 
-Format JSON:
+JSON Format:
 {{
   ""strengths"": [""..."", ""..."", ""...""],
   ""improvements"": [""..."", ""..."", ""...""],

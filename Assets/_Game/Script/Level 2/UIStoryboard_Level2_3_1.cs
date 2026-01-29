@@ -23,7 +23,7 @@ namespace Luzart
             base.Show(onHideDone);
             _isHide = false;
             var strRequest = GetRequest();
-            OnSendMsg(strRequest);
+            SendMsg(strRequest);
         }
         public void OnClickRefine()
         {
@@ -32,15 +32,25 @@ namespace Luzart
         }
         public void OnClickRegenerate()
         {
+            if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
+            {
+                UIManager.Instance.ShowToast("Please wait for AI to finish before refining.");
+                return;
+            }
             var strRequest = GetRequestRegenerate();
-            OnSendMsg(strRequest);
+            SendMsg(strRequest);
         }
         public void OnSendMsgRefine(string str)
         {
+            if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
+            {
+                UIManager.Instance.ShowToast("Please wait for AI to finish before refining.");
+                return;
+            }
             var strRequest = GetRequestRefine(str);
-
+            SendMsg(strRequest);
         }
-        public void OnSendMsg(string strRequest)
+        public void SendMsg(string strRequest)
         {
             Level2Manager.Instance.Send(1, strRequest, OnResultString);
             isShowRefine = false;
@@ -76,27 +86,32 @@ namespace Luzart
 
         private string GetRequest()
         {
-            return $"System: Bạn là Mentor AI {Level2Manager.Instance.GetNameMentor()}." +
-                $" Hãy giải quyết thử thách dạy học sau." +
+            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
+                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
                 $"User Request: {Level2Manager.Instance.Data.question2_3_1}" +
-                $"Output Requirement: Phản hồi CHỈ chứa mã JSON hợp lệ, không có văn bản thừa, không có dấu nháy ngược (markdown). Nội dung trong các trường phải là một chuỗi văn bản duy nhất, sử dụng \n để xuống dòng giữa các ý." +
-                "JSON Structure: { \"script\": \"dòng thoại 1\\ndòng thoại 2\", \"visual\": \"mô tả visual 1\\nmô tả visual 2\", \"quiz\": \"câu hỏi 1\\ncâu hỏi 2\" }";
+                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
+                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
+                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
         }
+
         private string GetRequestRefine(string str)
         {
-            return $"System: Bạn là Mentor AI {Level2Manager.Instance.GetNameMentor()}." +
-                $" Hãy giải quyết thử thách dạy học sau." +
-                $"User Request: {Level2Manager.Instance.Data.question2_3_1} thêm {str}" +
-                $"Output Requirement: Phản hồi CHỈ chứa mã JSON hợp lệ, không có văn bản thừa, không có dấu nháy ngược (markdown). Nội dung trong các trường phải là một chuỗi văn bản duy nhất, sử dụng \n để xuống dòng giữa các ý." +
-                "JSON Structure: { \"script\": \"dòng thoại 1\\ndòng thoại 2\", \"visual\": \"mô tả visual 1\\nmô tả visual 2\", \"quiz\": \"câu hỏi 1\\ncâu hỏi 2\" }";
+            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
+                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
+                $"User Request: {Level2Manager.Instance.Data.question2_3_1} with the following addition: {str}" +
+                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
+                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
+                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
         }
+
         private string GetRequestRegenerate()
         {
-            return $"System: Bạn là Mentor AI {Level2Manager.Instance.GetNameMentor()}." +
-                $" Hãy giải quyết thử thách dạy học sau." +
-                $"User Request: Tạo lại {Level2Manager.Instance.Data.question2_3_1}" +
-                $"Output Requirement: Phản hồi CHỈ chứa mã JSON hợp lệ, không có văn bản thừa, không có dấu nháy ngược (markdown). Nội dung trong các trường phải là một chuỗi văn bản duy nhất, sử dụng \n để xuống dòng giữa các ý." +
-                "JSON Structure: { \"script\": \"dòng thoại 1\\ndòng thoại 2\", \"visual\": \"mô tả visual 1\\nmô tả visual 2\", \"quiz\": \"câu hỏi 1\\ncâu hỏi 2\" }";
+            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
+                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
+                $"User Request: Regenerate the content for: {Level2Manager.Instance.Data.question2_3_1}" +
+                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
+                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
+                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
         }
         private bool _isHide = false;
         public override void Hide()

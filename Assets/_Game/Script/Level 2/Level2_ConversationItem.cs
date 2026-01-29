@@ -26,7 +26,7 @@ public class Level2_ConversationItem : MonoBehaviour
             return;
         }
         gameObject.SetActive(true);
-        txt.DOSetTextCharByChar(str, displaySpeedChar);
+        tw = txt.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
     }
     public void SetThinking()
     {
@@ -36,7 +36,7 @@ public class Level2_ConversationItem : MonoBehaviour
             return;
         }
         txt.text = "";
-        tw = txt.DOText("Thinking ...",3f).SetLoops(-1, LoopType.Restart);
+        tw = txt.DOText("Thinking ...",3f).SetLoops(-1, LoopType.Restart).SetId(this);
     }
     public void SetLoading()
     {
@@ -46,7 +46,10 @@ public class Level2_ConversationItem : MonoBehaviour
             return;
         }
         txt.text = "";
-        tw = txt.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart);
+        tw = txt.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
     }
-
+    private void OnDestroy()
+    {
+        tw?.Kill(true);
+    }
 }

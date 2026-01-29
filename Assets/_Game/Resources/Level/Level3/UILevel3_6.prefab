@@ -268,7 +268,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0009558949}
+  m_AnchoredPosition: {x: 0, y: -0.000051498413}
   m_SizeDelta: {x: 0, y: 300}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &4804715412844940913
@@ -1954,6 +1954,9 @@ MonoBehaviour:
   - {fileID: 2341003105251799109}
   _currentStep: 0
   currentStoryboard: 0
+  txtPersona: {fileID: 97271691316005752}
+  txtMentorSubject: {fileID: 6137228500718688012}
+  txtRevisions: {fileID: 8274351440731651263}
   inputField: {fileID: 6627996928287161861}
   content: {fileID: 2043584832885211833}
   itemFoldOut: {fileID: 5461187612492677304}

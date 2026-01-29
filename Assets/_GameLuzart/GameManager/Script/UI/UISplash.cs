@@ -14,8 +14,10 @@ namespace Luzart
         {
             base.Show(onHideDone);
             Sequence sq = DOTween.Sequence();
-            sq.Append(tweenAnimation.Show());
             sq.AppendInterval(0.1f);
+            NextScene();
+            return;
+            sq.Append(tweenAnimation.Show());
             sq.AppendCallback(NextScene);
         }
         private void NextScene()

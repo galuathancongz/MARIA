@@ -56,22 +56,22 @@ namespace Luzart
         }
         private string GetShortStudentFeedbackPrompt(string fullContent)
         {
-            return "Context: Bạn là học sinh trung học. Hãy tự fake 1 tên (chỉ 1 từ, ví dụ: Bảo), 1 tuổi (15), và 1 phong cách VARK ngẫu nhiên.\n" +
-                   "Nhiệm vụ: Phản hồi siêu ngắn gọn về giáo án sau:\n" + fullContent + "\n\n" +
-                   "Yêu cầu:\n" +
-                   "1. Trả về JSON duy nhất, không giải thích.\n" +
-                   "2. Tên chỉ được dùng 1 từ duy nhất.\n" +
-                   "3. Các trường nội dung không quá 15 từ.\n\n" +
+            return "Context: You are a high school student. Create a fake identity for yourself: a single-word name (e.g., Leo), age (15), and a random VARK learning style.\n" +
+                   "Task: Provide ultra-concise feedback on the following lesson plan:\n" + fullContent + "\n\n" +
+                   "Requirements:\n" +
+                   "1. Return ONLY a single JSON object. No explanations, no markdown, no backticks.\n" +
+                   "2. The name MUST be exactly one word.\n" +
+                   "3. Each content field must NOT exceed 15 words.\n\n" +
                    "Output JSON Format:\n" +
                    "{\n" +
-                   "  \"student_info\": { \"name\": \"Tên_1_từ\", \"age\": 15, \"style\": \"VARK_ngẫu_nhiên\" },\n" +
-                   "  \"feedback\": \"Câu_nói_ngắn\",\n" +
+                   "  \"student_info\": { \"name\": \"OneWordName\", \"age\": 15, \"style\": \"Random_VARK\" },\n" +
+                   "  \"feedback\": \"Short feedback sentence\",\n" +
                    "  \"summary\": {\n" +
-                   "    \"liked\": \"Điểm_thích_ngắn\",\n" +
-                   "    \"struggled\": \"Điểm_khó_ngắn\",\n" +
-                   "    \"suggested_change\": \"Đề_xuất_ngắn\"\n" +
+                   "    \"liked\": \"What you liked (short)\",\n" +
+                   "    \"struggled\": \"What you found difficult (short)\",\n" +
+                   "    \"suggested_change\": \"Short suggestion\"\n" +
                    "  },\n" +
-                   "  \"emotion\": \"hào hứng/bối rối/tò mò\"\n" +
+                   "  \"emotion\": \"excited/confused/curious\"\n" +
                    "}";
         }
     }

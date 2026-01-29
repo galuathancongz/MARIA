@@ -7,6 +7,7 @@ namespace Luzart
 {
     public class Level2Manager : SingletonSaveLoad<Level2Data, Level2Manager>
     {
+        public static bool IsSendStartIdeationLab = false;
         protected override string KEYLOAD => "Level2_AI";
         public void Send(byte indexConversation, string str, Action<string> onResult)
         {
@@ -23,22 +24,6 @@ namespace Luzart
         public List<ConverstationData> GetCurrentConverstation(byte index)
         {
             return Data.GetConverstationData(index);
-        }
-        public string GetNameMentor()
-        {
-             switch (Data.subject)
-            {
-                case ESubject.English:
-                    return "Austen";
-                case ESubject.Math:
-                    return "Euclidea";
-                case ESubject.History:
-                    return "Thucy";
-                case ESubject.Science:
-                    return "Drawina";
-                default:
-                    return "Mentor";
-            }
         }
     }
 
@@ -73,6 +58,15 @@ namespace Luzart
             }
             return converstationDataList.listConverstationData;
         }
+        public EState GetConverstationState(byte indexConverstation)
+        {
+            var converstationDataList = listConverstationState.Find(x => x.indexConverstation == indexConverstation);
+            if (converstationDataList == null)
+            {
+                return EState.CanWrite;
+            }
+            return converstationDataList.State;
+        }
     }
     [System.Serializable]
     public class ConversationState
@@ -96,6 +90,42 @@ namespace Luzart
     {
         CanWrite = 0,
         WaitAI = 1,
+    }
+
+    public static class MentorSubjectExtension
+    {
+        public static string GetNameMentor(ESubject subject)
+        {
+            switch (subject)
+            {
+                case ESubject.English:
+                    return "Austen";
+                case ESubject.Math:
+                    return "Euclidea";
+                case ESubject.History:
+                    return "Thucy";
+                case ESubject.Science:
+                    return "Drawina";
+                default:
+                    return "Mentor";
+            }
+        }
+        public static string GetSubjectName(ESubject subject)
+        {
+            switch (subject)
+            {
+                case ESubject.English:
+                    return "English";
+                case ESubject.Math:
+                    return "Math";
+                case ESubject.History:
+                    return "History";
+                case ESubject.Science:
+                    return "Science";
+                default:
+                    return "Subject";
+            }
+        }
     }
 }
 

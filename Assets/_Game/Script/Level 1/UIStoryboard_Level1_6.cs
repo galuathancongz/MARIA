@@ -9,6 +9,11 @@ namespace Luzart
 {
     public class UIStoryboard_Level1_6 : Storyboard
     {
+        public override void Show(Action onHideDone)
+        {
+            base.Show(onHideDone);
+            Level2Manager.IsSendStartIdeationLab = false;
+        }
         public void OnClickMainMenu()
         {
             UIManager.Instance.HideAll();

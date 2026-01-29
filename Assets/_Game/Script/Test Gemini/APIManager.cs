@@ -43,6 +43,7 @@ namespace Luzart
         private const string ENDPOINT = "https://api.openai.com/v1/responses";
 
         protected override string KEYLOAD => "MARIA_API_SESSION";
+        [SerializeField][ReadOnly] List<string> listConversation = new List<string>();
 
         #endregion
 
@@ -69,6 +70,7 @@ namespace Luzart
             }
 
             StartCoroutine(SendCoroutine(prompt, onResult));
+            listConversation.Add($"Me : {prompt}");
         }
 
         #endregion
@@ -179,6 +181,7 @@ namespace Luzart
 
             string output = ExtractOutputText(data);
             onResult?.Invoke(output);
+            listConversation.Add($"AI : {output}");
         }
 
         private string ExtractOutputText(ResponsesResponse data)

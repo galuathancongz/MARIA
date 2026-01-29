@@ -5580,7 +5580,7 @@ MonoBehaviour:
       LoopType: 0
       LoopCount: 0
     Values:
-      IsSetFromInInit: 1
+      IsSetFromInInit: 0
       IsSetRuntimeFrom: 0
       IsSetRuntimeTo: 0
       Vector3From: {x: -1000, y: 0, z: 0}

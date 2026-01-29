@@ -10,6 +10,52 @@ namespace Luzart
     public class PersonaManager : SingletonSaveLoad<PersonaData, PersonaManager>
     {
         protected override string KEYLOAD => "Persona";
+        public string GetStringPersonaType()
+        {
+            EPersonaType type = GetMyPersonaType();
+            switch (type)
+            {
+                case EPersonaType.Creative:
+                    return "Creative";
+                case EPersonaType.LogicOrStruct:
+                    return "Logical/Structured";
+                case EPersonaType.Empathy:
+                    return "Empathetic";
+                default:
+                    return "Unknown";
+            }
+        }
+
+        public string GetHexColorPersonaType()
+        {
+            EPersonaType type = GetMyPersonaType();
+            switch (type)
+            {
+                case EPersonaType.Creative:
+                    return "#FFA500"; // Orange
+                case EPersonaType.LogicOrStruct:
+                    return "#0000FF"; // Blue
+                case EPersonaType.Empathy:
+                    return "#008000"; // Green
+                default:
+                    return "#000000"; // Black
+            }
+        }
+        public string GetNameColorPersonaType()
+        {
+            EPersonaType type = GetMyPersonaType();
+            switch (type)
+            {
+                case EPersonaType.Creative:
+                    return "Orange";
+                case EPersonaType.LogicOrStruct:
+                    return "Blue";
+                case EPersonaType.Empathy:
+                    return "Green";
+                default:
+                    return "Black";
+            }
+        }
 
         public EPersonaType GetMyPersonaType()
         {

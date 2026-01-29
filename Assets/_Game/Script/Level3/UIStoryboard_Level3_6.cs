@@ -10,6 +10,9 @@ namespace Luzart
 {
     public class UIStoryboard_Level3_6 : Storyboard
     {
+        public TMP_Text txtPersona;
+        public TMP_Text txtMentorSubject;
+        public TMP_Text txtRevisions;
         public TMP_InputField inputField;
         public Transform content;
         public Item_FoldOut itemFoldOut;
@@ -21,6 +24,9 @@ namespace Luzart
         private void OnEnable()
         {
             inputField.onValueChanged.AddListener(OnInputValueChanged);
+            txtPersona.text = PersonaManager.Instance.GetStringPersonaType();
+            txtMentorSubject.text = MentorSubjectExtension.GetNameMentor(Level3Manager.Instance.Data.subject);
+            txtRevisions.text = Level3Manager.Instance.Data.GetAllSendAI().ToString();
         }
         private void OnDisable()
         {
