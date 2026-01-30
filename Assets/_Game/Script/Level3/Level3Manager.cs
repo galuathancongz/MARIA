@@ -39,7 +39,7 @@ namespace Luzart
         public string learningObjective;
         public string designContraints;
         public List<string> optionalFilters;
-        public List<DataTitleTeachLevel3_3> listDataTitleTeach;
+        public List<DataTitleTeachLevel3_3> listDataTitleTeach = new();
         public StudentFeedbackResponseDTO responseStudent = null;
         public string studentWork = "";
         public List<FeedbackSuggestion> listFeedbackSuggestions = new List<FeedbackSuggestion>();
@@ -157,7 +157,7 @@ namespace Luzart
             });
         }
 
-        public List<ConversationState> listConverstationState;
+        public List<ConversationState> listConverstationState = new();
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)
         {
             var converstationDataList = listConverstationState.Find(x => x.indexConverstation == indexConverstation);

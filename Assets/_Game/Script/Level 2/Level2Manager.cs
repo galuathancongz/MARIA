@@ -33,7 +33,7 @@ namespace Luzart
         public ESubject subject;
         
         public string question2_3_1;
-        public List<ConversationState> listConverstationState;
+        public List<ConversationState> listConverstationState = new List<ConversationState>();
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)
         {
             var converstationDataList = listConverstationState.Find(x => x.indexConverstation == indexConverstation);
@@ -73,7 +73,7 @@ namespace Luzart
     {
         public EState State = EState.CanWrite;
         public byte indexConverstation;
-        public List<ConverstationData> listConverstationData;
+        public List<ConverstationData> listConverstationData = new List<ConverstationData>();
     }
     [System.Serializable]
     public class ConverstationData
