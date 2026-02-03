@@ -17,6 +17,8 @@ namespace Luzart
             int index = (int)Level2Manager.Instance.Data.subject;
             bs.Select(index);
             stepActionSwitch.UseStep(index);
+            var question = $"This is context. Please no reply. You are an AI Mentor named {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}. Your subject is {MentorSubjectExtension.GetSubjectName(Level2Manager.Instance.Data.subject)}. Please answer the following question as concisely as possible. Limit 200 token. ";
+            APIManager.Instance.Send(question, null);
             CallOnComplete();
         }
     }
