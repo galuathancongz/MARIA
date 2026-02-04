@@ -2214,7 +2214,7 @@ GameObject:
   - component: {fileID: 6314689387933908617}
   - component: {fileID: 2172062868430465661}
   m_Layer: 5
-  m_Name: TweenAnim1
+  m_Name: TweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2405,6 +2405,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e223becf4b90a41a2303fa821c29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 2
   onCall:
     m_PersistentCalls:
       m_Calls:
@@ -3182,6 +3183,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 495811243756115825}
   - {fileID: 3951712786192792309}
@@ -3224,7 +3229,7 @@ GameObject:
   - component: {fileID: 495811243756115825}
   - component: {fileID: 2275058823409284634}
   m_Layer: 5
-  m_Name: TweenAnim
+  m_Name: TweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
