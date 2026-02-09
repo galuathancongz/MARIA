@@ -366,8 +366,8 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 5333971037390828811}
-  - {fileID: 2910954710402717376}
   - {fileID: 8529621490859323276}
+  - {fileID: 2910954710402717376}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -389,6 +389,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   str: Yes
   isChange: 0
+  index: 0
+  onClick:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1 &5989745023575205608
 GameObject:
   m_ObjectHideFlags: 0

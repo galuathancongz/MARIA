@@ -34,7 +34,11 @@ namespace Luzart
             {
                 bsToggles.Select(index);
                 listIndexCanPost.Clear();
-                listIndexCanPost.Add(index);
+                if(!listIndexCanPost.Contains(index))
+                {
+                    listIndexCanPost.Add(index);
+                }
+                
             }
             else
             {
