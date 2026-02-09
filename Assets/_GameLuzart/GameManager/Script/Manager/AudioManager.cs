@@ -87,5 +87,12 @@ namespace Luzart
         {
             PlayerPrefs.Save();
         }
+        private void Update()
+        {
+            if(Input.GetMouseButtonDown(0))
+            {
+                PlaySFXBtn();
+            }
+        }
     }
 }

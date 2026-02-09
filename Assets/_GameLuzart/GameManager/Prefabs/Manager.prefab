@@ -160,7 +160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c966943dbe0394042b6e4ee8fe53b68b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  audioClick: {fileID: 0}
+  audioClick: {fileID: 8300000, guid: 0edc310eb901a14459ff0fc1747352e1, type: 3}
 --- !u!1 &2428759429993679483
 GameObject:
   m_ObjectHideFlags: 0
@@ -485,10 +485,7 @@ MonoBehaviour:
     level: 0
     namePlayer: 
     subjectName: 
-    timeFirstTime: -1
-    adsLimit: 0
-    personaData:
-      personaStats: []
+    subject: 0
 --- !u!1 &7062897448495686203
 GameObject:
   m_ObjectHideFlags: 0

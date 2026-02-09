@@ -43,6 +43,7 @@ namespace Luzart
         public void OnClickStartLevel()
         {
             int level = DataManager.Instance.GameData.level;
+            level = Mathf.Clamp(level, 0, 3);
             switch (level)
             {
                 case 0:
