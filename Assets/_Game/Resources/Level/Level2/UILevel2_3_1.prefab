@@ -816,9 +816,9 @@ RectTransform:
   - {fileID: 4272616566279365012}
   m_Father: {fileID: 8472994650406765788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 1297, y: 507}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -623, y: -33}
   m_SizeDelta: {x: 1229, y: 771}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &1122589448849943903
@@ -1457,6 +1457,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!225 &5378533306933476518
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -2154,6 +2160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 57501edd9ad770444885e3e1f3bfcadc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _isSelect: 0
   groupBaseSelect:
   - {fileID: 669021361596391537}
   - {fileID: 4840456486443283352}
@@ -4019,9 +4026,9 @@ RectTransform:
   - {fileID: 1944675216379858321}
   m_Father: {fileID: 8472994650406765788}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -598, y: 32}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 362, y: 32}
   m_SizeDelta: {x: 624, y: 465}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &6634957253502399711
@@ -5987,6 +5994,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!225 &5334194169812188938
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -6529,6 +6542,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e223becf4b90a41a2303fa821c29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  level: 2
   onCall:
     m_PersistentCalls:
       m_Calls:

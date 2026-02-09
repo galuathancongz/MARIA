@@ -284,6 +284,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &3658978779330568365
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -339,6 +345,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &304324696080078796
 GameObject:
   m_ObjectHideFlags: 0
@@ -625,9 +637,9 @@ RectTransform:
   - {fileID: 341844524937175697}
   m_Father: {fileID: 2703137345653056463}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.6384, y: -147}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 11.6384, y: 393}
   m_SizeDelta: {x: 1468.6891, y: 563.6213}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5070149630400664378
@@ -937,6 +949,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &2252021873679639239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,6 +1800,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &3592200192660970255
 GameObject:
   m_ObjectHideFlags: 0
@@ -2304,6 +2328,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &7860059294606592850
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2490,6 +2520,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &3973942090291199651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3005,6 +3041,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &4885249889763485455
 GameObject:
   m_ObjectHideFlags: 0
@@ -3178,6 +3220,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &5170688986674455062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3544,6 +3592,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &1367723818930944956
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4163,6 +4217,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &6562392397887353391
 GameObject:
   m_ObjectHideFlags: 0
@@ -4347,6 +4407,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &5715059476966867469
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4538,6 +4604,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &4234998279817738961
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4783,6 +4855,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &3988992560083591227
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4970,6 +5048,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &6951307234074077699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5142,6 +5226,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &7116719157957862881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5449,6 +5539,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &9093230834628261377
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5942,6 +6038,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &8556882182388213893
 GameObject:
   m_ObjectHideFlags: 0
@@ -6116,6 +6218,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &497735744540648239
 MonoBehaviour:
   m_ObjectHideFlags: 0

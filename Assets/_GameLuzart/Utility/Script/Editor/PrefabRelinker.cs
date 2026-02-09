@@ -22,19 +22,7 @@ public class PrefabRelinker : EditorWindow
         {
             if (sourcePrefab != null && duplicatedObject != null)
             {
-                string path = AssetDatabase.GetAssetPath(duplicatedObject);
-                // Tạo Variant mới dựa trên Prefab gốc nhưng tại vị trí của bản duplicate
-                GameObject variant = (GameObject)PrefabUtility.InstantiatePrefab(sourcePrefab);
-
-                // Ghi đè cấu trúc của bản duplicate lên Variant mới này
-                EditorUtility.CopySerializedIfDifferent(duplicatedObject, variant);
-
-                // Lưu thành file Variant đè lên file cũ
-                PrefabUtility.SaveAsPrefabAssetAndConnect(variant, path, InteractionMode.AutomatedAction);
-
-                DestroyImmediate(variant);
-                AssetDatabase.SaveAssets();
-                Debug.Log("<color=green>Thành công!</color> Bản duplicate đã trở thành Variant của " + sourcePrefab.name);
+                PrefabUtility.ReplacePrefabAssetOfPrefabInstance(duplicatedObject, sourcePrefab,InteractionMode.AutomatedAction);
             }
         }
     }

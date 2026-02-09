@@ -387,7 +387,7 @@ namespace Luzart
 
     #endregion
 
-    #region Float Based Animations
+    #region CanvasGroup Based Animations
 
     public class TweenAnimationFade : TweenAnimationWorker<CanvasGroup>
     {
@@ -470,4 +470,53 @@ namespace Luzart
     }
 
     #endregion
+
+    //#region Float Based Animations
+
+    //public class TweenAnimationFloat : TweenAnimationWorker
+    //{
+    //    protected override void ApplyFromValue(bool isRuntime)
+    //    {
+
+    //    }
+
+    //    protected override Tween CreateAnimationTween()
+    //    {
+    //        return DOVirtual.Float(
+    //            Settings.Values.GetFloatFrom(),
+    //            Settings.Values.GetFloatTo(),
+    //            Settings.General.Duration,
+    //            value => {
+    //                Settings.Values.OnFloatUnityEventInvoke?.Invoke(value);
+    //            })
+    //            .SetEase(Settings.General.Easing);
+    //    }
+
+    //    protected override void SetDefaultValues(bool isRuntime)
+    //    {
+
+    //    }
+    //}
+
+    //#endregion
+
+    //#region UnityEvent Based Animations
+    //public class TweenAnimationUnityEvent : TweenAnimationWorker
+    //{
+    //    protected override void ApplyFromValue(bool isRuntime)
+    //    {
+
+    //    }
+
+    //    protected override Tween CreateAnimationTween()
+    //    {
+    //        return Settings.Values.OnFloatUnityEventInvoke?.Invoke();
+    //    }
+
+    //    protected override void SetDefaultValues(bool isRuntime)
+    //    {
+
+    //    }
+    //}
+    //#endregion
 }

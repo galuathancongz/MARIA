@@ -6,12 +6,17 @@ using UnityEngine;
 
 public class StepActionShowUI : StepAction
 {
+    public bool isHideAll = false;
     public UIName uiNameHide;
     public UIName uiNameShow;
     public override void Execute(Action<ActionResult> _onComplete)
     {
         base.Execute(_onComplete);
-        if (uiNameHide != UIName.None)
+        if(isHideAll)
+        {
+            UIManager.Instance.HideAllUiActive();
+        }
+        else if (uiNameHide != UIName.None)
         {
             UIManager.Instance.HideUiActive(uiNameHide);
         }

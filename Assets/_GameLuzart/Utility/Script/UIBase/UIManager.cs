@@ -40,10 +40,11 @@ namespace Luzart
             {UIName.Toast,"4,0,UIToast" },
             {UIName.Noti,"4,0,UINoti" },
 
+            {UIName.Tutorial,"1,0,UITutorial" },
             {UIName.Level1,"1,0,UILevel1" },
             {UIName.Level2,"1,0,UILevel2" },
             {UIName.Level3,"1,0,UILevel3" },
-            {UIName.Tutorial,"1,0,UITutorial" },
+            {UIName.Level4,"1,0,UILevel4" },
             {UIName.Loading,"2,0,UILoading" },
 
 
@@ -91,6 +92,20 @@ namespace Luzart
             {UIName.Level3_5,"1,0,Level/Level3/UILevel3_5" },
             {UIName.Level3_6,"1,0,Level/Level3/UILevel3_6" },
             {UIName.Level3_7,"1,0,Level/Level3/UILevel3_7" },
+            {UIName.Level4_1,"1,0,Level/Level4/UILevel4_1" },
+            {UIName.Level4_1_1,"1,0,Level/Level4/UILevel4_1_1" },
+            {UIName.Level4_1_2,"1,0,Level/Level4/UILevel4_1_2" },
+            {UIName.Level4_1_3,"1,0,Level/Level4/UILevel4_1_3" },
+            {UIName.Level4_2,"1,0,Level/Level4/UILevel4_2" },
+            {UIName.Level4_2_1,"1,0,Level/Level4/UILevel4_2_1" },
+            {UIName.Level4_2_2,"1,0,Level/Level4/UILevel4_2_2" },
+            {UIName.Level4_3,"1,0,Level/Level4/UILevel4_3" },
+            {UIName.Level4_3_1,"1,0,Level/Level4/UILevel4_3_1" },
+            {UIName.Level4_3_2,"1,0,Level/Level4/UILevel4_3_2" },
+            {UIName.Level4_3_3,"1,0,Level/Level4/UILevel4_3_3" },
+            {UIName.Level4_4,"1,0,Level/Level4/UILevel4_4" },
+            {UIName.Level4_4_1,"1,0,Level/Level4/UILevel4_4_1" },
+            {UIName.Level4_5,"1,0,Level/Level4/UILevel4_5" },
 
 
     };
@@ -140,6 +155,20 @@ namespace Luzart
             UIName.Level3_5,
             UIName.Level3_6,
             UIName.Level3_7,
+            UIName.Level4_1,
+            UIName.Level4_1_1,
+            UIName.Level4_1_2,
+            UIName.Level4_1_3,
+            UIName.Level4_2,
+            UIName.Level4_2_1,
+            UIName.Level4_2_2,
+            UIName.Level4_3,
+            UIName.Level4_3_1,
+            UIName.Level4_3_2,
+            UIName.Level4_3_3,
+            UIName.Level4_4,
+            UIName.Level4_4_1,
+            UIName.Level4_5
         };
         private UIName currentScenario = UIName.Tut1;
         public void ShowScenario(UIName uiName)
@@ -217,7 +246,20 @@ namespace Luzart
                 uiName == UIName.Level3_4 ||
                 uiName == UIName.Level3_5 ||
                 uiName == UIName.Level3_6 ||
-                uiName == UIName.Level3_7
+                uiName == UIName.Level3_7 ||
+                uiName == UIName.Level4_1_1 ||
+                uiName == UIName.Level4_1_2 ||
+                uiName == UIName.Level4_1_3 ||
+                uiName == UIName.Level4_2 ||
+                uiName == UIName.Level4_2_1 ||
+                uiName == UIName.Level4_2_2 ||
+                uiName == UIName.Level4_3 ||
+                uiName == UIName.Level4_3_1 ||
+                uiName == UIName.Level4_3_2 ||
+                uiName == UIName.Level4_3_3 ||
+                uiName == UIName.Level4_4 ||
+                uiName == UIName.Level4_4_1 ||
+                uiName == UIName.Level4_5
                 )
             {
                 isShow = true;
@@ -552,7 +594,7 @@ namespace Luzart
         Level3 = 13,
         Tutorial = 14,
         Loading = 15,
-
+        Level4 = 16,
 
         //Tutorial =50,
         //Tutorial
@@ -601,6 +643,20 @@ namespace Luzart
         Level3_5 = 3500,
         Level3_6 = 3600,
         Level3_7 = 3700,
+        Level4_1 = 4100,
+        Level4_1_1 = 4110,
+        Level4_1_2 = 4120,
+        Level4_1_3 = 4130,
+        Level4_2 = 4200,
+        Level4_2_1 = 4210,
+        Level4_2_2 = 4220,
+        Level4_3 = 4300,
+        Level4_3_1 = 4310,
+        Level4_3_2 = 4320,
+        Level4_3_3 = 4330,
+        Level4_4 = 4400,
+        Level4_4_1 = 4410,
+        Level4_5 = 4500,
     }
     public class DataUIBase
     {

@@ -9,7 +9,8 @@ namespace Luzart
 {
     public class BaseToggle : BaseSelect, ISelectBoolCache
     {
-        [SerializeField, ReadOnly]
+        [SerializeField]
+        [ReadOnly]
         protected bool _isSelect = false;
         public bool IsSelect => _isSelect;
         public override void Select(bool isSelect)

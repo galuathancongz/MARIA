@@ -1468,6 +1468,7 @@ MonoBehaviour:
   - HP2jj20eVU9-
   - GNfhtdx3rAmumjBCxGp9VcgukmFmhI4Bvy230tsA
   model: gpt-5
+  listConversation: []
 --- !u!4 &1670748414
 Transform:
   m_ObjectHideFlags: 0
@@ -2246,6 +2247,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c196e6232b9998248a0384995cef65c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  Data:
+    subject: 0
+    topic: 
+    learningObjective: 
+    designContraints: 
+    optionalFilters: []
+    listDataTitleTeach: []
+    responseStudent:
+      feedback: 
+      summary:
+        liked: 
+        struggled: 
+        suggested_change: 
+      emotion: 
+    studentWork: 
+    listFeedbackSelected: []
+    listConverstationState: []
 --- !u!1001 &1488418995322973819
 PrefabInstance:
   m_ObjectHideFlags: 0

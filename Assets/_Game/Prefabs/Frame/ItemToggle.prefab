@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2192775674143645343
 RectTransform:
   m_ObjectHideFlags: 0
@@ -393,6 +393,8 @@ MonoBehaviour:
   onClick:
     m_PersistentCalls:
       m_Calls: []
+  txt: {fileID: 8713289006754808621}
+  baseToggle: {fileID: 5723514637428802368}
 --- !u!1 &5989745023575205608
 GameObject:
   m_ObjectHideFlags: 0

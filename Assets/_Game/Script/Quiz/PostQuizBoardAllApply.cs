@@ -7,7 +7,7 @@ using UnityEngine;
 
 namespace Luzart
 {
-    public class PostQuizBoardAllApply : PostQuizBoard
+    public class PostQuizBoardAllApply : PostQuizBoardToggle
     {
 
     }

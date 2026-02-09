@@ -11,21 +11,17 @@ namespace Luzart
     {
         public GameObject btnLevel1;
         public GameObject btnLevel2;
+        public GameObject btnLevel4;
         public TMP_Text txtStartLevel;
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
-            txtStartLevel.text = "Start Level " + DataManager.Instance.GameData.level;
-            btnLevel1.gameObject.SetActive(false);
-            btnLevel2.gameObject.SetActive(false);
-            if(DataManager.Instance.GameData.level >= 2)
-            {
-                btnLevel1.gameObject.SetActive(true);
-            }
-            if(DataManager.Instance.GameData.level >= 3)
-            {
-                btnLevel2.gameObject.SetActive(true);
-            }
+            txtStartLevel.text = "Start Level " + Mathf.Clamp(DataManager.Instance.GameData.level,0,3);
+            int lvl = DataManager.Instance.GameData.level;
+
+            btnLevel1.gameObject.SetActive(lvl >= 2);
+            btnLevel2.gameObject.SetActive(lvl >= 3);
+            btnLevel4.gameObject.SetActive(lvl >= 4);
 
         }
         public void OnClickLevel1()
@@ -38,6 +34,11 @@ namespace Luzart
             UIManager.Instance.HideAll();
             UIManager.Instance.ShowUI(UIName.Level2);
             Level2Manager.IsSendStartIdeationLab = false;
+        }
+        public void OnClickLevel4()
+        {
+            UIManager.Instance.HideAll();
+            UIManager.Instance.ShowUI(UIName.Level4);
         }
         public void OnClickStartLevel()
         {

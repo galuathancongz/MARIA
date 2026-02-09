@@ -1208,9 +1208,9 @@ RectTransform:
   - {fileID: 4013815576483814843}
   m_Father: {fileID: 7347616675909242855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -484.6724, y: 212.54443}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 475.32764, y: -327.45557}
   m_SizeDelta: {x: 713.3419, y: 356.9879}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5539076250494815750
@@ -1687,9 +1687,9 @@ RectTransform:
   - {fileID: 4301937587560135954}
   m_Father: {fileID: 7347616675909242855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 31.8287, y: -284}
+  m_AnchorMin: {x: 0.5, y: 0}
+  m_AnchorMax: {x: 0.5, y: 0}
+  m_AnchoredPosition: {x: 31.8287, y: 256}
   m_SizeDelta: {x: 1329, y: 518}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1688317718364145271
@@ -1787,6 +1787,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &4874257021553142989
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1843,6 +1849,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &2318905249372089079
 GameObject:
   m_ObjectHideFlags: 0
@@ -2268,6 +2280,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &2545848913010883933
 GameObject:
   m_ObjectHideFlags: 0
@@ -3857,6 +3875,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &4830357478199917008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4063,10 +4087,10 @@ RectTransform:
   - {fileID: 4961579081251838028}
   m_Father: {fileID: 7347616675909242855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 476.6239, y: 220.94897}
-  m_SizeDelta: {x: 842.5897, y: 316.6296}
+  m_AnchorMin: {x: 1, y: 1}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -483.3761, y: -319.05103}
+  m_SizeDelta: {x: 842.5897, y: 316.62964}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7593899476369348509
 CanvasRenderer:
@@ -6033,6 +6057,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!114 &4755809461931012437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7448,6 +7478,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1001 &9192053654897388800
 PrefabInstance:
   m_ObjectHideFlags: 0

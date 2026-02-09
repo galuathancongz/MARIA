@@ -3,6 +3,7 @@ using System;
 using TMPro;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 namespace Luzart
@@ -62,6 +63,7 @@ namespace Luzart
                 EAnimation.FadeByCanvasGroup => new TweenAnimationFade(),
                 EAnimation.TextMeshProDOText => new TweenAnimationTextMeshPro(),
                 EAnimation.Float => new TweenAnimationFade(), // Float animation uses same logic as Fade
+                EAnimation.UnityEvent => new TweenAnimationFade(),
                 _ => null
             };
         }
@@ -216,11 +218,9 @@ namespace Luzart
 
         [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3From = -Vector3Int.one;
-        private bool _isVector3FromDefault => Vector3From == -Vector3Int.one;
 
         [ShowIf("../../IsAnimationVector3", true)]
         public Vector3 Vector3To = -Vector3Int.one;
-        private bool _isVector3ToDefault => Vector3To == -Vector3Int.one;
 
         [ShowIf("../../IsAnimationFloat", true)]
         public float FloatFrom = -1;
@@ -234,6 +234,11 @@ namespace Luzart
         [ShowIf("../../typeAnimation", EAnimation.TextMeshProDOText)]
         [DisableIf("../General.Target", null)]
         public string StringTo = "";
+
+        [ShowIf("../../typeAnimation", EAnimation.Float)]
+        public UnityEvent<float> OnFloatUnityEventInvoke;
+        [ShowIf("../../typeAnimation", EAnimation.UnityEvent)]
+        public UnityEvent OnUnityEventInvoke;
 
         // Helper methods to get type-specific values
         public Vector3 GetVector3From() => Vector3From;
@@ -266,6 +271,7 @@ namespace Luzart
         AnchorMax = 8,
         FadeByCanvasGroup = 9,
         TextMeshProDOText = 10,
+        UnityEvent = 11,
     }
 
     #endregion
