@@ -36,10 +36,6 @@ namespace Luzart
         private void SettingPlatform()
         {
             Application.targetFrameRate = 60;
-#if UNITY_WEBGL && !UNITY_EDITOR
-            //bool isMobileWebGL = IsMobileWebGL();
-            WebGLInput.mobileKeyboardSupport = true;
-#endif
         }
         bool IsMobileWebGL()
         {
