@@ -146,6 +146,7 @@ GameObject:
   - component: {fileID: 4993765574868416189}
   - component: {fileID: 3585967867997906310}
   - component: {fileID: 8025788832889996222}
+  - component: {fileID: 7935261554117721586}
   m_Layer: 5
   m_Name: InputField
   m_TagString: Untagged
@@ -309,6 +310,19 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &7935261554117721586
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3580123267932725156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cc33a39070010f94fb1c2dd721c1286d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  showHtmlElement: 0
 --- !u!1 &6567479628915687673
 GameObject:
   m_ObjectHideFlags: 0
