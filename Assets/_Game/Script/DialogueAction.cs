@@ -15,7 +15,7 @@ public class DialogueAction : StepAction
     public float timeDuration = 1f;       // Thời gian gõ chữ
     public Ease ease = Ease.Linear;       // Kiểu easing cho animate
     public Button btnClick;
-    //public bool isActiveButton = true;
+    public bool isCompleteAndNextAction = false; // Có tự động chuyển sang action tiếp theo sau khi hoàn thành gõ text không
     [SerializeField] private Mode modeClick = Mode.Button;
     enum Mode
     {
@@ -62,8 +62,16 @@ public class DialogueAction : StepAction
         {
             // Nếu đang gõ, hoàn tất ngay
             _typingTween.Complete();
+            if (isCompleteAndNextAction)
+            {
+                OnActionInvoke();
+            }
             return;
         }
+        OnActionInvoke();
+    }
+    private void OnActionInvoke()
+    {
         gameObject.SetActive(isSetActiveAfter);
         onComplete?.Invoke(new ActionResult(actionResultType));
     }

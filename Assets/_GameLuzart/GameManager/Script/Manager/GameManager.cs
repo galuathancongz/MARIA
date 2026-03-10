@@ -28,22 +28,9 @@ namespace Luzart
         }
         private void StartGame()
         {
-            SettingPlatform();
             LoadReferent();
             DataManager.Instance.Initialize();
             UIManager.Instance.ShowUI(UIName.Splash);
-        }
-        private void SettingPlatform()
-        {
-            Application.targetFrameRate = 60;
-        }
-        bool IsMobileWebGL()
-        {
-#if UNITY_WEBGL && !UNITY_EDITOR
-    return Application.isMobilePlatform;
-#else
-            return false;
-#endif
         }
         private void LoadReferent()
         {

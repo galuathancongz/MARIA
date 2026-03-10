@@ -494,6 +494,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &2201751213414523015
 GameObject:
@@ -794,6 +795,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &2879466305552112060
 GameObject:
@@ -1034,6 +1036,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &3536410596419428614
 GameObject:
@@ -11196,6 +11199,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &5640768843340475598
 GameObject:
@@ -11355,6 +11359,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &5722894199897363438
 GameObject:
@@ -11588,6 +11593,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &6905600818293733726
 GameObject:
@@ -11608,7 +11614,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &2171404660879164183
 RectTransform:
   m_ObjectHideFlags: 0
@@ -12141,6 +12147,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &8177273127395340640
 GameObject:
@@ -12300,6 +12307,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 6383275948319651364}
+  isCompleteAndNextAction: 0
   modeClick: 0
 --- !u!1 &8638016047391274798
 GameObject:
