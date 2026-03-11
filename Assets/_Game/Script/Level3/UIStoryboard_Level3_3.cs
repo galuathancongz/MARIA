@@ -28,7 +28,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("Show Level3_3: " + ex.Message);
-                conversationMain.ShowText("Error! Try again !");
+                conversationMain.ShowText($"Error! Try again !\n {ex}");
             }
 
         }

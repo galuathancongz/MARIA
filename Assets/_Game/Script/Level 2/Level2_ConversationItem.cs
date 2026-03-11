@@ -78,43 +78,39 @@ public class Level2_ConversationItem : MonoBehaviour
         Sequence s = DOTween.Sequence();
         tw = s;
 
-        // Sử dụng AppendCallback để mỗi vòng lặp lại chọn câu và số lần nháy mới
-        s.AppendCallback(() =>
+        // Build sẵn vài vòng thay vì append runtime
+        for (int round = 0; round < 20; round++)
         {
             string msg = thinkingMessages[Random.Range(0, thinkingMessages.Length)];
+            int blinkCount = Random.Range(2, 7);
 
-            // 1. Gõ text chính trước
-            if (inputField) inputField.text = msg;
-            if (txt) txt.text = msg;
-
-            // 2. Random số lần nháy (ví dụ từ 2 đến 6 lần)
-            int randomBlinkCount = Random.Range(2, 7);
-
-            // Tạo một sequence con cho phần dấu chấm
-            Sequence dotSeq = DOTween.Sequence();
-            for (int i = 0; i < randomBlinkCount; i++)
+            // Gõ text chính
+            s.AppendCallback(() =>
             {
-                // Nháy các dấu chấm . -> .. -> ... -> . -> .. -> ...
-                int dotCount = (i % 3) + 1;
-                string dots = new string('.', dotCount);
+                if (inputField) inputField.text = msg;
+                if (txt) txt.text = msg;
+            });
 
-                dotSeq.AppendCallback(() => {
+            // Nháy dấu chấm
+            for (int i = 0; i < blinkCount*3; i++)
+            {
+                string dots = new string('.', (i % 3) + 1);
+                s.AppendCallback(() =>
+                {
                     if (inputField) inputField.text = msg + dots;
                     if (txt) txt.text = msg + dots;
                 });
-                // Random tốc độ nháy một chút để cảm giác không bị đều tăm tắp
-                dotSeq.AppendInterval(0.3f);
+                s.AppendInterval(0.3f);
             }
 
-            // 3. Random thời gian "đứng hình" sau khi nháy xong trước khi đổi câu
-            dotSeq.AppendInterval(Random.Range(0.5f, 1.5f));
-
-            s.Append(dotSeq);
-        });
+            // Pause giữa các câu
+            s.AppendInterval(Random.Range(0.5f, 1.5f));
+        }
 
         s.SetLoops(-1);
         s.SetId(this);
     }
+
     public void SetLoading()
     {
         tw?.Kill(true);

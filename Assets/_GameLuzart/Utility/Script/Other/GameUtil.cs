@@ -1057,6 +1057,7 @@ namespace Luzart
     public abstract class SingletonSaveLoad<TData,T> : Singleton<T> where T : MonoBehaviour where TData : class,new()
     {
         protected abstract string KEYLOAD { get; }
+        private string RealKey => $"{Application.version}_{KEYLOAD}";
         public TData Data;
         private void Awake()
         {

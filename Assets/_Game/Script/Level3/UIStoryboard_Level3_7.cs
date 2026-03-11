@@ -20,12 +20,21 @@ namespace Luzart
         private DataLevel3_7 _data = new DataLevel3_7();
         public override void Show(Action onHideDone)
         {
-            base.Show(onHideDone);
-            string persona = PersonaManager.Instance.GetStringPersonaType();
-            txtPersona.text = persona;
-            txtColor.text = PersonaManager.Instance.GetNameColorPersonaType();
-            Send();
-            UIManager.Instance.ShowLoading();
+            try
+            {
+                base.Show(onHideDone);
+                string persona = PersonaManager.Instance.GetStringPersonaType();
+                txtPersona.text = persona;
+                txtColor.text = PersonaManager.Instance.GetNameColorPersonaType();
+                Send();
+                UIManager.Instance.ShowLoading();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Show Level3_7: " + ex.Message);
+                txtResponse.text = $"Error! Try again ! + {ex}";
+            }
+
         }
         public void OnBackToMain()
         {

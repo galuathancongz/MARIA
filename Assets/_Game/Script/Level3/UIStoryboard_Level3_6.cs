@@ -39,25 +39,34 @@ namespace Luzart
 
         public override void Show(Action onHideDone)
         {
-            base.Show(onHideDone);
-            var dataTitle = Data.GetTitleSummary();
-            var dataObjective = Data.GetObjectiveSummary();
-            var dataActivities = Data.GetActivitiesSummary();
-            var dataAssessment = Data.GetAssessmentSummary();
-            this.dataTitle.Add( ("Lesson Title", dataTitle) );
-            this.dataTitle.Add( ("Learning Objectives", dataObjective) );
-            this.dataTitle.Add( ("Learning Activities", dataActivities) );
-            this.dataTitle.Add( ("Assessment Methods", dataAssessment) );
-            MasterHelper.InitListObj(4,itemFoldOut, listItemFoldOut, content, (obj, index) =>
+            try
             {
-                obj.gameObject.SetActive(true);
-                var (title, content) = this.dataTitle[index];
-                obj.Setup(title, content);
-            });
-            foreach (var item in listItemClickImport)
-            {
-                item.Initialize(ClickItem);
+                base.Show(onHideDone);
+                var dataTitle = Data.GetTitleSummary();
+                var dataObjective = Data.GetObjectiveSummary();
+                var dataActivities = Data.GetActivitiesSummary();
+                var dataAssessment = Data.GetAssessmentSummary();
+                this.dataTitle.Add(("Lesson Title", dataTitle));
+                this.dataTitle.Add(("Learning Objectives", dataObjective));
+                this.dataTitle.Add(("Learning Activities", dataActivities));
+                this.dataTitle.Add(("Assessment Methods", dataAssessment));
+                MasterHelper.InitListObj(4, itemFoldOut, listItemFoldOut, content, (obj, index) =>
+                {
+                    obj.gameObject.SetActive(true);
+                    var (title, content) = this.dataTitle[index];
+                    obj.Setup(title, content);
+                });
+                foreach (var item in listItemClickImport)
+                {
+                    item.Initialize(ClickItem);
+                }
             }
+            catch (Exception ex)
+            {
+                Debug.LogError($"Error in Show method: {ex.Message}");
+                inputField.text = $"Error loading data. Please try again. {ex}";
+            }
+
         }
         private void ClickItem(string str)
         {

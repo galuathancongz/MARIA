@@ -28,13 +28,22 @@ namespace Luzart
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
-            string promptStudentWork = GetStudentWorkPrompt();
-            Level3Manager.Instance.Send(2, promptStudentWork, OnGetStudentWork);
-            UIManager.Instance.ShowLoading();
-            btnNextStep.gameObject.SetActive(false);
-            selectStrength.Select(false);
-            selectImprovement.Select(false);
-            selectNextStep.Select(false);
+            try
+            {
+                string promptStudentWork = GetStudentWorkPrompt();
+                Level3Manager.Instance.Send(2, promptStudentWork, OnGetStudentWork);
+                UIManager.Instance.ShowLoading();
+                btnNextStep.gameObject.SetActive(false);
+                selectStrength.Select(false);
+                selectImprovement.Select(false);
+                selectNextStep.Select(false);
+
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Show Level3_5: " + ex.Message);
+                conversationItemMain.ShowText($"Error! Try again ! + {ex}");
+            }
         }
         private void OnGetStudentWork(string str)
         {
