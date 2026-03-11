@@ -33,5 +33,13 @@ namespace Luzart
         {
             UIManager.Instance.ShowNextScenario();
         }
+        public void OnClickSettings()
+        {
+            UIManager.Instance.ShowUI(UIName.Settings);
+        }
+        public void OnClickProfile()
+        {
+            UIManager.Instance.ShowUI(UIName.Profile);
+        }
     }
 }

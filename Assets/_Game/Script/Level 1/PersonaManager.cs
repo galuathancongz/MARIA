@@ -56,7 +56,6 @@ namespace Luzart
                     return "Black";
             }
         }
-
         public EPersonaType GetMyPersonaType()
         {
             EPersonaType currentType = EPersonaType.Creative;

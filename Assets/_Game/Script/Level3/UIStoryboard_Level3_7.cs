@@ -21,8 +21,8 @@ namespace Luzart
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
-            EPersonaType persona = PersonaManager.Instance.GetMyPersonaType();
-            txtPersona.text = persona.ToString();
+            string persona = PersonaManager.Instance.GetStringPersonaType();
+            txtPersona.text = persona;
             txtColor.text = PersonaManager.Instance.GetNameColorPersonaType();
             Send();
             UIManager.Instance.ShowLoading();
@@ -31,6 +31,11 @@ namespace Luzart
         {
             UIManager.Instance.HideAll();
             UIManager.Instance.ShowUI(UIName.MainMenu);
+        }
+        public void OnNextPostQuiz()
+        {
+            UIManager.Instance.HideAll();
+            UIManager.Instance.ShowUI(UIName.Level4);
         }
 
         private void Send()

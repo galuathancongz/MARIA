@@ -16,7 +16,7 @@ namespace Luzart
         protected override void OnWinGame()
         {
             base.OnWinGame();
-            DataManager.Instance.GameData.level++;
+            DataManager.Instance.Data.level++;
             DataManager.Instance.SaveGameData();
         }
     

@@ -11,11 +11,14 @@ namespace Luzart
     {
         public string title;
         public BaseToggle toggle;
+        public BaseToggle bsUsing;
 
         [ContextMenu("Set")]
         private void OnSet()
         {
-            toggle= GetComponentInChildren<BaseToggle>();
+            var toggles= GetComponentsInChildren<BaseToggle>();
+            toggle = toggles.FirstOrDefault(x => x.gameObject.name == "CheckBox");
+            bsUsing = toggles.FirstOrDefault(x => x.gameObject.name == "SelectUsing");
             title = GetComponentInChildren<TMPro.TMP_Text>().text;
         }
     }

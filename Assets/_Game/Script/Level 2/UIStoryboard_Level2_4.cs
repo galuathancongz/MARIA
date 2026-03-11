@@ -31,6 +31,7 @@ namespace Luzart
         private string GetRequest()
         {
             return "Context: You are the virtual assistant MARIA. Your mission is to summarize the teacher's journey in the Ideation Lab.\n" +
+                "Limit 50 tokens\n" +
                    "Task: Analyze the journey and return a single JSON object for the summary screen display.\n" +
                    "- curiosity_score: An integer (1-5) representing the user's curiosity and engagement with AI.\n" +
                    "- explored_methods: Array of methods explored, such as: Role-play, inquiry-based learning, teachback with AI approach.\n" +

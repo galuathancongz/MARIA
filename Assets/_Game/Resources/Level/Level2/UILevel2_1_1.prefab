@@ -73,6 +73,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &397937963313000206
 GameObject:
   m_ObjectHideFlags: 0
@@ -373,13 +379,14 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 7129557790139108688}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: "Let\u2019s walk through time. I hold archives, voices of the past and strategies
     to help students interrogate history with heart and mind."
   timeDuration: 0.5
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &1509347017170411067
 GameObject:
@@ -949,7 +956,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 8214459709162889287}
 --- !u!114 &8214459709162889287
@@ -1108,13 +1115,14 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 7129557790139108688}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: 'Ah, a fellow lover of words! I can help you turn grammar into games, characters
     into case studies and stories into sparkles of learning. '
   timeDuration: 0.5
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &3845640644508682277
 GameObject:
@@ -1242,13 +1250,14 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 7129557790139108688}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: Welcome, logical mind. Let us unfold symmetry, shape and structure together,
     through problems, puzzles and perspectives.
   timeDuration: 0.5
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &4667344369186225962
 GameObject:
@@ -1301,13 +1310,14 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 7129557790139108688}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: "I am wired for curiosity! Let\u2019s simulate, explore, experiment and turn
     every classroom moment into a scientific adventure. "
   timeDuration: 0.5
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &4754857117225968277
 GameObject:
@@ -1493,7 +1503,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   bs: {fileID: 480507259566354006}
   stepActionSwitch: {fileID: 5104897826337083999}
 --- !u!1 &4783509538354124695
@@ -1550,7 +1560,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   listListStepActions:
   - stepActions:
     - {fileID: 3456605741472458322}
@@ -3032,7 +3042,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   delayTime: 1
 --- !u!1 &7944627540587590208
 GameObject:
@@ -3591,6 +3601,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &8754482294106417553
 GameObject:
   m_ObjectHideFlags: 0
@@ -3707,6 +3723,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!225 &5912788333961647997
 CanvasGroup:
   m_ObjectHideFlags: 0

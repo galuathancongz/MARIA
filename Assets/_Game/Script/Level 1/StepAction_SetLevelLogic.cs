@@ -10,7 +10,7 @@ namespace Luzart
         public override void Execute(Action<ActionResult> _onComplete)
         {
             base.Execute(_onComplete);
-            DataManager.Instance.GameData.level = level;
+            DataManager.Instance.Data.level = level;
             DataManager.Instance.SaveGameData();
             CallOnComplete();
             if (level == 3)

@@ -9,7 +9,7 @@ public class Tutorial_Scene5 : Storyboard
     public override void Show(Action onHideDone)
     {
         base.Show(onHideDone);
-        DataManager.Instance.GameData.level = 1;
+        DataManager.Instance.Data.level = 1;
         DataManager.Instance.SaveGameData();
         Level2Manager.IsSendStartIdeationLab = false;
     }

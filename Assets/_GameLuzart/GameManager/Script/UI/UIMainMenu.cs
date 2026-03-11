@@ -16,8 +16,9 @@ namespace Luzart
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
-            txtStartLevel.text = "Start Level " + Mathf.Clamp(DataManager.Instance.GameData.level,0,3);
-            int lvl = DataManager.Instance.GameData.level;
+           
+            int lvl = DataManager.Instance.Data.level;
+            txtStartLevel.text = "Start Level " + Mathf.Clamp(lvl, 0,3);
 
             btnLevel1.gameObject.SetActive(lvl >= 2);
             btnLevel2.gameObject.SetActive(lvl >= 3);
@@ -42,7 +43,7 @@ namespace Luzart
         }
         public void OnClickStartLevel()
         {
-            int level = DataManager.Instance.GameData.level;
+            int level = DataManager.Instance.Data.level;
             level = Mathf.Clamp(level, 0, 3);
             switch (level)
             {

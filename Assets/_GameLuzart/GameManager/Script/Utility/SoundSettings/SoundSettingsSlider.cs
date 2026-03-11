@@ -37,7 +37,7 @@ namespace Luzart
         }
         private void UpdateText(TMP_Text tx, float x)
         {
-            tx.text = $"{x}%";
+            tx.text = $"{Mathf.RoundToInt(x)}%";
         }
     }
 }

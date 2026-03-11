@@ -62,11 +62,26 @@ namespace Luzart
         }
         public void CheckSetCheckBox()
         {
+            bool isAllTrue = true;
             var data = Data.listDataTitleTeach.Where(x => x.topic == Data.topic).Select(x => x.title).ToList();
             for (int i = 0; i < listCheckBox3.Count; i++)
             {
                 var isOpen = data.Contains(listCheckBox3[i].title);
-                                listCheckBox3[i].toggle.Select(isOpen);
+                listCheckBox3[i].bsUsing.Select(false);
+                listCheckBox3[i].toggle.Select(isOpen);
+                if(!isOpen)
+                {
+                    isAllTrue = false;
+                }
+            }
+            if (isAllTrue)
+            {
+                return;
+            }
+            int lastTrueIndex = listCheckBox3.FindLastIndex(x => data.Contains(x.title));
+            if (lastTrueIndex + 1 < listCheckBox3.Count)
+            {
+                listCheckBox3[lastTrueIndex+1].bsUsing.Select(true);
             }
         }
         private string CurrentTitle()
@@ -96,7 +111,7 @@ namespace Luzart
             var title = CurrentTitle();
             Level3Manager.Instance.Data.SetDataTitleTeach(title, dataRequest.suggestion);
             Level3Manager.Instance.Save();
-            if(GetCurrentFieldIndex() > listCheckBox3.Count - 1)
+            if (GetCurrentFieldIndex() > listCheckBox3.Count - 1)
             {
                 UIManager.Instance.ShowNextScenario();
                 return;

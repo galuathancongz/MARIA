@@ -56,7 +56,7 @@ public class InputSubjectAction : StepAction
             ui.InitPopupFillName();
             return;
         }
-        DataManager.Instance.GameData.subjectName = subject.ToUpper();
+        DataManager.Instance.Data.subjectName = subject.ToUpper();
         CallOnComplete();
     }
     private readonly string[] coreSubjects = {

@@ -6,38 +6,20 @@ namespace Luzart
     using System.Linq;
     using UnityEngine;
 
-    public partial class DataManager : Singleton<DataManager>
+    public class DataManager : SingletonSaveLoad<GameData,DataManager>
     {
-        public GameData GameData => _gameData;
-        [SerializeField]
-        private GameData _gameData;
-        private bool IsInit { get; set; } = false;
+        protected override string KEYLOAD => "key_gamedata";
         #region GameData
-        private const string KEY_GAME_DATA = "key_gamedata";
-        public int CurrentLevel => _gameData.level;
+        public int CurrentLevel => Data.level;
         public void Initialize()
         {
-            LoadGameData();
-        }
-        private void LoadGameData()
-        {
-            _gameData = SaveLoadUtil.LoadDataPrefs<GameData>(KEY_GAME_DATA);
-            if (_gameData == null)
-            {
-                _gameData = new GameData();
-            }
-            IsInit = true;
         }
 #if UNITY_EDITOR && ODIN_INSPECTOR
         [Sirenix.OdinInspector.Button]
 #endif
         public void SaveGameData()
         {
-            if (!IsInit)
-            {
-                return;
-            }
-            SaveLoadUtil.SaveDataPrefs<GameData>(_gameData, KEY_GAME_DATA);
+            Save();
         }
         #endregion
         public static int ADSLIMIT = 3;
@@ -58,7 +40,8 @@ namespace Luzart
     public class GameData
     {
         public int level = 0;
-        public string namePlayer;
+        public string namePlayer = "username";
+        public int age = 24;
         public string subjectName;
         public ESubject subject;
     }

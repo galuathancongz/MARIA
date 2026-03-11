@@ -221,6 +221,7 @@ GameObject:
   - component: {fileID: 4292276192061234081}
   - component: {fileID: 1989521753522268907}
   - component: {fileID: 1814561242087328617}
+  - component: {fileID: 2765499608217647626}
   m_Layer: 5
   m_Name: BtnVoice
   m_TagString: Untagged
@@ -331,6 +332,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls: []
+--- !u!225 &2765499608217647626
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6624590397278774970}
+  m_Enabled: 1
+  m_Alpha: 0.2
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8798951528329002058
 GameObject:
   m_ObjectHideFlags: 0
