@@ -406,7 +406,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e223becf4b90a41a2303fa821c29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 3
   onCall:
     m_PersistentCalls:
       m_Calls:
@@ -2974,10 +2974,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7000335619307181294}
+  - {fileID: 1419383700444737281}
   - {fileID: 5570502064686052346}
   - {fileID: 3230441517033330170}
   - {fileID: 7528127812525490479}
-  - {fileID: 1419383700444737281}
   m_Father: {fileID: 5928770674175020290}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -3355,9 +3355,9 @@ RectTransform:
   - {fileID: 3806432819148588335}
   m_Father: {fileID: 6416687988599954650}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0}
+  m_AnchorMin: {x: 0, y: 1}
+  m_AnchorMax: {x: 0, y: 1}
+  m_AnchoredPosition: {x: 402.997, y: 0}
   m_SizeDelta: {x: 790, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &4743346388413593710

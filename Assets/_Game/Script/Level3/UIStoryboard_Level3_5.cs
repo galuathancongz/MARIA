@@ -180,7 +180,7 @@ namespace Luzart
             string lessonContent = Data.GetStringFullContent();
             string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
 
-            return $@"Context: You are an AI simulating a student.
+            return $@"Context: You are an AI simulating a student. Limit max 100 tokens.
 Based on the following lesson materials:
 Subject: {subject}
 Topic: {topic}
@@ -199,7 +199,7 @@ Requirements:
         public string GetFeedbackSuggestionsPrompt(string studentWork, string objective)
         {
             string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
-            return $@"Context: You are a Pedagogical AI Mentor.
+            return $@"Context: You are a Pedagogical AI Mentor. Limit max 50 tokens.
 Subject: {subject}
 Student Submission: ""{studentWork}""
 Learning Objective: ""{objective}""

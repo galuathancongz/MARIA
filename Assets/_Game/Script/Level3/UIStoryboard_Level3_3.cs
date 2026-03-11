@@ -9,7 +9,7 @@ namespace Luzart
 {
     public class UIStoryboard_Level3_3 : Storyboard
     {
-        public List<ItemCheckBox_Level3_3> listCheckBox3;
+        public List<ItemCheckBox_Level3_3> listCheckBox3 = new List<ItemCheckBox_Level3_3>();
         public BaseSelect selectRefine;
         [SerializeField]
         [ReadOnly]
@@ -86,7 +86,8 @@ namespace Luzart
         }
         private string CurrentTitle()
         {
-            return listCheckBox3[GetCurrentFieldIndex()].title;
+            int index = Mathf.Clamp(GetCurrentFieldIndex(),0, listCheckBox3.Count-1);
+            return listCheckBox3[index].title;
         }
 
         public void OnClickRefine()
@@ -171,7 +172,8 @@ namespace Luzart
             var constraints = data.designContraints;
             var filters = stringBuilder.ToString();
 
-            return "Context: You are a lesson design assistant in a 'Co-design Studio'. The teacher leads the process, and you provide supportive, high-quality content.\n" +
+            return "Limit max 100 tokens." +
+                "Context: You are a lesson design assistant in a 'Co-design Studio'. The teacher leads the process, and you provide supportive, high-quality content.\n" +
                    "Established Setup from Scene 2:\n" +
                    $"- Topic: {topic} \n" +
                    $"- Core Learning Objective: {baseObjective} \n" +

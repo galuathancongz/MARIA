@@ -128,6 +128,10 @@ namespace Luzart
         {
             var allList = GetDataInTopic(topic);
             string fullContent = "";
+            if(allList == null || allList.Count == 0)
+            {
+                return "";
+            }
             foreach (var item in allList)
             {
                 fullContent += $"{item.title}: {item.content}\n";
@@ -136,11 +140,10 @@ namespace Luzart
         }
         public List<DataTitleTeachLevel3_3> GetDataInTopic(string topic)
         {
-            return listDataTitleTeach.Where(x => x.topic == topic).ToList();
+            return listDataTitleTeach.Where(x => x.topic == topic)?.ToList();
         }
         public void SetDataTitleTeach(string title, string content)
         {
-            
             foreach (var item in listDataTitleTeach)
             {
                 if (item.title == title && item.topic == topic)
