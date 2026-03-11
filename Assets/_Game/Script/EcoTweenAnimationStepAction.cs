@@ -31,7 +31,7 @@ public class EcoTweenAnimationStepAction : StepAction
     public void Call()
     {
         UIManager.Instance.BlockRaycast(false);
-        onComplete?.Invoke(new ActionResult(actionResultType));
+        CallOnComplete();
     }
     private void OnDisable()
     {

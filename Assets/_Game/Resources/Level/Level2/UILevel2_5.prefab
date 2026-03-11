@@ -202,7 +202,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   delayTime: 0.2
 --- !u!1 &546052810253765033
 GameObject:
@@ -568,7 +568,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: You have unlock
+  m_text: You have unlocked
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -1146,7 +1146,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &1980163794730203167
 GameObject:
   m_ObjectHideFlags: 0
@@ -1519,7 +1519,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 4830357478199917008}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 5141964032819901608}
   - {fileID: 1145735027651217462}
@@ -1882,7 +1882,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 8856456294545549307}
 --- !u!114 &8856456294545549307
@@ -5190,7 +5190,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 7089516344839998865}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 2582051144733871711}
   str: "Reflection is how innovation begins. You\u2019ve planted the seeds and next,
     we will grow something together. "
@@ -5780,7 +5780,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   level: 3
 --- !u!1 &7994949992015177316
 GameObject:

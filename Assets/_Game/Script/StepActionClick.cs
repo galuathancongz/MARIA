@@ -12,8 +12,7 @@ public class StepActionClick : StepAction
     public Mode mode = Mode.Button;
     public void OnClickOnDone()
     {
-        onComplete?.Invoke(new ActionResult(actionResultType));
-        gameObject.SetActive(isSetActiveAfter);
+        CallOnComplete();
     }
     private void Update()
     {

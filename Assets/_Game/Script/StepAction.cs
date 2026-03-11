@@ -7,28 +7,27 @@ public class StepAction : MonoBehaviour
 {
     [SerializeField] protected List<GameObject> _targetStepAction = new List<GameObject>();
     public ActionResultType actionResultType = ActionResultType.NextStep;
+    public ActionOnCompleteStep actionOnCompleteStep = ActionOnCompleteStep.None;
     public Action<ActionResult> onComplete;
-    public bool isSetActiveAfter = false;
     public List<GameObject> TargetStepAction
     {
         get
         {
-            if(_targetStepAction == null || _targetStepAction.Count == 0)
+            if (_targetStepAction == null || _targetStepAction.Count == 0)
             {
                 _targetStepAction = new List<GameObject>();
-                _targetStepAction.Add(this.gameObject);
             }
+            if(!_targetStepAction.Contains(this.gameObject))
+                _targetStepAction.Add(this.gameObject);
             return _targetStepAction;
         }
     }
     public virtual void Initialize()
     {
-        this.gameObject.SetActive(false);
         SetActiveTarget(false);
     }
     public virtual void PreExcute()
     {
-        this.gameObject.SetActive(true);
         SetActiveTarget(true);
     }
     private void SetActiveTarget(bool isActive)
@@ -51,6 +50,16 @@ public class StepAction : MonoBehaviour
     public virtual void CallOnComplete()
     {
         onComplete?.Invoke(new ActionResult(actionResultType));
+        onComplete = null;
+        switch (actionOnCompleteStep)
+        {
+            case ActionOnCompleteStep.Enable:
+                SetActiveTarget(true);
+                break;
+            case ActionOnCompleteStep.Disable:
+                SetActiveTarget(false);
+                break;
+        }
     }
 
     private void OnValidate()
@@ -60,4 +69,11 @@ public class StepAction : MonoBehaviour
             name = this.GetType().Name;
         }
     }
+}
+[Serializable]
+public enum ActionOnCompleteStep
+{
+    None = 0,
+    Enable = 1,
+    Disable = 2,
 }

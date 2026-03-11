@@ -171,7 +171,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -20, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5027255741515051808
 CanvasRenderer:
@@ -202,7 +202,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_text: "Nice work! That\u2019s right, I am here to support your learning about
-    AI in education.\\n Let\u2019s move on to the next question."
+    AI in education. \nLet\u2019s move on to the next question."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -16148,7 +16148,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 4458583833674469191}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &4559703806641211819
 GameObject:
   m_ObjectHideFlags: 0
@@ -16638,7 +16638,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Grade paper automationcally
+  m_text: Grade paper automatically
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -16833,7 +16833,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 8879925934615960273}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   mode: 0
 --- !u!1 &6707971301717203223
 GameObject:
@@ -17257,7 +17257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 3515675275947333424}
 --- !u!1 &6953530579002414480
@@ -18790,7 +18790,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 5210086640744777154}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 7979790108968017339}
   - {fileID: 3905182892857297207}

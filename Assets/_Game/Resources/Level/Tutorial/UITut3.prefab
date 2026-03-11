@@ -411,7 +411,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'You try prompt: "How can I make fractions fun for students?"'
+  m_text: 'Try this prompt: "How can I make fractions fun for students?"'
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -5638,7 +5638,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 240f4840265b145498e647bf2cb4b091, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  inputField: {fileID: 0}
+  inputField: {fileID: 2362260692858953620}
   stepAction: {fileID: 9117295359446888609}
   strPrompt: make fractions fun for student
 --- !u!1 &4472915228238669393
@@ -16317,7 +16317,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: a real-life cooking actity
+  m_text: a real-life cooking activity
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -16733,6 +16733,17 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+--- !u!114 &2362260692858953620 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 8557153502787534541, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+  m_PrefabInstance: {fileID: 6199612052099178841}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!224 &5867157230430431197 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 532874161994958468, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}

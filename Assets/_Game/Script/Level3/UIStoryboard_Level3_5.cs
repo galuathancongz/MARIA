@@ -13,10 +13,15 @@ namespace Luzart
     {
         public Button btnNextStep;
         public Level2_ConversationItem conversationItemMain;
+        [Space]
         public TMP_InputField inputFieldStrength;
         public TMP_InputField inputFieldImprovement;
         public TMP_InputField inputFieldNextStep;
-
+        [Space]
+        public BaseSelect selectStrength;
+        public BaseSelect selectImprovement;
+        public BaseSelect selectNextStep;
+        [Space]
         public Transform content;
         public List<Item_ClickToImport> listItemClickToImport = new List<Item_ClickToImport>();
         public Item_ClickToImport itemPrefab;
@@ -27,6 +32,9 @@ namespace Luzart
             Level3Manager.Instance.Send(2, promptStudentWork, OnGetStudentWork);
             UIManager.Instance.ShowLoading();
             btnNextStep.gameObject.SetActive(false);
+            selectStrength.Select(false);
+            selectImprovement.Select(false);
+            selectNextStep.Select(false);
         }
         private void OnGetStudentWork(string str)
         {
@@ -119,6 +127,7 @@ namespace Luzart
             if(!listFeedbackSuggestions.Contains(data))
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
+            selectStrength.Select(true);
         }
         public void OnClickSendImprovement(string str)
         {
@@ -128,6 +137,7 @@ namespace Luzart
             if (!listFeedbackSuggestions.Contains(data))
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
+            selectImprovement.Select(true);
         }
         public void OnClickSendNextStep(string str)
         {
@@ -137,6 +147,7 @@ namespace Luzart
             if (!listFeedbackSuggestions.Contains(data))
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
+            selectNextStep.Select(true);
         }
         private void CheckShowNextStep()
         {

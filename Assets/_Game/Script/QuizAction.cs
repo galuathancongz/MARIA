@@ -41,7 +41,7 @@ public class QuizAction : StepAction
         }
         else
         {
-            CompleteOption();
+            CallOnComplete();
         }
     }
 
@@ -49,7 +49,7 @@ public class QuizAction : StepAction
     {
         if (index >= _selectedOption.followupActions.Count)
         {
-            CompleteOption();
+            CallOnComplete();
             return;
         }
 
@@ -59,11 +59,5 @@ public class QuizAction : StepAction
             // ignore result of followups, tiếp tới action sau
             ExecuteFollowupActions(index + 1);
         });
-    }
-
-    private void CompleteOption()
-    {
-        // Gọi callback storyboard
-        onComplete?.Invoke(new ActionResult(_selectedOption.actionResultType));
     }
 }

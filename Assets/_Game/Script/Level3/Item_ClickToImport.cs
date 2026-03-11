@@ -13,6 +13,7 @@ namespace Luzart
         public EFeedback type;
         public string title;
         public Action<string,EFeedback> onClick;
+        public TMP_Text txtType;
         public TMP_Text txtTitle;
         public void Initialize(EFeedback type, string title, Action<string,EFeedback> onClick)
         {
@@ -20,6 +21,7 @@ namespace Luzart
             this.title = title;
             this.onClick = onClick;
             txtTitle.text = title;
+            txtType.text = type.ToString();
         }
         public void OnClick()
         {

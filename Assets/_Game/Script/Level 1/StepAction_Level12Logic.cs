@@ -19,7 +19,7 @@ namespace Luzart
             {
                 stepActionSwitch.UseStep(1);
             }
-            _onComplete?.Invoke(new ActionResult(actionResultType));
+            CallOnComplete();
         }
     }
 

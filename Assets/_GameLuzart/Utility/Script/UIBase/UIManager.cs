@@ -46,6 +46,7 @@ namespace Luzart
             {UIName.Level3,"1,0,UILevel3" },
             {UIName.Level4,"1,0,UILevel4" },
             {UIName.Loading,"2,0,UILoading" },
+            {UIName.Profile,"2,0,UIProfile" },
 
 
             {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
@@ -595,6 +596,7 @@ namespace Luzart
         Tutorial = 14,
         Loading = 15,
         Level4 = 16,
+        Profile = 17,
 
         //Tutorial =50,
         //Tutorial

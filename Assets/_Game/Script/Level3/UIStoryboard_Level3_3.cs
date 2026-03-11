@@ -20,8 +20,17 @@ namespace Luzart
         private Level3_3Data dataRequest = new Level3_3Data();
         public override void Show(Action onHideDone)
         {
-            base.Show(onHideDone);
-            CheckOrSendNext();
+            try
+            {
+                base.Show(onHideDone);
+                CheckOrSendNext();
+            }
+            catch (Exception ex)
+            {
+                Debug.LogError("Show Level3_3: " + ex.Message);
+                conversationMain.ShowText("Error! Try again !");
+            }
+
         }
         private void CheckOrSendNext()
         {

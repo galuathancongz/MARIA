@@ -18,8 +18,7 @@ public class StepActionDelayTime : StepAction
         tweener = DOVirtual.DelayedCall(delayTime, () =>
         {
             UIManager.Instance.BlockRaycast(false);
-            gameObject.SetActive(isSetActiveAfter);
-            onComplete?.Invoke(new ActionResult(ActionResultType.NextStep));
+            CallOnComplete();
         });
     }
     private void OnDisable()

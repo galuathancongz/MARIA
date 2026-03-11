@@ -22,9 +22,9 @@ public class InputSubjectAction : StepAction
 
     private Tween _typingTween;
 
-    private void Start()
+    public override void Execute(Action<ActionResult> _onComplete)
     {
-        // Gán listener cho nút xác nhận
+        base.Execute(_onComplete);
         GameUtil.ButtonOnClick(btnConfirm, OnConfirm);
         inputField.onEndEdit.RemoveAllListeners();
         inputField.onEndEdit.AddListener(text =>
@@ -34,11 +34,7 @@ public class InputSubjectAction : StepAction
                 OnConfirm();
             }
         });
-    }
 
-    public override void Execute(Action<ActionResult> _onComplete)
-    {
-        base.Execute(_onComplete);
         // Hiển thị panel và xóa text cũ
         _typingTween = txtInfor.DOText(strInfor, timeDuration).SetEase(easing);
         inputField.text = string.Empty;
@@ -60,9 +56,8 @@ public class InputSubjectAction : StepAction
             ui.InitPopupFillName();
             return;
         }
-        gameObject.SetActive(isSetActiveAfter);
         DataManager.Instance.GameData.subjectName = subject.ToUpper();
-        onComplete?.Invoke(new ActionResult(actionResultType));
+        CallOnComplete();
     }
     private readonly string[] coreSubjects = {
     // --- KHỐI GIÁO DỤC & SƯ PHẠM (Education & Pedagogy) ---
@@ -136,7 +131,10 @@ public class InputSubjectAction : StepAction
 
     // --- MÔI TRƯỜNG & TRÁI ĐẤT ---
     "environmental science","geology","climate science","oceanography",
-    "meteorology","hydrology","forestry","agriculture"
+    "meteorology","hydrology","forestry","agriculture",
+
+
+    "science","literature","history","art","music","philosophy","economics",
 };
     SubjectDetector detector = null;
     private bool TryDetectSubject(string input)
@@ -166,7 +164,7 @@ public class SubjectDetector
 
         // 2. Tạo Regex tổng hợp với Word Boundary (\b) để khớp chính xác nguyên từ
         // Ví dụ: \b(organic chemistry|chemistry|math)\b
-        string pattern = @"\b(" + string.Join("|", sortedSubjects) + @")\b";
+        string pattern = @"(" + string.Join("|", sortedSubjects) + @")";
         _combinedRegex = new Regex(pattern, RegexOptions.Compiled | RegexOptions.IgnoreCase);
 
         // 3. Lưu vào Hashset để tra cứu O(1) nếu cần kiểm tra khớp hoàn toàn

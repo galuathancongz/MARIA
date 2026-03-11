@@ -32,5 +32,6 @@ public class InputFieldSend : MonoBehaviour
     public void OnClick()
     {
         OnClickHandle?.Invoke(_currentStr);
+        inputField.text = "";
     }
 }

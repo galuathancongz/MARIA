@@ -9,6 +9,13 @@ public class Level2_ConversationItem : MonoBehaviour
     public TMP_Text txt;
     private float displaySpeedChar = 75f;
     private Tween tw;
+    private void Awake()
+    {
+        if(txt && !inputField)
+        {
+            inputField = txt.GetComponent<TMP_InputField>();
+        }
+    }
     public void ShowText(string str)
     {
         tw?.Kill();
@@ -21,7 +28,7 @@ public class Level2_ConversationItem : MonoBehaviour
         {
             inputField.text = str;
         }
-        if(txt)
+        if (txt && !inputField)
         {
             txt.text = str;
         }
@@ -36,9 +43,9 @@ public class Level2_ConversationItem : MonoBehaviour
         gameObject.SetActive(true);
         if(inputField)
         {
-            tw = inputField.textComponent.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
+            tw = inputField.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
         }
-        if(txt)
+        if (txt && !inputField)
         {
             tw = txt.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
         }
@@ -53,9 +60,9 @@ public class Level2_ConversationItem : MonoBehaviour
         if(inputField)
         {
             inputField.text = "";
-            tw = inputField.textComponent.DOText("Thinking ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
+            tw = inputField.DOText("Thinking ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
         }
-        if(txt)
+        if (txt && !inputField)
         {   
             txt.text = "";
             tw = txt.DOText("Thinking ...",3f).SetLoops(-1, LoopType.Restart).SetId(this);
@@ -71,13 +78,39 @@ public class Level2_ConversationItem : MonoBehaviour
         if(inputField)
         {
             inputField.text = "";
-            tw = inputField.textComponent.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
+            tw = inputField.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
         }
-        if(txt)
+        if (txt && !inputField)
         {
             txt.text = "";
             tw = txt.DOText("Loading ...", 3f).SetLoops(-1, LoopType.Restart).SetId(this);
         }
+    }
+    [ContextMenu("Setup InputField")]
+    public void SetupInputField()
+    {
+        if(txt && !inputField)
+        {
+            inputField = txt.GetComponent<TMP_InputField>();
+        }
+        if(!inputField)
+        {
+            inputField = txt.gameObject.AddComponent<TMP_InputField>();
+        }
+        SetupInput(inputField);
+    }
+    public void SetupInput(TMP_InputField inputField)
+    {
+        var textComponent = inputField.gameObject.GetComponent<TMP_Text>();
+        textComponent.raycastTarget = true;
+        string str = textComponent.text;
+        inputField.textComponent = textComponent;
+        inputField.pointSize = textComponent.fontSize;
+        inputField.lineType = TMP_InputField.LineType.MultiLineSubmit;
+        inputField.fontAsset = textComponent.font;
+        inputField.readOnly = true;
+        inputField.transition = UnityEngine.UI.Selectable.Transition.None;
+        inputField.text = str;
     }
     private void OnDestroy()
     {

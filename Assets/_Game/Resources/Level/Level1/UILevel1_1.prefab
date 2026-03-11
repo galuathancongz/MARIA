@@ -347,7 +347,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: Welcome to Level 1! It's time to reflect on who you are as a teacher/ Let's
     start with how you respond to different teaching situations. These are not tests,
@@ -356,6 +356,7 @@ MonoBehaviour:
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &1256394915777667716
 GameObject:
@@ -714,7 +715,7 @@ MonoBehaviour:
   - {fileID: 2086443008482732975}
   - {fileID: 3660306288371249932}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 2443191900980542821}
 --- !u!114 &2443191900980542821
@@ -754,6 +755,12 @@ MonoBehaviour:
       FloatTo: -1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &2275522234109043234
 GameObject:
   m_ObjectHideFlags: 0
@@ -6003,6 +6010,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &4912036644797431452
 GameObject:
   m_ObjectHideFlags: 0
@@ -6151,6 +6164,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &5032331692212024802
 GameObject:
   m_ObjectHideFlags: 0
@@ -7098,7 +7117,7 @@ MonoBehaviour:
   - {fileID: 5974322201374994981}
   - {fileID: 3660306288371249932}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 9016770606677269045}
 --- !u!114 &9016770606677269045
@@ -12041,7 +12060,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &6832365788218205407
 GameObject:
   m_ObjectHideFlags: 0
@@ -12300,7 +12319,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Welcome to Level 1! It's time to reflect on who you are as a teacher/ Let's
+  m_text: Welcome to Level 1! It's time to reflect on who you are as a teacher. Let's
     start with how you respond to different teaching situations. These are not tests,
     just glimpses into how you think and teach. You will see some classroom scenes
     appear. Click the one that feels more natural to you.
@@ -12754,6 +12773,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 3676763826879938090}
   - {fileID: 3227896027038337109}

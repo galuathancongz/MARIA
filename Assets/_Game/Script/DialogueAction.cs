@@ -25,10 +25,6 @@ public class DialogueAction : StepAction
 
     private void Start()
     {
-        if(modeClick == Mode.Button)
-        {
-            GameUtil.ButtonOnClick(btnClick, OnClickAction);
-        }
         txt.text = string.Empty;
     }
     private void OnEnable()
@@ -46,16 +42,23 @@ public class DialogueAction : StepAction
     public override void Execute(Action<ActionResult> _onComplete)
     {
         base.Execute(_onComplete);
+        if (modeClick == Mode.Button)
+        {
+            GameUtil.ButtonOnClick(btnClick, OnClickAction);
+        }
+        StartTyping();
+    }
+    protected virtual void StartTyping()
+    {
         // Reset lại text
         txt.text = string.Empty;
 
         // Bắt đầu gõ text với DOTween
         _typingTween = txt.DOText(str, timeDuration)
             .SetEase(ease);
-        if(btnClick != null)
+        if (btnClick != null)
             btnClick.gameObject.SetActive(true);
     }
-
     public void OnClickAction()
     {
         if (_typingTween != null && _typingTween.IsActive() && _typingTween.IsPlaying())
@@ -64,16 +67,11 @@ public class DialogueAction : StepAction
             _typingTween.Complete();
             if (isCompleteAndNextAction)
             {
-                OnActionInvoke();
+                CallOnComplete();
             }
             return;
         }
-        OnActionInvoke();
-    }
-    private void OnActionInvoke()
-    {
-        gameObject.SetActive(isSetActiveAfter);
-        onComplete?.Invoke(new ActionResult(actionResultType));
+        CallOnComplete();
     }
     private void Update()
     {

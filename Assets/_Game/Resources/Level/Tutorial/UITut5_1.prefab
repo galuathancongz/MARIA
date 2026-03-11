@@ -201,7 +201,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Exactly! You are the teacher! , AI is your assistant, not your boss.  '
+  m_text: 'Exactly! You are the teacher! AI is your assistant, not your boss.  '
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -16182,7 +16182,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 4458583833674469191}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &4559703806641211819
 GameObject:
   m_ObjectHideFlags: 0
@@ -16660,7 +16660,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Only on Weekend
+  m_text: Only on the Weekend
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
   m_sharedMaterial: {fileID: 3960846227018035836, guid: dcdae29e761533241bd802f82daf7d47, type: 2}
@@ -16815,7 +16815,7 @@ GameObject:
   - component: {fileID: 8878200371243944377}
   - component: {fileID: 943944605231191582}
   m_Layer: 5
-  m_Name: GameObject (2)
+  m_Name: StepActionClick
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -16855,7 +16855,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 8879925934615960273}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   mode: 0
 --- !u!1 &6707971301717203223
 GameObject:
@@ -17207,7 +17207,7 @@ GameObject:
   - component: {fileID: 3515675275947333424}
   - component: {fileID: 4488412118002304535}
   m_Layer: 5
-  m_Name: GameObject (3)
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -17291,7 +17291,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 3515675275947333424}
 --- !u!1 &6953530579002414480
@@ -17489,6 +17489,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 4085428706225563365}
   - {fileID: 8553760764505591331}
@@ -18781,7 +18785,7 @@ GameObject:
   - component: {fileID: 2574368572509801070}
   - component: {fileID: 8553760764505591331}
   m_Layer: 5
-  m_Name: GameObject (1)
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -18821,7 +18825,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 5210086640744777154}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 7979790108968017339}
   - {fileID: 3905182892857297207}

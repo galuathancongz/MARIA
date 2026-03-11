@@ -87,7 +87,7 @@ namespace Luzart
         private string GetRequest()
         {
             return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
-                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
+                $" Please solve the following teaching challenge. Limit your response to approximately 100 tokens." +
                 $"User Request: {Level2Manager.Instance.Data.question2_3_1}" +
                 $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
                 $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +

@@ -7,9 +7,8 @@ using UnityEngine;
 
 public class DialogActionTeacher : DialogueAction
 {
-    public override void Execute(Action<ActionResult> _onComplete)
+    protected override void StartTyping()
     {
-        this.onComplete = _onComplete;
         // Reset lại text
         txt.text = string.Empty;
 

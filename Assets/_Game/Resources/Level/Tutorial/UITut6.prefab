@@ -92,12 +92,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 4166650048834936048}
   str: "It\u2019s fun, reflective and helps to tailor the AI to fit your vibe!"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &1435837199169385902
 GameObject:
@@ -150,6 +151,7 @@ GameObject:
   - component: {fileID: 1157701573370918982}
   - component: {fileID: 7026000530059177449}
   - component: {fileID: 6908384209994667074}
+  - component: {fileID: 2968425028231409459}
   m_Layer: 5
   m_Name: Button (1)
   m_TagString: Untagged
@@ -175,7 +177,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -369.94995, y: -4.4000244}
+  m_AnchoredPosition: {x: 0, y: -142}
   m_SizeDelta: {x: 351, y: 146}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1157701573370918982
@@ -272,6 +274,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &2968425028231409459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2580364990853230649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7adf892e9c3f164aa4307cc9a6d9fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAutoButton: 0
+  valueScale: 1.1
+  timeScale: 0.1
 --- !u!1 &2617000757513140444
 GameObject:
   m_ObjectHideFlags: 0
@@ -376,14 +393,14 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
-  - {fileID: 8623303704525535122}
   - {fileID: 5530974113249996955}
+  - {fileID: 8623303704525535122}
   - {fileID: 2334845476726996966}
   m_Father: {fileID: 7666176596088556643}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0}
   m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 21.65, y: 276.90002}
+  m_AnchoredPosition: {x: 0, y: 276.90002}
   m_SizeDelta: {x: 1090.9, y: 172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!225 &7039593736175583249
@@ -433,7 +450,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 9.3, y: -170}
+  m_AnchoredPosition: {x: 0, y: -170}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &2805464775412631742
@@ -800,6 +817,7 @@ GameObject:
   - component: {fileID: 8405128004337410988}
   - component: {fileID: 893678063284204748}
   - component: {fileID: 4703134465751757628}
+  - component: {fileID: 8789350169851385365}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -825,7 +843,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 6.2500362, y: 0}
+  m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 448, y: 172}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &8405128004337410988
@@ -922,6 +940,21 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
+--- !u!114 &8789350169851385365
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4018712967707491119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a7adf892e9c3f164aa4307cc9a6d9fb7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  isAutoButton: 0
+  valueScale: 1.1
+  timeScale: 0.1
 --- !u!1 &4038281810281313974
 GameObject:
   m_ObjectHideFlags: 0
@@ -1293,7 +1326,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &2334845476726996966
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1459,12 +1492,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 4166650048834936048}
   str: "You\u2019ve got the basics now: Fantastic work!"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &5890975559318686344
 GameObject:
@@ -1516,12 +1550,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 4166650048834936048}
   str: Ready to jump in?
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &5910007914357424316
 GameObject:
@@ -1573,13 +1608,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 4166650048834936048}
   str: "That\u2019s where Level 1 takes us: Discover your teaching characteristics
     or your teaching persona"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &5960793200624194508
 GameObject:
@@ -2047,13 +2083,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 4166650048834936048}
   str: 'From here, your journey really begins. We will start by understanding who
     you are as a teacher, your style, strengths and mindset. '
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &7867643255667003364
 GameObject:
@@ -2151,7 +2188,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 6980853108970992573}
 --- !u!1 &8634854568022966135
@@ -2274,7 +2311,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 122868998215488574}
 --- !u!114 &2829141835475987335
@@ -2372,7 +2409,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8984013355657835335
 GameObject:
   m_ObjectHideFlags: 0

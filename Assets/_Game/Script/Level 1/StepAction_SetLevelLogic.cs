@@ -12,8 +12,8 @@ namespace Luzart
             base.Execute(_onComplete);
             DataManager.Instance.GameData.level = level;
             DataManager.Instance.SaveGameData();
-            onComplete?.Invoke(new ActionResult(actionResultType));
-            if(level == 3)
+            CallOnComplete();
+            if (level == 3)
             {
                 Level3Manager.IsSendStartCoCreatorStudio = false;
             }

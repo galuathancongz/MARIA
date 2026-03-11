@@ -11,6 +11,6 @@ public class StepActionUnityEvent : StepAction
     {
         unityEvent?.Invoke();
         base.Execute(_onComplete);
-        onComplete?.Invoke(new ActionResult(ActionResultType.NextStep));
+        CallOnComplete();
     }
 }

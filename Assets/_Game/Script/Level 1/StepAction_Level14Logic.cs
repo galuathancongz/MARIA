@@ -16,7 +16,7 @@ namespace Luzart
             base.Execute(_onComplete);
             int indexPersona = (int)PersonaManager.Instance.GetMyPersonaType();
             baseSelect.Select(indexPersona);
-            onComplete?.Invoke(new ActionResult(actionResultType));
+            CallOnComplete();
         }
     }
 }

@@ -11,13 +11,22 @@ namespace Luzart
 {
     public class UIStoryboard_Level3_4 : Storyboard
     {
-        public TMP_Text txtName;
-        public TMP_Text txtAge;
-        public TMP_Text txtStyle;
-        public TMP_Text txtFeedback;
-        public TMP_Text txtSummaryLiked;
-        public TMP_Text txtSummaryStruggled;
-        public TMP_Text txtSummarySuggestedChange;
+        //public TMP_Text txtName;
+        //public TMP_Text txtAge;
+        //public TMP_Text txtStyle;
+        //public TMP_Text txtFeedback;
+        //public TMP_Text txtSummaryLiked;
+        //public TMP_Text txtSummaryStruggled;
+        //public TMP_Text txtSummarySuggestedChange;
+        
+        public TMP_InputField ifName;
+        public TMP_InputField ifAge;
+        public TMP_InputField ifStyle;
+        public TMP_InputField ifFeedback;
+        public TMP_InputField ifSummaryLiked;
+        public TMP_InputField ifSummaryStruggled;
+        public TMP_InputField ifSummarySuggestedChange;
+
 
         private StudentFeedbackResponseDTO responseDTO;
         private Level3Data Data => Level3Manager.Instance.Data;
@@ -38,7 +47,8 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError($"Error parsing response: {ex.Message}");
-                txtFeedback.text = "Lỗi phân tích phản hồi.";
+                //txtFeedback.text = "Lỗi phân tích phản hồi.";
+                ifFeedback.text = "Lỗi phân tích phản hồi.";
             }
             Data.responseStudent = responseDTO;
             SetUpUI();
@@ -46,13 +56,22 @@ namespace Luzart
         private void SetUpUI()
         {
             if (responseDTO == null) return;
-            txtName.text = responseDTO.student_info.name;
-            txtAge.text = responseDTO.student_info.age.ToString();
-            txtStyle.text = responseDTO.student_info.style;
-            txtFeedback.text = responseDTO.feedback;
-            txtSummaryLiked.text = responseDTO.summary.liked;
-            txtSummaryStruggled.text = responseDTO.summary.struggled;
-            txtSummarySuggestedChange.text = responseDTO.summary.suggested_change;
+            //txtName.text = responseDTO.student_info.name;
+            //txtAge.text = responseDTO.student_info.age.ToString();
+            //txtStyle.text = responseDTO.student_info.style;
+            //txtFeedback.text = responseDTO.feedback;
+            //txtSummaryLiked.text = responseDTO.summary.liked;
+            //txtSummaryStruggled.text = responseDTO.summary.struggled;
+            //txtSummarySuggestedChange.text = responseDTO.summary.suggested_change;
+
+            ifName.text = responseDTO.student_info.name;
+            ifAge.text = responseDTO.student_info.age.ToString();
+            ifStyle.text = responseDTO.student_info.style;
+            ifFeedback.text = responseDTO.feedback;
+            ifSummaryLiked.text = responseDTO.summary.liked;
+            ifSummaryStruggled.text = responseDTO.summary.struggled;
+            ifSummarySuggestedChange.text = responseDTO.summary.suggested_change;
+
         }
         private string GetShortStudentFeedbackPrompt(string fullContent)
         {
