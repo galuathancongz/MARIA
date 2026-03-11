@@ -59,6 +59,7 @@ namespace Luzart
         }
     
         [SerializeField] private AudioClip audioClick;
+        [SerializeField] private AudioClip audioMusicBG;
     
     
         private void Awake()
@@ -67,6 +68,9 @@ namespace Luzart
             audioMusic = gameObject.AddComponent<AudioSource>();
             audioSFX.mute = isMuteSFX;
             audioMusic.mute = isMuteMusic;
+            audioMusic.loop = true;
+            audioMusic.clip = audioMusicBG;
+            audioMusic.Play();
         }
         public void PlaySFXBtn()
         {

@@ -161,6 +161,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   audioClick: {fileID: 8300000, guid: 0edc310eb901a14459ff0fc1747352e1, type: 3}
+  audioMusicBG: {fileID: 8300000, guid: d5d0904797abb264d9008dd5edf0daa0, type: 3}
 --- !u!1 &2428759429993679483
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,9 +482,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a98f84c4006b81a4ba5fe353abae9f74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _gameData:
+  Data:
     level: 0
-    namePlayer: 
+    namePlayer: username
+    age: 24
     subjectName: 
     subject: 0
 --- !u!1 &7062897448495686203

@@ -1,4 +1,4 @@
-using DG.Tweening;
+﻿using DG.Tweening;
 using Luzart;
 using TMPro;
 using UnityEngine;
@@ -51,55 +51,69 @@ public class Level2_ConversationItem : MonoBehaviour
         }
     }
     private readonly string[] thinkingMessages = {
-        // --- Technical / Analytical ---
-        "Analyzing data patterns...",
-        "Processing neural networks...",
-        "Querying database...",
-        "Synthesizing response...",
-        "Optimizing logic flow...",
-        "Calculating probabilities...",
-        
-        // --- Narrative / Mystery (Good for VN/Detective games) ---
-        "Connecting the dots...",
-        "Reviewing evidence...",
-        "Reconstructing events...",
-        "Decoding hidden meanings...",
-        "Searching for leads...",
-        
-        // --- General / Creative ---
-        "Gathering thoughts...",
-        "Formulating an answer...",
-        "Brainstorming possibilities...",
-        "Deep diving into memory...",
-        "Filtering noise..."
-    };
+    // --- Analytical & Technical ---
+    "Analyzing dataset", "Processing neural weights", "Calculating probability",
+    "Optimizing logic gate", "Parsing binary streams", "Querying central memory",
+    "Executing subroutines", "Running diagnostics", "Cross-referencing indices",
+    "Compiling runtime variables", "Validating input parameters",
+
+    // --- Detective & Mystery ---
+    "Connecting the dots", "Reviewing hidden evidence", "Reconstructing events",
+    "Decoding encrypted logs", "Searching for potential leads", "Analyzing witness statements",
+    "Cross-checking alibis", "Uncovering structural anomalies", "Mapping timelines",
+    "Evaluating forensic output", "Decrypting legacy data",
+
+    // --- Creative & Philosophical ---
+    "Gathering abstract thoughts", "Formulating conceptual response", "Brainstorming possibilities",
+    "Deep diving into core memory", "Filtering signal from noise", "Synthesizing creative output",
+    "Weighing ethical constraints", "Drafting initial draft", "Refining tone of voice",
+    "Searching through archives", "Simulating hypothetical scenarios", "Structuring narrative flow"
+};
 
     public void SetThinking()
     {
         tw?.Kill(true);
-
         if (!gameObject) return;
 
-        // Pick a random English context
-        string randomContext = thinkingMessages[Random.Range(0, thinkingMessages.Length)];
+        Sequence s = DOTween.Sequence();
+        tw = s;
 
-        if (inputField)
+        // Sử dụng AppendCallback để mỗi vòng lặp lại chọn câu và số lần nháy mới
+        s.AppendCallback(() =>
         {
-            inputField.text = "";
-            // Using a slightly faster duration (1.5s - 2s) feels more responsive
-            tw = inputField.DOText(randomContext, 2f)
-                .SetLoops(-1, LoopType.Restart)
-                .SetId(this)
-                .SetEase(Ease.Linear);
-        }
-        else if (txt && !inputField)
-        {
-            txt.text = "";
-            tw = txt.DOText(randomContext, 2f)
-                .SetLoops(-1, LoopType.Restart)
-                .SetId(this)
-                .SetEase(Ease.Linear);
-        }
+            string msg = thinkingMessages[Random.Range(0, thinkingMessages.Length)];
+
+            // 1. Gõ text chính trước
+            if (inputField) inputField.text = msg;
+            if (txt) txt.text = msg;
+
+            // 2. Random số lần nháy (ví dụ từ 2 đến 6 lần)
+            int randomBlinkCount = Random.Range(2, 7);
+
+            // Tạo một sequence con cho phần dấu chấm
+            Sequence dotSeq = DOTween.Sequence();
+            for (int i = 0; i < randomBlinkCount; i++)
+            {
+                // Nháy các dấu chấm . -> .. -> ... -> . -> .. -> ...
+                int dotCount = (i % 3) + 1;
+                string dots = new string('.', dotCount);
+
+                dotSeq.AppendCallback(() => {
+                    if (inputField) inputField.text = msg + dots;
+                    if (txt) txt.text = msg + dots;
+                });
+                // Random tốc độ nháy một chút để cảm giác không bị đều tăm tắp
+                dotSeq.AppendInterval(0.3f);
+            }
+
+            // 3. Random thời gian "đứng hình" sau khi nháy xong trước khi đổi câu
+            dotSeq.AppendInterval(Random.Range(0.5f, 1.5f));
+
+            s.Append(dotSeq);
+        });
+
+        s.SetLoops(-1);
+        s.SetId(this);
     }
     public void SetLoading()
     {
