@@ -51,7 +51,7 @@ MonoBehaviour:
   typeAnimation: 10
   tweenAnimationSettings:
     General:
-      Target: {fileID: 0}
+      Target: {fileID: 2724148486498901959}
       Duration: 0.5
       Easing: 6
       IsIgnoreTimeScale: 0
@@ -325,7 +325,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 0}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 9016770606677269045}
 --- !u!114 &9016770606677269045
@@ -407,7 +407,7 @@ MonoBehaviour:
   typeAnimation: 10
   tweenAnimationSettings:
     General:
-      Target: {fileID: 0}
+      Target: {fileID: 6554747920905526160}
       Duration: 0.5
       Easing: 6
       IsIgnoreTimeScale: 0
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1459986285089334447}
 --- !u!1 &6725911640531656636
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8536906684387110268
 GameObject:
   m_ObjectHideFlags: 0
@@ -1024,12 +1024,17 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda4501db34870340b4435c9a913d68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &2724148486498901959 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 683410078489302729, guid: 1b60aab22b645b348b9ed679095d741c, type: 3}
+  m_PrefabInstance: {fileID: 3221739794088954126}
+  m_PrefabAsset: {fileID: 0}
 --- !u!114 &3350864599168751894 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 159106877094563864, guid: 1b60aab22b645b348b9ed679095d741c, type: 3}
   m_PrefabInstance: {fileID: 3221739794088954126}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 6554747920905526160}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 36c9f861c7d2f8344bac2cd74c896ea8, type: 3}
@@ -1038,6 +1043,11 @@ MonoBehaviour:
 --- !u!224 &6234325220251009782 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 8804869891866463224, guid: 1b60aab22b645b348b9ed679095d741c, type: 3}
+  m_PrefabInstance: {fileID: 3221739794088954126}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &6554747920905526160 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8521601888219845278, guid: 1b60aab22b645b348b9ed679095d741c, type: 3}
   m_PrefabInstance: {fileID: 3221739794088954126}
   m_PrefabAsset: {fileID: 0}
 --- !u!1001 &5656149470108586023

@@ -52,3 +52,4 @@ MonoBehaviour:
   closeBtn: {fileID: 0}
   isAnimBtnClose: 0
   isCache: 0
+  scenarioShow: 1000

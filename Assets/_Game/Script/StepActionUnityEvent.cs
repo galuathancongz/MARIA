@@ -9,8 +9,8 @@ public class StepActionUnityEvent : StepAction
     public UnityEvent unityEvent;
     public override void Execute(Action<ActionResult> _onComplete)
     {
-        unityEvent?.Invoke();
         base.Execute(_onComplete);
+        unityEvent?.Invoke();
         CallOnComplete();
     }
 }

@@ -2,6 +2,7 @@
 using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 namespace Luzart
 {
@@ -81,6 +82,11 @@ namespace Luzart
         public void ClearNullInSteps()
         {
             Steps.RemoveAll(item => item == null);
+        }
+        [ContextMenu("Setup All Action Step")]
+        public void SetupActionStep()
+        {
+            Steps = gameObject.GetComponentsInChildren<StepAction>(true).ToList();
         }
     }
 }

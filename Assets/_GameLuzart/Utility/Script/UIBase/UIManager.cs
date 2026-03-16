@@ -56,6 +56,7 @@ namespace Luzart
             {UIName.Tut5,"1,0,Level/Tutorial/UITut5" },
             {UIName.Tut5_1,"1,0,Level/Tutorial/UITut5_1" },
             {UIName.Tut6,"1,0,Level/Tutorial/UITut6" },
+            {UIName.Level1_0,"1,0,Level/Level1/UILevel1_0" },
             {UIName.Level1_1,"1,0,Level/Level1/UILevel1_1" },
             {UIName.Level1_1_1,"1,0,Level/Level1/UILevel1_1_1" },
             {UIName.Level1_1_2,"1,0,Level/Level1/UILevel1_1_2" },
@@ -119,6 +120,7 @@ namespace Luzart
             UIName.Tut5,
             UIName.Tut5_1,
             UIName.Tut6,
+            UIName.Level1_0,
             UIName.Level1_1,
             UIName.Level1_1_1,
             UIName.Level1_1_2,
@@ -215,6 +217,8 @@ namespace Luzart
                 uiName == UIName.Tut5 ||
                 uiName == UIName.Tut5_1 ||
                 uiName == UIName.Tut6 ||
+                uiName == UIName.Level1_0 ||
+                uiName == UIName.Level1_1 ||
                 uiName == UIName.Level1_1_1 ||
                 uiName == UIName.Level1_1_2 ||
                 uiName == UIName.Level1_1_3 ||
@@ -607,7 +611,8 @@ namespace Luzart
         Tut5 = 500,
         Tut5_1 = 501,
         Tut6 = 600,
-
+        
+        Level1_0 = 1000,
         Level1_1 = 1100,
         Level1_1_1 = 1110,
         Level1_1_2 = 1120,
