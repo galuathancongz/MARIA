@@ -80,6 +80,7 @@ namespace Luzart
             bool usedInclusion = data.optionalFilters.Contains("Inclusion") || data.optionalFilters.Contains("Accessibility");
 
             return "Context: You are AI Assistant MARIA and the Pedagogical Mentor. The player has just finished the entire Co-Design journey.\n" +
+                "Limit 80 tokens.\n" +
                    "Task: Generate a professional, encouraging, and personalised feedback summary for the teacher's final dashboard.\n\n" +
                    "Player's Achievement Data:\n" +
                    $"- Subject: {subject}\n" +
