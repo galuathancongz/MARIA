@@ -87,7 +87,7 @@ namespace Luzart
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Error parsing feedback suggestions response: {ex.Message}");
+                Debug.LogError($"Error parsing feedback suggestions response: {ex}");
                 UIManager.Instance.ShowToast("Error parsing feedback suggestions.");
             }
         }
