@@ -46,7 +46,7 @@ namespace Luzart
             }
             catch (Exception ex)
             {
-                Debug.LogError($"Error parsing response: {ex.Message}");
+                Debug.LogError($"Error parsing response: {ex}");
                 //txtFeedback.text = "Lỗi phân tích phản hồi.";
                 ifFeedback.text = "Lỗi phân tích phản hồi.";
             }

@@ -120,6 +120,8 @@ namespace Luzart
             UIName.Tut5,
             UIName.Tut5_1,
             UIName.Tut6,
+
+
             UIName.Level1_0,
             UIName.Level1_1,
             UIName.Level1_1_1,
@@ -141,6 +143,9 @@ namespace Luzart
             UIName.Level1_4_1,
             UIName.Level1_5,
             UIName.Level1_6,
+
+
+
             UIName.Level2_1,
             UIName.Level2_1_1,
             UIName.Level2_2,
@@ -150,6 +155,8 @@ namespace Luzart
             UIName.Level2_4,
             UIName.Level2_5,
             UIName.Level2_6,
+
+
             UIName.Level3_1,
             UIName.Level3_1_1,
             UIName.Level3_2,
@@ -158,6 +165,8 @@ namespace Luzart
             UIName.Level3_5,
             UIName.Level3_6,
             UIName.Level3_7,
+
+
             UIName.Level4_1,
             UIName.Level4_1_1,
             UIName.Level4_1_2,
@@ -210,6 +219,7 @@ namespace Luzart
         public void CheckShowBtnBack(UIName uiName)
         {
             bool isShow = false;
+
             if (uiName == UIName.Tut1 ||
                 uiName == UIName.Tut2 ||
                 uiName == UIName.Tut3 ||
@@ -217,6 +227,7 @@ namespace Luzart
                 uiName == UIName.Tut5 ||
                 uiName == UIName.Tut5_1 ||
                 uiName == UIName.Tut6 ||
+
                 uiName == UIName.Level1_0 ||
                 uiName == UIName.Level1_1 ||
                 uiName == UIName.Level1_1_1 ||
@@ -238,6 +249,7 @@ namespace Luzart
                 uiName == UIName.Level1_4_1 ||
                 uiName == UIName.Level1_5 ||
                 uiName == UIName.Level1_6 ||
+
                 uiName == UIName.Level2_1_1 ||
                 uiName == UIName.Level2_2_1 ||
                 uiName == UIName.Level2_3 ||
@@ -245,6 +257,7 @@ namespace Luzart
                 uiName == UIName.Level2_4 ||
                 uiName == UIName.Level2_5 ||
                 uiName == UIName.Level2_6 ||
+
                 uiName == UIName.Level3_1_1 ||
                 uiName == UIName.Level3_2 ||
                 uiName == UIName.Level3_3 ||
@@ -252,6 +265,7 @@ namespace Luzart
                 uiName == UIName.Level3_5 ||
                 uiName == UIName.Level3_6 ||
                 uiName == UIName.Level3_7 ||
+
                 uiName == UIName.Level4_1_1 ||
                 uiName == UIName.Level4_1_2 ||
                 uiName == UIName.Level4_1_3 ||

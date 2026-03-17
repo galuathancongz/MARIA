@@ -161,16 +161,19 @@ namespace Luzart
             string topic = data.topic;
 
             StringBuilder stringBuilder = new StringBuilder();
-            for (int i = 0; i < data.optionalFilters.Count; i++)
+            if(data.optionalFilters != null && data.optionalFilters.Count > 0)
             {
-                stringBuilder.Append(data.optionalFilters[i]);
-                if (i < data.optionalFilters.Count - 1)
-                    stringBuilder.Append(", ");
+                for (int i = 0; i < data.optionalFilters.Count; i++)
+                {
+                
+                    stringBuilder.Append(data.optionalFilters[i]);
+                    if (i < data.optionalFilters.Count - 1)
+                        stringBuilder.Append(", ");
+                }
             }
-
+            var filters = stringBuilder.ToString();
             var baseObjective = data.learningObjective;
             var constraints = data.designContraints;
-            var filters = stringBuilder.ToString();
 
             return "Limit max 100 tokens." +
                 "Context: You are a lesson design assistant in a 'Co-design Studio'. The teacher leads the process, and you provide supportive, high-quality content.\n" +
