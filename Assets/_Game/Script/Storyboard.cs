@@ -3,6 +3,9 @@ using Sirenix.OdinInspector;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+#if UNITY_EDITOR
+using UnityEditor;
+#endif
 using UnityEngine;
 namespace Luzart
 {
@@ -86,7 +89,9 @@ namespace Luzart
         [ContextMenu("Setup All Action Step")]
         public void SetupActionStep()
         {
+            Undo.RecordObject(this, "Setup Action Step");
             Steps = gameObject.GetComponentsInChildren<StepAction>(true).ToList();
+            EditorUtility.SetDirty(this);
         }
     }
 }

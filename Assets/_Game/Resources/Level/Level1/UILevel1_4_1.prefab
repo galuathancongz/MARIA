@@ -63,9 +63,9 @@ MonoBehaviour:
   isAnimBtnClose: 0
   isCache: 0
   Steps:
-  - {fileID: 0}
-  - {fileID: 0}
-  - {fileID: 0}
+  - {fileID: 4910025364546991544}
+  - {fileID: 1097095565221697489}
+  - {fileID: 4799985744746190209}
   _currentStep: 0
   currentStoryboard: 3
 --- !u!1001 &7900325543939012474
@@ -188,3 +188,36 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 7276304187677924814, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
   m_PrefabInstance: {fileID: 7900325543939012474}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1097095565221697489 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7105047041580982443, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
+  m_PrefabInstance: {fileID: 7900325543939012474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4799985744746190209 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 3404547196071502587, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
+  m_PrefabInstance: {fileID: 7900325543939012474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a3625e17105736c49aedaecea5dfd507, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &4910025364546991544 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 2990515722445570754, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
+  m_PrefabInstance: {fileID: 7900325543939012474}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
