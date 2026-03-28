@@ -13,7 +13,7 @@ public class DialogActionTeacher : DialogueAction
         txt.text = string.Empty;
 
         // Bắt đầu gõ text với DOTween
-        _typingTween = txt.DOText($"Great! A {DataManager.Instance.Data.subjectName} teacher, wonderful",
+        _typingTween = txt.DOText(Loc.TF(Loc.K("ui.great_teacher"), DataManager.Instance.Data.subjectName),
             timeDuration)
             .SetEase(ease);
     }

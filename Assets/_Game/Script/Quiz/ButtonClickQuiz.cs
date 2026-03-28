@@ -35,11 +35,16 @@ public class ButtonClickQuiz : MonoBehaviour
     {
         onClick.Invoke(index);
     }
+    private void Start()
+    {
+        if (txt != null && !string.IsNullOrEmpty(str))
+            txt.text = Loc.T(str);
+    }
     public void SetText(string str)
     {
         if (txt)
         {
-            txt.text = str;
+            txt.text = Loc.T(str);
         }
     }
     public void Select(bool isSelect)

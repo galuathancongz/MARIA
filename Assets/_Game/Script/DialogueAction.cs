@@ -54,7 +54,7 @@ public class DialogueAction : StepAction
         txt.text = string.Empty;
 
         // Bắt đầu gõ text với DOTween
-        _typingTween = txt.DOText(str, timeDuration)
+        _typingTween = txt.DOText(Loc.T(str), timeDuration)
             .SetEase(ease).SetId(this);
         if (btnClick != null)
             btnClick.gameObject.SetActive(true);

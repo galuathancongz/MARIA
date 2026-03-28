@@ -20,6 +20,17 @@ namespace Luzart
         {
             onClickNextButton?.Invoke();
         }
+        private void Start()
+        {
+            LocalizeTexts();
+        }
+        public void LocalizeTexts()
+        {
+            if (txtSections != null)
+                txtSections.text = Loc.T(strSections);
+            if (txtQuestion != null)
+                txtQuestion.text = Loc.T(strQuestion);
+        }
         protected virtual void OnValidate()
         {
             if (txtSections != null)

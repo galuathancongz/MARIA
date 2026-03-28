@@ -36,7 +36,7 @@ public class InputSubjectAction : StepAction
         });
 
         // Hiển thị panel và xóa text cũ
-        _typingTween = txtInfor.DOText(strInfor, timeDuration).SetEase(easing);
+        _typingTween = txtInfor.DOText(Loc.T(strInfor), timeDuration).SetEase(easing);
         inputField.text = string.Empty;
         inputField.ActivateInputField();
     }

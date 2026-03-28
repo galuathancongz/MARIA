@@ -28,7 +28,7 @@ public class QuizAction : StepAction
     {
         base.Execute(_onComplete);
         quizPanel.SetActive(true);
-        questionTxt.text = questionText;
+        questionTxt.text = Loc.T(questionText);
     }
 
     public void OnOptionSelected(QuizOption opt)

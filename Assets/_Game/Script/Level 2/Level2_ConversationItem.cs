@@ -81,7 +81,7 @@ public class Level2_ConversationItem : MonoBehaviour
         // Build sẵn vài vòng thay vì append runtime
         for (int round = 0; round < 20; round++)
         {
-            string msg = thinkingMessages[Random.Range(0, thinkingMessages.Length)];
+            string msg = Loc.T(thinkingMessages[Random.Range(0, thinkingMessages.Length)]);
             int blinkCount = Random.Range(2, 7);
 
             // Gõ text chính

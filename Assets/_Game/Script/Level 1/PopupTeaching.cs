@@ -14,6 +14,24 @@ public class PopupTeaching : MonoBehaviour
     public string strMainWord;
     public string[] strAnswers;
 
+    private void Start()
+    {
+        LocalizeTexts();
+    }
+    public void LocalizeTexts()
+    {
+        if (txtTitle != null) txtTitle.text = Loc.T(strTitle);
+        if (txtMainWord != null) txtMainWord.text = Loc.T(strMainWord);
+        if (txtWords != null && strAnswers != null)
+        {
+            for (int i = 0; i < txtWords.Length && i < strAnswers.Length; i++)
+            {
+                if (txtWords[i] != null && !string.IsNullOrWhiteSpace(strAnswers[i]))
+                    txtWords[i].text = Loc.T(strAnswers[i]);
+            }
+        }
+    }
+
     private void OnValidate()
     {
         if (Application.isPlaying) return;
