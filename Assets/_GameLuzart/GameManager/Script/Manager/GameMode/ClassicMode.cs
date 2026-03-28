@@ -18,6 +18,11 @@ namespace Luzart
             base.OnWinGame();
             DataManager.Instance.Data.level++;
             DataManager.Instance.SaveGameData();
+            // Sync to server after win
+            if (SyncManager.Instance != null && AuthManager.Instance != null && AuthManager.Instance.IsLoggedIn)
+            {
+                SyncManager.Instance.SaveToServer();
+            }
         }
     
         protected override void OnLoseGame()
