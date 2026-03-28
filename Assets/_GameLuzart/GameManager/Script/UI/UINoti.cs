@@ -1,7 +1,5 @@
 using DG.Tweening;
 using Luzart;
-using System.Collections;
-using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -17,7 +15,7 @@ public class UINoti : UIBase
     {
         this.DOKill(true);
     }
-    public string strFillName = "Please fill name Subjects";
+    public string strFillName => LocalizationManager.Instance.Get("ui.fill_subject");
     public void InitPopupFillName()
     {
         InitPopup(strFillName);

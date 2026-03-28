@@ -27,12 +27,12 @@ namespace Luzart
     }
     public static class KeyToast
     {
-        public const string NoInternetLoadAds = "You are currently offline.\nPlease check your internet connection";
-        public const string Expansion = "Your ship is in the extended version";
+        public static string NoInternetLoadAds => LocalizationManager.Instance.Get("ui.offline");
+        public static string Expansion => LocalizationManager.Instance.Get("ui.expansion");
         public static string UnlockBooster(int levelUnlock)
         {
-            return $"Reach to level {levelUnlock} to use this booster !";
+            return LocalizationManager.Instance.GetFormat("ui.unlock_booster", levelUnlock);
         }
-        public const string UnlockPreviousItem = "Please unlock previous item";
+        public static string UnlockPreviousItem => LocalizationManager.Instance.Get("ui.unlock_previous");
     }
 }

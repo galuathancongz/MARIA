@@ -16,13 +16,13 @@ namespace Luzart
             switch (type)
             {
                 case EPersonaType.Creative:
-                    return "Creative";
+                    return LocalizationManager.Instance.Get("persona.creative");
                 case EPersonaType.LogicOrStruct:
-                    return "Logical/Structured";
+                    return LocalizationManager.Instance.Get("persona.logical");
                 case EPersonaType.Empathy:
-                    return "Empathetic";
+                    return LocalizationManager.Instance.Get("persona.empathetic");
                 default:
-                    return "Unknown";
+                    return LocalizationManager.Instance.Get("persona.unknown");
             }
         }
 
@@ -47,13 +47,13 @@ namespace Luzart
             switch (type)
             {
                 case EPersonaType.Creative:
-                    return "Orange";
+                    return LocalizationManager.Instance.Get("persona.color.orange");
                 case EPersonaType.LogicOrStruct:
-                    return "Blue";
+                    return LocalizationManager.Instance.Get("persona.color.blue");
                 case EPersonaType.Empathy:
-                    return "Green";
+                    return LocalizationManager.Instance.Get("persona.color.green");
                 default:
-                    return "Black";
+                    return LocalizationManager.Instance.Get("persona.color.black");
             }
         }
         public EPersonaType GetMyPersonaType()

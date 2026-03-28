@@ -65,6 +65,7 @@ namespace Luzart
         public const string BlockRaycast = "BlockRaycast";
         public const string PersonaDataChange = "PersonaDataChange";
         public const string OnUpdateNewChat = "OnUpdateNewChat";
+        public const string OnLanguageChanged = "OnLanguageChanged";
 
     }
 }

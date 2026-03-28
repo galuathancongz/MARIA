@@ -28,7 +28,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("Show Level3_3: " + ex.Message);
-                conversationMain.ShowText($"Error! Try again !\n {ex}");
+                conversationMain.ShowText($"{LocalizationManager.Instance.Get("ui.error_try_again")}\n {ex}");
             }
 
         }
@@ -43,7 +43,7 @@ namespace Luzart
             }
             else
             {
-                conversationMain.ShowText("You have completed all the items in the lesson plan!");
+                conversationMain.ShowText(LocalizationManager.Instance.Get("ui.completed_all"));
                 conversationTip.ShowText("");
                 UIManager.Instance.uiTop.ShowBtnNext(true);
             }
@@ -105,7 +105,7 @@ namespace Luzart
         {
             if (Data.GetConverstationState(0) == EState.WaitAI)
             {
-                UIManager.Instance.ShowToast("Please wait AI complete response !");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.wait_ai_complete"));
                 return;
             }
 
@@ -126,12 +126,12 @@ namespace Luzart
         {
             if (Data.GetConverstationState(0) == EState.WaitAI)
             {
-                UIManager.Instance.ShowToast("Please wait AI complete response !");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.wait_ai_complete"));
                 return;
             }
             var strTitle = CurrentTitle();
             var strRequest = GetLevel3Prompt(strTitle, "");
-            strRequest = strRequest + "\n\nRequest: Please recreate the content for this section.";
+            strRequest = strRequest + LocalizationManager.Instance.Get("ui.regenerate_request");
             Send(strRequest);
         }
         private void OnDoneResults(string str)
@@ -146,7 +146,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("OnDoneResults Level3_3: " + ex.Message);
-                conversationMain.ShowText("Error! Try again !");
+                conversationMain.ShowText(LocalizationManager.Instance.Get("ui.error_try_again"));
             }
         }
         private void Send(string strRequest)
@@ -175,30 +175,14 @@ namespace Luzart
             var baseObjective = data.learningObjective;
             var constraints = data.designContraints;
 
-            return "Limit max 100 tokens." +
-                "Context: You are a lesson design assistant in a 'Co-design Studio'. The teacher leads the process, and you provide supportive, high-quality content.\n" +
-                   "Established Setup from Scene 2:\n" +
-                   $"- Topic: {topic} \n" +
-                   $"- Core Learning Objective: {baseObjective} \n" +
-                   $"- Design Constraints: {constraints} \n" +
-                   $"- Optional Filters: {filters} \n\n" +
-
-                   $"Task: Generate content for the '{currentField}' section of the lesson plan.\n" +
-                   $"Teacher's Specific Request: \"{userRequest}\"\n\n" +
-
-                   "Technical Requirements:\n" +
-                   "1. Practicality: Content must align strictly with the core objective and design constraints.\n" +
-                   "2. Localization: Use examples suitable for the England educational context.\n" +
-                   "3. Pedagogical Insight: The 'tips' section should offer actionable advice, including many small tips (e.g., how to make activities more student-centered).\n" +
-                   "4. Formatting: Return ONLY a single JSON object. No markdown, no backticks, no introductory text.\n" +
-                   "5. Conciseness: The Mentor/MARIA's advice (tips) must be extremely brief, under 20 words.\n" +
-                   "6. Focus: Prioritize the main task content, ensuring it is concise and feasible.\n\n" +
-
-                   "Output JSON Format:\n" +
-                   "{\n" +
-                   "  \"suggestion\": \"detailed suggested content for this section (including scripts, materials if needed)\",\n" +
-                   "  \"tips\": \"brief advice from MARIA or the Mentor to improve the activity\"\n" +
-                   "}";
+            return LocalizationManager.Instance.GetPrompt("prompts.level3_3_lesson", new System.Collections.Generic.Dictionary<string, string> {
+                {"topic", topic},
+                {"baseObjective", baseObjective},
+                {"constraints", constraints},
+                {"filters", filters},
+                {"currentField", currentField},
+                {"userRequest", userRequest}
+            });
         }
     }
     public class Level3_3Data

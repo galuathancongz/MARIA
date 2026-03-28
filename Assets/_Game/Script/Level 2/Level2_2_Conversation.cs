@@ -55,7 +55,11 @@ public class Level2_Conversation_MeAndAI : MonoBehaviour
         itemAI.SetThinking();
         listItems.Add(itemAI);
 
-        question = $"You are an AI Mentor named {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}. Your subject is {MentorSubjectExtension.GetSubjectName(Level2Manager.Instance.Data.subject)}. Please answer the following question as concisely as possible. Limit 200 token. Question: {question}";
+        question = LocalizationManager.Instance.GetPrompt("prompts.level2_2_conversation", new System.Collections.Generic.Dictionary<string, string> {
+                {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
+                {"subjectName", MentorSubjectExtension.GetSubjectName(Level2Manager.Instance.Data.subject)},
+                {"question", question}
+            });
         Level2Manager.Instance.Send(0, question, (response) =>
         {
             itemAI.ShowTextAnim(response);

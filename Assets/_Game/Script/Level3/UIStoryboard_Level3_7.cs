@@ -32,7 +32,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("Show Level3_7: " + ex.Message);
-                txtResponse.text = $"Error! Try again ! + {ex}";
+                txtResponse.text = $"{LocalizationManager.Instance.Get("ui.error_try_again")} + {ex}";
             }
 
         }
@@ -64,7 +64,7 @@ namespace Luzart
             }
             catch (Exception e)
             {
-                txtResponse.text = $"Error parsing level 3-7 response: {e.Message}";
+                txtResponse.text = $"{LocalizationManager.Instance.Get("ui.error_try_again")} {e.Message}";
                 Debug.LogError($"Error parsing level 3-7 response: {e.Message}");
             }
         }
@@ -72,35 +72,16 @@ namespace Luzart
         private string GetRequestLevel7()
         {
             var data = Level3Manager.Instance.Data;
-
-            // Thu thập các thông tin quan trọng từ quá trình chơi để AI có cơ sở nhận xét
-            string topic = data.topic;
-            string subject = MentorSubjectExtension.GetSubjectName(data.subject);
             int revisionCount = data.GetAllSendAI();
             bool usedInclusion = data.optionalFilters.Contains("Inclusion") || data.optionalFilters.Contains("Accessibility");
 
-            return "Context: You are AI Assistant MARIA and the Pedagogical Mentor. The player has just finished the entire Co-Design journey.\n" +
-                "Limit 80 tokens.\n" +
-                   "Task: Generate a professional, encouraging, and personalised feedback summary for the teacher's final dashboard.\n\n" +
-                   "Player's Achievement Data:\n" +
-                   $"- Subject: {subject}\n" +
-                   $"- Lesson Topic: {topic}\n" +
-                   $"- Total AI Collaborations/Revisions: {revisionCount}\n" +
-                   $"- Focus on Inclusion/Accessibility: {(usedInclusion ? "Yes" : "No")}\n" +
-                   $"- Student Feedback handled: {data.studentWork}\n\n" +
-
-                   "Output Requirement:\n" +
-                   "1. Provide ONLY a single JSON object. No markdown, no introductory text.\n" +
-                   "2. The 'personalisedFeedback' should be a cohesive paragraph (40-60 words).\n" +
-                   "3. Tone: Celebratory, insightful, and professional. Highlight their specific strengths (e.g., iterative design, student-centeredness, or subject expertise).\n" +
-                   "4. Calculate 'percentLevel2' and 'percentLevel3' based on the completion of the tasks (Values: 0-100).\n\n" +
-
-                   "Output JSON Format:\n" +
-                   "{\n" +
-                   "  \"percentLevel2\": int,\n" +
-                   "  \"percentLevel3\": int,\n" +
-                   "  \"personalisedFeedback\": \"Your feedback text here...\"\n" +
-                   "}";
+            return LocalizationManager.Instance.GetPrompt("prompts.level3_7_final", new System.Collections.Generic.Dictionary<string, string> {
+                {"subject", MentorSubjectExtension.GetSubjectName(data.subject)},
+                {"topic", data.topic},
+                {"revisionCount", revisionCount.ToString()},
+                {"usedInclusion", usedInclusion ? "Yes" : "No"},
+                {"studentWork", data.studentWork ?? ""}
+            });
         }
 
         public void OnDisplayData()

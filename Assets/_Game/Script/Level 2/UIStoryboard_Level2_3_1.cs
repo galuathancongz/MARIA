@@ -34,7 +34,7 @@ namespace Luzart
         {
             if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
             {
-                UIManager.Instance.ShowToast("Please wait for AI to finish before refining.");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.wait_ai_refine"));
                 return;
             }
             var strRequest = GetRequestRegenerate();
@@ -44,7 +44,7 @@ namespace Luzart
         {
             if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
             {
-                UIManager.Instance.ShowToast("Please wait for AI to finish before refining.");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.wait_ai_refine"));
                 return;
             }
             var strRequest = GetRequestRefine(str);
@@ -74,9 +74,10 @@ namespace Luzart
             catch (Exception e)
             {
                 Debug.LogError($"Level2_3_1_Data JsonUtility Error: {e.Message}");
-                scriptConversation.ShowText($"[Error] Dữ liệu không hợp lệ, vui lòng thử lại. \n{e.Message}\n {str}");
-                visualConversationItem.ShowText($"[Error] Dữ liệu không hợp lệ, vui lòng thử lại. \n{e.Message}\n {str}");
-                quizzConversationItem.ShowText($"[Error] Dữ liệu không hợp lệ, vui lòng thử lại. \n{e.Message}\n {str}");
+                var errorMsg = $"{LocalizationManager.Instance.Get("ui.error_invalid_data")} \n{e.Message}\n {str}";
+                scriptConversation.ShowText(errorMsg);
+                visualConversationItem.ShowText(errorMsg);
+                quizzConversationItem.ShowText(errorMsg);
                 return;
             }
             scriptConversation.ShowTextAnim(json.script);
@@ -86,32 +87,27 @@ namespace Luzart
 
         private string GetRequest()
         {
-            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
-                $" Please solve the following teaching challenge. Limit your response to approximately 100 tokens." +
-                $"User Request: {Level2Manager.Instance.Data.question2_3_1}" +
-                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
-                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
-                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_request", new System.Collections.Generic.Dictionary<string, string> {
+                {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
+                {"userRequest", Level2Manager.Instance.Data.question2_3_1}
+            });
         }
 
         private string GetRequestRefine(string str)
         {
-            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
-                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
-                $"User Request: {Level2Manager.Instance.Data.question2_3_1} with the following addition: {str}" +
-                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
-                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
-                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_refine", new System.Collections.Generic.Dictionary<string, string> {
+                {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
+                {"userRequest", Level2Manager.Instance.Data.question2_3_1},
+                {"refinement", str}
+            });
         }
 
         private string GetRequestRegenerate()
         {
-            return $"System: You are AI Mentor {MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)}." +
-                $" Please solve the following teaching challenge. Limit your response to approximately 200 tokens." +
-                $"User Request: Regenerate the content for: {Level2Manager.Instance.Data.question2_3_1}" +
-                $"The output must include: 'script' (the AI Mentor's dialogue), 'visual' (descriptions of supporting illustrations), and 'quiz' (a simple, fun quick-check question)." +
-                $"Output Requirement: Provide ONLY valid JSON code. No markdown, no backticks, and no extra text. Content within fields must be a single string, using \\n for line breaks between points." +
-                "JSON Structure: { \"script\": \"line 1\\nline 2\", \"visual\": \"visual description 1\\nvisual description 2\", \"quiz\": \"question 1\\nquestion 2\" }";
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_regenerate", new System.Collections.Generic.Dictionary<string, string> {
+                {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
+                {"userRequest", Level2Manager.Instance.Data.question2_3_1}
+            });
         }
         private bool _isHide = false;
         public override void Hide()

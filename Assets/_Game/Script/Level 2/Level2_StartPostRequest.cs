@@ -1,13 +1,10 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using UnityEngine;
+﻿using UnityEngine;
 
 namespace Luzart
 {
     public class Level2_StartPostRequest : MonoBehaviour
     {
-        public string strRequest = "Hello, AI Mentor! This is start Ideation Lab! Not response this message!";
+        public string strRequest => LocalizationManager.Instance.Get("prompts.level2_start");
         private void Start()
         {
             SendPostRequest();

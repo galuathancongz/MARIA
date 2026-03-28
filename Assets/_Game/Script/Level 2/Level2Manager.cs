@@ -99,15 +99,15 @@ namespace Luzart
             switch (subject)
             {
                 case ESubject.English:
-                    return "Austen";
+                    return LocalizationManager.Instance.Get("mentor.name.english");
                 case ESubject.Math:
-                    return "Euclidea";
+                    return LocalizationManager.Instance.Get("mentor.name.math");
                 case ESubject.History:
-                    return "Thucy";
+                    return LocalizationManager.Instance.Get("mentor.name.history");
                 case ESubject.Science:
-                    return "Drawina";
+                    return LocalizationManager.Instance.Get("mentor.name.science");
                 default:
-                    return "Mentor";
+                    return LocalizationManager.Instance.Get("mentor.name.default");
             }
         }
         public static string GetSubjectName(ESubject subject)
@@ -115,15 +115,15 @@ namespace Luzart
             switch (subject)
             {
                 case ESubject.English:
-                    return "English";
+                    return LocalizationManager.Instance.Get("mentor.subject.english");
                 case ESubject.Math:
-                    return "Math";
+                    return LocalizationManager.Instance.Get("mentor.subject.math");
                 case ESubject.History:
-                    return "History";
+                    return LocalizationManager.Instance.Get("mentor.subject.history");
                 case ESubject.Science:
-                    return "Science";
+                    return LocalizationManager.Instance.Get("mentor.subject.science");
                 default:
-                    return "Subject";
+                    return LocalizationManager.Instance.Get("mentor.subject.default");
             }
         }
     }

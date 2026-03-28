@@ -42,7 +42,7 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError("Show Level3_5: " + ex.Message);
-                conversationItemMain.ShowText($"Error! Try again ! + {ex}");
+                conversationItemMain.ShowText($"{LocalizationManager.Instance.Get("ui.error_try_again")} + {ex}");
             }
         }
         private void OnGetStudentWork(string str)
@@ -53,13 +53,13 @@ namespace Luzart
                 var studentWorkDTO = JsonUtility.FromJson<StudentWorkDTO>(str);
                 string studentWork = studentWorkDTO.studentWork;
                 Data.studentWork= studentWork;
-                conversationItemMain.ShowText($"Student response:\n\"{studentWork}\"");
+                conversationItemMain.ShowText(LocalizationManager.Instance.GetFormat("ui.student_response", studentWork));
                 GenerateFeedback();
             }
             catch (Exception ex)
             {
                 Debug.LogError($"Error parsing student work response: {ex.Message}");
-                conversationItemMain.ShowText("Error parsing student response.");
+                conversationItemMain.ShowText(LocalizationManager.Instance.Get("ui.error_parse_student"));
             }
 
 
@@ -88,14 +88,14 @@ namespace Luzart
             catch (Exception ex)
             {
                 Debug.LogError($"Error parsing feedback suggestions response: {ex}");
-                UIManager.Instance.ShowToast("Error parsing feedback suggestions.");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.error_parse_feedback"));
             }
         }
         public void OnClickGenerateFeedback()
         {
             if(Data.GetConverstationState(2) == EState.WaitAI)
             {
-                UIManager.Instance.ShowToast("Generating feedback, please wait.");
+                UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.generating_feedback"));
                 return;
             }
             GenerateFeedback();
@@ -107,7 +107,7 @@ namespace Luzart
             MasterHelper.InitListObj(1, itemPrefab, listItemClickToImport, content, (item, index) =>
             {
                 item.gameObject.SetActive(true);
-                item.Initialize(EFeedback.Strength, "Generating feedback suggestion...", null);
+                item.Initialize(EFeedback.Strength, LocalizationManager.Instance.Get("ui.generating_suggestion"), null);
             });
             Level3Manager.Instance.Send(2, promptFeedback, OnGetFeedbackSuggestions);
         }
@@ -173,50 +173,23 @@ namespace Luzart
         private Level3Data Data => Level3Manager.Instance.Data;
         public string GetStudentWorkPrompt()
         {
-            string studentName = Data.responseStudent.student_info.name;
-            string studentStyle = Data.responseStudent.student_info.style;
-            string topic = Data.topic;
-            string objective = Data.learningObjective;
-            string lessonContent = Data.GetStringFullContent();
-            string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
-
-            return $@"Context: You are an AI simulating a student. Limit max 100 tokens.
-Based on the following lesson materials:
-Subject: {subject}
-Topic: {topic}
-Objective: {objective}
-Lesson Content:
-{lessonContent}
-
-Task: You are a student named {studentName} with a {studentStyle} learning style. Submit a simulated assignment.
-Requirements:
-1. The submission must reflect the {studentStyle} (VARK) learning style.
-2. The content should be realistic and concise (under 40 words), and may include one minor mistake.
-3. Return ONLY a single JSON object: {{ ""studentWork"": ""..."" }}";
+            return LocalizationManager.Instance.GetPrompt("prompts.level3_5_student_work", new System.Collections.Generic.Dictionary<string, string> {
+                {"subject", MentorSubjectExtension.GetSubjectName(Data.subject)},
+                {"topic", Data.topic},
+                {"objective", Data.learningObjective},
+                {"lessonContent", Data.GetStringFullContent()},
+                {"studentName", Data.responseStudent.student_info.name},
+                {"studentStyle", Data.responseStudent.student_info.style}
+            });
         }
 
-        // Hàm 2: Gợi ý Feedback cho giáo viên
         public string GetFeedbackSuggestionsPrompt(string studentWork, string objective)
         {
-            string subject = MentorSubjectExtension.GetSubjectName(Data.subject);
-            return $@"Context: You are a Pedagogical AI Mentor. Limit max 50 tokens.
-Subject: {subject}
-Student Submission: ""{studentWork}""
-Learning Objective: ""{objective}""
-
-Task: Suggest concise feedback snippets for the teacher to choose from.
-Requirements:
-1. Return ONLY a single JSON object.
-2. Each array (strengths, improvements, nextSteps) must contain exactly 3 items.
-3. Each item must be extremely concise (under 10 words).
-4. Language: Encouraging English.
-
-JSON Format:
-{{
-  ""strengths"": [""..."", ""..."", ""...""],
-  ""improvements"": [""..."", ""..."", ""...""],
-  ""nextSteps"": [""..."", ""..."", ""...""]
-}}";
+            return LocalizationManager.Instance.GetPrompt("prompts.level3_5_suggestions", new System.Collections.Generic.Dictionary<string, string> {
+                {"subject", MentorSubjectExtension.GetSubjectName(Data.subject)},
+                {"studentWork", studentWork},
+                {"objective", objective}
+            });
         }
     }
     [Serializable]

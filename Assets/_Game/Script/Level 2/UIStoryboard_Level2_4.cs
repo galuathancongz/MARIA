@@ -30,24 +30,7 @@ namespace Luzart
         }
         private string GetRequest()
         {
-            return "Context: You are the virtual assistant MARIA. Your mission is to summarize the teacher's journey in the Ideation Lab.\n" +
-                "Limit 50 tokens\n" +
-                   "Task: Analyze the journey and return a single JSON object for the summary screen display.\n" +
-                   "- curiosity_score: An integer (1-5) representing the user's curiosity and engagement with AI.\n" +
-                   "- explored_methods: Array of methods explored, such as: Role-play, inquiry-based learning, teachback with AI approach.\n" +
-                   "- ai_capabilities: Array of AI capabilities used, such as: Generate simulations, character scripts, guiding student learning, and creating group activities.\n" +
-                   "- most_used_tools: Array of tools used, such as: Prompt generation, dialogue builder, classroom scenario editor.\n\n" +
-                   "Technical Requirements:\n" +
-                   "1. Response must contain ONLY valid JSON code. No markdown, no backticks, no introductory text.\n" +
-                   "2. Fields 'explored_methods', 'ai_capabilities', and 'most_used_tools' MUST be an Array of Strings.\n" +
-                   "3. 'curiosity_score' must be an integer between 1 and 5 based on interaction depth.\n\n" +
-                   "Output JSON Format:\n" +
-                   "{\n" +
-                   "  \"curiosity_score\": curiosity_score,\n" +
-                   "  \"explored_methods\": [\"Method 1\", \"Method 2\"],\n" +
-                   "  \"ai_capabilities\": [\"Capability 1\", \"Capability 2\"],\n" +
-                   "  \"most_used_tools\": [\"Tool 1\", \"Tool 2\"]\n" +
-                   "}";
+            return LocalizationManager.Instance.Get("prompts.level2_4_summary");
         }
         private void OnResultString(string str)
         {

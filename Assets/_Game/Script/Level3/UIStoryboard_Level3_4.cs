@@ -48,7 +48,7 @@ namespace Luzart
             {
                 Debug.LogError($"Error parsing response: {ex}");
                 //txtFeedback.text = "Lỗi phân tích phản hồi.";
-                ifFeedback.text = "Lỗi phân tích phản hồi.";
+                ifFeedback.text = LocalizationManager.Instance.Get("ui.error_parse_response");
             }
             Data.responseStudent = responseDTO;
             SetUpUI();
@@ -75,23 +75,9 @@ namespace Luzart
         }
         private string GetShortStudentFeedbackPrompt(string fullContent)
         {
-            return "Context: You are a high school student. Create a fake identity for yourself: a single-word name (e.g., Leo), age (15), and a random VARK learning style.\n" +
-                   "Task: Provide ultra-concise feedback on the following lesson plan:\n" + fullContent + "\n\n" +
-                   "Requirements:\n" +
-                   "1. Return ONLY a single JSON object. No explanations, no markdown, no backticks.\n" +
-                   "2. The name MUST be exactly one word.\n" +
-                   "3. Each content field must NOT exceed 15 words.\n\n" +
-                   "Output JSON Format:\n" +
-                   "{\n" +
-                   "  \"student_info\": { \"name\": \"OneWordName\", \"age\": 15, \"style\": \"Random_VARK\" },\n" +
-                   "  \"feedback\": \"Short feedback sentence\",\n" +
-                   "  \"summary\": {\n" +
-                   "    \"liked\": \"What you liked (short)\",\n" +
-                   "    \"struggled\": \"What you found difficult (short)\",\n" +
-                   "    \"suggested_change\": \"Short suggestion\"\n" +
-                   "  },\n" +
-                   "  \"emotion\": \"excited/confused/curious\"\n" +
-                   "}";
+            return LocalizationManager.Instance.GetPrompt("prompts.level3_4_feedback", new System.Collections.Generic.Dictionary<string, string> {
+                {"fullContent", fullContent}
+            });
         }
     }
     public class StudentInfoDTO

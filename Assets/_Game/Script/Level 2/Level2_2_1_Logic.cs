@@ -12,7 +12,7 @@ public class Level2_Scene2_1_Logic : MonoBehaviour
     }
     public void OnCallMsg(string str)
     {
-        str = $"Question: {str}";
+        str = LocalizationManager.Instance.GetPrompt("prompts.level2_2_1_question", new System.Collections.Generic.Dictionary<string, string> { {"question", str} });
         Level2Manager.Instance.Send(0,str, (result) =>
         {
             if (!_isCall)

@@ -4,7 +4,7 @@ namespace Luzart
 {
     public class Level3_StartPostRequest : MonoBehaviour
     {
-        public string strRequest = "Hello, AI Mentor! This is start Co-design Studio! Not response this message!";
+        public string strRequest => LocalizationManager.Instance.Get("prompts.level3_start");
         private void Start()
         {
             SendPostRequest();
