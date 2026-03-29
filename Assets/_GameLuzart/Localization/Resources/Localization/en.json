@@ -465,6 +465,9 @@
   {"key": "level2_4.dialogue_1", "value": "You\u2019ve explored powerful ways AI can enrich your classroom. This is just the beginning."},
   {"key": "level2_5.dialogue_1", "value": "Reflection is how innovation begins. You\u2019ve planted the seeds and next, we will grow something together."},
 
-  {"key": "level3_1_1.dialogue_1", "value": "Welcome to Creative Collaboration. Here, you'll choose your AI Mentor \u2013 a trained expert to help you generate ideas, develop activities, and spark creativity in teaching at a new level. Choose a former mentor or select a new one for a fresh start."}
+  {"key": "level3_1_1.dialogue_1", "value": "Welcome to Creative Collaboration. Here, you'll choose your AI Mentor \u2013 a trained expert to help you generate ideas, develop activities, and spark creativity in teaching at a new level. Choose a former mentor or select a new one for a fresh start."},
+
+  {"key": "ui.logout", "value": "Log Out"},
+  {"key": "ui.logout_confirm", "value": "Are you sure you want to log out?"}
 
 ]}

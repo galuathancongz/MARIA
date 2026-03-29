@@ -465,6 +465,9 @@
   {"key": "level2_4.dialogue_1", "value": "Bạn đã khám phá những cách mạnh mẽ mà AI có thể làm phong phú lớp học. Đây mới chỉ là khởi đầu."},
   {"key": "level2_5.dialogue_1", "value": "Phản ánh là cách đổi mới bắt đầu. Bạn đã gieo những hạt giống và tiếp theo, chúng ta sẽ cùng nhau phát triển chúng."},
 
-  {"key": "level3_1_1.dialogue_1", "value": "Chào mừng đến Hợp tác Sáng tạo. Tại đây, bạn sẽ chọn AI Mentor \u2013 chuyên gia được đào tạo để giúp bạn tạo ý tưởng, phát triển hoạt động và khơi dậy sáng tạo trong giảng dạy ở cấp độ mới. Chọn mentor cũ hoặc chọn mới để bắt đầu lại."}
+  {"key": "level3_1_1.dialogue_1", "value": "Chào mừng đến Hợp tác Sáng tạo. Tại đây, bạn sẽ chọn AI Mentor \u2013 chuyên gia được đào tạo để giúp bạn tạo ý tưởng, phát triển hoạt động và khơi dậy sáng tạo trong giảng dạy ở cấp độ mới. Chọn mentor cũ hoặc chọn mới để bắt đầu lại."},
+
+  {"key": "ui.logout", "value": "Đăng xuất"},
+  {"key": "ui.logout_confirm", "value": "Bạn có chắc muốn đăng xuất?"}
 
 ]}

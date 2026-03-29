@@ -4,6 +4,7 @@ using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class UIProfile : UIBase
 {
@@ -11,8 +12,8 @@ public class UIProfile : UIBase
     public TMP_InputField txtName;
     public TMP_InputField txtAge;
     public BaseSelect bsPersona;
+    public Button btnLogout;
 
-    
     public override void Show(Action onHideDone)
     {
         base.Show(onHideDone);
@@ -22,24 +23,38 @@ public class UIProfile : UIBase
         txtName.onEndEdit.AddListener(SaveName);
         txtAge.onEndEdit.RemoveAllListeners();
         txtAge.onEndEdit.AddListener(SaveAge);
+        GameUtil.ButtonOnClick(btnLogout, OnClickLogout);
 
-        if (txtSubject) 
+        if (txtSubject)
         {
             txtSubject.text = DataManager.Instance.Data.subjectName;
         }
-        if(txtName)
+        if (txtName)
         {
             txtName.text = DataManager.Instance.Data.namePlayer;
         }
-        if(txtAge)
+        if (txtAge)
         {
             txtAge.text = DataManager.Instance.Data.age.ToString();
         }
-        if(bsPersona)
+        if (bsPersona)
         {
             bsPersona.Select((int)PersonaManager.Instance.GetMyPersonaType());
         }
     }
+
+    private void OnClickLogout()
+    {
+        if (btnLogout) btnLogout.interactable = false;
+
+        AuthManager.Instance.Logout(() =>
+        {
+            if (btnLogout) btnLogout.interactable = true;
+            UIManager.Instance.HideAll();
+            UIManager.Instance.ShowUI(UIName.Login);
+        });
+    }
+
     private void SaveSubject(string subject)
     {
         DataManager.Instance.Data.subjectName = subject;
