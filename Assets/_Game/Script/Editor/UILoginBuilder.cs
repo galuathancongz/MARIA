@@ -227,7 +227,6 @@ namespace Luzart.Editor
             uiLogin.btnSubmit           = btn;
             uiLogin.txtBtnSubmit        = txtBtnComp;
             uiLogin.txtError            = errGO.GetComponent<TMP_Text>();
-            uiLogin.loadingIndicator    = loadGO;
 
             // ── Save Prefab ───────────────────────────────────────────────
             string dir = Path.GetDirectoryName(SAVE_PATH);
