@@ -72,12 +72,29 @@ namespace Luzart
             foreach (var item in data.items)
             {
                 if (string.IsNullOrEmpty(item.value)) continue;
-                string trimmed = item.value.Trim();
-                if (!reverseMap.ContainsKey(trimmed))
-                    reverseMap[trimmed] = item.key;
+                // Store both exact-trimmed and normalized forms for robust matching
+                string exact = item.value.Trim();
+                string norm  = NormalizeText(item.value);
+                if (!reverseMap.ContainsKey(exact))  reverseMap[exact]  = item.key;
+                if (!reverseMap.ContainsKey(norm))   reverseMap[norm]   = item.key;
                 keyToValueEn[item.key] = item.value;
             }
             statusMessage = $"Loaded {keyToValueEn.Count} keys from en.json";
+        }
+
+        /// <summary>
+        /// Normalize smart/curly typography to plain ASCII for robust reverse-lookup.
+        /// Mirrors Loc.Normalize() so the editor tool and runtime behave identically.
+        /// </summary>
+        private static string NormalizeText(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return text;
+            return text
+                .Replace('\u2018', '\'').Replace('\u2019', '\'')
+                .Replace('\u201C', '"') .Replace('\u201D', '"')
+                .Replace('\u2013', '-') .Replace('\u2014', '-')
+                .Replace("\u2026", "...").Replace("\u200B", "")
+                .Trim();
         }
 
         // ─── Scan ─────────────────────────────────────────────────────────────
@@ -104,7 +121,10 @@ namespace Luzart
                     string text = tmp.text?.Trim();
                     if (ShouldSkip(text)) continue;
 
-                    reverseMap.TryGetValue(text, out string key);
+                    // Try exact match, then normalized (handles curly quotes, em-dashes, etc.)
+                    if (!reverseMap.TryGetValue(text, out string key))
+                        reverseMap.TryGetValue(NormalizeText(text), out key);
+
                     entries.Add(new LocalizeEntry
                     {
                         go          = tmp.gameObject,
@@ -115,7 +135,7 @@ namespace Luzart
                         matchedKey  = key,
                         customKey   = key ?? SuggestKey(text, path),
                         isSceneObject = false,
-                        selected    = key != null   // auto-select only matched
+                        selected    = key != null
                     });
                 }
             }
@@ -134,7 +154,9 @@ namespace Luzart
                         string text = tmp.text?.Trim();
                         if (ShouldSkip(text)) continue;
 
-                        reverseMap.TryGetValue(text, out string key);
+                        if (!reverseMap.TryGetValue(text, out string key))
+                            reverseMap.TryGetValue(NormalizeText(text), out key);
+
                         entries.Add(new LocalizeEntry
                         {
                             go          = tmp.gameObject,

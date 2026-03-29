@@ -214,7 +214,7 @@
   {"key": "tutorial.pre_quiz_intro", "value": "Trước khi tiếp tục, hãy kiểm tra nhanh. Không có gì nghiêm trọng, chỉ xem"},
   {"key": "tutorial.ai_is_assistant", "value": "Đúng rồi! Bạn là giáo viên! AI là trợ lý của bạn, không phải sếp."},
   {"key": "tutorial.nice_work", "value": "Làm tốt lắm! Đúng vậy, tôi ở đây để hỗ trợ việc học của bạn về"},
-  {"key": "tutorial.profile_intro", "value": "Đây là hồ sơ của bạn. Đây là nơi chúng tôi lưu các suy ngẫm của bạn,"},
+  {"key": "tutorial.profile_intro", "value": "Đây là hồ sơ của bạn. \nĐây là nơi chúng tôi lưu các suy ngẫm của bạn,"},
   {"key": "tutorial.ai_toolbox", "value": "Đây là hộp công cụ AI, bạn sẽ mở khóa thêm công cụ khi tiến bộ."},
   {"key": "tutorial.gen_ai_suggests", "value": "AI tạo sinh gợi ý"},
   {"key": "tutorial.try_prompt", "value": "Hãy thử prompt: \"Làm thế nào để phân số thú vị với học sinh?\""},
@@ -381,6 +381,28 @@
   {"key": "level3.player_profile", "value": "Hồ sơ người chơi"},
   {"key": "level3.reflection_genai", "value": "GenAI giúp tôi thể hiện ý tưởng theo những cách mới"},
   {"key": "level3.completion_checklist", "value": "Danh sách hoàn thành"},
-  {"key": "level3.level_complete", "value": "HOÀN THÀNH LEVEL 3"}
+  {"key": "level3.level_complete", "value": "HOÀN THÀNH LEVEL 3"},
+
+  {"key": "ui.advanced_model_ai", "value": "AI Model Nâng cao"},
+  {"key": "ui.you_have_unlock", "value": "Bạn đã mở khóa"},
+
+  {"key": "level2.most_used_funcions", "value": "Chức năng AI được dùng nhiều nhất"},
+  {"key": "level2.any_question_space", "value": "Có câu hỏi nào không?"},
+  {"key": "level2.teachback_newline", "value": "Phương pháp\ndạy lại với AI"},
+
+  {"key": "tutorial.q1_title_space", "value": "Câu hỏi 1: MARIA giúp bạn điều gì?"},
+  {"key": "tutorial.pre_quiz_typo", "value": "Trước khi tiếp tục, hãy kiểm tra nhanh. Không có gì nghiêm trọng, chỉ xem"},
+
+  {"key": "level3.reflection_selector_typo", "value": "Chọn câu hỏi phản ánh"},
+  {"key": "level3.feedback_difficult_space", "value": "Điều gì còn khó đối với bạn?"},
+  {"key": "level3.feedback_denied_typo", "value": "Học sinh không đồng ý với điều gì?"},
+  {"key": "level3.feedback_suggested_space", "value": "Học sinh đề xuất thay đổi gì?"},
+
+  {"key": "level3.preferred_learning_typo", "value": "Phong cách học ưa thích"},
+  {"key": "level3.instincts_typo", "value": "Bạn có bản năng phân hóa mạnh..."},
+  {"key": "level3.responsity_menu", "value": "Menu trách nhiệm"},
+  {"key": "level2.tab_visual_typo", "value": "Hình ảnh"},
+  {"key": "tutorial.great_teacher_static", "value": "\"Tuyệt vời! Một giáo viên, tuyệt lắm."},
+  {"key": "level2.example_prompt2_full", "value": "Bạn có thể dùng phương pháp 'dạy lại với AI' để AI giải thích khái niệm phổ điện từ cho học sinh và xây dựng dựa trên câu trả lời của các em không?"}
 
 ]}

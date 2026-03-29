@@ -26,11 +26,14 @@ namespace Luzart
 
             BuildReverseMap();
 
+            // Try exact match first, then normalized (handles curly quotes, em-dashes, etc.)
             string trimmed = englishText.Trim();
             if (reverseMap.TryGetValue(trimmed, out string key))
-            {
                 return LocalizationManager.Instance.Get(key);
-            }
+
+            string normalized = Normalize(englishText);
+            if (reverseMap.TryGetValue(normalized, out key))
+                return LocalizationManager.Instance.Get(key);
 
             return englishText;
         }
@@ -54,6 +57,24 @@ namespace Luzart
             return LocalizationManager.Instance.Get(key);
         }
 
+        /// <summary>
+        /// Normalizes a string for reverse-lookup comparison.
+        /// Converts smart/curly quotes, em/en dashes, ellipsis, and zero-width spaces
+        /// to their plain ASCII equivalents, then trims whitespace.
+        /// This allows TMP_Text values from prefabs (which often use Unicode typography)
+        /// to match en.json entries written with plain ASCII characters.
+        /// </summary>
+        public static string Normalize(string text)
+        {
+            if (string.IsNullOrEmpty(text)) return text;
+            return text
+                .Replace('\u2018', '\'').Replace('\u2019', '\'')  // ' ' → '
+                .Replace('\u201C', '"') .Replace('\u201D', '"')   // " " → "
+                .Replace('\u2013', '-') .Replace('\u2014', '-')   // – — → -
+                .Replace("\u2026", "...").Replace("\u200B", "")   // … → ..., ZWSP → ""
+                .Trim();
+        }
+
         private static void BuildReverseMap()
         {
             if (isBuilt && reverseMap != null) return;
@@ -69,11 +90,13 @@ namespace Luzart
             {
                 if (!string.IsNullOrEmpty(item.value))
                 {
-                    string trimmed = item.value.Trim();
-                    if (!reverseMap.ContainsKey(trimmed))
-                    {
-                        reverseMap[trimmed] = item.key;
-                    }
+                    // Store both exact and normalized forms so either can be looked up
+                    string exact = item.value.Trim();
+                    string normalized = Normalize(item.value);
+                    if (!reverseMap.ContainsKey(exact))
+                        reverseMap[exact] = item.key;
+                    if (!reverseMap.ContainsKey(normalized))
+                        reverseMap[normalized] = item.key;
                 }
             }
             isBuilt = true;

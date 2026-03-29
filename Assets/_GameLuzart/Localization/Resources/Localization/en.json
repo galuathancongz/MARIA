@@ -214,7 +214,7 @@
   {"key": "tutorial.pre_quiz_intro", "value": "Before we move on, let's do a quick check. Nothing serious, just see where"},
   {"key": "tutorial.ai_is_assistant", "value": "Exactly! You are the teacher! AI is your assistant, not your boss."},
   {"key": "tutorial.nice_work", "value": "Nice work! That's right, I am here to support your learning about"},
-  {"key": "tutorial.profile_intro", "value": "Up here is your profile. That's where we'll store your reflections,"},
+  {"key": "tutorial.profile_intro", "value": "Up here is your profile. \nThat's where we'll store your reflections,"},
   {"key": "tutorial.ai_toolbox", "value": "Over here is the AI toolbox, you will unlock more tools as you progress."},
   {"key": "tutorial.gen_ai_suggests", "value": "Generative AI suggests"},
   {"key": "tutorial.try_prompt", "value": "Try this prompt: \"How can I make fractions fun for students?\""},
@@ -381,6 +381,28 @@
   {"key": "level3.player_profile", "value": "Player profile"},
   {"key": "level3.reflection_genai", "value": "GenAI helped me express ideas in new ways"},
   {"key": "level3.completion_checklist", "value": "Completion checklist"},
-  {"key": "level3.level_complete", "value": "LEVEL 3 COMPLETE"}
+  {"key": "level3.level_complete", "value": "LEVEL 3 COMPLETE"},
+
+  {"key": "ui.advanced_model_ai", "value": "Advanced Model AI"},
+  {"key": "ui.you_have_unlock", "value": "You have unlock"},
+
+  {"key": "level2.most_used_funcions", "value": "Most used AI funcions"},
+  {"key": "level2.any_question_space", "value": "Any Question ?"},
+  {"key": "level2.teachback_newline", "value": "Teachback with \nAI pedagogy"},
+
+  {"key": "tutorial.q1_title_space", "value": "Question 1: What does MARIA help you with ?"},
+  {"key": "tutorial.pre_quiz_typo", "value": "Before we move one, let's do a quick check. Nothing serious, just see where"},
+
+  {"key": "level3.reflection_selector_typo", "value": "Reflection promp selector"},
+  {"key": "level3.feedback_difficult_space", "value": "What else was difficult for you ?"},
+  {"key": "level3.feedback_denied_typo", "value": "What the student denined ?"},
+  {"key": "level3.feedback_suggested_space", "value": "What the student suggest changing ?"},
+
+  {"key": "level3.preferred_learning_typo", "value": "Prederred learning"},
+  {"key": "level3.instincts_typo", "value": "You showed strong differentiation insitincts..."},
+  {"key": "level3.responsity_menu", "value": "Responsity menu"},
+  {"key": "level2.tab_visual_typo", "value": "VIsual"},
+  {"key": "tutorial.great_teacher_static", "value": "\"Great! A teacher, wonderful."},
+  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI\" approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"}
 
 ]}
