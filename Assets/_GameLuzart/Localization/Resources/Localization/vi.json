@@ -405,9 +405,20 @@
   {"key": "tutorial.great_teacher_static", "value": "\"Tuyệt vời! Một giáo viên, tuyệt lắm."},
   {"key": "level2.example_prompt2_full", "value": "Bạn có thể dùng phương pháp 'dạy lại với AI' để AI giải thích khái niệm phổ điện từ cho học sinh và xây dựng dựa trên câu trả lời của các em không?"},
 
-  {"key": "tooltip.accept", "value": "Chấp nhận gợi ý của AI"},
-  {"key": "tooltip.refine", "value": "Chỉnh sửa theo ý bạn"},
-  {"key": "tooltip.regenerate", "value": "Tạo gợi ý mới"},
-  {"key": "tooltip.continue", "value": "Tiếp tục bước tiếp theo"}
+  {"key": "ui.login_title", "value": "MARIA"},
+  {"key": "ui.login_subtitle", "value": "LỚP HỌC GIẢNG DẠY"},
+  {"key": "ui.tab_sign_in", "value": "Đăng nhập"},
+  {"key": "ui.tab_sign_up", "value": "Đăng ký"},
+  {"key": "ui.label_username", "value": "Tên đăng nhập"},
+  {"key": "ui.label_password", "value": "Mật khẩu"},
+  {"key": "ui.label_confirm_password", "value": "Xác nhận mật khẩu"},
+  {"key": "ui.btn_login", "value": "Đăng nhập"},
+  {"key": "ui.btn_signup", "value": "Đăng ký"},
+  {"key": "ui.err_fill_fields", "value": "Vui lòng điền đầy đủ thông tin."},
+  {"key": "ui.err_password_short", "value": "Mật khẩu phải có ít nhất 6 ký tự."},
+  {"key": "ui.err_password_mismatch", "value": "Mật khẩu không khớp."},
+  {"key": "ui.err_email_invalid", "value": "Vui lòng nhập địa chỉ email hợp lệ."},
+  {"key": "ui.err_login_failed", "value": "Đăng nhập thất bại. Vui lòng thử lại."},
+  {"key": "ui.err_register_failed", "value": "Đăng ký thất bại. Vui lòng thử lại."}
 
 ]}

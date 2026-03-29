@@ -47,6 +47,8 @@ namespace Luzart
             {UIName.Level4,"1,0,UILevel4" },
             {UIName.Loading,"2,0,UILoading" },
             {UIName.Profile,"2,0,UIProfile" },
+            {UIName.Login,           "2,0,UILogin"           },
+            {UIName.LanguageSelect,  "2,0,UILanguageSelect"  },
 
 
             {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
@@ -300,8 +302,10 @@ namespace Luzart
         public void CheckShowUITop(UIName uiName)
         {
             bool isShow = true;
-            if (uiName == UIName.Splash ||
-                uiName == UIName.Tut1 ||
+            if (uiName == UIName.Splash         ||
+                uiName == UIName.LanguageSelect ||
+                uiName == UIName.Login          ||
+                uiName == UIName.Tut1   ||
                 uiName == UIName.Tut2
                 )
             {
@@ -615,6 +619,8 @@ namespace Luzart
         Loading = 15,
         Level4 = 16,
         Profile = 17,
+        Login           = 18,
+        LanguageSelect  = 19,
 
         //Tutorial =50,
         //Tutorial

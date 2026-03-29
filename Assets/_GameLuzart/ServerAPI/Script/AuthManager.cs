@@ -27,9 +27,9 @@ namespace Luzart
             }
         }
 
-        public void Register(string username, string password, Action<AuthResponse> onSuccess = null, Action<string> onError = null)
+        public void Register(string username, string password, string email = "", Action<AuthResponse> onSuccess = null, Action<string> onError = null)
         {
-            var request = new AuthRequest { username = username, password = password };
+            var request = new AuthRequest { username = username, password = password, email = email };
 
             ApiClient.Instance.Post<AuthRequest, AuthResponse>("/api/auth/register", request,
                 (response) =>

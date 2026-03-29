@@ -13,6 +13,7 @@ db.exec(`
     id INTEGER PRIMARY KEY AUTOINCREMENT,
     username TEXT UNIQUE NOT NULL,
     password_hash TEXT NOT NULL,
+    email TEXT DEFAULT '',
     created_at DATETIME DEFAULT (datetime('now')),
     last_login DATETIME
   );
@@ -35,5 +36,12 @@ db.exec(`
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
   );
 `);
+
+// Migrate: add email column if not exists (for existing databases)
+try {
+  db.exec(`ALTER TABLE users ADD COLUMN email TEXT DEFAULT ''`);
+} catch (e) {
+  // Column already exists — ignore
+}
 
 module.exports = db;

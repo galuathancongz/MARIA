@@ -4,7 +4,7 @@ using UnityEditor;
 namespace Luzart
 {
     [CustomEditor(typeof(ProgressBarUI))]
-    public class ProgressBarUIEditor : Editor
+    public class ProgressBarUIEditor : UnityEditor.Editor
     {
         private float previewValue = 1f; // Không cần tồn tại trong script gốc
 
@@ -28,7 +28,7 @@ namespace Luzart
         }
     }
     [CustomEditor(typeof(ProgressBarUISize))]
-    public class ProgressBarUISizeEditor : Editor
+    public class ProgressBarUISizeEditor : UnityEditor.Editor
     {
         private float previewValue = 1f; // Không cần tồn tại trong script gốc
 

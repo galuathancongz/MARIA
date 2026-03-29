@@ -403,11 +403,23 @@
   {"key": "level3.responsity_menu", "value": "Response menu"},
   {"key": "level2.tab_visual_typo", "value": "Visual"},
   {"key": "tutorial.great_teacher_static", "value": "\"Great! A teacher, wonderful."},
-  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI' approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"},
+  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI\" approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"},
 
-  {"key": "tooltip.accept", "value": "Accept the AI's suggestion"},
-  {"key": "tooltip.refine", "value": "Refine with your input"},
-  {"key": "tooltip.regenerate", "value": "Generate a new suggestion"},
-  {"key": "tooltip.continue", "value": "Continue to next step"}
+  {"key": "ui.login_title", "value": "MARIA"},
+  {"key": "ui.login_subtitle", "value": "TEACHING CLASSROOM"},
+  {"key": "ui.tab_sign_in", "value": "Sign In"},
+  {"key": "ui.tab_sign_up", "value": "Sign Up"},
+  {"key": "ui.label_username", "value": "Username"},
+  {"key": "ui.label_password", "value": "Password"},
+  {"key": "ui.label_confirm_password", "value": "Confirm Password"},
+  {"key": "ui.btn_login", "value": "Log In"},
+  {"key": "ui.btn_signup", "value": "Sign Up"},
+  {"key": "ui.err_fill_fields", "value": "Please fill in all fields."},
+  {"key": "ui.err_password_short", "value": "Password must be at least 6 characters."},
+  {"key": "ui.err_password_mismatch", "value": "Passwords do not match."},
+  {"key": "ui.err_email_invalid", "value": "Please enter a valid email address."},
+  {"key": "ui.err_login_failed", "value": "Login failed. Please try again."},
+  {"key": "ui.err_register_failed", "value": "Registration failed. Please try again."}
+  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI' approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"}
 
 ]}

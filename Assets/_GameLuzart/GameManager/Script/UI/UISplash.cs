@@ -23,15 +23,8 @@ namespace Luzart
         private void NextScene()
         {
             Hide();
-            if (DataManager.Instance.CurrentLevel == 0)
-            {
-                nextUI = UIName.Tutorial;
-            }
-            else
-            {
-                nextUI = UIName.MainMenu;
-            }
-                UIManager.Instance.ShowUI(nextUI);
+            // Always show language selection on every launch
+            UIManager.Instance.ShowUI(UIName.LanguageSelect);
         }
     }
 }

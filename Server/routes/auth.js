@@ -7,8 +7,9 @@ const router = express.Router();
 
 // POST /api/auth/register
 router.post('/register', (req, res) => {
+  console.log('[register] body:', JSON.stringify(req.body));
   try {
-    const { username, password } = req.body;
+    const { username, password, email = '' } = req.body;
 
     if (!username || !password) {
       return res.status(400).json({ success: false, message: 'Username and password required' });
@@ -22,25 +23,35 @@ router.post('/register', (req, res) => {
       return res.status(400).json({ success: false, message: 'Password must be 4-100 characters' });
     }
 
+    if (email && email.length > 0 && !email.includes('@')) {
+      return res.status(400).json({ success: false, message: 'Invalid email address' });
+    }
+
     // Check if username exists
+    console.log('[register] checking existing...');
     const existing = db.prepare('SELECT id FROM users WHERE username = ?').get(username);
     if (existing) {
       return res.status(409).json({ success: false, message: 'Username already exists' });
     }
 
     // Hash password and insert
+    console.log('[register] hashing password...');
     const passwordHash = bcrypt.hashSync(password, 10);
-    const result = db.prepare('INSERT INTO users (username, password_hash) VALUES (?, ?)').run(username, passwordHash);
+    console.log('[register] inserting user...');
+    const result = db.prepare('INSERT INTO users (username, password_hash, email) VALUES (?, ?, ?)').run(username, passwordHash, email || '');
     const userId = result.lastInsertRowid;
+    console.log('[register] userId:', userId);
 
     // Create empty game_data row for new user
     db.prepare('INSERT INTO game_data (user_id, name_player) VALUES (?, ?)').run(userId, username);
+    console.log('[register] game_data inserted');
 
     // Generate token
     const token = generateToken(userId, username);
+    console.log('[register] token generated');
 
     // Update last_login
-    db.prepare('UPDATE users SET last_login = datetime("now") WHERE id = ?').run(userId);
+    db.prepare(`UPDATE users SET last_login = datetime('now') WHERE id = ?`).run(userId);
 
     res.json({
       success: true,
@@ -49,8 +60,9 @@ router.post('/register', (req, res) => {
       username
     });
   } catch (err) {
-    console.error('Register error:', err);
-    res.status(500).json({ success: false, message: 'Server error' });
+    console.error('[register] ERROR:', err.constructor.name, '-', err.message);
+    console.error(err.stack);
+    res.status(500).json({ success: false, message: err.message || 'Server error' });
   }
 });
 
@@ -78,7 +90,7 @@ router.post('/login', (req, res) => {
     const token = generateToken(user.id, user.username);
 
     // Update last_login
-    db.prepare('UPDATE users SET last_login = datetime("now") WHERE id = ?').run(user.id);
+    db.prepare(`UPDATE users SET last_login = datetime('now') WHERE id = ?`).run(user.id);
 
     res.json({
       success: true,
