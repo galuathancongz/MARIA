@@ -35,8 +35,7 @@ public class Level2_Conversation : MonoBehaviour
     private void OnObserverAIResponse(object data)
     {
         string response = data as string;
-        _itemThinkingAIFirst.ShowTextAnim(response);
-        scrollRect.ScrollTo(0f,1f);
+        _itemThinkingAIFirst.ShowTextAnim(response, ScrollToEnd);
     }
 
     private void OnDisable()
