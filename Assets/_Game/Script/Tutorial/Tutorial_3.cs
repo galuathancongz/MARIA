@@ -23,7 +23,12 @@ public class Tutorial_Scene3 : MonoBehaviour
     }
     public void OnClickSend()
     {
-        if (!GameUtil.MatchByWordRatio(_strInput, strPrompt, 0.5f))
+        // Match với cả bản gốc EN lẫn bản localized (VI)
+        string localizedPrompt = Loc.T(strPrompt);
+        bool matched = GameUtil.MatchByWordRatio(_strInput, strPrompt, 0.5f)
+                    || GameUtil.MatchByWordRatio(_strInput, localizedPrompt, 0.5f);
+
+        if (!matched)
         {
             var ui = UIManager.Instance.ShowUI<UINoti>(UIName.Noti);
             ui.InitPopup(Loc.T("Please enter the correct prompt!"));
