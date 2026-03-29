@@ -89,9 +89,12 @@ namespace Luzart
         [ContextMenu("Setup All Action Step")]
         public void SetupActionStep()
         {
+            #if UNITY_EDITOR
             Undo.RecordObject(this, "Setup Action Step");
+
             Steps = gameObject.GetComponentsInChildren<StepAction>(true).ToList();
             EditorUtility.SetDirty(this);
+            #endif
         }
     }
 }
