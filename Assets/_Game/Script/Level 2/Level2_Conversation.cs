@@ -58,10 +58,13 @@ public class Level2_Conversation : MonoBehaviour
         listItems.Add(itemAI);
         Level2Manager.Instance.Send(0, question, (response) =>
         {
-            itemAI.ShowTextAnim(response);
+            itemAI.ShowTextAnim(response, ScrollToEnd);
         });
     }
-
+    private void ScrollToEnd()
+    {
+        scrollRect.ScrollTo(0f, 0.1f);
+    }
     private Level2_ConversationItem SpawnItem(ConverstationData data)
     {
         Level2_ConversationItem newItem = null;

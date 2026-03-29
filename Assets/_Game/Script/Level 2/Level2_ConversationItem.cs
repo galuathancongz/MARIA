@@ -41,14 +41,32 @@ public class Level2_ConversationItem : MonoBehaviour
             return;
         }
         gameObject.SetActive(true);
-        if(inputField)
+        tw = TweenShowTextAnim(str);
+    }
+    private Tween TweenShowTextAnim(string str)
+    {
+        if (inputField)
         {
-            tw = inputField.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
+            return inputField.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
         }
         if (txt && !inputField)
         {
-            tw = txt.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
+            return txt.DOSetTextCharByChar(str, displaySpeedChar).SetId(this);
         }
+        else return null;
+    }
+    public void ShowTextAnim(string str, System.Action onUpdate)
+    {
+        tw?.Kill();
+        if (!gameObject)
+        {
+            return;
+        }
+        gameObject.SetActive(true);
+        tw = TweenShowTextAnim(str).OnUpdate(()=>
+        {
+            onUpdate?.Invoke();
+        });
     }
     private readonly string[] thinkingMessages = {
     // --- Analytical & Technical ---
