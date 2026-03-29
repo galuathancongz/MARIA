@@ -13,6 +13,7 @@ namespace Luzart
     {
         public string username;
         public string password;
+        public string email;
     }
 
     [System.Serializable]
