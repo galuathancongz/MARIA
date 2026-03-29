@@ -419,6 +419,52 @@
   {"key": "ui.err_password_mismatch", "value": "Mật khẩu không khớp."},
   {"key": "ui.err_email_invalid", "value": "Vui lòng nhập địa chỉ email hợp lệ."},
   {"key": "ui.err_login_failed", "value": "Đăng nhập thất bại. Vui lòng thử lại."},
-  {"key": "ui.err_register_failed", "value": "Đăng ký thất bại. Vui lòng thử lại."}
+  {"key": "ui.err_register_failed", "value": "Đăng ký thất bại. Vui lòng thử lại."},
+
+  {"key": "tooltip.accept", "value": "Chấp nhận gợi ý của AI"},
+  {"key": "tooltip.refine", "value": "Chỉnh sửa theo ý bạn"},
+  {"key": "tooltip.regenerate", "value": "Tạo gợi ý mới"},
+  {"key": "tooltip.continue", "value": "Tiếp tục bước tiếp theo"},
+
+  {"key": "tut1.dialogue_1", "value": "Xin chào! Chào mừng bạn đến với Học viện AI \u2013 nơi vui nhộn để giáo viên như bạn khám phá cách sử dụng AI trong lớp học."},
+  {"key": "tut1.dialogue_2", "value": "Tên tôi là MARIA, viết tắt của Multi-modal AI-powered Reflective Instructional Assistant. Nhưng bạn cứ gọi tôi là MARIA thôi nhé"},
+  {"key": "tut1.dialogue_3", "value": "Tôi sẽ là người hướng dẫn bạn trong hành trình này, hãy xem tôi như trợ lý, đồng hành, cố vấn và đôi khi là người cổ vũ của bạn!"},
+  {"key": "tut1.dialogue_4", "value": "Bạn hẳn đang tò mò, có thể hơi chưa chắc chắn. Điều đó hoàn toàn bình thường, bạn không đơn độc đâu."},
+  {"key": "tut1.dialogue_5", "value": "Để tôi giới thiệu xung quanh trước, rồi chúng ta sẽ bắt đầu nhé"},
+  {"key": "tut1.dialogue_6", "value": "Trước khi vào game, hãy để tôi tìm hiểu về bạn một chút. Bạn thường dạy môn gì?"},
+  {"key": "tut1.dialogue_7", "value": "AI có thể giúp bạn rất nhiều trong lĩnh vực đó, từ tạo tài liệu đến khơi dậy sự sáng tạo của học sinh."},
+
+  {"key": "tut2.dialogue_1", "value": "Được rồi, đây là bảng điều khiển giáo viên của bạn. Hãy cùng tham quan nhanh nhé!"},
+  {"key": "tut2.dialogue_2", "value": "Sẵn sàng thử một vài thứ chưa?"},
+
+  {"key": "tut3.dialogue_1", "value": "Hãy tưởng tượng một thử thách quen thuộc trong lớp: Bạn đang dạy một thứ khó và học sinh đang gặp khó khăn"},
+  {"key": "tut3.dialogue_2", "value": "Đây là một thử nghiệm nhỏ, hãy nói hoặc gõ câu này: \"Làm sao để dạy phân số thú vị cho học sinh?\""},
+
+  {"key": "tut4.dialogue_1", "value": "Thấy chưa? AI có thể là đối tác sáng tạo, không chỉ đưa ra câu trả lời mà còn truyền cảm hứng cho những ý tưởng mới."},
+  {"key": "tut4.dialogue_2", "value": "Bạn có thể chấp nhận, chỉnh sửa hoặc bỏ qua bất kỳ gợi ý nào"},
+
+  {"key": "tut6.dialogue_1", "value": "Từ đây, hành trình thực sự bắt đầu. Chúng ta sẽ bắt đầu bằng việc tìm hiểu bạn là ai với tư cách một giáo viên, phong cách, thế mạnh và tư duy của bạn."},
+  {"key": "tut6.dialogue_2", "value": "Đó là nơi Level 1 đưa chúng ta đến: Khám phá đặc điểm giảng dạy hay phong cách giảng dạy của bạn"},
+  {"key": "tut6.dialogue_3", "value": "Thú vị, mang tính phản ánh và giúp tùy chỉnh AI phù hợp với phong cách của bạn!"},
+  {"key": "tut6.dialogue_4", "value": "Bạn đã nắm được những kiến thức cơ bản rồi: Tuyệt vời!"},
+  {"key": "tut6.dialogue_5", "value": "Sẵn sàng bắt đầu chưa?"},
+
+  {"key": "level1_0.dialogue_1", "value": "Hãy bắt đầu với cách bạn phản ứng trong các tình huống giảng dạy khác nhau. Đây không phải bài kiểm tra, chỉ là những cái nhìn về cách bạn suy nghĩ và giảng dạy."},
+  {"key": "level1_0.dialogue_2", "value": "Bạn sẽ thấy một số cảnh lớp học xuất hiện. Hãy chọn cảnh nào cảm thấy tự nhiên hơn với bạn."},
+  {"key": "level1_1_1.dialogue_1", "value": "Câu hỏi 2: Một học sinh có vẻ lạc lõng giữa bài giảng. Bạn sẽ làm gì?"},
+  {"key": "level1_1_2.dialogue_1", "value": "Câu hỏi 3: Lớp học đang trầm lắng. Bạn thường làm gì?"},
+  {"key": "level1_2_4.dialogue_1", "value": "Tôi đang có bức tranh rõ ràng về cách bạn suy nghĩ, giảng dạy và kết nối với học sinh."},
+  {"key": "level1_2_4.dialogue_2", "value": "Bây giờ hãy xem cách bạn diễn giải ý tưởng và ngôn ngữ \u2013 sẵn sàng cho một thử thách liên tưởng từ vựng nhé."},
+  {"key": "level1_5.dialogue_1", "value": "Bạn đã có một chiếc gương. Ở level 2, chúng tôi sẽ cho bạn một chiếc kính lúp, AI sẽ giúp bạn khám phá, động não và sáng tạo. Sẵn sàng tưởng tượng những điều có thể?"},
+
+  {"key": "level2_1.dialogue_1", "value": "Chào mừng đến Phòng thí nghiệm Ý tưởng AI \u2013 không gian dành riêng cho bạn và môn học của bạn. Tại đây bạn sẽ gặp AI Mentor - chuyên gia được đào tạo để cùng tạo ý tưởng, động não hoạt động và khơi dậy sáng tạo trong giảng dạy. Hãy cùng gặp họ nhé."},
+  {"key": "level2_1_1.dialogue_1", "value": "Hãy cùng đi xuyên thời gian. Tôi lưu giữ tài liệu, tiếng nói của quá khứ và chiến lược giúp học sinh khám phá lịch sử bằng cả trái tim và trí tuệ."},
+  {"key": "level2_1_1.dialogue_2", "value": "À, một người yêu ngôn từ! Tôi có thể giúp bạn biến ngữ pháp thành trò chơi, nhân vật thành bài học tình huống và câu chuyện thành tia sáng học tập."},
+  {"key": "level2_1_1.dialogue_3", "value": "Chào mừng, bộ óc logic. Hãy cùng khám phá sự đối xứng, hình dạng và cấu trúc, thông qua bài toán, câu đố và các góc nhìn."},
+  {"key": "level2_1_1.dialogue_4", "value": "Tôi được tạo ra cho sự tò mò! Hãy cùng mô phỏng, khám phá, thí nghiệm và biến mỗi khoảnh khắc lớp học thành một cuộc phiêu lưu khoa học."},
+  {"key": "level2_4.dialogue_1", "value": "Bạn đã khám phá những cách mạnh mẽ mà AI có thể làm phong phú lớp học. Đây mới chỉ là khởi đầu."},
+  {"key": "level2_5.dialogue_1", "value": "Phản ánh là cách đổi mới bắt đầu. Bạn đã gieo những hạt giống và tiếp theo, chúng ta sẽ cùng nhau phát triển chúng."},
+
+  {"key": "level3_1_1.dialogue_1", "value": "Chào mừng đến Hợp tác Sáng tạo. Tại đây, bạn sẽ chọn AI Mentor \u2013 chuyên gia được đào tạo để giúp bạn tạo ý tưởng, phát triển hoạt động và khơi dậy sáng tạo trong giảng dạy ở cấp độ mới. Chọn mentor cũ hoặc chọn mới để bắt đầu lại."}
 
 ]}

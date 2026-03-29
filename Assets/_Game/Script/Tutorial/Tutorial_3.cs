@@ -26,7 +26,7 @@ public class Tutorial_Scene3 : MonoBehaviour
         if (!GameUtil.MatchByWordRatio(_strInput, strPrompt, 0.5f))
         {
             var ui = UIManager.Instance.ShowUI<UINoti>(UIName.Noti);
-            ui.InitPopup("Please enter the correct prompt!");
+            ui.InitPopup(Loc.T("Please enter the correct prompt!"));
         }
         else
         {

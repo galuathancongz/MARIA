@@ -420,6 +420,51 @@
   {"key": "ui.err_email_invalid", "value": "Please enter a valid email address."},
   {"key": "ui.err_login_failed", "value": "Login failed. Please try again."},
   {"key": "ui.err_register_failed", "value": "Registration failed. Please try again."},
-  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI' approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"}
+
+  {"key": "tooltip.accept", "value": "Accept the AI's suggestion"},
+  {"key": "tooltip.refine", "value": "Refine with your input"},
+  {"key": "tooltip.regenerate", "value": "Generate a new suggestion"},
+  {"key": "tooltip.continue", "value": "Continue to next step"},
+
+  {"key": "tut1.dialogue_1", "value": "Hello there! Welcome to the AI Academy \u2013 a playful place where teachers like you explore how to use AI in their classrooms."},
+  {"key": "tut1.dialogue_2", "value": "My name is MARIA, short for Multi-modal AI-powered Reflective Instructional Assistant. But you can just call me MARIA"},
+  {"key": "tut1.dialogue_3", "value": "I will be your guide on this journey, think of me as your assistant, co-pilot, mentor and sometimes even your cheerleader!"},
+  {"key": "tut1.dialogue_4", "value": "You must be curious, maybe even a little unsure. That\u2019s perfectly fine, you are not alone."},
+  {"key": "tut1.dialogue_5", "value": "Let me show you around first, then we will dive in"},
+  {"key": "tut1.dialogue_6", "value": "Before we jump into the game, let me get to know you a little. What subject do you usually teach?"},
+  {"key": "tut1.dialogue_7", "value": "There\u2019s so much AI can help you do in that area, from creating resources to sparking student creativity."},
+
+  {"key": "tut2.dialogue_1", "value": "Alright, here\u2019s your teacher dashboard. Let\u2019s take a quick tour!"},
+  {"key": "tut2.dialogue_2", "value": "Ready to try something out?"},
+
+  {"key": "tut3.dialogue_1", "value": "Let\u2019s imagine a common classroom challenge: You are teaching something tricky, and your students are struggling"},
+  {"key": "tut3.dialogue_2", "value": "Here\u2019s a little experiment, speak or type this: \"How can I make fractions fun for my students?\""},
+
+  {"key": "tut4.dialogue_1", "value": "See that? AI can be a creative brainstorming partner, not just giving answers, but inspiring new ideas."},
+  {"key": "tut4.dialogue_2", "value": "You can accept, tweak or toss away any suggestion"},
+
+  {"key": "tut6.dialogue_1", "value": "From here, your journey really begins. We will start by understanding who you are as a teacher, your style, strengths and mindset."},
+  {"key": "tut6.dialogue_2", "value": "That\u2019s where Level 1 takes us: Discover your teaching characteristics or your teaching persona"},
+  {"key": "tut6.dialogue_3", "value": "It\u2019s fun, reflective and helps to tailor the AI to fit your vibe!"},
+  {"key": "tut6.dialogue_4", "value": "You\u2019ve got the basics now: Fantastic work!"},
+  {"key": "tut6.dialogue_5", "value": "Ready to jump in?"},
+
+  {"key": "level1_0.dialogue_1", "value": "Let\u2019s start with how you respond to different teaching situations. These are not tests, just glimpses into how you think and teach."},
+  {"key": "level1_0.dialogue_2", "value": "You will see some classroom scenes appear. Click the one that feels more natural to you."},
+  {"key": "level1_1_1.dialogue_1", "value": "Question 2: A student looks lost halfway through your lesson. What do you do?"},
+  {"key": "level1_1_2.dialogue_1", "value": "Question 3: The class feels flat. What\u2019s your go-to move?"},
+  {"key": "level1_2_4.dialogue_1", "value": "I am getting a clear picture of how you think, teach and connect with your students."},
+  {"key": "level1_2_4.dialogue_2", "value": "Now let\u2019s see how you interpret ideas and language \u2013 ready for a little word association challenge."},
+  {"key": "level1_5.dialogue_1", "value": "You now have a mirror. In level 2, we will give you a magnifying glass, AI will help you explore, brainstorm and create. Ready to imagine what\u2019s possible?"},
+
+  {"key": "level2_1.dialogue_1", "value": "Welcome to the AI Ideation Lab \u2013 a space built just for you and your subject. Here you will meet your AI Mentor - an expert trained to co-create ideas, brainstorm activities and spark creativity in your teaching. Let\u2019s go meet them now."},
+  {"key": "level2_1_1.dialogue_1", "value": "Let\u2019s walk through time. I hold archives, voices of the past and strategies to help students interrogate history with heart and mind."},
+  {"key": "level2_1_1.dialogue_2", "value": "Ah, a fellow lover of words! I can help you turn grammar into games, characters into case studies and stories into sparkles of learning."},
+  {"key": "level2_1_1.dialogue_3", "value": "Welcome, logical mind. Let us unfold symmetry, shape and structure together, through problems, puzzles and perspectives."},
+  {"key": "level2_1_1.dialogue_4", "value": "I am wired for curiosity! Let\u2019s simulate, explore, experiment and turn every classroom moment into a scientific adventure."},
+  {"key": "level2_4.dialogue_1", "value": "You\u2019ve explored powerful ways AI can enrich your classroom. This is just the beginning."},
+  {"key": "level2_5.dialogue_1", "value": "Reflection is how innovation begins. You\u2019ve planted the seeds and next, we will grow something together."},
+
+  {"key": "level3_1_1.dialogue_1", "value": "Welcome to Creative Collaboration. Here, you'll choose your AI Mentor \u2013 a trained expert to help you generate ideas, develop activities, and spark creativity in teaching at a new level. Choose a former mentor or select a new one for a fresh start."}
 
 ]}

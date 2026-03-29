@@ -74,7 +74,7 @@ namespace Luzart
             btnTabSignIn?.Select(toSignIn);
             btnTabSignUp?.Select(!toSignIn);
             if (txtBtnSubmit != null)
-                txtBtnSubmit.text = toSignIn ? "Log In" : "Sign Up";
+                txtBtnSubmit.text = toSignIn ? Loc.T("Log In") : Loc.T("Sign Up");
             ClearError();
         }
 
