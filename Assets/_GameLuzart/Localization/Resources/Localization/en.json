@@ -105,7 +105,7 @@
   {"key": "level1.profile_care", "value": "This profile confirms how much I care about student relationships"},
   {"key": "level1.creativity_drives", "value": "I hadn't realised how much creativity drives my teaching"},
   {"key": "level1.ai_strengthen", "value": "I see now that I can use AI to strengthen my weak areas"},
-  {"key": "profile.ai_creative", "value": "Ai can help you create analogies, creatiive writing prompts and visual"},
+  {"key": "profile.ai_creative", "value": "AI can help you create analogies, creative writing prompts and visual"},
   {"key": "profile.ai_structured", "value": "You will love using AI to break down complex topics and build structured"},
   {"key": "profile.ai_emotional", "value": "AI can support emotional learning and help you track emotional cues and"},
   {"key": "thinking.analyzing_dataset", "value": "Analyzing dataset"},
@@ -146,7 +146,7 @@
   {"key": "mentor.name.english", "value": "Austen"},
   {"key": "mentor.name.math", "value": "Euclidea"},
   {"key": "mentor.name.history", "value": "Thucy"},
-  {"key": "mentor.name.science", "value": "Drawina"},
+  {"key": "mentor.name.science", "value": "Darwin"},
   {"key": "mentor.name.default", "value": "Mentor"},
   {"key": "mentor.subject.english", "value": "English"},
   {"key": "mentor.subject.math", "value": "Math"},
@@ -256,7 +256,7 @@
   {"key": "level1.reflection_ai_prompts", "value": "I am curious how I can develop my own prompts for AI to respond constructively"},
   {"key": "level1.reflection_balance", "value": "I want to balance my approach more intentionally"},
   {"key": "level1.reflection_structured", "value": "I am surprised by how structured I really am – I thought I was more"},
-  {"key": "level1.reflection_prompt", "value": "I'd love to hear what this experience brought up for you."},
+  {"key": "level1.reflection_prompt", "value": "You're doing great! Ready to start Level 2?"},
 
   {"key": "persona.creative_storyteller", "value": "CREATIVE STORYTELLER"},
   {"key": "persona.empathic_guide", "value": "EMPATHIC GUIDE"},
@@ -321,7 +321,7 @@
   {"key": "level3.topic_fractions", "value": "Fractions"},
   {"key": "level3.topic_persuasive", "value": "Persuasive language"},
   {"key": "level3.topic_algebra", "value": "Algebraic thinking"},
-  {"key": "level3.topic_darwinia", "value": "Darwinia"},
+  {"key": "level3.topic_darwinia", "value": "Darwin"},
   {"key": "level3.constraint_common_materials", "value": "Must use common materials (e.g. food, money, paper shapes)"},
   {"key": "level3.constraint_literacy", "value": "Must be adaptable for learners with different literacy levels"},
   {"key": "level3.constraint_cultures", "value": "Critically examine impact on local cultures"},
@@ -358,7 +358,7 @@
   {"key": "level3.student_work", "value": "Student work"},
   {"key": "level3.improvement", "value": "Improvement"},
   {"key": "level3.strength", "value": "Strength"},
-  {"key": "level3.ai_suggest", "value": "AI Suggest"},
+  {"key": "level3.ai_suggest", "value": "AI Suggests"},
   {"key": "level3.color_theme", "value": "Color theme:"},
   {"key": "level3.teaching_persona_section", "value": "Teaching persona"},
   {"key": "level3.achievements", "value": "Achievements showcase"},
@@ -386,22 +386,22 @@
   {"key": "ui.advanced_model_ai", "value": "Advanced Model AI"},
   {"key": "ui.you_have_unlock", "value": "You have unlock"},
 
-  {"key": "level2.most_used_funcions", "value": "Most used AI funcions"},
+  {"key": "level2.most_used_funcions", "value": "Most used AI functions"},
   {"key": "level2.any_question_space", "value": "Any Question ?"},
   {"key": "level2.teachback_newline", "value": "Teachback with \nAI pedagogy"},
 
   {"key": "tutorial.q1_title_space", "value": "Question 1: What does MARIA help you with ?"},
   {"key": "tutorial.pre_quiz_typo", "value": "Before we move one, let's do a quick check. Nothing serious, just see where"},
 
-  {"key": "level3.reflection_selector_typo", "value": "Reflection promp selector"},
+  {"key": "level3.reflection_selector_typo", "value": "Reflection prompt selector"},
   {"key": "level3.feedback_difficult_space", "value": "What else was difficult for you ?"},
-  {"key": "level3.feedback_denied_typo", "value": "What the student denined ?"},
+  {"key": "level3.feedback_denied_typo", "value": "What the student defined?"},
   {"key": "level3.feedback_suggested_space", "value": "What the student suggest changing ?"},
 
-  {"key": "level3.preferred_learning_typo", "value": "Prederred learning"},
-  {"key": "level3.instincts_typo", "value": "You showed strong differentiation insitincts..."},
-  {"key": "level3.responsity_menu", "value": "Responsity menu"},
-  {"key": "level2.tab_visual_typo", "value": "VIsual"},
+  {"key": "level3.preferred_learning_typo", "value": "Preferred learning"},
+  {"key": "level3.instincts_typo", "value": "You showed strong differentiation instincts..."},
+  {"key": "level3.responsity_menu", "value": "Response menu"},
+  {"key": "level2.tab_visual_typo", "value": "Visual"},
   {"key": "tutorial.great_teacher_static", "value": "\"Great! A teacher, wonderful."},
   {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI\" approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"},
 
@@ -420,5 +420,6 @@
   {"key": "ui.err_email_invalid", "value": "Please enter a valid email address."},
   {"key": "ui.err_login_failed", "value": "Login failed. Please try again."},
   {"key": "ui.err_register_failed", "value": "Registration failed. Please try again."}
+  {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI' approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"}
 
 ]}

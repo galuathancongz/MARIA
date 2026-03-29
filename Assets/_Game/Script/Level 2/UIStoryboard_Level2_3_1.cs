@@ -1,35 +1,85 @@
 ﻿using Newtonsoft.Json;
 using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TMPro;
 using UnityEngine;
 
 namespace Luzart
 {
     public class UIStoryboard_Level2_3_1 : Storyboard
     {
+        [Header("Tab Switch")]
+        public BaseSelect selectTab;
+        [SerializeField][ReadOnly] private int currentTab = 0;
+
+        [Header("Refine")]
         public BaseSelect selectRefine;
-        [SerializeField]
-        [ReadOnly]
-        private bool isShowRefine = false;
-        public Level2_ConversationItem scriptConversation;
-        public Level2_ConversationItem visualConversationItem;
-        public Level2_ConversationItem quizzConversationItem;
+        [SerializeField][ReadOnly] private bool isShowRefine = false;
+
+        [Header("Conversation")]
+        public Level2_ConversationItem conversationItem;
+
+        private Level2_3_1_Data _cachedData;
+        private bool _isLoading;
+        private bool _isHide;
+        private string _errorMsg;
+
         public override void Show(Action onHideDone)
         {
             base.Show(onHideDone);
             _isHide = false;
+            _cachedData = null;
+            _errorMsg = null;
+            SelectTab(0);
             var strRequest = GetRequest();
             SendMsg(strRequest);
         }
+
+        public void SelectTab(int index)
+        {
+            currentTab = index;
+            selectTab?.Select(index);
+            ShowCachedContent();
+        }
+
+        private void ShowCachedContent()
+        {
+            if (conversationItem == null) return;
+
+            if (_isLoading)
+            {
+                conversationItem.SetThinking();
+                return;
+            }
+            if (_errorMsg != null)
+            {
+                conversationItem.ShowText(_errorMsg);
+                return;
+            }
+            if (_cachedData != null)
+            {
+                string content = GetContentByTab(currentTab);
+                conversationItem.ShowText(content);
+            }
+        }
+
+        private string GetContentByTab(int tab)
+        {
+            if (_cachedData == null) return "";
+            return tab switch
+            {
+                0 => _cachedData.script ?? "",
+                1 => _cachedData.visual ?? "",
+                2 => _cachedData.quiz ?? "",
+                _ => ""
+            };
+        }
+
         public void OnClickRefine()
         {
             isShowRefine = !isShowRefine;
             selectRefine.Select(isShowRefine);
         }
+
         public void OnClickRegenerate()
         {
             if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
@@ -40,6 +90,7 @@ namespace Luzart
             var strRequest = GetRequestRegenerate();
             SendMsg(strRequest);
         }
+
         public void OnSendMsgRefine(string str)
         {
             if (Level2Manager.Instance.Data.GetConverstationState(1) != EState.CanWrite)
@@ -50,44 +101,42 @@ namespace Luzart
             var strRequest = GetRequestRefine(str);
             SendMsg(strRequest);
         }
+
         public void SendMsg(string strRequest)
         {
             Level2Manager.Instance.Send(1, strRequest, OnResultString);
             isShowRefine = false;
             selectRefine.Select(false);
-            scriptConversation.SetThinking();
-            visualConversationItem.SetThinking();
-            quizzConversationItem.SetThinking();
+            _cachedData = null;
+            _errorMsg = null;
+            _isLoading = true;
+            conversationItem?.SetThinking();
         }
+
         private void OnResultString(string str)
         {
-            if (_isHide || !gameObject)
-            {
-                return;
-            }
-            Level2_3_1_Data json= new Level2_3_1_Data();
+            _isLoading = false;
+            if (_isHide || !gameObject) return;
+
             try
             {
-                json = JsonConvert.DeserializeObject<Level2_3_1_Data>(str);
-
+                _cachedData = JsonConvert.DeserializeObject<Level2_3_1_Data>(str);
             }
             catch (Exception e)
             {
                 Debug.LogError($"Level2_3_1_Data JsonUtility Error: {e.Message}");
-                var errorMsg = $"{LocalizationManager.Instance.Get("ui.error_invalid_data")} \n{e.Message}\n {str}";
-                scriptConversation.ShowText(errorMsg);
-                visualConversationItem.ShowText(errorMsg);
-                quizzConversationItem.ShowText(errorMsg);
+                _errorMsg = $"{LocalizationManager.Instance.Get("ui.error_invalid_data")} \n{e.Message}\n {str}";
+                conversationItem?.ShowText(_errorMsg);
                 return;
             }
-            scriptConversation.ShowTextAnim(json.script);
-            visualConversationItem.ShowTextAnim(json.visual);
-            quizzConversationItem.ShowTextAnim(json.quiz);
+
+            string content = GetContentByTab(currentTab);
+            conversationItem?.ShowTextAnim(content);
         }
 
         private string GetRequest()
         {
-            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_request", new System.Collections.Generic.Dictionary<string, string> {
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_request", new Dictionary<string, string> {
                 {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
                 {"userRequest", Level2Manager.Instance.Data.question2_3_1}
             });
@@ -95,7 +144,7 @@ namespace Luzart
 
         private string GetRequestRefine(string str)
         {
-            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_refine", new System.Collections.Generic.Dictionary<string, string> {
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_refine", new Dictionary<string, string> {
                 {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
                 {"userRequest", Level2Manager.Instance.Data.question2_3_1},
                 {"refinement", str}
@@ -104,19 +153,19 @@ namespace Luzart
 
         private string GetRequestRegenerate()
         {
-            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_regenerate", new System.Collections.Generic.Dictionary<string, string> {
+            return LocalizationManager.Instance.GetPrompt("prompts.level2_3_1_regenerate", new Dictionary<string, string> {
                 {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
                 {"userRequest", Level2Manager.Instance.Data.question2_3_1}
             });
         }
-        private bool _isHide = false;
+
         public override void Hide()
         {
             base.Hide();
             _isHide = true;
         }
-
     }
+
     [Serializable]
     public class Level2_3_1_Data
     {
