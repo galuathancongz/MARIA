@@ -123,7 +123,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5f3dbf06121ba0f4c913a8aa02253281, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strRequest: Hello, AI Mentor! This is start Ideation Lab! Not response this message!
 --- !u!1 &431608619109486119
 GameObject:
   m_ObjectHideFlags: 0
@@ -210,6 +209,7 @@ GameObject:
   - component: {fileID: 2359215919358425771}
   - component: {fileID: 8733789757648207312}
   - component: {fileID: 257335018399815022}
+  - component: {fileID: 4435064820794120211}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -333,6 +333,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4435064820794120211
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 729234642916331427}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.history
 --- !u!1 &843161233462393107
 GameObject:
   m_ObjectHideFlags: 0
@@ -481,6 +494,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &1060729219610593245
 GameObject:
   m_ObjectHideFlags: 0
@@ -531,7 +550,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   txt: {fileID: 8349339328505872854}
   str: "Welcome to the AI Ideation Lab \u2013 a space built just for you and your
     subject. Here you will meet your AI Mentor - an expert trained to co-create ideas,
@@ -540,6 +559,7 @@ MonoBehaviour:
   timeDuration: 0.5
   ease: 1
   btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
   modeClick: 1
 --- !u!1 &1536489337844199880
 GameObject:
@@ -843,6 +863,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &1893822362505528922
 GameObject:
   m_ObjectHideFlags: 0
@@ -1088,7 +1114,7 @@ MonoBehaviour:
   - {fileID: 1703758247089402675}
   - {fileID: 4211081513048331505}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1154559683630405574}
 --- !u!114 &1154559683630405574
@@ -1413,6 +1439,7 @@ GameObject:
   - component: {fileID: 7595217902866284022}
   - component: {fileID: 1271585287357365541}
   - component: {fileID: 4516052902142165889}
+  - component: {fileID: 7233981688394727463}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -1536,6 +1563,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7233981688394727463
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3258074996553009580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.english
 --- !u!1 &3420468689228009274
 GameObject:
   m_ObjectHideFlags: 0
@@ -1782,7 +1822,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 2833097718271247893}
 --- !u!114 &2833097718271247893
@@ -1888,6 +1928,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &3615405076745950290
 GameObject:
   m_ObjectHideFlags: 0
@@ -7197,6 +7243,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &4961784456644127675
 GameObject:
   m_ObjectHideFlags: 0
@@ -7270,6 +7322,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &5033248878914453040
 GameObject:
   m_ObjectHideFlags: 0
@@ -12787,7 +12845,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &6832365788218205407
 GameObject:
   m_ObjectHideFlags: 0
@@ -12920,6 +12978,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &7051508731582092013
 GameObject:
   m_ObjectHideFlags: 0
@@ -13342,6 +13406,12 @@ MonoBehaviour:
       FloatTo: 0
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &8003036795065091559
 GameObject:
   m_ObjectHideFlags: 0
@@ -13428,6 +13498,7 @@ GameObject:
   - component: {fileID: 5889636108757833178}
   - component: {fileID: 408013653635965647}
   - component: {fileID: 2914263910892840583}
+  - component: {fileID: 7617952011492440218}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -13551,6 +13622,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7617952011492440218
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8118996930187568088}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.math
 --- !u!1 &8536906684387110268
 GameObject:
   m_ObjectHideFlags: 0
@@ -13750,6 +13834,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!225 &5912788333961647997
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -13835,6 +13925,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &8970727236583006214
 GameObject:
   m_ObjectHideFlags: 0
@@ -13908,6 +14004,12 @@ MonoBehaviour:
       FloatTo: 1
       StringFrom: 
       StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &9001778284119141803
 GameObject:
   m_ObjectHideFlags: 0

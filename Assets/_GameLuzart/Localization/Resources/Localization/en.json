@@ -419,7 +419,7 @@
   {"key": "ui.err_password_mismatch", "value": "Passwords do not match."},
   {"key": "ui.err_email_invalid", "value": "Please enter a valid email address."},
   {"key": "ui.err_login_failed", "value": "Login failed. Please try again."},
-  {"key": "ui.err_register_failed", "value": "Registration failed. Please try again."}
+  {"key": "ui.err_register_failed", "value": "Registration failed. Please try again."},
   {"key": "level2.example_prompt2_full", "value": "Can you use the 'teachback with AI' approach for AI to explain the concept of the electromagnetic spectrum to my students and then build on their response?"}
 
 ]}

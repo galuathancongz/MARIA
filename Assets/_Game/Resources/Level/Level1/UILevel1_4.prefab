@@ -86,6 +86,7 @@ GameObject:
   - component: {fileID: 5334217089848777360}
   - component: {fileID: 4197860828870865704}
   - component: {fileID: 4098440671496935490}
+  - component: {fileID: 8081871845091129737}
   m_Layer: 5
   m_Name: YOU ARE A
   m_TagString: Untagged
@@ -209,6 +210,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8081871845091129737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 169724298244121996}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.you_are_a
 --- !u!1 &215686616584991133
 GameObject:
   m_ObjectHideFlags: 0
@@ -362,6 +376,7 @@ GameObject:
   - component: {fileID: 1015648238168582934}
   - component: {fileID: 5550310767989298976}
   - component: {fileID: 6878058810032046639}
+  - component: {fileID: 333869547543662994}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -485,6 +500,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &333869547543662994
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 304324696080078796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.empathy
 --- !u!1 &657724229428079041
 GameObject:
   m_ObjectHideFlags: 0
@@ -789,6 +817,7 @@ GameObject:
   - component: {fileID: 877401823414934398}
   - component: {fileID: 7839888830727759621}
   - component: {fileID: 3024594155385786758}
+  - component: {fileID: 1579913437647484236}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -955,6 +984,19 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &1579913437647484236
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465268694189170636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &2252021873679639239
 GameObject:
   m_ObjectHideFlags: 0
@@ -2168,6 +2210,7 @@ GameObject:
   - component: {fileID: 2550306403216399867}
   - component: {fileID: 58527034104058958}
   - component: {fileID: 7860059294606592850}
+  - component: {fileID: 5982917849883909465}
   m_Layer: 5
   m_Name: Txt
   m_TagString: Untagged
@@ -2348,6 +2391,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenAnimation: {fileID: 58527034104058958}
   typeShow: 3
+--- !u!114 &5982917849883909465
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3879706900512573880}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: persona.creative_storyteller
 --- !u!1 &3881873360731794675
 GameObject:
   m_ObjectHideFlags: 0
@@ -2360,6 +2416,7 @@ GameObject:
   - component: {fileID: 4527790800148368739}
   - component: {fileID: 3517700029849576090}
   - component: {fileID: 3520125059706824570}
+  - component: {fileID: 1044197271460560283}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -2526,6 +2583,19 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &1044197271460560283
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881873360731794675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.logic
 --- !u!1 &3973942090291199651
 GameObject:
   m_ObjectHideFlags: 0
@@ -2537,6 +2607,7 @@ GameObject:
   - component: {fileID: 346615092094232925}
   - component: {fileID: 9213508398135015595}
   - component: {fileID: 6839687867036874022}
+  - component: {fileID: 5495413633559828042}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2660,6 +2731,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5495413633559828042
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3973942090291199651}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.logic
 --- !u!1 &4037609722508242886
 GameObject:
   m_ObjectHideFlags: 0
@@ -2671,6 +2755,7 @@ GameObject:
   - component: {fileID: 3060531115353092991}
   - component: {fileID: 9026707309797024271}
   - component: {fileID: 7212142642390155636}
+  - component: {fileID: 8590409423816201521}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2794,6 +2879,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8590409423816201521
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4037609722508242886}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.persona_description
 --- !u!1 &4527962822121535307
 GameObject:
   m_ObjectHideFlags: 0
@@ -3295,6 +3393,7 @@ GameObject:
   - component: {fileID: 7233089724915646018}
   - component: {fileID: 3602588344308464103}
   - component: {fileID: 7956011184710837795}
+  - component: {fileID: 2835636497699955727}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3418,6 +3517,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2835636497699955727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5410945847482613362}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &5588714771906880884
 GameObject:
   m_ObjectHideFlags: 0
@@ -3623,6 +3735,7 @@ GameObject:
   - component: {fileID: 2165125331431875954}
   - component: {fileID: 1942938174454440912}
   - component: {fileID: 4757378433704357565}
+  - component: {fileID: 327540538882443268}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3746,6 +3859,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &327540538882443268
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5605471733391928515}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.continue
 --- !u!1 &5723132587911532616
 GameObject:
   m_ObjectHideFlags: 0
@@ -3980,6 +4106,7 @@ GameObject:
   - component: {fileID: 6871792023110705974}
   - component: {fileID: 2229557268908640764}
   - component: {fileID: 5519243408795332498}
+  - component: {fileID: 3141230887466123860}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4103,6 +4230,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3141230887466123860
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6138552044988982637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.username
 --- !u!1 &6442889059774354436
 GameObject:
   m_ObjectHideFlags: 0
@@ -4695,6 +4835,7 @@ GameObject:
   - component: {fileID: 8374845093756789553}
   - component: {fileID: 5172654181576883393}
   - component: {fileID: 3988992560083591227}
+  - component: {fileID: 3903748761152975641}
   m_Layer: 5
   m_Name: Txt
   m_TagString: Untagged
@@ -4875,6 +5016,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenAnimation: {fileID: 5172654181576883393}
   typeShow: 3
+--- !u!114 &3903748761152975641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6875862192128997634}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: persona.empathic_guide
 --- !u!1 &6890585879526550085
 GameObject:
   m_ObjectHideFlags: 0
@@ -5066,6 +5220,7 @@ GameObject:
   - component: {fileID: 3879345344620680706}
   - component: {fileID: 2188103081068174813}
   - component: {fileID: 4283908718394101602}
+  - component: {fileID: 2494808023805355495}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -5232,6 +5387,19 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &2494808023805355495
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951307234074077699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.empathy
 --- !u!1 &7116719157957862881
 GameObject:
   m_ObjectHideFlags: 0
@@ -5243,6 +5411,7 @@ GameObject:
   - component: {fileID: 781235057458691728}
   - component: {fileID: 4527126521867558212}
   - component: {fileID: 5699127006051950682}
+  - component: {fileID: 1907120068167745320}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5366,6 +5535,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1907120068167745320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7116719157957862881}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.trait_overview
 --- !u!1 &7559526973067610860
 GameObject:
   m_ObjectHideFlags: 0
@@ -5379,6 +5561,7 @@ GameObject:
   - component: {fileID: 3153921286073879966}
   - component: {fileID: 5409219674942236469}
   - component: {fileID: 9093230834628261377}
+  - component: {fileID: 6785904258798852805}
   m_Layer: 5
   m_Name: Txt
   m_TagString: Untagged
@@ -5559,6 +5742,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenAnimation: {fileID: 5409219674942236469}
   typeShow: 3
+--- !u!114 &6785904258798852805
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7559526973067610860}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: persona.logical_planner
 --- !u!1 &7603842936789308914
 GameObject:
   m_ObjectHideFlags: 0

@@ -201,7 +201,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 7862725249256627224}
 --- !u!1 &5285696904594593160
@@ -373,7 +373,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1492598067148496780}
 --- !u!1 &5895128707143969268
@@ -509,8 +509,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22136f3417a418f4c8ed9a6741658d8f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  strRequest: Hello, AI Mentor! This is start Co-design Studio! Not response this
-    message!
 --- !u!1 &7051795190759810597
 GameObject:
   m_ObjectHideFlags: 0
@@ -711,7 +709,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8314936027529484461
 GameObject:
   m_ObjectHideFlags: 0
@@ -887,6 +885,7 @@ GameObject:
   - component: {fileID: 7364190409405096896}
   - component: {fileID: 1244416913092081269}
   - component: {fileID: 2987059604160659439}
+  - component: {fileID: 8195677887414900399}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1010,6 +1009,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8195677887414900399
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848797964565342459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.start_level3
 --- !u!1 &9212119705600727325
 GameObject:
   m_ObjectHideFlags: 0

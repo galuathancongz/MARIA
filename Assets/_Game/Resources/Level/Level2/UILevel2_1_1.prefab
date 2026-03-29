@@ -399,6 +399,7 @@ GameObject:
   - component: {fileID: 3882682847617542201}
   - component: {fileID: 7059306572611510060}
   - component: {fileID: 5489804635007867748}
+  - component: {fileID: 7505121132478992936}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -522,6 +523,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7505121132478992936
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1509347017170411067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.math
 --- !u!1 &1700740254251215219
 GameObject:
   m_ObjectHideFlags: 0
@@ -1770,6 +1784,7 @@ GameObject:
   - component: {fileID: 952966371118268437}
   - component: {fileID: 8501577530499760326}
   - component: {fileID: 6553302071781867106}
+  - component: {fileID: 9040901986601865718}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -1893,6 +1908,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9040901986601865718
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5289827811047126095}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.english
 --- !u!1 &5416086019875664601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3055,6 +3083,7 @@ GameObject:
   - component: {fileID: 4963989118559438664}
   - component: {fileID: 2119673899493687347}
   - component: {fileID: 7479356901035124877}
+  - component: {fileID: 7644950577139436233}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -3178,6 +3207,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7644950577139436233
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7944627540587590208}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: mentor.name.history
 --- !u!1 &8065310316017878256
 GameObject:
   m_ObjectHideFlags: 0

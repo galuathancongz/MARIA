@@ -87,6 +87,7 @@ GameObject:
   - component: {fileID: 15684868120366468}
   - component: {fileID: 5575521577201055134}
   - component: {fileID: 6849500914125764278}
+  - component: {fileID: 1563890340168632739}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -210,6 +211,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1563890340168632739
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 34682618592690960}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.teaching_scenario
 --- !u!1 &52241927096676151
 GameObject:
   m_ObjectHideFlags: 0
@@ -221,6 +235,7 @@ GameObject:
   - component: {fileID: 3440307589880460080}
   - component: {fileID: 3173380668340443314}
   - component: {fileID: 2981062183598756254}
+  - component: {fileID: 5812440998751826751}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -344,6 +359,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5812440998751826751
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 52241927096676151}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &93865380113240238
 GameObject:
   m_ObjectHideFlags: 0
@@ -717,6 +745,7 @@ GameObject:
   - component: {fileID: 7620493189929284709}
   - component: {fileID: 7335896783155909176}
   - component: {fileID: 5365120371407260622}
+  - component: {fileID: 289272570326427008}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -840,6 +869,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &289272570326427008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 205920028077179165}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.calm_structured
 --- !u!1 &218501707417043195
 GameObject:
   m_ObjectHideFlags: 0
@@ -1048,6 +1090,7 @@ GameObject:
   - component: {fileID: 8541099335270400639}
   - component: {fileID: 2988599114947690492}
   - component: {fileID: 6650751278564990708}
+  - component: {fileID: 414621533425247063}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1171,6 +1214,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &414621533425247063
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 283169896146952200}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &290043528735417295
 GameObject:
   m_ObjectHideFlags: 0
@@ -1257,6 +1313,7 @@ GameObject:
   - component: {fileID: 6407729782535732180}
   - component: {fileID: 8711198818794898263}
   - component: {fileID: 2320505938298333414}
+  - component: {fileID: 5930771108428519104}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1380,6 +1437,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5930771108428519104
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 308230859722578622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.reflection_choices
 --- !u!1 &329509056537839581
 GameObject:
   m_ObjectHideFlags: 0
@@ -1541,6 +1611,7 @@ GameObject:
   - component: {fileID: 6286799194441183451}
   - component: {fileID: 8901726224990210967}
   - component: {fileID: 5945218022264170781}
+  - component: {fileID: 1191079761505083507}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1664,6 +1735,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1191079761505083507
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 350631385281788679}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.adaptability
 --- !u!1 &364410048338103342
 GameObject:
   m_ObjectHideFlags: 0
@@ -1675,6 +1759,7 @@ GameObject:
   - component: {fileID: 3649877023596917069}
   - component: {fileID: 4420967800102369095}
   - component: {fileID: 1855921659529466290}
+  - component: {fileID: 1437608749241610448}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1798,6 +1883,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1437608749241610448
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364410048338103342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.structure_sets_free
 --- !u!1 &369659912065937699
 GameObject:
   m_ObjectHideFlags: 0
@@ -2008,6 +2106,7 @@ GameObject:
   - component: {fileID: 3797898967219348327}
   - component: {fileID: 1062648219644341611}
   - component: {fileID: 228884365124616819}
+  - component: {fileID: 3529000004907838832}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2131,6 +2230,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3529000004907838832
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 387244014392432057}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.ai_strengthen
 --- !u!1 &430254820469904174
 GameObject:
   m_ObjectHideFlags: 0
@@ -2217,6 +2329,7 @@ GameObject:
   - component: {fileID: 6826833382037871930}
   - component: {fileID: 7683584505091389293}
   - component: {fileID: 4014907740835808228}
+  - component: {fileID: 7662822655683074454}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2340,6 +2453,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7662822655683074454
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 445769299766013028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.think_story
 --- !u!1 &458591138361107132
 GameObject:
   m_ObjectHideFlags: 0
@@ -2477,6 +2603,7 @@ GameObject:
   - component: {fileID: 1645070387230695570}
   - component: {fileID: 3865905748482253051}
   - component: {fileID: 7560930378617837717}
+  - component: {fileID: 8851313525286555109}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2600,6 +2727,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8851313525286555109
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 502508124769938307}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &531933342101868816
 GameObject:
   m_ObjectHideFlags: 0
@@ -2799,6 +2939,7 @@ GameObject:
   - component: {fileID: 2165293296481486906}
   - component: {fileID: 910106012687521243}
   - component: {fileID: 2690992930817596205}
+  - component: {fileID: 1640981575014200436}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -2922,6 +3063,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1640981575014200436
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 603878878160032688}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &636377717852222051
 GameObject:
   m_ObjectHideFlags: 0
@@ -3191,6 +3345,7 @@ GameObject:
   - component: {fileID: 6034923027297663213}
   - component: {fileID: 1099162467236992403}
   - component: {fileID: 1119554853041819725}
+  - component: {fileID: 8040612577549347091}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -3334,6 +3489,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &8040612577549347091
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 679944375249996375}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.enter_text
 --- !u!1 &722333021075730292
 GameObject:
   m_ObjectHideFlags: 0
@@ -3547,6 +3715,7 @@ GameObject:
   - component: {fileID: 498947515501174658}
   - component: {fileID: 7402723305659265984}
   - component: {fileID: 755286598410892510}
+  - component: {fileID: 6194887549518708318}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3670,6 +3839,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6194887549518708318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 793980270652869576}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.reflection_toolkit
 --- !u!1 &808290244054137008
 GameObject:
   m_ObjectHideFlags: 0
@@ -4049,6 +4231,7 @@ GameObject:
   - component: {fileID: 5903060294949109892}
   - component: {fileID: 7607428441716821885}
   - component: {fileID: 5197113576327271568}
+  - component: {fileID: 3562005909983914864}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4172,6 +4355,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3562005909983914864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 882747250928253493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.send
 --- !u!1 &888949444070946550
 GameObject:
   m_ObjectHideFlags: 0
@@ -14505,6 +14701,7 @@ GameObject:
   - component: {fileID: 3470769491288551402}
   - component: {fileID: 5991790216649225026}
   - component: {fileID: 5306362103983154221}
+  - component: {fileID: 1729921663133208140}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -14628,6 +14825,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1729921663133208140
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1315214271171765760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.level1_complete
 --- !u!1 &1342418753153450911
 GameObject:
   m_ObjectHideFlags: 0
@@ -19592,6 +19802,7 @@ GameObject:
   - component: {fileID: 1749194547097288662}
   - component: {fileID: 879466879126387595}
   - component: {fileID: 5021144142919699302}
+  - component: {fileID: 3101131948218803833}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -19715,6 +19926,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3101131948218803833
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1434304635490977235}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.structure_sets_free
 --- !u!1 &1492457454089772628
 GameObject:
   m_ObjectHideFlags: 0
@@ -19726,6 +19950,7 @@ GameObject:
   - component: {fileID: 5165508166119514521}
   - component: {fileID: 6888627765906601753}
   - component: {fileID: 9156360926306352153}
+  - component: {fileID: 5856674922177930032}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -19849,6 +20074,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5856674922177930032
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1492457454089772628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.every_student_voice
 --- !u!1 &1528565560284639033
 GameObject:
   m_ObjectHideFlags: 0
@@ -25319,7 +25557,7 @@ GameObject:
   - component: {fileID: 118189736295175459}
   - component: {fileID: 2229826929396446939}
   m_Layer: 5
-  m_Name: UI
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25365,6 +25603,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 118189736295175459}
   - {fileID: 0}
@@ -25424,13 +25666,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 0
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 0
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -25448,7 +25691,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 5182590742348073351}
 --- !u!114 &2229826929396446939
@@ -25485,13 +25728,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 1
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 1
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -25787,7 +26031,7 @@ GameObject:
   - component: {fileID: 1891149564711446293}
   - component: {fileID: 1260609848077352654}
   m_Layer: 5
-  m_Name: UI
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -25833,6 +26077,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 1891149564711446293}
   - {fileID: 0}
@@ -25892,13 +26140,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 0
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 0
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -25916,7 +26165,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 3482432402625398815}
 --- !u!114 &1260609848077352654
@@ -25953,13 +26202,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 1
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 1
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -35849,6 +36099,7 @@ GameObject:
   - component: {fileID: 5470598639434004730}
   - component: {fileID: 3300070392811641852}
   - component: {fileID: 6754439701704397966}
+  - component: {fileID: 2981053325290928698}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -35972,6 +36223,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2981053325290928698
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2118394359963926527}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.question_colour
 --- !u!1 &2143231906659158093
 GameObject:
   m_ObjectHideFlags: 0
@@ -36096,6 +36360,7 @@ GameObject:
   - component: {fileID: 1499186886833734881}
   - component: {fileID: 2052555560462378263}
   - component: {fileID: 5085998284932974773}
+  - component: {fileID: 2717872916848755985}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -36219,6 +36484,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2717872916848755985
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2276224781227073098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.replay_tutorial
 --- !u!1 &2277295458142028540
 GameObject:
   m_ObjectHideFlags: 0
@@ -36428,6 +36706,7 @@ GameObject:
   - component: {fileID: 9096396418512886722}
   - component: {fileID: 6786350533229116992}
   - component: {fileID: 5455552269554635305}
+  - component: {fileID: 1571002145789521675}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -36551,6 +36830,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1571002145789521675
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2360716139689502014}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.structure_sets_free
 --- !u!1 &2400051927405385462
 GameObject:
   m_ObjectHideFlags: 0
@@ -36685,6 +36977,7 @@ GameObject:
   - component: {fileID: 3631546068166029082}
   - component: {fileID: 734133995109791588}
   - component: {fileID: 7250426520520998531}
+  - component: {fileID: 8705224168724512825}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -36808,6 +37101,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8705224168724512825
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2412150860273675071}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.voice_recorded
 --- !u!1 &2412828878520088641
 GameObject:
   m_ObjectHideFlags: 0
@@ -37915,6 +38221,7 @@ GameObject:
   - component: {fileID: 8469535619491300027}
   - component: {fileID: 125251892226331912}
   - component: {fileID: 8129564506927860567}
+  - component: {fileID: 3072063224014427171}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -38038,6 +38345,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3072063224014427171
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2666043084972225510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.explore_help
 --- !u!1 &2680214835823557949
 GameObject:
   m_ObjectHideFlags: 0
@@ -38693,6 +39013,7 @@ MonoBehaviour:
   - {fileID: 0}
   - {fileID: 0}
   - {fileID: 0}
+  _currentStoryboardIndex: 0
 --- !u!1 &2806340399218820348
 GameObject:
   m_ObjectHideFlags: 0
@@ -38704,6 +39025,7 @@ GameObject:
   - component: {fileID: 2691146559474962997}
   - component: {fileID: 5650470246524881889}
   - component: {fileID: 8437194442455009917}
+  - component: {fileID: 4802891556121291004}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -38827,6 +39149,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4802891556121291004
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2806340399218820348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.username
 --- !u!1 &2881674699447015851
 GameObject:
   m_ObjectHideFlags: 0
@@ -38838,6 +39173,7 @@ GameObject:
   - component: {fileID: 7350941594975004644}
   - component: {fileID: 2908312431916134314}
   - component: {fileID: 7226055746546129460}
+  - component: {fileID: 4692382052139074782}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -38961,6 +39297,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4692382052139074782
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2881674699447015851}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.username
 --- !u!1 &2886633819190452884
 GameObject:
   m_ObjectHideFlags: 0
@@ -39508,6 +39857,7 @@ GameObject:
   - component: {fileID: 697804150909408581}
   - component: {fileID: 6660657524728038914}
   - component: {fileID: 3941736245807020001}
+  - component: {fileID: 3416950500558269460}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -39631,6 +39981,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3416950500558269460
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3017702859607619825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.narrative_design
 --- !u!1 &3024748861380934751
 GameObject:
   m_ObjectHideFlags: 0
@@ -39830,6 +40193,7 @@ GameObject:
   - component: {fileID: 392768241486249579}
   - component: {fileID: 5574861648601797475}
   - component: {fileID: 1604888082438217860}
+  - component: {fileID: 5210575110725534095}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -39953,6 +40317,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5210575110725534095
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3062287548817082804}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.empathy
 --- !u!1 &3087837169120387240
 GameObject:
   m_ObjectHideFlags: 0
@@ -40039,6 +40416,7 @@ GameObject:
   - component: {fileID: 3624149299301868142}
   - component: {fileID: 7917278857121147280}
   - component: {fileID: 4619873466608665851}
+  - component: {fileID: 3917133124283072188}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -40162,6 +40540,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3917133124283072188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3100159728017562273}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.calm_structured
 --- !u!1 &3132274889637045560
 GameObject:
   m_ObjectHideFlags: 0
@@ -40345,6 +40736,7 @@ GameObject:
   - component: {fileID: 2886717349355889502}
   - component: {fileID: 5378756620022840555}
   - component: {fileID: 6070986280352153514}
+  - component: {fileID: 9006135866150762555}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -40468,6 +40860,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9006135866150762555
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3242505571007230773}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.voice_recorded
 --- !u!1 &3283731522589788222
 GameObject:
   m_ObjectHideFlags: 0
@@ -40742,6 +41147,7 @@ GameObject:
   - component: {fileID: 912544546788042}
   - component: {fileID: 8138571835388144297}
   - component: {fileID: 2804644922212630931}
+  - component: {fileID: 3772252443267241512}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -40865,6 +41271,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3772252443267241512
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3440128600959163955}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.recall_students
 --- !u!1 &3471520418998638350
 GameObject:
   m_ObjectHideFlags: 0
@@ -40940,6 +41359,7 @@ GameObject:
   - component: {fileID: 6414565543143590744}
   - component: {fileID: 2999537089687336105}
   - component: {fileID: 6063418372136288449}
+  - component: {fileID: 8971401232301932128}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -41063,6 +41483,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8971401232301932128
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3484335125481604387}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.colour_palette
 --- !u!1 &3488481582094025076
 GameObject:
   m_ObjectHideFlags: 0
@@ -41370,7 +41803,7 @@ GameObject:
   - component: {fileID: 401284513161995417}
   - component: {fileID: 7147320553771800821}
   m_Layer: 5
-  m_Name: UI
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -41416,6 +41849,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 401284513161995417}
   - {fileID: 0}
@@ -41475,13 +41912,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 0
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 0
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -41499,7 +41937,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 5028206438856419148}
 --- !u!114 &7147320553771800821
@@ -41536,13 +41974,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 1
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 1
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -41595,6 +42034,7 @@ GameObject:
   - component: {fileID: 7862853616413085308}
   - component: {fileID: 7237156118104147603}
   - component: {fileID: 5318660586583952960}
+  - component: {fileID: 1223754661813050609}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -41718,6 +42158,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1223754661813050609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3785414619413942901}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &3801597088104250509
 GameObject:
   m_ObjectHideFlags: 0
@@ -42181,6 +42634,7 @@ GameObject:
   - component: {fileID: 767748354220052501}
   - component: {fileID: 7608044143418454916}
   - component: {fileID: 652178628937302073}
+  - component: {fileID: 3751013508121602826}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -42304,6 +42758,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3751013508121602826
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3942941269207558123}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.persona_description
 --- !u!1 &3960161544399832994
 GameObject:
   m_ObjectHideFlags: 0
@@ -42633,7 +43100,7 @@ GameObject:
   - component: {fileID: 247084313294591029}
   - component: {fileID: 3745951111225608799}
   m_Layer: 5
-  m_Name: UI
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -42679,6 +43146,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 247084313294591029}
   - {fileID: 0}
@@ -42738,13 +43209,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 0
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 0
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -42762,7 +43234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 269338089476198813}
 --- !u!114 &3745951111225608799
@@ -42799,13 +43271,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 1
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 1
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -42970,6 +43443,7 @@ GameObject:
   - component: {fileID: 4757755899400259441}
   - component: {fileID: 2933018906725957699}
   - component: {fileID: 8596453585009624734}
+  - component: {fileID: 6193088130472928959}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -43093,6 +43567,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6193088130472928959
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4148452725714969156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.profile_care
 --- !u!1 &4161900019368331789
 GameObject:
   m_ObjectHideFlags: 0
@@ -43351,6 +43838,7 @@ GameObject:
   - component: {fileID: 1789556394055585339}
   - component: {fileID: 1727149449105841298}
   - component: {fileID: 4107983562412273201}
+  - component: {fileID: 2138613217694519562}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -43474,6 +43962,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2138613217694519562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4317741177439646615}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.word_association
 --- !u!1 &4338951528531394616
 GameObject:
   m_ObjectHideFlags: 0
@@ -48842,6 +49343,7 @@ GameObject:
   - component: {fileID: 7950417228703351212}
   - component: {fileID: 501426854990988811}
   - component: {fileID: 4766913509215689129}
+  - component: {fileID: 3367248730276868477}
   m_Layer: 5
   m_Name: txtTimer
   m_TagString: Untagged
@@ -48965,6 +49467,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3367248730276868477
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4404043285355099967}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.timer
 --- !u!1 &4416167863233564431
 GameObject:
   m_ObjectHideFlags: 0
@@ -48976,6 +49491,7 @@ GameObject:
   - component: {fileID: 3715566769029632173}
   - component: {fileID: 5594192332256500529}
   - component: {fileID: 2623863843849517871}
+  - component: {fileID: 1885642066138748898}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -49099,6 +49615,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1885642066138748898
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4416167863233564431}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.creativity_drives
 --- !u!1 &4426886196165343931
 GameObject:
   m_ObjectHideFlags: 0
@@ -49684,6 +50213,7 @@ GameObject:
   - component: {fileID: 4634887263828428322}
   - component: {fileID: 2442396356485490096}
   - component: {fileID: 737182200709178633}
+  - component: {fileID: 3744726640766881374}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -49807,6 +50337,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3744726640766881374
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4642191649942051624}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &4653826618642690441
 GameObject:
   m_ObjectHideFlags: 0
@@ -54894,6 +55437,7 @@ GameObject:
   - component: {fileID: 136339697114077124}
   - component: {fileID: 5879393453472169850}
   - component: {fileID: 6225727293500533751}
+  - component: {fileID: 7673728993329370008}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -55017,6 +55561,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7673728993329370008
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4851275738157973104}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.teaching_motto
 --- !u!1 &4877207043639812240
 GameObject:
   m_ObjectHideFlags: 0
@@ -55141,6 +55698,7 @@ GameObject:
   - component: {fileID: 3252546377645979545}
   - component: {fileID: 3963931354241581700}
   - component: {fileID: 5239106470427985495}
+  - component: {fileID: 8311169882760863111}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -55264,6 +55822,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8311169882760863111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4918222651850094961}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.logic
 --- !u!1 &4921867016434936402
 GameObject:
   m_ObjectHideFlags: 0
@@ -60711,6 +61282,7 @@ GameObject:
   - component: {fileID: 7239872824413821057}
   - component: {fileID: 4183602730441839393}
   - component: {fileID: 5501803974113406462}
+  - component: {fileID: 6319478842378660271}
   m_Layer: 5
   m_Name: Placeholder
   m_TagString: Untagged
@@ -60854,6 +61426,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &6319478842378660271
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5044181012766593282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.enter_text
 --- !u!1 &5080429781177341872
 GameObject:
   m_ObjectHideFlags: 0
@@ -60940,6 +61525,7 @@ GameObject:
   - component: {fileID: 4996439471753768669}
   - component: {fileID: 910167548478448625}
   - component: {fileID: 3714918079393506897}
+  - component: {fileID: 628258125680139852}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -61063,6 +61649,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &628258125680139852
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5134118865933742201}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.trait_overview
 --- !u!1 &5136380948185093742
 GameObject:
   m_ObjectHideFlags: 0
@@ -61224,6 +61823,7 @@ GameObject:
   - component: {fileID: 1662669004174510956}
   - component: {fileID: 5338784853105669116}
   - component: {fileID: 5275971630776362794}
+  - component: {fileID: 7272158644676089130}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -61347,6 +61947,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7272158644676089130
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5161335773531328587}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.structure
 --- !u!1 &5172703861463396562
 GameObject:
   m_ObjectHideFlags: 0
@@ -61358,6 +61971,7 @@ GameObject:
   - component: {fileID: 3514412337038843165}
   - component: {fileID: 1546139863224192555}
   - component: {fileID: 8149575531449265851}
+  - component: {fileID: 986051581347541705}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -61481,6 +62095,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &986051581347541705
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5172703861463396562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.assessment
 --- !u!1 &5191307813015969804
 GameObject:
   m_ObjectHideFlags: 0
@@ -61803,6 +62430,7 @@ GameObject:
   - component: {fileID: 3099445386409237934}
   - component: {fileID: 2572360661090193933}
   - component: {fileID: 4221207386102647525}
+  - component: {fileID: 5240375007912664182}
   m_Layer: 5
   m_Name: YOU ARE A
   m_TagString: Untagged
@@ -61926,6 +62554,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5240375007912664182
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5258171346800030289}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.you_are_a
 --- !u!1 &5302568428893095114
 GameObject:
   m_ObjectHideFlags: 0
@@ -62781,6 +63422,7 @@ GameObject:
   - component: {fileID: 1735139284919795017}
   - component: {fileID: 5728606363874237497}
   - component: {fileID: 3432379900728718441}
+  - component: {fileID: 7872500772506154426}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -62904,6 +63546,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7872500772506154426
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5678362102206539983}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &5695586766130026823
 GameObject:
   m_ObjectHideFlags: 0
@@ -64443,6 +65098,7 @@ GameObject:
   - component: {fileID: 1429055852082915247}
   - component: {fileID: 4302157294345921785}
   - component: {fileID: 3374688975769859872}
+  - component: {fileID: 4798574085376765909}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -64566,6 +65222,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4798574085376765909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6235900584888246239}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.structure_sets_free
 --- !u!1 &6295122803334679059
 GameObject:
   m_ObjectHideFlags: 0
@@ -65114,6 +65783,7 @@ GameObject:
   - component: {fileID: 991125630157708146}
   - component: {fileID: 3668114471291402546}
   - component: {fileID: 4045615157441052228}
+  - component: {fileID: 6104740075431931361}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -65237,6 +65907,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6104740075431931361
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6479790327452783675}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &6517953605562274073
 GameObject:
   m_ObjectHideFlags: 0
@@ -66768,6 +67451,7 @@ GameObject:
   - component: {fileID: 629720668389282073}
   - component: {fileID: 3986871941425121442}
   - component: {fileID: 5488567162419545072}
+  - component: {fileID: 1903227715959328297}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -66891,6 +67575,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1903227715959328297
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7108735945209579580}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.your_teaching_persona
 --- !u!1 &7121018808907980479
 GameObject:
   m_ObjectHideFlags: 0
@@ -66977,6 +67674,7 @@ GameObject:
   - component: {fileID: 6879944955253175776}
   - component: {fileID: 1699974830959472500}
   - component: {fileID: 9086817386833893286}
+  - component: {fileID: 5910738245248272303}
   m_Layer: 5
   m_Name: CREATIVE STORYTELLER
   m_TagString: Untagged
@@ -67100,6 +67798,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5910738245248272303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7121783218143622019}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: persona.creative_storyteller
 --- !u!1 &7122704708063051072
 GameObject:
   m_ObjectHideFlags: 0
@@ -67224,6 +67935,7 @@ GameObject:
   - component: {fileID: 5584829577570594756}
   - component: {fileID: 4324012153169104777}
   - component: {fileID: 7632032626089862334}
+  - component: {fileID: 1370102722609619320}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67347,6 +68059,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &1370102722609619320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7174430155998351142}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.tag_structure_planning
 --- !u!1 &7191683944970875486
 GameObject:
   m_ObjectHideFlags: 0
@@ -67508,6 +68233,7 @@ GameObject:
   - component: {fileID: 1154510618239048121}
   - component: {fileID: 425241340705144307}
   - component: {fileID: 5318465589880877795}
+  - component: {fileID: 7111950663799060660}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67631,6 +68357,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7111950663799060660
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258561954422508005}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.calm_structured
 --- !u!1 &7278949414666045237
 GameObject:
   m_ObjectHideFlags: 0
@@ -67717,6 +68456,7 @@ GameObject:
   - component: {fileID: 1178298141675051824}
   - component: {fileID: 2845809141320633781}
   - component: {fileID: 3678179673002806930}
+  - component: {fileID: 2134037925697420679}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67840,6 +68580,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2134037925697420679
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7350837417857241192}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.text_editor
 --- !u!1 &7393918241597899942
 GameObject:
   m_ObjectHideFlags: 0
@@ -67851,6 +68604,7 @@ GameObject:
   - component: {fileID: 9065366333692000661}
   - component: {fileID: 1115762373112989502}
   - component: {fileID: 1405330828874746225}
+  - component: {fileID: 5899453317765137134}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -67974,6 +68728,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5899453317765137134
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7393918241597899942}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &7396214323787705157
 GameObject:
   m_ObjectHideFlags: 0
@@ -68107,6 +68874,7 @@ GameObject:
   - component: {fileID: 3717027408013969621}
   - component: {fileID: 4366494800486937039}
   - component: {fileID: 1370489756364555405}
+  - component: {fileID: 6684864283939614744}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -68230,6 +68998,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6684864283939614744
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7447695676015136621}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.ai_strengthen
 --- !u!1 &7474866969754043211
 GameObject:
   m_ObjectHideFlags: 0
@@ -68819,6 +69600,7 @@ GameObject:
   - component: {fileID: 4508418050816506934}
   - component: {fileID: 7105625741911653324}
   - component: {fileID: 6881639375071554931}
+  - component: {fileID: 5499046732975953222}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -68942,6 +69724,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5499046732975953222
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7667849618767810796}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.discover_persona
 --- !u!1 &7685225462061372888
 GameObject:
   m_ObjectHideFlags: 0
@@ -74207,6 +75002,7 @@ GameObject:
   - component: {fileID: 6203428609542003231}
   - component: {fileID: 1256396196154468617}
   - component: {fileID: 203942747136988298}
+  - component: {fileID: 5953921906468371355}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -74330,6 +75126,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5953921906468371355
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7796725620474189608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.question_quote
 --- !u!1 &7894855909484967693
 GameObject:
   m_ObjectHideFlags: 0
@@ -74824,6 +75633,7 @@ GameObject:
   - component: {fileID: 3635815880654338915}
   - component: {fileID: 1865331842300736959}
   - component: {fileID: 480890966983391912}
+  - component: {fileID: 2886969395872892864}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -74947,6 +75757,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2886969395872892864
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8090650357492576442}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.q1_structure
 --- !u!1 &8159222316299421423
 GameObject:
   m_ObjectHideFlags: 0
@@ -85062,6 +85885,7 @@ GameObject:
   - component: {fileID: 2699492394378810998}
   - component: {fileID: 577689500521968450}
   - component: {fileID: 5229828440774679860}
+  - component: {fileID: 4358411430590318081}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -85185,6 +86009,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4358411430590318081
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8324035777993669696}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.learning_journey
 --- !u!1 &8337875436325390429
 GameObject:
   m_ObjectHideFlags: 0
@@ -85991,6 +86828,7 @@ GameObject:
   - component: {fileID: 4487858887462374157}
   - component: {fileID: 8429139875466246108}
   - component: {fileID: 4449968585507391928}
+  - component: {fileID: 6331582425601429604}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -86114,6 +86952,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6331582425601429604
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8592951529466010546}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &8601016628657218692
 GameObject:
   m_ObjectHideFlags: 0
@@ -86621,7 +87472,7 @@ GameObject:
   - component: {fileID: 5641595822804143325}
   - component: {fileID: 2078856363658735672}
   m_Layer: 5
-  m_Name: UI
+  m_Name: EcoTweenAnimationStepAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -86667,6 +87518,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: aefec17d0722c0e469df7413b6356db8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  uiName: 0
+  closeBtn: {fileID: 0}
+  isAnimBtnClose: 0
+  isCache: 0
   Steps:
   - {fileID: 5641595822804143325}
   - {fileID: 0}
@@ -86726,13 +87581,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 0
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 0
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -86750,7 +87606,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 2692767847921204189}
 --- !u!114 &2078856363658735672
@@ -86787,13 +87643,14 @@ MonoBehaviour:
   _canvasGroupOptions:
     From: 1
     To: 1
+    IsControlFromTo: 0
     BlockRaycast: 1
   _floatOptions:
     From: 0
     To: 1
   _textOptions:
-    FromText: 
-    ToText: Sample Text
+    FromStr: 
+    ToStr: 
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
@@ -86808,6 +87665,7 @@ GameObject:
   - component: {fileID: 5392301524286152645}
   - component: {fileID: 7193851659400507734}
   - component: {fileID: 3595292348160675565}
+  - component: {fileID: 506661183765947188}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -86931,6 +87789,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &506661183765947188
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8780424604100561715}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.creativity
 --- !u!1 &8783465967393897063
 GameObject:
   m_ObjectHideFlags: 0
@@ -87055,6 +87926,7 @@ GameObject:
   - component: {fileID: 5121253672061576331}
   - component: {fileID: 2188089238755403803}
   - component: {fileID: 7315966161717341381}
+  - component: {fileID: 2840171586419130879}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -87178,6 +88050,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2840171586419130879
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8852090515302095511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.you_have_unlock
 --- !u!1 &8858627731323576570
 GameObject:
   m_ObjectHideFlags: 0
@@ -87461,6 +88346,7 @@ GameObject:
   - component: {fileID: 6923018130577573293}
   - component: {fileID: 790114022545779279}
   - component: {fileID: 8457433953598305920}
+  - component: {fileID: 9127031212817361183}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -87584,6 +88470,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &9127031212817361183
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8969367564692587972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.start_level1
 --- !u!1 &8974496419632002808
 GameObject:
   m_ObjectHideFlags: 0
@@ -87760,6 +88659,7 @@ GameObject:
   - component: {fileID: 3965741748214232884}
   - component: {fileID: 2322912019438143438}
   - component: {fileID: 4148121268554847477}
+  - component: {fileID: 4307230751308813580}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -87883,6 +88783,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4307230751308813580
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9020321282472286134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.send
 --- !u!1 &9040087800423100469
 GameObject:
   m_ObjectHideFlags: 0
@@ -88371,6 +89284,7 @@ GameObject:
   - component: {fileID: 4516855418151848919}
   - component: {fileID: 321013098799105824}
   - component: {fileID: 5211989560191957054}
+  - component: {fileID: 8460226028656596498}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -88494,6 +89408,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8460226028656596498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9136201871268460170}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.question_phrase
 --- !u!1 &9142592095576089093
 GameObject:
   m_ObjectHideFlags: 0

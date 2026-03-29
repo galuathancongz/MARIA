@@ -117,6 +117,7 @@ GameObject:
   - component: {fileID: 6601526193126984312}
   - component: {fileID: 9134561950694256666}
   - component: {fileID: 5218158671937313365}
+  - component: {fileID: 5187904623232423524}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -240,6 +241,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5187904623232423524
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3327771636952047897}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.main_menu
 --- !u!1 &3522345980211980136
 GameObject:
   m_ObjectHideFlags: 0
@@ -334,7 +348,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 7862725249256627224}
 --- !u!1 &3756540855006678430
@@ -656,7 +670,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1492598067148496780}
 --- !u!1 &5895128707143969268
@@ -948,7 +962,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8314936027529484461
 GameObject:
   m_ObjectHideFlags: 0
@@ -1125,6 +1139,7 @@ GameObject:
   - component: {fileID: 7364190409405096896}
   - component: {fileID: 1244416913092081269}
   - component: {fileID: 2987059604160659439}
+  - component: {fileID: 8242720267981290264}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1248,6 +1263,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8242720267981290264
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8848797964565342459}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.start_level2
 --- !u!1 &8887035517937132921
 GameObject:
   m_ObjectHideFlags: 0

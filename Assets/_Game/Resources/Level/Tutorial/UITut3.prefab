@@ -222,6 +222,7 @@ GameObject:
   - component: {fileID: 4695703864713630024}
   - component: {fileID: 324088232108006274}
   - component: {fileID: 6244832875535883492}
+  - component: {fileID: 7677826094251454244}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -345,6 +346,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7677826094251454244
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1628132463945179578}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.gen_ai_suggests
 --- !u!1 &1873855923682199091
 GameObject:
   m_ObjectHideFlags: 0
@@ -357,6 +371,7 @@ GameObject:
   - component: {fileID: 5930455803075984644}
   - component: {fileID: 728790033863526325}
   - component: {fileID: 5479971661700767120}
+  - component: {fileID: 4593834054512529863}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -525,6 +540,19 @@ MonoBehaviour:
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
+--- !u!114 &4593834054512529863
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1873855923682199091}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.try_prompt
 --- !u!1 &2038075028649421680
 GameObject:
   m_ObjectHideFlags: 0
@@ -10946,6 +10974,7 @@ GameObject:
   - component: {fileID: 8805076073571975288}
   - component: {fileID: 2446114339296921667}
   - component: {fileID: 7267835432121289330}
+  - component: {fileID: 8019627921863172803}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -11069,6 +11098,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8019627921863172803
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5271792063493265147}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next
 --- !u!1 &5314683247316420631
 GameObject:
   m_ObjectHideFlags: 0
@@ -16710,6 +16752,7 @@ GameObject:
   - component: {fileID: 5117198122604479557}
   - component: {fileID: 8417285683786705001}
   - component: {fileID: 2385720387354384518}
+  - component: {fileID: 6373496957319255702}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -16833,6 +16876,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &6373496957319255702
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6474520910196424335}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.example_pizza
 --- !u!1 &6482882719168138709
 GameObject:
   m_ObjectHideFlags: 0
@@ -17146,6 +17202,7 @@ GameObject:
   - component: {fileID: 9005418918181030381}
   - component: {fileID: 6909087721152721470}
   - component: {fileID: 8515807068649681505}
+  - component: {fileID: 7273964681378938851}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -17269,6 +17326,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &7273964681378938851
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7528124152753839138}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.example_cooking
 --- !u!1 &7712385347670223281
 GameObject:
   m_ObjectHideFlags: 0

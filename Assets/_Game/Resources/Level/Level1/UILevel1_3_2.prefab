@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 274639061915070040}
   - component: {fileID: 3447048337731863692}
   - component: {fileID: 8629605197506457220}
+  - component: {fileID: 8348178436948439408}
   m_Layer: 5
   m_Name: txtTimer
   m_TagString: Untagged
@@ -134,6 +135,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8348178436948439408
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 22754669421011864}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.timer
 --- !u!1 &127713376109765950
 GameObject:
   m_ObjectHideFlags: 0
@@ -1481,6 +1495,7 @@ GameObject:
   - component: {fileID: 2624015009645826029}
   - component: {fileID: 4009402060610979768}
   - component: {fileID: 436560739574041190}
+  - component: {fileID: 4415139127691536333}
   m_Layer: 5
   m_Name: txtWord
   m_TagString: Untagged
@@ -1616,6 +1631,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &4415139127691536333
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4036915374504074825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.students
 --- !u!1 &4155773352491511617
 GameObject:
   m_ObjectHideFlags: 0
@@ -1680,6 +1708,7 @@ GameObject:
   - component: {fileID: 2684678310437067218}
   - component: {fileID: 9062021076179784420}
   - component: {fileID: 8630235246934071761}
+  - component: {fileID: 8537873200073748509}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1815,6 +1844,19 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &8537873200073748509
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4499902047448904237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.word_association
 --- !u!1 &4793219135232388351
 GameObject:
   m_ObjectHideFlags: 0
@@ -1826,6 +1868,7 @@ GameObject:
   - component: {fileID: 4277265523333341276}
   - component: {fileID: 384332719249718931}
   - component: {fileID: 179402156660084892}
+  - component: {fileID: 8747938659208860981}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1949,6 +1992,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &8747938659208860981
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4793219135232388351}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.collaboration
 --- !u!1 &4876409878985109684
 GameObject:
   m_ObjectHideFlags: 0
@@ -2132,6 +2188,7 @@ GameObject:
   - component: {fileID: 7648478856581133423}
   - component: {fileID: 6314658131132023616}
   - component: {fileID: 5461024358862554204}
+  - component: {fileID: 3612292535108356282}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2255,6 +2312,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &3612292535108356282
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5836935662935035473}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: ui.next_question
 --- !u!1 &7127206160602362151
 GameObject:
   m_ObjectHideFlags: 0
@@ -2316,6 +2386,7 @@ GameObject:
   - component: {fileID: 2216007993293191662}
   - component: {fileID: 8087940532336134362}
   - component: {fileID: 7063197820754211993}
+  - component: {fileID: 5014457342061838168}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2439,6 +2510,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5014457342061838168
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7264297456774475954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.inspiration
 --- !u!1 &7375938722378692787
 GameObject:
   m_ObjectHideFlags: 0
@@ -2860,6 +2944,7 @@ GameObject:
   - component: {fileID: 3424823334709404483}
   - component: {fileID: 1025794080280471577}
   - component: {fileID: 7175965166765365702}
+  - component: {fileID: 4293356964775251161}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -2983,6 +3068,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4293356964775251161
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9093742922459012671}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.progress_tracking
 --- !u!1 &9206339810572732705
 GameObject:
   m_ObjectHideFlags: 0
