@@ -10,13 +10,13 @@ namespace Luzart
     {
         // ============ CONFIGURATION ============
         // Thay doi URL nay khi deploy len server
-        // Neu chay local: http://localhost:3000
-        // Neu deploy cung FTP: dung URL tuong doi hoac domain cua ban
+        // Neu chay local:  http://localhost:3000
+        // Neu deploy VPS:  http://YOUR_SERVER_IP:3000
+        // Neu co domain:   https://yourdomain.com
 #if UNITY_EDITOR
-        private const string BASE_URL = "http://localhost:3000";
+        private const string BASE_URL = "http://localhost:3000";   // ← local dev
 #else
-        // Khi build WebGL, server va game cung domain nen dung relative path
-        private const string BASE_URL = "";
+        private const string BASE_URL = "http://app.gameaids.org:3000"; // ← VPS production
 #endif
         private const float TIMEOUT = 30f;
 
