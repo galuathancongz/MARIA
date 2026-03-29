@@ -17,7 +17,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &3907301004810880982
 RectTransform:
   m_ObjectHideFlags: 0
@@ -358,7 +358,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4966784489887701856
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1165,7 +1165,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aa853c791d8654da08c4d6436b85c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isSelect: 0
+  _isSelect: 1
   obSelect:
   - {fileID: 684648959159609531}
   obUnSelect:
@@ -3001,7 +3001,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &4877910532473367572
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3109,7 +3109,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 12aa853c791d8654da08c4d6436b85c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _isSelect: 1
+  _isSelect: 0
   obSelect:
   - {fileID: 8310637052374858039}
   obUnSelect:
@@ -3189,8 +3189,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4278190080
-  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
+    rgba: 4279505940
+  m_fontColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -4059,7 +4059,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &375063288064298390
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4272,11 +4272,11 @@ MonoBehaviour:
   - {fileID: 3951712786192792309}
   _currentStep: 0
   currentStoryboard: 0
+  selectTab: {fileID: 2911714263709500746}
+  currentTab: 0
   selectRefine: {fileID: 4801574201023570164}
   isShowRefine: 0
-  scriptConversation: {fileID: 6423929305259356544}
-  visualConversationItem: {fileID: 0}
-  quizzConversationItem: {fileID: 0}
+  conversationItem: {fileID: 6423929305259356544}
 --- !u!1 &8768960438787091367
 GameObject:
   m_ObjectHideFlags: 0
@@ -4352,8 +4352,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4279505940
-  m_fontColor: {r: 0.078431375, g: 0.078431375, b: 0.078431375, a: 1}
+    rgba: 4278190080
+  m_fontColor: {r: 0, g: 0, b: 0, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
