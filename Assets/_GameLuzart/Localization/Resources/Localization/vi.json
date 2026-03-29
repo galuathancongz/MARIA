@@ -403,6 +403,11 @@
   {"key": "level3.responsity_menu", "value": "Menu trách nhiệm"},
   {"key": "level2.tab_visual_typo", "value": "Hình ảnh"},
   {"key": "tutorial.great_teacher_static", "value": "\"Tuyệt vời! Một giáo viên, tuyệt lắm."},
-  {"key": "level2.example_prompt2_full", "value": "Bạn có thể dùng phương pháp 'dạy lại với AI' để AI giải thích khái niệm phổ điện từ cho học sinh và xây dựng dựa trên câu trả lời của các em không?"}
+  {"key": "level2.example_prompt2_full", "value": "Bạn có thể dùng phương pháp 'dạy lại với AI' để AI giải thích khái niệm phổ điện từ cho học sinh và xây dựng dựa trên câu trả lời của các em không?"},
+
+  {"key": "tooltip.accept", "value": "Chấp nhận gợi ý của AI"},
+  {"key": "tooltip.refine", "value": "Chỉnh sửa theo ý bạn"},
+  {"key": "tooltip.regenerate", "value": "Tạo gợi ý mới"},
+  {"key": "tooltip.continue", "value": "Tiếp tục bước tiếp theo"}
 
 ]}
