@@ -56,7 +56,7 @@ namespace Luzart
             float percent = (_data.curiosity_score / 5f) * 100f;
             float sliderValue = percent / 100f;
             progressBarUI.SetSlider(sliderValue, sliderValue,0);
-            txtPercent.text = $"{Mathf.RoundToInt(percent)}%";
+            txtPercent.text = $"{Loc.K("level2.curiosity_score")} : {Mathf.RoundToInt(percent)}%";
         }
     }
     [Serializable]

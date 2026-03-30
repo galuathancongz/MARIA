@@ -78,6 +78,7 @@ namespace Luzart
             {UIName.Level1_4,"1,0,Level/Level1/UILevel1_4" },
             {UIName.Level1_4_1,"1,0,Level/Level1/UILevel1_4_1" },
             {UIName.Level1_5,"1,0,Level/Level1/UILevel1_5" },
+            {UIName.Level1_5_1,"1,0,Level/Level1/UILevel1_5_1" },
             {UIName.Level1_6,"1,0,Level/Level1/UILevel1_6" },
             {UIName.Level2_1,"1,0,Level/Level2/UILevel2_1" },
             {UIName.Level2_1_1,"1,0,Level/Level2/UILevel2_1_1" },
@@ -87,6 +88,7 @@ namespace Luzart
             {UIName.Level2_3_1,"1,0,Level/Level2/UILevel2_3_1" },
             {UIName.Level2_4,"1,0,Level/Level2/UILevel2_4" },
             {UIName.Level2_5,"1,0,Level/Level2/UILevel2_5" },
+            {UIName.Level2_5_1,"1,0,Level/Level2/UILevel2_5_1" },
             {UIName.Level2_6,"1,0,Level/Level2/UILevel2_6" },
             {UIName.Level3_1,"1,0,Level/Level3/UILevel3_1" },
             {UIName.Level3_1_1,"1,0,Level/Level3/UILevel3_1_1" },
@@ -144,6 +146,7 @@ namespace Luzart
             UIName.Level1_4,
             UIName.Level1_4_1,
             UIName.Level1_5,
+            UIName.Level1_5_1,
             UIName.Level1_6,
 
 
@@ -156,6 +159,7 @@ namespace Luzart
             UIName.Level2_3_1,
             UIName.Level2_4,
             UIName.Level2_5,
+            UIName.Level2_5_1,
             UIName.Level2_6,
 
 
@@ -250,6 +254,7 @@ namespace Luzart
                 uiName == UIName.Level1_4 ||
                 uiName == UIName.Level1_4_1 ||
                 uiName == UIName.Level1_5 ||
+                uiName == UIName.Level1_5_1 ||
                 uiName == UIName.Level1_6 ||
 
                 uiName == UIName.Level2_1_1 ||
@@ -258,6 +263,7 @@ namespace Luzart
                 uiName == UIName.Level2_3_1 ||
                 uiName == UIName.Level2_4 ||
                 uiName == UIName.Level2_5 ||
+                uiName == UIName.Level2_5_1 ||
                 uiName == UIName.Level2_6 ||
 
                 uiName == UIName.Level3_1_1 ||
@@ -652,6 +658,7 @@ namespace Luzart
         Level1_4 = 1400,
         Level1_4_1 = 1410,
         Level1_5 = 1500,
+        Level1_5_1 = 1510,
         Level1_6 = 1600,
         Level2_1 = 2100,
         Level2_1_1 = 2110,
@@ -661,6 +668,7 @@ namespace Luzart
         Level2_3_1 = 2310,
         Level2_4 = 2400,
         Level2_5 = 2500,
+        Level2_5_1 = 2510,
         Level2_6 = 2600,
         Level3_1 = 3100,
         Level3_1_1 = 3110,
