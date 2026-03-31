@@ -32,6 +32,7 @@ db.exec(`
     level2_json TEXT DEFAULT '{}',
     level3_json TEXT DEFAULT '{}',
     settings_json TEXT DEFAULT '{"sfxVolume":1.0,"musicVolume":1.0,"muteVibra":0}',
+    skills_json TEXT DEFAULT '{"unlocked":[]}',
     updated_at DATETIME DEFAULT (datetime('now')),
     FOREIGN KEY (user_id) REFERENCES users(id) ON DELETE CASCADE
   );
@@ -40,6 +41,13 @@ db.exec(`
 // Migrate: add email column if not exists (for existing databases)
 try {
   db.exec(`ALTER TABLE users ADD COLUMN email TEXT DEFAULT ''`);
+} catch (e) {
+  // Column already exists — ignore
+}
+
+// Migrate: add skills_json column if not exists
+try {
+  db.exec(`ALTER TABLE game_data ADD COLUMN skills_json TEXT DEFAULT '{"unlocked":[]}'`);
 } catch (e) {
   // Column already exists — ignore
 }
