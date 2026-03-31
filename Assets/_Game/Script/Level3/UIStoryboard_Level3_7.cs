@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Luzart
 {
@@ -17,6 +18,7 @@ namespace Luzart
         public TMP_Text txtProgressLevel2;
         public TMP_Text txtProgressLevel3;
         public TMP_Text txtResponse;
+        public Button btnExportPlan;
         private DataLevel3_7 _data = new DataLevel3_7();
         public override void Show(Action onHideDone)
         {
@@ -29,6 +31,8 @@ namespace Luzart
 
                 // Badge: lesson design aligned with the player's Level 1 teaching persona
                 SkillManager.Instance?.UnlockSkill(ESkillId.PersonaAligned);
+
+                GameUtil.ButtonOnClick(btnExportPlan, PdfExporter.ExportLessonPlan);
 
                 Send();
                 UIManager.Instance.ShowLoading();

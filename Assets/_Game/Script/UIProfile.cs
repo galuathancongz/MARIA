@@ -30,6 +30,7 @@ public class UIProfile : UIBase
     public TMP_InputField txtAge;
     public BaseSelect     bsPersona;
     public Button         btnLogout;
+    public Button         btnExportReport;
 
     // ── Overall progress ─────────────────────────────────────────────────────
     [Header("Progress")]
@@ -82,32 +83,34 @@ public class UIProfile : UIBase
             bsPersona.Select((int)PersonaManager.Instance.GetMyPersonaType());
 
         GameUtil.ButtonOnClick(btnLogout, OnClickLogout);
+        GameUtil.ButtonOnClick(btnExportReport, Luzart.PdfExporter.ExportGrowthReport);
     }
 
     // ═════════════════════════════════════════════════════════════════════════
     //  Skills section
     // ═════════════════════════════════════════════════════════════════════════
 
-    /// <summary>Rebuild the full skill list. Call after unlocking new skills.</summary>
+    /// <summary>Rebuild skill list — only shows unlocked badges.</summary>
     public void RefreshSkills()
     {
         if (skillItemPrefab == null || skillListContent == null) return;
 
-        var all = SkillDefinition.All;
+        // Only unlocked skills
+        var unlocked = SkillDefinition.GetUnlocked();
 
-        MasterHelper.InitListObj(all.Length, skillItemPrefab, _skillItems, skillListContent,
+        MasterHelper.InitListObj(unlocked.Count, skillItemPrefab, _skillItems, skillListContent,
             (item, i) =>
             {
                 item.gameObject.SetActive(true);
-                item.Setup(all[i].id);
+                item.Setup(unlocked[i]);
             });
 
         // Overall counts
         if (SkillManager.Instance != null)
         {
-            int unlocked = SkillManager.Instance.CountAll();
-            int total    = SkillManager.Instance.TotalAll();
-            if (txtSkillCount) txtSkillCount.text = $"{unlocked} / {total}";
+            int count = SkillManager.Instance.CountAll();
+            int total = SkillManager.Instance.TotalAll();
+            if (txtSkillCount) txtSkillCount.text = $"{count} / {total}";
         }
 
         // Level progress

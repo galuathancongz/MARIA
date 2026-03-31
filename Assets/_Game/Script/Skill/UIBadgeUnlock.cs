@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
@@ -8,100 +7,83 @@ using UnityEngine.UI;
 namespace Luzart
 {
     // ══════════════════════════════════════════════════════════════════════════
-    //  UIBadgeUnlock  :  UIBase
+    //  UIBadgeUnlock : UIBase
     //
-    //  Popup thông báo khi người chơi nhận được badge mới.
-    //  Được gọi bởi SkillManager.UnlockSkill() thông qua UIManager —
-    //  cùng pattern với UIToast:
-    //      var popup = UIManager.Instance.ShowUI<UIBadgeUnlock>(UIName.BadgeUnlock);
-    //      popup.Enqueue(id);
+    //  Popup khi unlock badge. Show lên và ở đó cho đến khi user bấm close.
+    //  Nếu có nhiều badge unlock cùng lúc → bấm close → hiện cái tiếp theo.
     //
     //  Inspector wiring:
-    //    cardPanel   — GameObject con chứa nội dung card (child của this)
-    //    txtEmoji    — emoji lớn  (e.g. "🎓")
-    //    txtTitle    — tên badge (auto-localized)
-    //    txtDesc     — mô tả badge (auto-localized)
-    //    imgIcon     — sprite icon (ẩn tự động nếu null)
-    //    imgBg       — background; tint màu theo SkillConfigEntry.badgeColor
-    //    closeBtn    — (field của UIBase) nút × đóng sớm
-    //
-    //    isCache     — PHẢI tick true trong Inspector
-    //    uiName      — set = UIName.BadgeUnlock
+    //    cardPanel — GameObject chứa nội dung card
+    //    imgIcon   — Image sprite badge
+    //    txtTitle  — TMP_Text tên badge
+    //    txtDesc   — TMP_Text mô tả badge
+    //    closeBtn  — Button đóng (field của UIBase)
+    //    isCache   — tick true
     // ══════════════════════════════════════════════════════════════════════════
     public class UIBadgeUnlock : UIBase
     {
-        // ── Inspector refs ────────────────────────────────────────────────────
         [Header("Badge Card")]
         public GameObject cardPanel;
-        public TMP_Text   txtEmoji;
+        public Image      imgIcon;
         public TMP_Text   txtTitle;
         public TMP_Text   txtDesc;
-        public Image      imgIcon;
-        public Image      imgBg;
 
-        [Header("Timing")]
-        public float displayDuration  = 3.5f;
-        public float gapBetweenPopups = 0.35f;
+        private readonly Queue<ESkillId> _queue = new Queue<ESkillId>();
 
-        // ── Internal queue ────────────────────────────────────────────────────
-        private readonly Queue<ESkillId> _queue    = new Queue<ESkillId>();
-        private bool                     _isShowing = false;
-
-        // ══════════════════════════════════════════════════════════════════════
-        //  UIBase overrides
-        // ══════════════════════════════════════════════════════════════════════
+        private bool _initialized = false;
 
         public override void Show(Action onHideDone)
         {
-            base.Show(onHideDone);          // Setup() + gameObject.SetActive(true)
-            if (cardPanel != null) cardPanel.SetActive(false); // card bắt đầu ẩn; Enqueue() mở ra
+            base.Show(onHideDone);
+            // Chỉ ẩn card lần đầu tiên. Các lần ShowUI sau không reset card đang hiện.
+            if (!_initialized)
+            {
+                if (cardPanel != null) cardPanel.SetActive(false);
+                _initialized = true;
+            }
         }
 
-        // ══════════════════════════════════════════════════════════════════════
-        //  Public API  — được gọi bởi SkillManager
-        // ══════════════════════════════════════════════════════════════════════
-
-        /// <summary>
-        /// Thêm badge vào hàng đợi để hiển thị.
-        /// Nếu badge có showPopupOnUnlock = false trong SkillConfigDatabase thì bỏ qua.
-        /// </summary>
+        /// <summary>Thêm badge vào queue. Nếu chưa đang show thì show ngay.</summary>
         public void Enqueue(ESkillId id)
         {
             var cfg = SkillConfigDatabase.Instance?.Get(id);
             if (cfg != null && !cfg.showPopupOnUnlock) return;
 
             _queue.Enqueue(id);
-            if (!_isShowing)
-                StartCoroutine(DrainQueue());
+
+            // Nếu card đang ẩn → show cái đầu tiên trong queue
+            if (cardPanel != null && !cardPanel.activeSelf)
+                ShowNext();
         }
 
-        // ══════════════════════════════════════════════════════════════════════
-        //  Queue processing
-        // ══════════════════════════════════════════════════════════════════════
-
-        private IEnumerator DrainQueue()
+        /// <summary>User bấm close → show cái tiếp nếu còn, hết thì ẩn popup.</summary>
+        public override void OnClickClose()
         {
-            _isShowing = true;
+            HideCard();
 
-            while (_queue.Count > 0)
+            if (_queue.Count > 0)
             {
-                ShowCard(_queue.Dequeue());
-                yield return new WaitForSeconds(displayDuration);
-                HideCard();
-                yield return new WaitForSeconds(gapBetweenPopups);
+                ShowNext();
             }
-
-            _isShowing = false;
+            else
+            {
+                _initialized = false;
+                base.OnClickClose(); // ẩn toàn bộ popup qua UIBase
+            }
         }
 
-        private void ShowCard(ESkillId id)
+        private void ShowNext()
         {
+            if (_queue.Count == 0) return;
+
+            var id   = _queue.Dequeue();
             var info = SkillDefinition.Get(id);
             var cfg  = SkillConfigDatabase.Instance?.Get(id);
 
             if (info == null) return;
 
-            if (txtEmoji != null) txtEmoji.text = info.emoji;
+            if (imgIcon != null && cfg?.icon != null)
+                imgIcon.sprite = cfg.icon;
 
             if (txtTitle != null)
                 txtTitle.text = LocalizationManager.Instance != null
@@ -113,42 +95,12 @@ namespace Luzart
                     ? LocalizationManager.Instance.Get(info.descKey)
                     : info.descKey;
 
-            if (imgIcon != null)
-            {
-                bool hasSprite = cfg?.icon != null;
-                imgIcon.gameObject.SetActive(hasSprite);
-                if (hasSprite) imgIcon.sprite = cfg.icon;
-            }
-
-            if (imgBg != null && cfg != null)
-                imgBg.color = cfg.badgeColor;
-
             if (cardPanel != null) cardPanel.SetActive(true);
         }
 
         private void HideCard()
         {
             if (cardPanel != null) cardPanel.SetActive(false);
-        }
-
-        // ══════════════════════════════════════════════════════════════════════
-        //  Close button  (closeBtn field của UIBase — được Setup() tự wire)
-        // ══════════════════════════════════════════════════════════════════════
-
-        public override void OnClickClose()
-        {
-            StopAllCoroutines();
-            HideCard();
-            _isShowing = false;
-
-            if (_queue.Count > 0)
-                StartCoroutine(ResumeAfterGap());
-        }
-
-        private IEnumerator ResumeAfterGap()
-        {
-            yield return new WaitForSeconds(gapBetweenPopups);
-            StartCoroutine(DrainQueue());
         }
     }
 }

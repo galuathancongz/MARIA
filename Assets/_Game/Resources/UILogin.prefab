@@ -234,10 +234,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 609872852172382993}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0}
-  m_AnchorMax: {x: 0.5, y: 0}
-  m_AnchoredPosition: {x: 0, y: 29}
-  m_SizeDelta: {x: 460, y: 40}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 1.8898, y: 87}
+  m_SizeDelta: {x: 630.0912, y: 65.679016}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &4961677810967780140
 CanvasRenderer:
@@ -297,7 +297,7 @@ MonoBehaviour:
   m_fontSize: 13
   m_fontSizeBase: 13
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
@@ -422,16 +422,16 @@ RectTransform:
   m_Children:
   - {fileID: 6188382585745049821}
   - {fileID: 9069600559356465432}
+  - {fileID: 8567716222334856152}
   - {fileID: 7361133778643733020}
   - {fileID: 7306036180937797253}
-  - {fileID: 8567716222334856152}
   - {fileID: 549333010928211930}
   m_Father: {fileID: 68784031746281232}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 727, y: 509}
+  m_AnchoredPosition: {x: 0, y: -22.6788}
+  m_SizeDelta: {x: 727, y: 554.3577}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &3363995750917431437
 CanvasRenderer:
@@ -2344,10 +2344,18 @@ PrefabInstance:
       objectReference: {fileID: 21300000, guid: c567cdd07fb1c2e4e98d46fea7b4bf89, type: 3}
     - target: {fileID: 8025788832889996222, guid: 9af08aec28b2eca4580904f496076ff8, type: 3}
       propertyPath: m_InputType
-      value: 2
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8025788832889996222, guid: 9af08aec28b2eca4580904f496076ff8, type: 3}
       propertyPath: m_ContentType
+      value: 6
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025788832889996222, guid: 9af08aec28b2eca4580904f496076ff8, type: 3}
+      propertyPath: m_KeyboardType
+      value: 7
+      objectReference: {fileID: 0}
+    - target: {fileID: 8025788832889996222, guid: 9af08aec28b2eca4580904f496076ff8, type: 3}
+      propertyPath: m_CharacterValidation
       value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 8473861682401794028, guid: 9af08aec28b2eca4580904f496076ff8, type: 3}

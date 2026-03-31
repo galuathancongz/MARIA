@@ -125,5 +125,16 @@ namespace Luzart
 
         public static int TotalForLevel(int level) => ForLevel(level).Length;
         public static int Total => All.Length; // 20
+
+        /// <summary>Returns list of ESkillId that the player has unlocked.</summary>
+        public static System.Collections.Generic.List<ESkillId> GetUnlocked()
+        {
+            var list = new System.Collections.Generic.List<ESkillId>();
+            if (SkillManager.Instance == null) return list;
+            foreach (var s in All)
+                if (SkillManager.Instance.HasSkill(s.id))
+                    list.Add(s.id);
+            return list;
+        }
     }
 }
