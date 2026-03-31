@@ -240,21 +240,21 @@ namespace Luzart
 
             // Level2 data
             if (!string.IsNullOrEmpty(data.level2Json) && data.level2Json != "{}")
-            {
                 PlayerPrefs.SetString("Level2_AI", data.level2Json);
-            }
+            else
+                PlayerPrefs.DeleteKey("Level2_AI");
 
             // Level3 data
             if (!string.IsNullOrEmpty(data.level3Json) && data.level3Json != "{}")
-            {
                 PlayerPrefs.SetString("Level3_Data", data.level3Json);
-            }
+            else
+                PlayerPrefs.DeleteKey("Level3_Data");
 
             // Level4 quiz data
             if (!string.IsNullOrEmpty(data.level4Json) && data.level4Json != "{}")
-            {
                 PlayerPrefs.SetString("Level_4", data.level4Json);
-            }
+            else
+                PlayerPrefs.DeleteKey("Level_4");
 
             // analyticsJson is read-only (computed on save, not restored)
 
@@ -272,9 +272,9 @@ namespace Luzart
 
             // Skills
             if (!string.IsNullOrEmpty(data.skillsJson) && data.skillsJson != "{}")
-            {
                 SkillManager.Instance?.FromJson(data.skillsJson);
-            }
+            else
+                SkillManager.Instance?.FromJson("{\"unlocked\":[]}");
 
             PlayerPrefs.Save();
 
