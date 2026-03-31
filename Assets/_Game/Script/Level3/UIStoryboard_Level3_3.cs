@@ -103,6 +103,8 @@ namespace Luzart
             var strTitle = CurrentTitle();
             var strRequest = GetLevel3Prompt(strTitle, str);
             _refineCountForCurrentSection++;
+            Data.totalRefineCount++;
+            Level3Manager.Instance.Save();
             // Badge: refined one section 3+ times
             if (_refineCountForCurrentSection >= 3)
                 SkillManager.Instance?.UnlockSkill(ESkillId.IterationChampion);

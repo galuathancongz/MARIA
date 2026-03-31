@@ -42,6 +42,8 @@ namespace Luzart
         public string level3Json;
         public string settingsJson;
         public string skillsJson;   // SkillSaveData JSON
+        public string level4Json;   // Level4Data JSON (quiz answers)
+        public string analyticsJson; // AnalyticsData JSON (derived metrics)
     }
 
     [System.Serializable]
@@ -67,7 +69,36 @@ namespace Luzart
         public string level3Json;
         public string settingsJson;
         public string skillsJson;   // SkillSaveData JSON
+        public string level4Json;   // Level4Data JSON (quiz answers)
+        public string analyticsJson; // AnalyticsData JSON (derived metrics)
         public string updatedAt;
+    }
+
+    // ========== ANALYTICS (computed snapshot, not stored locally) ==========
+    [System.Serializable]
+    public class AnalyticsData
+    {
+        // AI usage
+        public int aiSendCountLevel2;      // total user prompts in Level 2
+        public int aiSendCountLevel3;      // total user prompts in Level 3
+
+        // Revision
+        public int totalRefineCount;       // total refine calls across all Level 3 sections
+
+        // Inclusivity / differentiation
+        public int optionalFiltersUsed;    // number of optional filters applied
+        public string optionalFilters;     // comma-separated filter names
+
+        // GenAI competency indicators (derived from badge unlocks)
+        public bool c1_firstAIPrompt;      // C1: prompted AI (FirstAIPrompt badge)
+        public bool c2_lessonCoCreator;    // C2: built lesson with AI (LessonCoCreator)
+        public bool c3_inclusivePlanner;   // C3: used differentiation (InclusivePlanner)
+        public bool c4_feedbackArchitect;  // C4: gave structured feedback (FeedbackArchitect)
+        public bool c5_iterationChampion;  // C5: refined output 3+ times (IterationChampion)
+
+        // Context
+        public string personaType;         // player's dominant persona
+        public int quizAnswersCount;       // number of quiz questions answered
     }
 
     [System.Serializable]

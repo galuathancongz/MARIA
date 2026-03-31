@@ -178,6 +178,15 @@ namespace Luzart
             if (SkillManager.Instance != null)
                 request.skillsJson = SkillManager.Instance.ToJson();
 
+            // Level4 quiz answers
+            string level4Json = PlayerPrefs.GetString("Level_4", "");
+            if (!string.IsNullOrEmpty(level4Json))
+                request.level4Json = level4Json;
+
+            // Analytics snapshot (derived from all managers)
+            if (AnalyticsManager.Instance != null)
+                request.analyticsJson = JsonUtility.ToJson(AnalyticsManager.Instance.Build());
+
             return request;
         }
 
@@ -240,6 +249,14 @@ namespace Luzart
             {
                 PlayerPrefs.SetString("Level3_Data", data.level3Json);
             }
+
+            // Level4 quiz data
+            if (!string.IsNullOrEmpty(data.level4Json) && data.level4Json != "{}")
+            {
+                PlayerPrefs.SetString("Level_4", data.level4Json);
+            }
+
+            // analyticsJson is read-only (computed on save, not restored)
 
             // Settings
             if (!string.IsNullOrEmpty(data.settingsJson) && data.settingsJson != "{}")

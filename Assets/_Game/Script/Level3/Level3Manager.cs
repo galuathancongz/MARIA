@@ -44,6 +44,7 @@ namespace Luzart
         public string studentWork = "";
         public List<FeedbackSuggestion> listFeedbackSuggestions = new List<FeedbackSuggestion>();
         public List<string> listFeedbackSelected = new List<string>();
+        public int totalRefineCount = 0;  // total refine calls across all sections (for analytics)
 
         public int GetAllSendAI()
         {
