@@ -15,17 +15,8 @@ namespace Luzart
         }
         public void AddPersonaPoint(StepKey stepKey, EPersonaType personaType)
 		{
-			var persona = PersonaManager.Instance.GetPersonaByStepKey(stepKey);
-			if(persona == null)
-			{
-				PersonaManager.Instance.SetPersonaByStepKey(stepKey, personaType, 1);
-			}
-			else
-			{
-				int currentPoint = persona.Value.amount;
-				int nextPoint = currentPoint + 1;
-				PersonaManager.Instance.SetPersonaByStepKey(stepKey, personaType, nextPoint);
-            }
+			// Mỗi step chỉ tính 1 điểm. Chơi lại thì cập nhật type nhưng không cộng thêm.
+			PersonaManager.Instance.SetPersonaByStepKey(stepKey, personaType, 1);
         }
 
     }

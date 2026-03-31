@@ -16,55 +16,55 @@ MonoBehaviour:
   - skillId: 1
     icon: {fileID: 21300000, guid: 52598a59c703bb243a43334464759474, type: 3}
     badgeColor: {r: 1, g: 1, b: 1, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 2
     icon: {fileID: 21300000, guid: 0793dadfbf08adc4db99a449106e4889, type: 3}
     badgeColor: {r: 0, g: 0.7372549, b: 0.83137256, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 3
     icon: {fileID: 21300000, guid: b15f8dcd1a1cffb4da395d976ff4e7dc, type: 3}
     badgeColor: {r: 0.29803923, g: 0.6862745, b: 0.3137255, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 101
     icon: {fileID: 21300000, guid: b918abc878ebf3c429de09a4096d7d76, type: 3}
     badgeColor: {r: 1, g: 0.59607846, b: 0, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 102
     icon: {fileID: 21300000, guid: 9db920ef05de82c45b477b7950bd6afb, type: 3}
     badgeColor: {r: 0.12941177, g: 0.5882353, b: 0.9529412, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 103
     icon: {fileID: 21300000, guid: b5391292a8994cd4db0bc812b6b658d3, type: 3}
     badgeColor: {r: 0.54509807, g: 0.7647059, b: 0.2901961, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 104
     icon: {fileID: 21300000, guid: b866751796941d24ca2d6c0f52b2f17f, type: 3}
     badgeColor: {r: 0.6117647, g: 0.15294118, b: 0.6901961, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 105
     icon: {fileID: 21300000, guid: 4781080aa5e9fcf4bbe29545b6c4f6ff, type: 3}
     badgeColor: {r: 0.4745098, g: 0.33333334, b: 0.28235295, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 106
     icon: {fileID: 21300000, guid: b355b9f6098436e498c8826456352b63, type: 3}
     badgeColor: {r: 0.9137255, g: 0.11764706, b: 0.3882353, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 201
     icon: {fileID: 21300000, guid: 51cac2d1b6606424c90beb050c17b5f2, type: 3}
     badgeColor: {r: 0, g: 0.6745098, b: 0.75686276, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 202
     icon: {fileID: 21300000, guid: 5c177d0e577261d4fb8b599ae0a0e2b6, type: 3}
     badgeColor: {r: 1, g: 0.75686276, b: 0.02745098, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 203
     icon: {fileID: 21300000, guid: bfdf9e4748f5df24abcedacc73d9411e, type: 3}
     badgeColor: {r: 0, g: 0.5882353, b: 0.53333336, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 204
     icon: {fileID: 21300000, guid: 84ffb7e408354a648b2fcd96a27a3942, type: 3}
     badgeColor: {r: 0.24705882, g: 0.31764707, b: 0.70980394, a: 1}
-    showPopupOnUnlock: 1
+    showPopupOnUnlock: 0
   - skillId: 301
     icon: {fileID: 21300000, guid: 67c0edb681f01a14d99fe653a2e7166d, type: 3}
     badgeColor: {r: 0.09803922, g: 0.4627451, b: 0.8235294, a: 1}

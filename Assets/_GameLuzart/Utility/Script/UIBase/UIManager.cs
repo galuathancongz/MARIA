@@ -216,12 +216,12 @@ namespace Luzart
         public void ShowNextScenario()
         {
             HideUiActive(currentScenario);
-            var ui = ShowNextScenario<UIBase>();
+            ShowNextScenario<UIBase>();
         }
         public void ShowBackScenario()
         {
             HideUiActive(currentScenario);
-            var ui = ShowBackScenario<UIBase>();
+            ShowBackScenario<UIBase>();
         }
         public void CheckShowBtnBack(UIName uiName)
         {

@@ -58,18 +58,19 @@ namespace Luzart
         }
         public EPersonaType GetMyPersonaType()
         {
-            EPersonaType currentType = EPersonaType.Creative;
-            int first = Data.GetPersonaAmount(currentType);
-            for (int i = 0; i < Data.PersonaStats.Count; i++)
+            EPersonaType bestType = EPersonaType.Creative;
+            int bestTotal = 0;
+
+            foreach (EPersonaType type in Enum.GetValues(typeof(EPersonaType)))
             {
-                var stat = Data.PersonaStats[i];
-                if(stat.amount > first)
+                int total = Data.GetPersonaAmount(type);
+                if (total > bestTotal)
                 {
-                    first = stat.amount;
-                    currentType = stat.type;
+                    bestTotal = total;
+                    bestType = type;
                 }
             }
-            return currentType;
+            return bestType;
         }
 
         public PersonaStat? GetPersonaByStepKey(StepKey stepKey)
