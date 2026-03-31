@@ -48,8 +48,9 @@ namespace Luzart
             // Notify other systems (e.g. UIProfile live-refresh)
             Observer.Instance?.Notify(ObserverKey.OnSkillUnlocked, id);
 
-            // Show badge popup
-            if (UIManager.Instance != null)
+            // Show badge popup (only if config says so)
+            var cfg = SkillConfigDatabase.Instance?.Get(id);
+            if (cfg != null && cfg.showPopupOnUnlock && UIManager.Instance != null)
             {
                 var popup = UIManager.Instance.ShowUI<UIBadgeUnlock>(UIName.BadgeUnlock, isNeedCheck: false);
                 popup?.Enqueue(id);

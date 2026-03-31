@@ -30,8 +30,10 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3754112002869568380}
-  - {fileID: 5128345521809078985}
   - {fileID: 5470751842271091864}
+  - {fileID: 5128345521809078985}
+  - {fileID: 7733786603344315880}
+  - {fileID: 438555048988568586}
   m_Father: {fileID: 9149724475217176601}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -53,6 +55,98 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenAnimation: {fileID: 3867881889698038415}
   typeShow: 3
+--- !u!1 &752806650014778265
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 438555048988568586}
+  - component: {fileID: 5443542218064394285}
+  - component: {fileID: 2718958023569169036}
+  m_Layer: 5
+  m_Name: Fade (2)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &438555048988568586
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752806650014778265}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578289105714304403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &5443542218064394285
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752806650014778265}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 2325121960458918762}
+      Duration: 0.3
+      Easing: 6
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: 0
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 1
+      IsSetRuntimeTo: 0
+      Vector3From: {x: 0.5, y: 0.5, z: 0.5}
+      Vector3To: {x: 1, y: 1, z: 1}
+      FloatFrom: 0
+      FloatTo: 1
+      StringFrom: 
+      StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+--- !u!225 &2718958023569169036
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 752806650014778265}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &876983590478244406
 GameObject:
   m_ObjectHideFlags: 0
@@ -358,9 +452,9 @@ MonoBehaviour:
   typeAnimation: 5
   tweenAnimationSettings:
     General:
-      Target: {fileID: 7071679302588891149}
-      Duration: 0.5
-      Easing: 1
+      Target: {fileID: 7323219513504613815}
+      Duration: 0.3
+      Easing: 6
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -371,7 +465,7 @@ MonoBehaviour:
       LoopType: 0
       LoopCount: 0
     Values:
-      IsSetFromInInit: 0
+      IsSetFromInInit: 1
       IsSetRuntimeFrom: 1
       IsSetRuntimeTo: 0
       Vector3From: {x: 0.5, y: 0.5, z: 0.5}
@@ -436,13 +530,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   tweenSequences:
   - TweenAnimation: {fileID: 4908945163112775310}
-    SequenceType: 0
+    SequenceType: 1
     InsertTime: 0
   - TweenAnimation: {fileID: 4491647072759372164}
     SequenceType: 1
     InsertTime: 0
+  - TweenAnimation: {fileID: 1012483877122370766}
+    SequenceType: 0
+    InsertTime: 0
+  - TweenAnimation: {fileID: 5443542218064394285}
+    SequenceType: 1
+    InsertTime: 0
   sequenceSettings:
-    _duration: 0.5
+    _duration: 0.6
     IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -586,6 +686,85 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!1 &4251687834901985829
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7733786603344315880}
+  - component: {fileID: 1012483877122370766}
+  m_Layer: 5
+  m_Name: Fade (1)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &7733786603344315880
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251687834901985829}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1578289105714304403}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1012483877122370766
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4251687834901985829}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 2718958023569169036}
+      Duration: 0.3
+      Easing: 6
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: 0
+    Values:
+      IsSetFromInInit: 1
+      IsSetRuntimeFrom: 1
+      IsSetRuntimeTo: 0
+      Vector3From: {x: 0.5, y: 0.5, z: 0.5}
+      Vector3To: {x: 1, y: 1, z: 1}
+      FloatFrom: 0
+      FloatTo: 1
+      StringFrom: 
+      StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
 --- !u!1 &5167564948823484878
 GameObject:
   m_ObjectHideFlags: 0
@@ -637,9 +816,9 @@ MonoBehaviour:
   typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 2325121960458918762}
-      Duration: 0.5
-      Easing: 1
+      Target: {fileID: 3452528787301433759}
+      Duration: 0.3
+      Easing: 6
       IsIgnoreTimeScale: 0
     Timing:
       DelayStart: 0
@@ -650,7 +829,7 @@ MonoBehaviour:
       LoopType: 0
       LoopCount: 0
     Values:
-      IsSetFromInInit: 0
+      IsSetFromInInit: 1
       IsSetRuntimeFrom: 1
       IsSetRuntimeTo: 0
       Vector3From: {x: 0.5, y: 0.5, z: 0.5}
@@ -751,6 +930,7 @@ GameObject:
   - component: {fileID: 6657714458369884485}
   - component: {fileID: 3989178323872977452}
   - component: {fileID: 3971061522811564133}
+  - component: {fileID: 588998707516695914}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -874,6 +1054,18 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!225 &588998707516695914
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6291357423261544483}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7071679302588891149
 GameObject:
   m_ObjectHideFlags: 0
@@ -937,8 +1129,9 @@ GameObject:
   - component: {fileID: 3096448545934753468}
   - component: {fileID: 1338527725339317063}
   - component: {fileID: 4185179432141600164}
+  - component: {fileID: 3452528787301433759}
   m_Layer: 5
-  m_Name: Image
+  m_Name: frameavt
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1002,6 +1195,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!225 &3452528787301433759
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7323219513504613815}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &8063917017377909865
 GameObject:
   m_ObjectHideFlags: 0
@@ -1062,8 +1267,6 @@ MonoBehaviour:
   imgIcon: {fileID: 1653757668015322012}
   txtTitle: {fileID: 3971061522811564133}
   txtDesc: {fileID: 7820451171403911983}
-  displayDuration: 3.5
-  gapBetweenPopups: 0.35
 --- !u!1 &8590079891905641260
 GameObject:
   m_ObjectHideFlags: 0
