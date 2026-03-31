@@ -108,14 +108,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 8120604619700016809}
   m_Father: {fileID: 1559280570499542771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: -123.5, y: -36.70001}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_SizeDelta: {x: 200, y: 33}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7852088515483227684
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -171,12 +172,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 27.05
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
@@ -1174,9 +1175,7 @@ RectTransform:
   - {fileID: 1515785706619277185}
   - {fileID: 5065556432280911339}
   - {fileID: 4819217772336803625}
-  - {fileID: 8120604619700016809}
   - {fileID: 3977705897872668609}
-  - {fileID: 4233424937306398952}
   - {fileID: 6962369423985118921}
   m_Father: {fileID: 2565953744695739175}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -1756,16 +1755,16 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4017690174342381383}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1559280570499542771}
+  m_Father: {fileID: 4819217772336803625}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 181.64, y: -37.9}
+  m_AnchoredPosition: {x: 205.14, y: -1.2000504}
   m_SizeDelta: {x: 192.26, y: 33.26}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &5546496628573120659
@@ -2669,13 +2668,13 @@ RectTransform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 1559280570499542771}
+  m_Father: {fileID: 3977705897872668609}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 75.6, y: -109.9}
-  m_SizeDelta: {x: 192.26, y: 33.26}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchorMin: {x: 1, y: 0.5}
+  m_AnchorMax: {x: 1, y: 0.5}
+  m_AnchoredPosition: {x: -0.13975525, y: 0.89997864}
+  m_SizeDelta: {x: 192.26001, y: 33.26}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &7059793694685155476
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -3316,6 +3315,7 @@ MonoBehaviour:
   txtProgressLevel2: {fileID: 4708897843064986826}
   txtProgressLevel3: {fileID: 842407949302823512}
   txtResponse: {fileID: 554286917945590827}
+  btnExportPlan: {fileID: 0}
 --- !u!1 &5430695908126019875
 GameObject:
   m_ObjectHideFlags: 0
@@ -4893,14 +4893,15 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
-  m_Children: []
+  m_Children:
+  - {fileID: 4233424937306398952}
   m_Father: {fileID: 1559280570499542771}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -155.6, y: -110.8}
-  m_SizeDelta: {x: 0, y: 0}
-  m_Pivot: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -206.25528, y: -110.8}
+  m_SizeDelta: {x: 185.73, y: 40.65}
+  m_Pivot: {x: 0, y: 0.5}
 --- !u!222 &585280038271074630
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -4956,12 +4957,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 30
+  m_fontSize: 32
   m_fontSizeBase: 30
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 32
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
