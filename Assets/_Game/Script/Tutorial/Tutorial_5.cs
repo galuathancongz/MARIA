@@ -12,6 +12,9 @@ public class Tutorial_Scene5 : Storyboard
         DataManager.Instance.Data.level = 1;
         DataManager.Instance.SaveGameData();
         Level2Manager.IsSendStartIdeationLab = false;
+
+        // Badge: completed the full tutorial
+        Luzart.SkillManager.Instance?.UnlockSkill(Luzart.ESkillId.TutorialComplete);
     }
     public void OnClickStartLevel1()
     {

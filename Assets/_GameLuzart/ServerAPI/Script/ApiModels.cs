@@ -41,6 +41,7 @@ namespace Luzart
         public string level2Json;
         public string level3Json;
         public string settingsJson;
+        public string skillsJson;   // SkillSaveData JSON
     }
 
     [System.Serializable]
@@ -65,6 +66,7 @@ namespace Luzart
         public string level2Json;
         public string level3Json;
         public string settingsJson;
+        public string skillsJson;   // SkillSaveData JSON
         public string updatedAt;
     }
 

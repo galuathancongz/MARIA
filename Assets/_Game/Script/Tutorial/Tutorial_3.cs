@@ -35,6 +35,8 @@ public class Tutorial_Scene3 : MonoBehaviour
         }
         else
         {
+            // Badge: sent first AI prompt in tutorial
+            Luzart.SkillManager.Instance?.UnlockSkill(Luzart.ESkillId.FirstAIPrompt);
             stepAction.OnClickOnDone();
         }
     }

@@ -26,6 +26,10 @@ namespace Luzart
                 string persona = PersonaManager.Instance.GetStringPersonaType();
                 txtPersona.text = persona;
                 txtColor.text = PersonaManager.Instance.GetNameColorPersonaType();
+
+                // Badge: lesson design aligned with the player's Level 1 teaching persona
+                SkillManager.Instance?.UnlockSkill(ESkillId.PersonaAligned);
+
                 Send();
                 UIManager.Instance.ShowLoading();
             }

@@ -174,6 +174,10 @@ namespace Luzart
             };
             request.settingsJson = JsonUtility.ToJson(settings);
 
+            // Skills
+            if (SkillManager.Instance != null)
+                request.skillsJson = SkillManager.Instance.ToJson();
+
             return request;
         }
 
@@ -247,6 +251,12 @@ namespace Luzart
                     PlayerPrefs.SetFloat("volumn_music", settings.musicVolume);
                     PlayerPrefs.SetInt("mute_vibra", settings.muteVibra);
                 }
+            }
+
+            // Skills
+            if (!string.IsNullOrEmpty(data.skillsJson) && data.skillsJson != "{}")
+            {
+                SkillManager.Instance?.FromJson(data.skillsJson);
             }
 
             PlayerPrefs.Save();

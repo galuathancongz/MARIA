@@ -16,6 +16,10 @@ namespace Luzart
             base.Execute(_onComplete);
             int indexPersona = (int)PersonaManager.Instance.GetMyPersonaType();
             baseSelect.Select(indexPersona);
+
+            // Badge: persona type revealed — unlock the matching persona skill
+            SkillManager.Instance?.UnlockPersonaSkill();
+
             CallOnComplete();
         }
     }

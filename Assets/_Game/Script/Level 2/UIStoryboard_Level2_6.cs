@@ -9,6 +9,14 @@ namespace Luzart
 {
     public class UIStoryboard_Level2_6 : Storyboard
     {
+        public override void Show(Action onHideDone)
+        {
+            base.Show(onHideDone);
+
+            // Badges: all 4 AI tools unlock when Level 2 is completed
+            SkillManager.Instance?.UnlockSkillsForLevel(2);
+        }
+
         public void OnClickMainMenu()
         {
             UIManager.Instance.HideAll();

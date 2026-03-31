@@ -137,6 +137,8 @@ namespace Luzart
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
             selectStrength.Select(true);
+            // Badge: gave strength feedback
+            SkillManager.Instance?.UnlockSkill(ESkillId.FeedbackArchitect);
         }
         public void OnClickSendImprovement(string str)
         {
@@ -147,6 +149,8 @@ namespace Luzart
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
             selectImprovement.Select(true);
+            // Badge: gave area-of-improvement feedback
+            SkillManager.Instance?.UnlockSkill(ESkillId.SeekingImprovement);
         }
         public void OnClickSendNextStep(string str)
         {
@@ -157,6 +161,8 @@ namespace Luzart
                 listFeedbackSuggestions.Add(data);
             CheckShowNextStep();
             selectNextStep.Select(true);
+            // Badge: gave concrete next-step feedback
+            SkillManager.Instance?.UnlockSkill(ESkillId.ForwardLookingDesigner);
         }
         private void CheckShowNextStep()
         {

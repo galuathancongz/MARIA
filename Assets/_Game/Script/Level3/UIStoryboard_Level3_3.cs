@@ -18,6 +18,9 @@ namespace Luzart
         public Level2_ConversationItem conversationTip;
         private Level3Data Data => Level3Manager.Instance.Data;
         private Level3_3Data dataRequest = new Level3_3Data();
+
+        // Badge tracking
+        private int _refineCountForCurrentSection = 0;
         public override void Show(Action onHideDone)
         {
             try
@@ -99,6 +102,10 @@ namespace Luzart
         {
             var strTitle = CurrentTitle();
             var strRequest = GetLevel3Prompt(strTitle, str);
+            _refineCountForCurrentSection++;
+            // Badge: refined one section 3+ times
+            if (_refineCountForCurrentSection >= 3)
+                SkillManager.Instance?.UnlockSkill(ESkillId.IterationChampion);
             Send(strRequest);
         }
         public void OnClickAccept()
@@ -112,6 +119,14 @@ namespace Luzart
             var title = CurrentTitle();
             Level3Manager.Instance.Data.SetDataTitleTeach(title, dataRequest.suggestion);
             Level3Manager.Instance.Save();
+
+            // Badge: used a differentiation / inclusivity filter
+            if (Data.optionalFilters != null && Data.optionalFilters.Count > 0)
+                SkillManager.Instance?.UnlockSkill(ESkillId.InclusivePlanner);
+
+            // Reset per-section refine counter when moving to the next field
+            _refineCountForCurrentSection = 0;
+
             if (GetCurrentFieldIndex() > listCheckBox3.Count - 1)
             {
                 UIManager.Instance.ShowNextScenario();
@@ -153,6 +168,10 @@ namespace Luzart
         {
             Level3Manager.Instance.Send(0, strRequest, OnDoneResults);
             conversationMain.SetThinking();
+
+            // Badge: used AI suggestions 5+ times in lesson co-creation
+            if (Data.GetAllSendAI() >= 5)
+                SkillManager.Instance?.UnlockSkill(ESkillId.LessonCoCreator);
         }
 
         private string GetLevel3Prompt(string currentField, string userRequest)

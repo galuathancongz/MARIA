@@ -13,6 +13,8 @@ namespace Luzart
             base.Execute(_onComplete);
             if (PersonaManager.Instance.Data.IsUnlockedAllPersona)
             {
+                // Badge: customised all avatar/persona elements
+                SkillManager.Instance?.UnlockSkill(ESkillId.PersonalTouch);
                 stepActionSwitch.UseStep(0);
             }
             else

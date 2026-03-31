@@ -49,6 +49,7 @@ namespace Luzart
             {UIName.Profile,"2,0,UIProfile" },
             {UIName.Login,           "2,0,UILogin"           },
             {UIName.LanguageSelect,  "2,0,UILanguageSelect"  },
+            {UIName.BadgeUnlock,     "4,0,UIBadgeUnlock"     },
 
 
             {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
@@ -627,6 +628,7 @@ namespace Luzart
         Profile = 17,
         Login           = 18,
         LanguageSelect  = 19,
+        BadgeUnlock     = 20,
 
         //Tutorial =50,
         //Tutorial

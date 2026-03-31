@@ -13,6 +13,9 @@ namespace Luzart
         {
             base.Show(onHideDone);
             Level2Manager.IsSendStartIdeationLab = false;
+
+            // Badge: completed Scene 5 reflection journal
+            SkillManager.Instance?.UnlockSkill(ESkillId.ReflectionJournal);
         }
         public void OnClickMainMenu()
         {

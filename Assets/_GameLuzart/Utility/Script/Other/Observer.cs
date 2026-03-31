@@ -66,6 +66,7 @@ namespace Luzart
         public const string PersonaDataChange = "PersonaDataChange";
         public const string OnUpdateNewChat = "OnUpdateNewChat";
         public const string OnLanguageChanged = "OnLanguageChanged";
+        public const string OnSkillUnlocked = "OnSkillUnlocked"; // payload: ESkillId
 
     }
 }
