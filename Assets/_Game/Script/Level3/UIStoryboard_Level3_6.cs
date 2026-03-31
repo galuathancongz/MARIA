@@ -42,15 +42,21 @@ namespace Luzart
             try
             {
                 base.Show(onHideDone);
-                var dataTitle = Data.GetTitleSummary();
-                var dataObjective = Data.GetObjectiveSummary();
-                var dataActivities = Data.GetActivitiesSummary();
-                var dataAssessment = Data.GetAssessmentSummary();
-                this.dataTitle.Add(("Lesson Title", dataTitle));
-                this.dataTitle.Add(("Learning Objectives", dataObjective));
-                this.dataTitle.Add(("Learning Activities", dataActivities));
-                this.dataTitle.Add(("Assessment Methods", dataAssessment));
-                MasterHelper.InitListObj(4, itemFoldOut, listItemFoldOut, content, (obj, index) =>
+                // Build summary from current context sections
+                this.dataTitle.Clear();
+                this.dataTitle.Add(("Lesson Topic", Data.GetTitleSummary()));
+                this.dataTitle.Add(("Learning Objective", Data.GetObjectiveSummary()));
+
+                // Add each lesson section from current context
+                var sections = Data.GetCurrentSections();
+                foreach (var s in sections)
+                {
+                    string name = LessonPlanTemplate.GetSectionName(s.index);
+                    this.dataTitle.Add((name, s.content));
+                }
+
+                this.dataTitle.Add(("Assessment & Feedback", Data.GetAssessmentSummary()));
+                MasterHelper.InitListObj(this.dataTitle.Count, itemFoldOut, listItemFoldOut, content, (obj, index) =>
                 {
                     obj.gameObject.SetActive(true);
                     var (title, content) = this.dataTitle[index];

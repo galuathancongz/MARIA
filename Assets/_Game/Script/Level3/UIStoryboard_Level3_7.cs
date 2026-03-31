@@ -81,11 +81,12 @@ namespace Luzart
         {
             var data = Level3Manager.Instance.Data;
             int revisionCount = data.GetAllSendAI();
-            bool usedInclusion = data.optionalFilters.Contains("Inclusion") || data.optionalFilters.Contains("Accessibility");
+            // Filter index 0 = "Differentiation required", 2 = "Accessibility support"
+            bool usedInclusion = data.HasFilter(0) || data.HasFilter(2);
 
             return LocalizationManager.Instance.GetPrompt("prompts.level3_7_final", new System.Collections.Generic.Dictionary<string, string> {
-                {"subject", MentorSubjectExtension.GetSubjectName(data.subject)},
-                {"topic", data.topic},
+                {"subject", data.SubjectName},
+                {"topic", data.Topic},
                 {"revisionCount", revisionCount.ToString()},
                 {"usedInclusion", usedInclusion ? "Yes" : "No"},
                 {"studentWork", data.studentWork ?? ""}

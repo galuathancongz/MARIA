@@ -18,8 +18,8 @@ namespace Luzart
             bs.Select(index);
             stepActionSwitch.UseStep(index);
             var question = LocalizationManager.Instance.GetPrompt("prompts.level2_1_context", new System.Collections.Generic.Dictionary<string, string> {
-                {"mentorName", MentorSubjectExtension.GetNameMentor(Level2Manager.Instance.Data.subject)},
-                {"subjectName", MentorSubjectExtension.GetSubjectName(Level2Manager.Instance.Data.subject)}
+                {"mentorName", Level2Manager.Instance.Data.MentorName},
+                {"subjectName", Level2Manager.Instance.Data.SubjectName}
             });
             APIManager.Instance.Send(question, null);
             CallOnComplete();

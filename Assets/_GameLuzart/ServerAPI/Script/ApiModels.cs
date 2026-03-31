@@ -35,9 +35,6 @@ namespace Luzart
         public int age;
         public int subject;
         public string subjectName;
-        public string resourcesJson;
-        public string heartJson;
-        public string packJson;
         public string level2Json;
         public string level3Json;
         public string settingsJson;
@@ -62,9 +59,6 @@ namespace Luzart
         public int age;
         public int subject;
         public string subjectName;
-        public string resourcesJson;
-        public string heartJson;
-        public string packJson;
         public string level2Json;
         public string level3Json;
         public string settingsJson;

@@ -34,10 +34,10 @@ namespace Luzart
                 a.aiSendCountLevel3  = d3.GetAllSendAI();
                 a.totalRefineCount   = d3.totalRefineCount;
 
-                if (d3.optionalFilters != null)
+                if (d3.filterIndices != null)
                 {
-                    a.optionalFiltersUsed = d3.optionalFilters.Count;
-                    a.optionalFilters     = string.Join(", ", d3.optionalFilters);
+                    a.optionalFiltersUsed = d3.filterIndices.Count;
+                    a.optionalFilters     = d3.FiltersText;
                 }
             }
 

@@ -12,6 +12,7 @@ public class AutoSetNameSubject : MonoBehaviour
         if (level == 2)
         {
             _subject = Level2Manager.Instance.Data.subject;
+
         }
         else if (level == 3)
         {

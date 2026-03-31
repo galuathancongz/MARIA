@@ -1057,7 +1057,6 @@ namespace Luzart
     public abstract class SingletonSaveLoad<TData,T> : Singleton<T> where T : MonoBehaviour where TData : class,new()
     {
         protected abstract string KEYLOAD { get; }
-        private string RealKey => $"{Application.version}_{KEYLOAD}";
         public TData Data;
         private void Awake()
         {
@@ -1065,19 +1064,19 @@ namespace Luzart
         }
         public virtual void Load()
         {
-            Data = SaveLoadUtil.LoadDataPrefs<TData>(KEYLOAD);
-            if(Data == null)
-            {
+            // Data chỉ sống trong RAM. Server là source of truth.
+            if (Data == null)
                 Data = new TData();
-            }
         }
         private void OnApplicationFocus(bool focus)
         {
-            Save();
+            // Trigger server save thay vì PlayerPrefs
+            if (!focus && SyncManager.Instance != null)
+                SyncManager.Instance.SaveToServer();
         }
         public virtual void Save()
         {
-            SaveLoadUtil.SaveDataPrefs(Data, KEYLOAD);
+            // No-op: data chỉ ở RAM, server save qua SyncManager
         }
     }
 }

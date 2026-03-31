@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -21,11 +21,16 @@ namespace Luzart
 
         // Badge tracking
         private int _refineCountForCurrentSection = 0;
+
         public override void Show(Action onHideDone)
         {
             try
             {
                 base.Show(onHideDone);
+
+                // Ensure context hash matches current topic + filters
+                Data.EnsureContext();
+
                 CheckOrSendNext();
             }
             catch (Exception ex)
@@ -33,15 +38,16 @@ namespace Luzart
                 Debug.LogError("Show Level3_3: " + ex.Message);
                 conversationMain.ShowText($"{LocalizationManager.Instance.Get("ui.error_try_again")}\n {ex}");
             }
-
         }
+
         private void CheckOrSendNext()
         {
             CheckSetCheckBox();
-            if (GetCurrentFieldIndex() < listCheckBox3.Count)
+            int currentIndex = GetCurrentFieldIndex();
+            if (currentIndex < listCheckBox3.Count)
             {
-                var strTitle = CurrentTitle();
-                var strRequest = GetLevel3Prompt(strTitle, "");
+                var sectionName = LessonPlanTemplate.GetSectionName(currentIndex);
+                var strRequest = GetLevel3Prompt(sectionName, "");
                 Send(strRequest);
             }
             else
@@ -51,46 +57,34 @@ namespace Luzart
                 UIManager.Instance.uiTop.ShowBtnNext(true);
             }
         }
+
+        /// <summary>Tìm section index đầu tiên chưa có content.</summary>
         private int GetCurrentFieldIndex()
         {
-            var data = Data.listDataTitleTeach.Where(x => x.topic == Data.topic).Select(x => x.title).ToList();
-            for (int i = 0; i < listCheckBox3.Count; i++)
-            {
-                if (!data.Contains(listCheckBox3[i].title))
-                {
-                    return i;
-                }
-            }
-            return listCheckBox3.Count;
+            return Data.GetFirstIncompleteIndex(listCheckBox3.Count);
         }
+
         public void CheckSetCheckBox()
         {
             bool isAllTrue = true;
-            var data = Data.listDataTitleTeach.Where(x => x.topic == Data.topic).Select(x => x.title).ToList();
             for (int i = 0; i < listCheckBox3.Count; i++)
             {
-                var isOpen = data.Contains(listCheckBox3[i].title);
+                bool done = Data.HasSection(i);
                 listCheckBox3[i].bsUsing.Select(false);
-                listCheckBox3[i].toggle.Select(isOpen);
-                if(!isOpen)
-                {
-                    isAllTrue = false;
-                }
+                listCheckBox3[i].toggle.Select(done);
+                if (!done) isAllTrue = false;
             }
-            if (isAllTrue)
-            {
-                return;
-            }
-            int lastTrueIndex = listCheckBox3.FindLastIndex(x => data.Contains(x.title));
-            if (lastTrueIndex + 1 < listCheckBox3.Count)
-            {
-                listCheckBox3[lastTrueIndex+1].bsUsing.Select(true);
-            }
+            if (isAllTrue) return;
+
+            // Highlight section đang làm
+            int currentIndex = GetCurrentFieldIndex();
+            if (currentIndex < listCheckBox3.Count)
+                listCheckBox3[currentIndex].bsUsing.Select(true);
         }
-        private string CurrentTitle()
+
+        private int CurrentIndex()
         {
-            int index = Mathf.Clamp(GetCurrentFieldIndex(),0, listCheckBox3.Count-1);
-            return listCheckBox3[index].title;
+            return Mathf.Clamp(GetCurrentFieldIndex(), 0, listCheckBox3.Count - 1);
         }
 
         public void OnClickRefine()
@@ -98,18 +92,21 @@ namespace Luzart
             isShowRefine = !isShowRefine;
             selectRefine.Select(isShowRefine);
         }
+
         public void OnClickSendRefine(string str)
         {
-            var strTitle = CurrentTitle();
-            var strRequest = GetLevel3Prompt(strTitle, str);
+            int idx = CurrentIndex();
+            var sectionName = LessonPlanTemplate.GetSectionName(idx);
+            var strRequest = GetLevel3Prompt(sectionName, str);
             _refineCountForCurrentSection++;
             Data.totalRefineCount++;
-            Level3Manager.Instance.Save();
+
             // Badge: refined one section 3+ times
             if (_refineCountForCurrentSection >= 3)
                 SkillManager.Instance?.UnlockSkill(ESkillId.IterationChampion);
             Send(strRequest);
         }
+
         public void OnClickAccept()
         {
             if (Data.GetConverstationState(0) == EState.WaitAI)
@@ -118,18 +115,17 @@ namespace Luzart
                 return;
             }
 
-            var title = CurrentTitle();
-            Level3Manager.Instance.Data.SetDataTitleTeach(title, dataRequest.suggestion);
-            Level3Manager.Instance.Save();
+            int idx = CurrentIndex();
+            Data.SetSection(idx, dataRequest.suggestion);
 
             // Badge: used a differentiation / inclusivity filter
-            if (Data.optionalFilters != null && Data.optionalFilters.Count > 0)
+            if (Data.filterIndices != null && Data.filterIndices.Count > 0)
                 SkillManager.Instance?.UnlockSkill(ESkillId.InclusivePlanner);
 
-            // Reset per-section refine counter when moving to the next field
+            // Reset per-section refine counter
             _refineCountForCurrentSection = 0;
 
-            if (GetCurrentFieldIndex() > listCheckBox3.Count - 1)
+            if (GetCurrentFieldIndex() >= listCheckBox3.Count)
             {
                 UIManager.Instance.ShowNextScenario();
                 return;
@@ -137,8 +133,8 @@ namespace Luzart
             conversationMain.ShowText("");
             conversationTip.ShowText("");
             CheckOrSendNext();
-
         }
+
         public void OnClickRegenerate()
         {
             if (Data.GetConverstationState(0) == EState.WaitAI)
@@ -146,11 +142,13 @@ namespace Luzart
                 UIManager.Instance.ShowToast(LocalizationManager.Instance.Get("ui.wait_ai_complete"));
                 return;
             }
-            var strTitle = CurrentTitle();
-            var strRequest = GetLevel3Prompt(strTitle, "");
+            int idx = CurrentIndex();
+            var sectionName = LessonPlanTemplate.GetSectionName(idx);
+            var strRequest = GetLevel3Prompt(sectionName, "");
             strRequest = strRequest + LocalizationManager.Instance.Get("ui.regenerate_request");
             Send(strRequest);
         }
+
         private void OnDoneResults(string str)
         {
             try
@@ -166,6 +164,7 @@ namespace Luzart
                 conversationMain.ShowText(LocalizationManager.Instance.Get("ui.error_try_again"));
             }
         }
+
         private void Send(string strRequest)
         {
             Level3Manager.Instance.Send(0, strRequest, OnDoneResults);
@@ -179,28 +178,12 @@ namespace Luzart
         private string GetLevel3Prompt(string currentField, string userRequest)
         {
             Level3Data data = Level3Manager.Instance.Data;
-            string topic = data.topic;
-
-            StringBuilder stringBuilder = new StringBuilder();
-            if(data.optionalFilters != null && data.optionalFilters.Count > 0)
-            {
-                for (int i = 0; i < data.optionalFilters.Count; i++)
-                {
-                
-                    stringBuilder.Append(data.optionalFilters[i]);
-                    if (i < data.optionalFilters.Count - 1)
-                        stringBuilder.Append(", ");
-                }
-            }
-            var filters = stringBuilder.ToString();
-            var baseObjective = data.learningObjective;
-            var constraints = data.designContraints;
 
             return LocalizationManager.Instance.GetPrompt("prompts.level3_3_lesson", new System.Collections.Generic.Dictionary<string, string> {
-                {"topic", topic},
-                {"baseObjective", baseObjective},
-                {"constraints", constraints},
-                {"filters", filters},
+                {"topic", data.Topic},
+                {"baseObjective", data.LearningObjective},
+                {"constraints", data.DesignConstraint},
+                {"filters", data.FiltersText},
                 {"currentField", currentField},
                 {"userRequest", userRequest}
             });

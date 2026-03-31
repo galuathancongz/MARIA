@@ -27,138 +27,178 @@ namespace Luzart
     [Serializable]
     public class DataTitleTeachLevel3_3
     {
-        public string title;
-        public string content;
-        public string topic;
+        public int    index;        // section index (0-6), maps to LessonPlanTemplate.SectionNames
+        public string content;      // AI generated content
+        public string contextHash;  // topic + filters hash — để phân biệt các lần chơi khác nhau
     }
     [Serializable]
     public class Level3Data
     {
-        public ESubject subject;
-        public string topic;
-        public string learningObjective;
-        public string designContraints;
-        public List<string> optionalFilters;
+        public ESubject subject;                 // enum, đã là int bên dưới
+        public int topicIndex = -1;              // index trong DesignChallengeTable (0-2)
+        public List<int> filterIndices = new();  // FilterTable indices (0-3)
         public List<DataTitleTeachLevel3_3> listDataTitleTeach = new();
+        public string currentContextHash;     // "{subjectIndex}_{topicIndex}_{filtersSorted}"
         public StudentFeedbackResponseDTO responseStudent = null;
         public string studentWork = "";
         public List<FeedbackSuggestion> listFeedbackSuggestions = new List<FeedbackSuggestion>();
         public List<string> listFeedbackSelected = new List<string>();
-        public int totalRefineCount = 0;  // total refine calls across all sections (for analytics)
+        public int totalRefineCount = 0;
+
+        // ── Derived text (từ tables, KHÔNG lưu) ─────────────────────────────
+
+        public DesignChallenge CurrentChallenge => DesignChallengeTable.Get(subject, topicIndex);
+        public string Topic => CurrentChallenge?.topic ?? "";
+        public string LearningObjective => CurrentChallenge?.learningObjective ?? "";
+        public string DesignConstraint => CurrentChallenge?.designConstraint ?? "";
+        public string SubjectName => MentorSubjectExtension.GetSubjectName(subject);
+        public string MentorName => MentorSubjectExtension.GetNameMentor(subject);
+
+        public string FiltersText
+        {
+            get
+            {
+                if (filterIndices == null || filterIndices.Count == 0) return "";
+                return string.Join(", ", filterIndices.Select(i => FilterTable.GetName(i)));
+            }
+        }
+
+        // ── Context ──────────────────────────────────────────────────────────
+
+        public string BuildCurrentContextHash()
+        {
+            var sorted = filterIndices != null ? new List<int>(filterIndices) : new List<int>();
+            sorted.Sort();
+            return $"{(int)subject}_{topicIndex}_{string.Join(",", sorted)}";
+        }
+
+        public void EnsureContext()
+        {
+            currentContextHash = BuildCurrentContextHash();
+        }
+
+        // ── Query (current context) ──────────────────────────────────────────
+
+        /// <summary>Lấy sections của context hiện tại.</summary>
+        public List<DataTitleTeachLevel3_3> GetCurrentSections()
+        {
+            return listDataTitleTeach.Where(x => x.contextHash == currentContextHash).ToList();
+        }
+
+        /// <summary>Check section index đã có content trong context hiện tại chưa.</summary>
+        public bool HasSection(int index)
+        {
+            return listDataTitleTeach.Any(x => x.contextHash == currentContextHash && x.index == index);
+        }
+
+        /// <summary>Tìm section index đầu tiên chưa có content trong context hiện tại.</summary>
+        public int GetFirstIncompleteIndex(int totalSections)
+        {
+            for (int i = 0; i < totalSections; i++)
+                if (!HasSection(i)) return i;
+            return totalSections;
+        }
+
+        // ── Write ────────────────────────────────────────────────────────────
+
+        /// <summary>Set content cho section index trong context hiện tại. Update nếu đã có.</summary>
+        public void SetSection(int index, string content)
+        {
+            var existing = listDataTitleTeach.Find(x => x.contextHash == currentContextHash && x.index == index);
+            if (existing != null)
+            {
+                existing.content = content;
+            }
+            else
+            {
+                listDataTitleTeach.Add(new DataTitleTeachLevel3_3
+                {
+                    index = index,
+                    content = content,
+                    contextHash = currentContextHash,
+                });
+            }
+        }
+
+        // ── AI count ─────────────────────────────────────────────────────────
 
         public int GetAllSendAI()
         {
             return listConverstationState.Sum(x => x.listConverstationData.Count(y => y.role == ERole.Me));
         }
-        public string GetObjectiveSummary() => learningObjective;
 
-        public string GetTitleSummary()
-        {
-            // Ưu tiên trả về topic nếu có
-            if (!string.IsNullOrEmpty(topic)) return topic;
+        // ── Summary (dùng cho Scene 3_6 và export) ───────────────────────────
 
-            // Nếu không có topic, lấy title của phần tử đầu tiên trong list giáo án
-            if (listDataTitleTeach != null && listDataTitleTeach.Count > 0)
-            {
-                return listDataTitleTeach[0].title;
-            }
+        public string GetTitleSummary() => !string.IsNullOrEmpty(Topic) ? Topic : "Untitled Lesson";
 
-            return "Untitled Lesson"; // Giá trị mặc định nếu trống trơn
-        }
+        public string GetObjectiveSummary() => LearningObjective;
+
         public string GetActivitiesSummary()
         {
-            var activities = listDataTitleTeach.Where(x =>
-                x.topic == topic &&
-                !x.title.ToLower().Contains("objective")
-            ).ToList();
-
+            var sections = GetCurrentSections();
             StringBuilder sb = new StringBuilder();
-            foreach (var act in activities)
+            foreach (var s in sections)
             {
-                sb.AppendLine($"<b>{act.title}:</b> {act.content}\n");
+                string name = LessonPlanTemplate.GetSectionName(s.index);
+                sb.AppendLine($"<b>{name}:</b> {s.content}\n");
             }
             return sb.ToString();
         }
+
         public string GetAssessmentSummary()
         {
             StringBuilder sb = new StringBuilder();
             sb.AppendLine($"<b>Student Work:</b>\n{studentWork}\n");
             sb.AppendLine("<b>Your Feedback:</b>");
-
             if (listFeedbackSuggestions == null || listFeedbackSuggestions.Count == 0)
-            {
                 sb.AppendLine("(No feedback selected)");
-            }
             else
-            {
                 foreach (var f in listFeedbackSuggestions)
-                {
                     sb.AppendLine($"- {f.text}");
-                }
-            }
             return sb.ToString();
         }
+
+        /// <summary>Full content của context hiện tại — dùng cho AI prompt.</summary>
+        public string GetStringFullContent()
+        {
+            var sections = GetCurrentSections();
+            if (sections.Count == 0) return "";
+            StringBuilder sb = new StringBuilder();
+            foreach (var s in sections)
+                sb.AppendLine($"{LessonPlanTemplate.GetSectionName(s.index)}: {s.content}");
+            return sb.ToString();
+        }
+
+        // ── Filters ──────────────────────────────────────────────────────────
+
         public void AddFeedbackSuggestion(FeedbackSuggestion suggestion)
         {
             var item = listFeedbackSuggestions.Find(x => x.text == suggestion.text && x.type == suggestion.type);
             if (item == null)
-            {
                 listFeedbackSuggestions.Add(suggestion);
-            }
             else
             {
                 item.text = suggestion.text;
                 item.type = suggestion.type;
             }
         }
-        public void AddFilter(string filter)
+
+        public void AddFilter(int filterIndex)
         {
-            if (!optionalFilters.Contains(filter))
-            {
-                optionalFilters.Add(filter);
-            }
+            if (filterIndices == null) filterIndices = new List<int>();
+            if (!filterIndices.Contains(filterIndex))
+                filterIndices.Add(filterIndex);
         }
-        public void RemoveFilter(string filter)
+
+        public void RemoveFilter(int filterIndex)
         {
-            if (optionalFilters.Contains(filter))
-            {
-                optionalFilters.Remove(filter);
-            }
+            if (filterIndices != null)
+                filterIndices.Remove(filterIndex);
         }
-        public string GetStringFullContent()
+
+        public bool HasFilter(int filterIndex)
         {
-            var allList = GetDataInTopic(topic);
-            string fullContent = "";
-            if(allList == null || allList.Count == 0)
-            {
-                return "";
-            }
-            foreach (var item in allList)
-            {
-                fullContent += $"{item.title}: {item.content}\n";
-            }
-            return fullContent;
-        }
-        public List<DataTitleTeachLevel3_3> GetDataInTopic(string topic)
-        {
-            return listDataTitleTeach.Where(x => x.topic == topic)?.ToList();
-        }
-        public void SetDataTitleTeach(string title, string content)
-        {
-            foreach (var item in listDataTitleTeach)
-            {
-                if (item.title == title && item.topic == topic)
-                {
-                    item.content = content;
-                    return;
-                }
-            }
-            listDataTitleTeach.Add(new DataTitleTeachLevel3_3()
-            {
-                title = title,
-                content = content,
-                topic = topic,
-            });
+            return filterIndices != null && filterIndices.Contains(filterIndex);
         }
 
         public List<ConversationState> listConverstationState = new();

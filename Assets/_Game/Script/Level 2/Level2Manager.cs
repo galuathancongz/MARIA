@@ -31,7 +31,10 @@ namespace Luzart
     public class Level2Data
     {
         public ESubject subject;
-        
+
+        public string SubjectName => MentorSubjectExtension.GetSubjectName(subject);
+        public string MentorName => MentorSubjectExtension.GetNameMentor(subject);
+
         public string question2_3_1;
         public List<ConversationState> listConverstationState = new List<ConversationState>();
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)

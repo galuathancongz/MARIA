@@ -3171,7 +3171,6 @@ GameObject:
   - component: {fileID: 8316902789063356092}
   - component: {fileID: 8167964603117626299}
   - component: {fileID: 5554688062006003212}
-  - component: {fileID: 480754299323699714}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -3297,19 +3296,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &480754299323699714
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5847538634398586377}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locKey: level3.title_label
 --- !u!1 &5946163947502539471
 GameObject:
   m_ObjectHideFlags: 0
@@ -3328,7 +3314,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8842465410209696319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -3670,7 +3656,7 @@ RectTransform:
   m_Father: {fileID: 2545902775314786417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}

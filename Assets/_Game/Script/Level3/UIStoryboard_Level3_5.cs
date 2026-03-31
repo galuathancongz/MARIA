@@ -67,7 +67,7 @@ namespace Luzart
 
         private void OnGetFeedbackSuggestions(string str)
         {
-
+            
             try
             {
                 var feedbackDTO = JsonUtility.FromJson<FormativeFeedbackSuggestionsDTO>(str);
@@ -102,7 +102,7 @@ namespace Luzart
         }
         void GenerateFeedback()
         {
-            string objective = Level3Manager.Instance.Data.learningObjective;
+            string objective = Level3Manager.Instance.Data.LearningObjective;
             string promptFeedback = GetFeedbackSuggestionsPrompt(Data.studentWork, objective);
             MasterHelper.InitListObj(1, itemPrefab, listItemClickToImport, content, (item, index) =>
             {
@@ -180,9 +180,9 @@ namespace Luzart
         public string GetStudentWorkPrompt()
         {
             return LocalizationManager.Instance.GetPrompt("prompts.level3_5_student_work", new System.Collections.Generic.Dictionary<string, string> {
-                {"subject", MentorSubjectExtension.GetSubjectName(Data.subject)},
-                {"topic", Data.topic},
-                {"objective", Data.learningObjective},
+                {"subject", Data.SubjectName},
+                {"topic", Data.Topic},
+                {"objective", Data.LearningObjective},
                 {"lessonContent", Data.GetStringFullContent()},
                 {"studentName", Data.responseStudent.student_info.name},
                 {"studentStyle", Data.responseStudent.student_info.style}
@@ -192,7 +192,7 @@ namespace Luzart
         public string GetFeedbackSuggestionsPrompt(string studentWork, string objective)
         {
             return LocalizationManager.Instance.GetPrompt("prompts.level3_5_suggestions", new System.Collections.Generic.Dictionary<string, string> {
-                {"subject", MentorSubjectExtension.GetSubjectName(Data.subject)},
+                {"subject", Data.SubjectName},
                 {"studentWork", studentWork},
                 {"objective", objective}
             });

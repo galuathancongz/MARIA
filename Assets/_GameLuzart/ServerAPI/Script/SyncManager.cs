@@ -9,27 +9,14 @@ namespace Luzart
 
         private void Start()
         {
-            // Listen for login success to auto-load from server
             if (AuthManager.Instance != null)
-            {
                 AuthManager.Instance.OnLoginSuccess += OnLoginSuccess;
-            }
         }
 
         private void OnDestroy()
         {
             if (AuthManager.Instance != null)
-            {
                 AuthManager.Instance.OnLoginSuccess -= OnLoginSuccess;
-            }
-        }
-
-        private void OnApplicationFocus(bool focus)
-        {
-            if (!focus && AuthManager.Instance != null && AuthManager.Instance.IsLoggedIn)
-            {
-                SaveToServer();
-            }
         }
 
         private void OnLoginSuccess()
@@ -43,7 +30,6 @@ namespace Luzart
         {
             if (!AuthManager.Instance.IsLoggedIn)
             {
-                Debug.LogWarning("[SyncManager] Not logged in, skip save");
                 onComplete?.Invoke();
                 return;
             }
@@ -64,13 +50,9 @@ namespace Luzart
                 {
                     isSyncing = false;
                     if (response.success)
-                    {
                         Debug.Log("[SyncManager] Data saved to server");
-                    }
                     else
-                    {
                         Debug.LogWarning($"[SyncManager] Save failed: {response.message}");
-                    }
                     onComplete?.Invoke();
                 },
                 (error) =>
@@ -88,7 +70,6 @@ namespace Luzart
         {
             if (!AuthManager.Instance.IsLoggedIn)
             {
-                Debug.LogWarning("[SyncManager] Not logged in, skip load");
                 onComplete?.Invoke();
                 return;
             }
@@ -115,14 +96,14 @@ namespace Luzart
             );
         }
 
-        // ============ COLLECT ALL DATA ============
+        // ============ COLLECT FROM RAM ============
 
         private GameDataSaveRequest CollectGameData()
         {
             var request = new GameDataSaveRequest();
 
-            // GameData from DataManager
-            if (DataManager.Instance != null && DataManager.Instance.Data != null)
+            // GameData
+            if (DataManager.Instance?.Data != null)
             {
                 var gd = DataManager.Instance.Data;
                 request.level = gd.level;
@@ -132,65 +113,38 @@ namespace Luzart
                 request.subjectName = gd.subjectName;
             }
 
-            // PlayerResources
-            PlayerResources res = GameRes.GetCachedPlayerResources();
-            if (res != null)
-            {
-                request.resourcesJson = JsonUtility.ToJson(res);
-            }
+            // Level2 — serialize from RAM
+            if (Level2Manager.Instance?.Data != null)
+                request.level2Json = JsonUtility.ToJson(Level2Manager.Instance.Data);
 
-            // Heart
-            if (HeartManager.Instance != null && HeartManager.Instance.dataHeart != null)
-            {
-                request.heartJson = JsonUtility.ToJson(HeartManager.Instance.dataHeart);
-            }
+            // Level3 — serialize from RAM
+            if (Level3Manager.Instance?.Data != null)
+                request.level3Json = JsonUtility.ToJson(Level3Manager.Instance.Data);
 
-            // Pack
-            if (PackManager.Instance != null && PackManager.Instance.GamePackData != null)
-            {
-                request.packJson = JsonUtility.ToJson(PackManager.Instance.GamePackData);
-            }
-
-            // Level2 data
-            string level2Json = PlayerPrefs.GetString("Level2_AI", "");
-            if (!string.IsNullOrEmpty(level2Json))
-            {
-                request.level2Json = level2Json;
-            }
-
-            // Level3 data
-            string level3Json = PlayerPrefs.GetString("Level3_Data", "");
-            if (!string.IsNullOrEmpty(level3Json))
-            {
-                request.level3Json = level3Json;
-            }
+            // Level4 — serialize from RAM
+            if (Level4Manager.Instance?.Data != null)
+                request.level4Json = JsonUtility.ToJson(Level4Manager.Instance.Data);
 
             // Settings
-            var settings = new SettingsData
+            request.settingsJson = JsonUtility.ToJson(new SettingsData
             {
                 sfxVolume = PlayerPrefs.GetFloat("volumn_sfx", 1f),
                 musicVolume = PlayerPrefs.GetFloat("volumn_music", 1f),
                 muteVibra = PlayerPrefs.GetInt("mute_vibra", 0)
-            };
-            request.settingsJson = JsonUtility.ToJson(settings);
+            });
 
             // Skills
             if (SkillManager.Instance != null)
                 request.skillsJson = SkillManager.Instance.ToJson();
 
-            // Level4 quiz answers
-            string level4Json = PlayerPrefs.GetString("Level_4", "");
-            if (!string.IsNullOrEmpty(level4Json))
-                request.level4Json = level4Json;
-
-            // Analytics snapshot (derived from all managers)
+            // Analytics snapshot
             if (AnalyticsManager.Instance != null)
                 request.analyticsJson = JsonUtility.ToJson(AnalyticsManager.Instance.Build());
 
             return request;
         }
 
-        // ============ APPLY DATA FROM SERVER ============
+        // ============ APPLY TO RAM ============
 
         private void ApplyGameData(GameDataPayload data)
         {
@@ -202,66 +156,40 @@ namespace Luzart
                 DataManager.Instance.Data.age = data.age;
                 DataManager.Instance.Data.subject = (ESubject)data.subject;
                 DataManager.Instance.Data.subjectName = data.subjectName;
-                DataManager.Instance.SaveGameData();
             }
 
-            // PlayerResources
-            if (!string.IsNullOrEmpty(data.resourcesJson) && data.resourcesJson != "{}")
+            // Level2 — deserialize to RAM
+            if (Level2Manager.Instance != null)
             {
-                PlayerResources res = JsonUtility.FromJson<PlayerResources>(data.resourcesJson);
-                if (res != null)
-                {
-                    GameRes.SavePlayerResources(res);
-                }
+                Level2Manager.Instance.Data = !string.IsNullOrEmpty(data.level2Json) && data.level2Json != "{}"
+                    ? JsonUtility.FromJson<Level2Data>(data.level2Json) ?? new Level2Data()
+                    : new Level2Data();
             }
 
-            // Heart
-            if (HeartManager.Instance != null && !string.IsNullOrEmpty(data.heartJson) && data.heartJson != "{}")
+            // Level3 — deserialize to RAM
+            if (Level3Manager.Instance != null)
             {
-                DataHeart heart = JsonUtility.FromJson<DataHeart>(data.heartJson);
-                if (heart != null)
-                {
-                    HeartManager.Instance.dataHeart = heart;
-                    HeartManager.Instance.SaveData();
-                }
+                Level3Manager.Instance.Data = !string.IsNullOrEmpty(data.level3Json) && data.level3Json != "{}"
+                    ? JsonUtility.FromJson<Level3Data>(data.level3Json) ?? new Level3Data()
+                    : new Level3Data();
             }
 
-            // Pack
-            if (PackManager.Instance != null && !string.IsNullOrEmpty(data.packJson) && data.packJson != "{}")
+            // Level4 — deserialize to RAM
+            if (Level4Manager.Instance != null)
             {
-                GamePackData packData = JsonUtility.FromJson<GamePackData>(data.packJson);
-                if (packData != null)
-                {
-                    // Use reflection-free approach: save to PlayerPrefs and reload
-                    SaveLoadUtil.SaveDataPrefs(packData, "gamepackdata");
-                    PackManager.Instance.Initialize();
-                }
+                Level4Manager.Instance.Data = !string.IsNullOrEmpty(data.level4Json) && data.level4Json != "{}"
+                    ? JsonUtility.FromJson<Level4Data>(data.level4Json) ?? new Level4Data()
+                    : new Level4Data();
             }
 
-            // Level2 data
-            if (!string.IsNullOrEmpty(data.level2Json) && data.level2Json != "{}")
-                PlayerPrefs.SetString("Level2_AI", data.level2Json);
-            else
-                PlayerPrefs.DeleteKey("Level2_AI");
-
-            // Level3 data
-            if (!string.IsNullOrEmpty(data.level3Json) && data.level3Json != "{}")
-                PlayerPrefs.SetString("Level3_Data", data.level3Json);
-            else
-                PlayerPrefs.DeleteKey("Level3_Data");
-
-            // Level4 quiz data
-            if (!string.IsNullOrEmpty(data.level4Json) && data.level4Json != "{}")
-                PlayerPrefs.SetString("Level_4", data.level4Json);
-            else
-                PlayerPrefs.DeleteKey("Level_4");
-
-            // analyticsJson is read-only (computed on save, not restored)
+            // Persona — reset for new account
+            if (PersonaManager.Instance != null)
+                PersonaManager.Instance.Data = new PersonaData();
 
             // Settings
             if (!string.IsNullOrEmpty(data.settingsJson) && data.settingsJson != "{}")
             {
-                SettingsData settings = JsonUtility.FromJson<SettingsData>(data.settingsJson);
+                var settings = JsonUtility.FromJson<SettingsData>(data.settingsJson);
                 if (settings != null)
                 {
                     PlayerPrefs.SetFloat("volumn_sfx", settings.sfxVolume);
@@ -276,11 +204,8 @@ namespace Luzart
             else
                 SkillManager.Instance?.FromJson("{\"unlocked\":[]}");
 
-            PlayerPrefs.Save();
-
             // Notify observers
             Observer.Instance?.Notify(ObserverKey.PersonaDataChange);
-            Observer.Instance?.Notify(ObserverKey.CoinObserverNormal);
         }
     }
 }

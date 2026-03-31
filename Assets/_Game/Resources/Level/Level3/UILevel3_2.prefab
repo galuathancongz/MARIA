@@ -856,7 +856,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd518d37caf74a4589326d21f874df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterName: 'Accessibility support '
+  filterIndex: 2
   toggle: {fileID: 5887339524756044309}
 --- !u!1 &1050196089985667028
 GameObject:
@@ -1175,9 +1175,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Ecosystems
-  learningObjective: 'Understand food chains and interdependence '
-  designContraints: Must involve a creative storytelling or role-play element
+  topicIndex: 1
 --- !u!114 &6492210104856328830
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1420,7 +1418,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd518d37caf74a4589326d21f874df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterName: Multilingual classroom
+  filterIndex: 3
   toggle: {fileID: 6997117925288916242}
 --- !u!1 &1265823313084325014
 GameObject:
@@ -1962,9 +1960,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Scientific method
-  learningObjective: Teach prediction, testing and reflection
-  designContraints: Must be adaptable for learners with different literacy levels
+  topicIndex: 2
 --- !u!114 &6261941537069758186
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2164,9 +2160,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Fractions
-  learningObjective: 'Design a visual real world activity '
-  designContraints: Must use common materials (e.g. food, money, paper shapes)
+  topicIndex: 0
 --- !u!114 &4613087623733429193
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2372,7 +2366,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd518d37caf74a4589326d21f874df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterName: Time-constrained lesson
+  filterIndex: 1
   toggle: {fileID: 8211464204589701006}
 --- !u!1 &1649548715325377672
 GameObject:
@@ -3185,9 +3179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Ancient civilisations
-  learningObjective: Compare cultural innovations between two civilisations
-  designContraints: Must use collaborative group work or presentations
+  topicIndex: 0
 --- !u!114 &4808440287731521766
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4472,9 +4464,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Narrative writing
-  learningObjective: "Help students write from a different character\u2019s perspective "
-  designContraints: Must use visual or voice-based creative prompts
+  topicIndex: 0
 --- !u!114 &323896386858387127
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5193,9 +5183,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Timeline construction
-  learningObjective: Sequence events in a historical period
-  designContraints: 'Must support students with visual and linguistic scaffolds '
+  topicIndex: 2
 --- !u!114 &7382190145369720787
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -5839,9 +5827,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Persuasive language
-  learningObjective: Teach students to structure arguments and counterpoints
-  designContraints: 'Must include a debate or roleplay component '
+  topicIndex: 1
 --- !u!114 &6568535879520613437
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -6560,9 +6546,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Colonialism
-  learningObjective: Critically examine impact on local cultures
-  designContraints: 'Must include student voice / reflection element '
+  topicIndex: 1
 --- !u!114 &2727311405492782870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -7066,7 +7050,6 @@ GameObject:
   - component: {fileID: 6133053245281703346}
   - component: {fileID: 4748090123610735308}
   - component: {fileID: 6732653500481906190}
-  - component: {fileID: 2831381976772953774}
   m_Layer: 5
   m_Name: txtSubject
   m_TagString: Untagged
@@ -7205,19 +7188,6 @@ MonoBehaviour:
   txt: {fileID: 4748090123610735308}
   level: 3
   _subject: 0
---- !u!114 &2831381976772953774
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4359235676240432889}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locKey: mentor.subject.history
 --- !u!1 &4363998888061870732
 GameObject:
   m_ObjectHideFlags: 0
@@ -7689,7 +7659,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9dd518d37caf74a4589326d21f874df3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  filterName: 'Differentiation required '
+  filterIndex: 0
   toggle: {fileID: 4966715191474856915}
 --- !u!1 &4897574363569199027
 GameObject:
@@ -7926,7 +7896,6 @@ GameObject:
   - component: {fileID: 8962654456431989874}
   - component: {fileID: 471547411372365464}
   - component: {fileID: 6172244303825452203}
-  - component: {fileID: 1179859303170618907}
   m_Layer: 5
   m_Name: txtName
   m_TagString: Untagged
@@ -8065,19 +8034,6 @@ MonoBehaviour:
   txt: {fileID: 471547411372365464}
   level: 3
   _subject: 0
---- !u!114 &1179859303170618907
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5290596075781356408}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locKey: mentor.name.history
 --- !u!1 &5389007137942888610
 GameObject:
   m_ObjectHideFlags: 0
@@ -11969,9 +11925,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: States of matter
-  learningObjective: Explore how materials change form
-  designContraints: 'Must use low-cost materials for an experiment '
+  topicIndex: 0
 --- !u!114 &8091477599780122985
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12690,9 +12644,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Measurement
-  learningObjective: Compare perimeter and area of everyday objects
-  designContraints: Must include a hands-on physical movement activity
+  topicIndex: 2
 --- !u!114 &4113714264949996084
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14135,9 +14087,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ec73a03c49ddedd479e842aadcea41a5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  topic: Algebraic thinking
-  learningObjective: Help students solve and simplify expressions
-  designContraints: Must include step-by-step AI-guided practice
+  topicIndex: 1
 --- !u!114 &3483387603718499002
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15025,11 +14975,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1483.3333
+      value: 1350
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15297,11 +15247,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 890
+      value: 810
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15585,11 +15535,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 1483.3333
+      value: 1350
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -15873,11 +15823,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 296.66666
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16161,11 +16111,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 890.00006
+      value: 810
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
@@ -16433,11 +16383,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.x
-      value: 296.66666
+      value: 270
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -201.6
+      value: -225
       objectReference: {fileID: 0}
     - target: {fileID: 319697725865576205, guid: 9fcaac7c7bfc78d49822f47869dd47c2, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
