@@ -31,6 +31,7 @@ public class UIProfile : UIBase
     public BaseSelect     bsPersona;
     public Button         btnLogout;
     public Button         btnExportReport;
+    public Button         btnViewFeedback;
 
     // ── Overall progress ─────────────────────────────────────────────────────
     [Header("Progress")]
@@ -71,6 +72,8 @@ public class UIProfile : UIBase
         {
             txtName.onEndEdit.RemoveAllListeners();
             txtName.onEndEdit.AddListener(SaveName);
+            if(DataManager.Instance.Data.namePlayer.Equals("username"))
+                DataManager.Instance.Data.namePlayer = AuthManager.Instance.CurrentUsername;
             txtName.text = DataManager.Instance.Data.namePlayer;
         }
         if (txtAge)
@@ -84,6 +87,7 @@ public class UIProfile : UIBase
 
         GameUtil.ButtonOnClick(btnLogout, OnClickLogout);
         GameUtil.ButtonOnClick(btnExportReport, Luzart.PdfExporter.ExportGrowthReport);
+        GameUtil.ButtonOnClick(btnViewFeedback, OnClickViewFeedback);
     }
 
     // ═════════════════════════════════════════════════════════════════════════
@@ -116,6 +120,15 @@ public class UIProfile : UIBase
         // Level progress
         int level = DataManager.Instance != null ? DataManager.Instance.CurrentLevel : 0;
         if (txtLevelProgress) txtLevelProgress.text = $"Level {level} / 3";
+    }
+
+    // ═════════════════════════════════════════════════════════════════════════
+    //  Feedback Summary
+    // ═════════════════════════════════════════════════════════════════════════
+
+    private void OnClickViewFeedback()
+    {
+        UIManager.Instance.ShowUI(UIName.FeedbackSummary);
     }
 
     // ═════════════════════════════════════════════════════════════════════════

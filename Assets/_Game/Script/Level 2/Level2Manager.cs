@@ -36,6 +36,10 @@ namespace Luzart
         public string MentorName => MentorSubjectExtension.GetNameMentor(subject);
 
         public string question2_3_1;
+
+        // Level 2 Scene 5 — reflection text (predefined selections + custom write-in)
+        public List<string> reflections = new List<string>();
+
         public List<ConversationState> listConverstationState = new List<ConversationState>();
         public ConversationState AddConvesationData(byte indexConverstation, ConverstationData data)
         {

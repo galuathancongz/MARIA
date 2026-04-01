@@ -1077,6 +1077,7 @@ namespace Luzart
         public virtual void Save()
         {
             // No-op: data chỉ ở RAM, server save qua SyncManager
+            SyncManager.Instance?.SaveToServer();
         }
     }
 }

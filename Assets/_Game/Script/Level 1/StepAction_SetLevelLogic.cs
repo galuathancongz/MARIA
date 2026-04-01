@@ -10,13 +10,19 @@ namespace Luzart
         public override void Execute(Action<ActionResult> _onComplete)
         {
             base.Execute(_onComplete);
-            DataManager.Instance.Data.level = level;
-            DataManager.Instance.SaveGameData();
-            CallOnComplete();
             if (level == 3)
             {
                 Level3Manager.IsSendStartCoCreatorStudio = false;
             }
+            if(DataManager.Instance.Data.level >= level)
+            {
+                CallOnComplete();
+                SyncManager.Instance.SaveToServer();  
+                return;
+            }
+            DataManager.Instance.Data.level = level;
+            DataManager.Instance.SaveGameData();
+            CallOnComplete();
         }
     }
 }

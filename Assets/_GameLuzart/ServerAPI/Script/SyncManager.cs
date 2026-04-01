@@ -113,6 +113,10 @@ namespace Luzart
                 request.subjectName = gd.subjectName;
             }
 
+            // Persona (Level 1 persona stats + reflections)
+            if (PersonaManager.Instance?.Data != null)
+                request.personaJson = JsonUtility.ToJson(PersonaManager.Instance.Data);
+
             // Level2 — serialize from RAM
             if (Level2Manager.Instance?.Data != null)
                 request.level2Json = JsonUtility.ToJson(Level2Manager.Instance.Data);
@@ -182,9 +186,13 @@ namespace Luzart
                     : new Level4Data();
             }
 
-            // Persona — reset for new account
+            // Persona
             if (PersonaManager.Instance != null)
-                PersonaManager.Instance.Data = new PersonaData();
+            {
+                PersonaManager.Instance.Data = !string.IsNullOrEmpty(data.personaJson) && data.personaJson != "{}"
+                    ? JsonUtility.FromJson<PersonaData>(data.personaJson) ?? new PersonaData()
+                    : new PersonaData();
+            }
 
             // Settings
             if (!string.IsNullOrEmpty(data.settingsJson) && data.settingsJson != "{}")

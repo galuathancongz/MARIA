@@ -3737,7 +3737,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8842465410209696319
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4211,7 +4211,7 @@ RectTransform:
   m_Father: {fileID: 2545902775314786417}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 10, y: 10}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -7275,11 +7275,62 @@ PrefabInstance:
       propertyPath: m_Name
       value: InputFieldAndSend
       objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 8549653228148647518}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickSend
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Luzart.ReflectionCollector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 3580123267932725156, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 8549653228148647518}
   m_SourcePrefab: {fileID: 100100000, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+--- !u!1 &1983091928905107915 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3580123267932725156, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
+  m_PrefabInstance: {fileID: 3038378058100299375}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &8549653228148647518
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1983091928905107915}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa170d23a8a8b04d945aaeea477bcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 3
+  listToggles: []
+  inputField: {fileID: 6695552452064389282}
 --- !u!224 &3264927781906632939 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 532874161994958468, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
@@ -7290,7 +7341,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
   m_PrefabInstance: {fileID: 3038378058100299375}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 1983091928905107915}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4cc1273934f22464996bac1fa12ccea0, type: 3}

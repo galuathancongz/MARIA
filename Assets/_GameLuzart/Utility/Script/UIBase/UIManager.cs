@@ -50,6 +50,7 @@ namespace Luzart
             {UIName.Login,           "2,0,UILogin"           },
             {UIName.LanguageSelect,  "2,0,UILanguageSelect"  },
             {UIName.BadgeUnlock,     "4,0,UIBadgeUnlock"     },
+            {UIName.FeedbackSummary, "2,0,UIFeedbackSummary" },
 
 
             {UIName.Tut1,"1,0,Level/Tutorial/UITut1" },
@@ -629,6 +630,7 @@ namespace Luzart
         Login           = 18,
         LanguageSelect  = 19,
         BadgeUnlock     = 20,
+        FeedbackSummary = 21,
 
         //Tutorial =50,
         //Tutorial

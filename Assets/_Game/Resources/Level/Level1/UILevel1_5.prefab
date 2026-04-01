@@ -601,8 +601,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7347616675909242855}
+  - component: {fileID: 3778721312502094621}
   m_Layer: 5
-  m_Name: GameObject
+  m_Name: ReflectionCollector
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -630,6 +631,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &3778721312502094621
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1113041775268894184}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0fa170d23a8a8b04d945aaeea477bcd6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  level: 1
+  listToggles:
+  - {fileID: 2135436586977751253}
+  - {fileID: 5839506089202479560}
+  - {fileID: 6326742597193785387}
+  - {fileID: 2460108132110008434}
+  - {fileID: 7229229722023712440}
+  - {fileID: 5636103328441306041}
+  - {fileID: 6204050257657062459}
+  inputField: {fileID: 6452887376795497381}
 --- !u!1 &1223723367357410008
 GameObject:
   m_ObjectHideFlags: 0
@@ -1497,6 +1520,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6677631532618200844}
   - component: {fileID: 4223261409090938829}
+  - component: {fileID: 2135436586977751253}
   m_Layer: 5
   m_Name: ItemShow
   m_TagString: Untagged
@@ -1540,6 +1564,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strStory: "I hadn\u2019t realised how much creativity drives my teaching "
   bsChoice: {fileID: 8518731835745438582}
+--- !u!114 &2135436586977751253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2339712053590975628}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 8518731835745438582}
+  txtLabel: {fileID: 4138454371396806663}
 --- !u!1 &2524117194543164532
 GameObject:
   m_ObjectHideFlags: 0
@@ -1867,6 +1905,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1498678310203373967}
   - component: {fileID: 4767674180419069363}
+  - component: {fileID: 6326742597193785387}
   m_Layer: 5
   m_Name: ItemShow (2)
   m_TagString: Untagged
@@ -1910,6 +1949,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strStory: This profile confirms how much I care about student relationships
   bsChoice: {fileID: 1040331388566052380}
+--- !u!114 &6326742597193785387
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2675109431926154723}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 1040331388566052380}
+  txtLabel: {fileID: 8824764294162700552}
 --- !u!1 &2691794662286626795
 GameObject:
   m_ObjectHideFlags: 0
@@ -2357,6 +2410,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3708529045826449666}
   - component: {fileID: 6371566424975286557}
+  - component: {fileID: 2460108132110008434}
   m_Layer: 5
   m_Name: ItemShow (3)
   m_TagString: Untagged
@@ -2400,6 +2454,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strStory: I see now that I can use AI to strengthen my weak areas
   bsChoice: {fileID: 6789257310678205393}
+--- !u!114 &2460108132110008434
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3276747867198504346}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 6789257310678205393}
+  txtLabel: {fileID: 7283820628777015110}
 --- !u!1 &3423705596415505433
 GameObject:
   m_ObjectHideFlags: 0
@@ -2713,6 +2781,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6821352716769426114}
   - component: {fileID: 4860496022110834598}
+  - component: {fileID: 5636103328441306041}
   m_Layer: 5
   m_Name: ItemShow (5)
   m_TagString: Untagged
@@ -2757,6 +2826,20 @@ MonoBehaviour:
   strStory: I feel more student-directed, I like when students take control of their
     own learning
   bsChoice: {fileID: 3734074116985790213}
+--- !u!114 &5636103328441306041
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4448308309956421566}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 3734074116985790213}
+  txtLabel: {fileID: 2393503685401479669}
 --- !u!1 &4563736406887347601
 GameObject:
   m_ObjectHideFlags: 0
@@ -3517,6 +3600,18 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
+      - m_Target: {fileID: 3778721312502094621}
+        m_TargetAssemblyTypeName: Luzart.ReflectionCollector, Assembly-CSharp
+        m_MethodName: OnClickSend
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
       - m_Target: {fileID: 9117237499745957748}
         m_TargetAssemblyTypeName: StepActionPublicAction, Assembly-CSharp
         m_MethodName: OnClickOnDone
@@ -4510,7 +4605,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &8163565987447703348
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5663,6 +5758,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5176333216941876256}
   - component: {fileID: 2705576154711743808}
+  - component: {fileID: 7229229722023712440}
   m_Layer: 5
   m_Name: ItemShow (4)
   m_TagString: Untagged
@@ -5706,6 +5802,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   strStory: I want to balance my approach more intentionally
   bsChoice: {fileID: 8519204187273460631}
+--- !u!114 &7229229722023712440
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6695288181047294285}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 8519204187273460631}
+  txtLabel: {fileID: 1875330523090580493}
 --- !u!1 &6715131895422201986
 GameObject:
   m_ObjectHideFlags: 0
@@ -5941,6 +6051,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6324563179370323564}
   - component: {fileID: 8078659576585396906}
+  - component: {fileID: 5839506089202479560}
   m_Layer: 5
   m_Name: ItemShow (1)
   m_TagString: Untagged
@@ -5985,6 +6096,20 @@ MonoBehaviour:
   strStory: "I am surprised by how structured I really am \u2013 I thought I was
     more spontaneous "
   bsChoice: {fileID: 9025233953109909910}
+--- !u!114 &5839506089202479560
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7178278225198679658}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 9025233953109909910}
+  txtLabel: {fileID: 391562080582969816}
 --- !u!1 &7237677856816440382
 GameObject:
   m_ObjectHideFlags: 0
@@ -6054,7 +6179,7 @@ RectTransform:
   m_Father: {fileID: 9140741283622991658}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
+  m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 15, y: 15}
   m_Pivot: {x: 0.5, y: 0.5}
@@ -6636,6 +6761,7 @@ GameObject:
   m_Component:
   - component: {fileID: 6254239344789043561}
   - component: {fileID: 4963244048848374308}
+  - component: {fileID: 6204050257657062459}
   m_Layer: 5
   m_Name: ItemShow (6)
   m_TagString: Untagged
@@ -6680,6 +6806,20 @@ MonoBehaviour:
   strStory: I am curious how I can develop my own prompts for AI to respond constructively
     to my learning designs
   bsChoice: {fileID: 488663171182591572}
+--- !u!114 &6204050257657062459
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8057966347281045156}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ec88c76651766e4479c5d7eafb9814e6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  toggle: {fileID: 488663171182591572}
+  txtLabel: {fileID: 5146265441396286231}
 --- !u!1 &8278718804902267458
 GameObject:
   m_ObjectHideFlags: 0
@@ -7376,6 +7516,34 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: -323
       objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 3778721312502094621}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_CallState
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnClickSend
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: Luzart.ReflectionCollector, Assembly-CSharp
+      objectReference: {fileID: 0}
+    - target: {fileID: 7708992399393594925, guid: 51843d286919044229323b4e879394ed, type: 3}
+      propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
+      value: UnityEngine.Object, UnityEngine
+      objectReference: {fileID: 0}
     - target: {fileID: 8798951528329002058, guid: 51843d286919044229323b4e879394ed, type: 3}
       propertyPath: m_Name
       value: Voice Recorder
@@ -7390,3 +7558,14 @@ RectTransform:
   m_CorrespondingSourceObject: {fileID: 3726017898300965334, guid: 51843d286919044229323b4e879394ed, type: 3}
   m_PrefabInstance: {fileID: 4400940252412618085}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &6452887376795497381 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 7250238183822776000, guid: 51843d286919044229323b4e879394ed, type: 3}
+  m_PrefabInstance: {fileID: 4400940252412618085}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2da0c512f12947e489f739169773d7ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

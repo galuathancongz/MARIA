@@ -35,6 +35,7 @@ namespace Luzart
         public int age;
         public int subject;
         public string subjectName;
+        public string personaJson;   // PersonaData JSON (Level 1 persona + reflections)
         public string level2Json;
         public string level3Json;
         public string settingsJson;
@@ -59,6 +60,7 @@ namespace Luzart
         public int age;
         public int subject;
         public string subjectName;
+        public string personaJson;   // PersonaData JSON
         public string level2Json;
         public string level3Json;
         public string settingsJson;

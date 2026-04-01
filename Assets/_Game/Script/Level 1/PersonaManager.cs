@@ -98,8 +98,11 @@ namespace Luzart
         [SerializeField]
         [ReadOnly]
         private List<PersonaStat> personaStats = new List<PersonaStat>();
-        
+
         public IReadOnlyList<PersonaStat> PersonaStats => personaStats;
+
+        // Level 1 Scene 5 — reflection text (predefined selections + custom write-in)
+        public List<string> reflections = new List<string>();
         
         public int GetPersonaAmount(EPersonaType type)
         {
