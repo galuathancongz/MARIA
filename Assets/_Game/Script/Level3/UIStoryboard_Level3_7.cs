@@ -17,7 +17,7 @@ namespace Luzart
         public ProgressBarUI progressLevel3;
         public TMP_Text txtProgressLevel2;
         public TMP_Text txtProgressLevel3;
-        public TMP_Text txtResponse;
+        public TMP_InputField txtResponse;
         public TMP_Text txtAIUsed;
         public TMP_Text txtRevisionsMade;
         public TMP_Text txtEngagementTypes;
