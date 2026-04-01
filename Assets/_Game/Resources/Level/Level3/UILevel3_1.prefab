@@ -37,6 +37,181 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &2124843364880066067
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 3410260090897257566}
+  - component: {fileID: 519933282819782491}
+  m_Layer: 5
+  m_Name: DialogueAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &3410260090897257566
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124843364880066067}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2799882429985063474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &519933282819782491
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2124843364880066067}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  actionOnCompleteStep: 0
+  txt: {fileID: 3042666837141388230}
+  str: Let's start building a lesson that reflects your own voice and vision!
+  timeDuration: 1
+  ease: 1
+  btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
+  modeClick: 1
+--- !u!1 &2625102499421083274
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1835312321711466601}
+  - component: {fileID: 9106095331557679026}
+  m_Layer: 5
+  m_Name: DialogueAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1835312321711466601
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625102499421083274}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2799882429985063474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &9106095331557679026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2625102499421083274}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  actionOnCompleteStep: 0
+  txt: {fileID: 3042666837141388230}
+  str: We won't just create content; we'll iterate and refine it with AI until it's
+    perfect.
+  timeDuration: 1
+  ease: 1
+  btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
+  modeClick: 1
+--- !u!1 &2648367827543369787
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 9024352534326520136}
+  - component: {fileID: 264205122410045206}
+  m_Layer: 5
+  m_Name: DialogueAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &9024352534326520136
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2648367827543369787}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2799882429985063474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &264205122410045206
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2648367827543369787}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  actionOnCompleteStep: 0
+  txt: {fileID: 3042666837141388230}
+  str: Here, you are the Lead Designer, and AI is your responsive Assistant.
+  timeDuration: 1
+  ease: 1
+  btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
+  modeClick: 1
 --- !u!1 &2982462369382930065
 GameObject:
   m_ObjectHideFlags: 0
@@ -103,10 +278,73 @@ MonoBehaviour:
   isCache: 0
   Steps:
   - {fileID: 567021073170692776}
-  - {fileID: 397097572531768333}
+  - {fileID: 8824776539870034322}
+  - {fileID: 264205122410045206}
+  - {fileID: 9106095331557679026}
+  - {fileID: 8925130084274361675}
+  - {fileID: 519933282819782491}
   - {fileID: 910368474256889469}
   _currentStep: 0
   currentStoryboard: 0
+--- !u!1 &3271882335799260505
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6240916303027034507}
+  - component: {fileID: 8824776539870034322}
+  m_Layer: 5
+  m_Name: DialogueAction
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6240916303027034507
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271882335799260505}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2799882429985063474}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: 0}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &8824776539870034322
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3271882335799260505}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _targetStepAction: []
+  actionResultType: 0
+  actionOnCompleteStep: 0
+  txt: {fileID: 3042666837141388230}
+  str: Welcome to the Co-Creation Studio, where your ideas become real lessons powered
+    by AI.
+  timeDuration: 1
+  ease: 1
+  btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
+  modeClick: 1
 --- !u!1 &3522345980211980136
 GameObject:
   m_ObjectHideFlags: 0
@@ -279,7 +517,7 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &5315635085558960905
+--- !u!1 &5476689217112899393
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -287,23 +525,22 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 2302837079621705673}
-  - component: {fileID: 1492598067148496780}
-  - component: {fileID: 397097572531768333}
+  - component: {fileID: 8667159384943965502}
+  - component: {fileID: 8925130084274361675}
   m_Layer: 5
-  m_Name: TweenAnimationStepAction (1)
+  m_Name: DialogueAction
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &2302837079621705673
+--- !u!224 &8667159384943965502
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5315635085558960905}
+  m_GameObject: {fileID: 5476689217112899393}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
@@ -316,66 +553,28 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1492598067148496780
+--- !u!114 &8925130084274361675
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5315635085558960905}
+  m_GameObject: {fileID: 5476689217112899393}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  typeAnimation: 10
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 9212119705600727325}
-      Duration: 0.5
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 1
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: 0
-      FloatTo: 1
-      StringFrom: 
-      StringTo: 
-      OnFloatUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
-      OnUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &397097572531768333
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5315635085558960905}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
+  m_Script: {fileID: 11500000, guid: d74610ce858aceb4b9fa20cb0483fb93, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
   actionOnCompleteStep: 0
-  twAnimation:
-  - {fileID: 1492598067148496780}
+  txt: {fileID: 3042666837141388230}
+  str: You'll choose subject-specific challenges and personalize them for your students.
+  timeDuration: 1
+  ease: 1
+  btnClick: {fileID: 0}
+  isCompleteAndNextAction: 0
+  modeClick: 1
 --- !u!1 &5895128707143969268
 GameObject:
   m_ObjectHideFlags: 0
@@ -707,7 +906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a972abd877823bc4da867bb36c02c539, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetStepAction: []
+  _targetStepAction:
+  - {fileID: 7051795190759810597}
   actionResultType: 0
   actionOnCompleteStep: 0
 --- !u!1 &8314936027529484461
@@ -865,7 +1065,11 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 2123909001243003477}
-  - {fileID: 2302837079621705673}
+  - {fileID: 6240916303027034507}
+  - {fileID: 9024352534326520136}
+  - {fileID: 1835312321711466601}
+  - {fileID: 8667159384943965502}
+  - {fileID: 3410260090897257566}
   - {fileID: 8291530562848392889}
   m_Father: {fileID: 60104816092661606}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

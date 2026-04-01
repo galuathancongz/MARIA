@@ -4,12 +4,14 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace Luzart
 {
     public class UIStoryboard_Level3_3 : Storyboard
     {
         public List<ItemCheckBox_Level3_3> listCheckBox3 = new List<ItemCheckBox_Level3_3>();
+        public Button btnNext;
         public BaseSelect selectRefine;
         [SerializeField]
         [ReadOnly]
@@ -28,9 +30,9 @@ namespace Luzart
             {
                 base.Show(onHideDone);
 
+                btnNext?.gameObject.SetActive(false);
                 // Ensure context hash matches current topic + filters
                 Data.EnsureContext();
-
                 CheckOrSendNext();
             }
             catch (Exception ex)
@@ -55,6 +57,7 @@ namespace Luzart
                 conversationMain.ShowText(LocalizationManager.Instance.Get("ui.completed_all"));
                 conversationTip.ShowText("");
                 UIManager.Instance.uiTop.ShowBtnNext(true);
+                btnNext?.gameObject.SetActive(true);
             }
         }
 
@@ -148,14 +151,19 @@ namespace Luzart
             strRequest = strRequest + LocalizationManager.Instance.Get("ui.regenerate_request");
             Send(strRequest);
         }
-
+        public ScrollRect scrollRect;
+        void UpdateScrollRect()
+        {
+            if(scrollRect == null) return;
+            scrollRect.ScrollTo(0, 0.1f);
+        }
         private void OnDoneResults(string str)
         {
             try
             {
                 var data = JsonUtility.FromJson<Level3_3Data>(str);
                 dataRequest = data;
-                conversationMain.ShowTextAnim(data.suggestion);
+                conversationMain.ShowTextAnim(data.suggestion, UpdateScrollRect);
                 conversationTip.ShowTextAnim(data.tips);
             }
             catch (Exception ex)

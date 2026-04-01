@@ -152,58 +152,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &535699661246612771
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3635519269393802217}
-  - component: {fileID: 8962141889466266085}
-  m_Layer: 5
-  m_Name: StepActionDelayTime
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3635519269393802217
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535699661246612771}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 7494155583414031564}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 960, y: 540}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8962141889466266085
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 535699661246612771}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7cd32e6d0f2beb14299aa11d2e8007f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetStepAction: []
-  actionResultType: 0
-  actionOnCompleteStep: 0
-  delayTime: 0.2
 --- !u!1 &546052810253765033
 GameObject:
   m_ObjectHideFlags: 0
@@ -605,6 +553,7 @@ RectTransform:
   m_Children:
   - {fileID: 4633023174701068429}
   - {fileID: 4301937587560135954}
+  - {fileID: 8744399164102315146}
   m_Father: {fileID: 8126242907208875219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
@@ -885,8 +834,9 @@ GameObject:
   m_Component:
   - component: {fileID: 8744399164102315146}
   - component: {fileID: 5141964032819901608}
-  - component: {fileID: 4874257021553142989}
   - component: {fileID: 1145735027651217462}
+  - component: {fileID: 3589098633639413916}
+  - component: {fileID: 5947411194164886026}
   m_Layer: 5
   m_Name: TweenAnimationStepAction
   m_TagString: Untagged
@@ -901,12 +851,12 @@ RectTransform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2079729056899386861}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
-  m_Father: {fileID: 7494155583414031564}
+  m_Father: {fileID: 7347616675909242855}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -956,25 +906,6 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
---- !u!114 &4874257021553142989
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2079729056899386861}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 349291e2d40c29a4d8d5b0f1301328b5, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetStepAction:
-  - {fileID: 4830357478199917008}
-  actionResultType: 0
-  actionOnCompleteStep: 0
-  twAnimation:
-  - {fileID: 5141964032819901608}
-  - {fileID: 1145735027651217462}
 --- !u!114 &1145735027651217462
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1018,6 +949,50 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &3589098633639413916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079729056899386861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 307604cd2247e0b4188afb83c7ec017c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenSequences:
+  - TweenAnimation: {fileID: 5141964032819901608}
+    SequenceType: 1
+    InsertTime: 0
+  - TweenAnimation: {fileID: 1145735027651217462}
+    SequenceType: 1
+    InsertTime: 0
+  sequenceSettings:
+    _duration: 1
+    IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: 0
+--- !u!114 &5947411194164886026
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2079729056899386861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenAnimation: {fileID: 3589098633639413916}
+  typeShow: 3
 --- !u!1 &2318905249372089079
 GameObject:
   m_ObjectHideFlags: 0
@@ -1941,7 +1916,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &4301937587560135954
 RectTransform:
   m_ObjectHideFlags: 0
@@ -2617,8 +2592,6 @@ MonoBehaviour:
   Steps:
   - {fileID: 638394274421227567}
   - {fileID: 3155326008173540718}
-  - {fileID: 8962141889466266085}
-  - {fileID: 4874257021553142989}
   - {fileID: 9117237499745957748}
   _currentStep: 0
   currentStoryboard: 0
@@ -2812,8 +2785,6 @@ RectTransform:
   m_Children:
   - {fileID: 4766707382638753308}
   - {fileID: 211358195667156524}
-  - {fileID: 3635519269393802217}
-  - {fileID: 8744399164102315146}
   - {fileID: 112356153814844799}
   m_Father: {fileID: 8126242907208875219}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

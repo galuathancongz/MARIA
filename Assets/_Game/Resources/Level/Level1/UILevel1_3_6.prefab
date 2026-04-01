@@ -82,9 +82,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7105047041580982443, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
       propertyPath: str
-      value: "Wonderful! I am getting a clear picture of how you think, teach and
-        connect with your students. Now let\u2019s see how you interpret ideas and
-        language \u2013 ready for a little word association challenge. "
+      value: I've finished compiling the overview. Now I'll show it to you.
       objectReference: {fileID: 0}
     - target: {fileID: 7276304187677924814, guid: a65bc7aab769aa849b2437d6ec86b1ed, type: 3}
       propertyPath: m_Pivot.x

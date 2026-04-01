@@ -18,7 +18,10 @@ namespace Luzart
         public TMP_Text txtProgressLevel2;
         public TMP_Text txtProgressLevel3;
         public TMP_Text txtResponse;
-        public Button btnExportPlan;
+        public TMP_Text txtAIUsed;
+        public TMP_Text txtRevisionsMade;
+        public TMP_Text txtEngagementTypes;
+        public TMP_Text txtBadgesCount;
         private DataLevel3_7 _data = new DataLevel3_7();
         public override void Show(Action onHideDone)
         {
@@ -29,10 +32,20 @@ namespace Luzart
                 txtPersona.text = persona;
                 txtColor.text = PersonaManager.Instance.GetNameColorPersonaType();
 
+                // Performance insights
+                var l3 = Level3Manager.Instance.Data;
+                int aiL2 = Level2Manager.Instance?.Data?.listConverstationState
+                    ?.Sum(x => x.listConverstationData.Count(y => y.role == ERole.Me)) ?? 0;
+                int aiL3 = l3.GetAllSendAI();
+
+                if (txtAIUsed) txtAIUsed.text = (aiL2 + aiL3).ToString();
+                if (txtRevisionsMade) txtRevisionsMade.text = l3.totalRefineCount.ToString();
+                if (txtEngagementTypes) txtEngagementTypes.text = (l3.filterIndices?.Count ?? 0).ToString();
+                if (txtBadgesCount) txtBadgesCount.text = $"{SkillManager.Instance?.CountAll() ?? 0} / {SkillManager.Instance?.TotalAll() ?? 20}";
+
                 // Badge: lesson design aligned with the player's Level 1 teaching persona
                 SkillManager.Instance?.UnlockSkill(ESkillId.PersonaAligned);
 
-                GameUtil.ButtonOnClick(btnExportPlan, PdfExporter.ExportLessonPlan);
 
                 Send();
                 UIManager.Instance.ShowLoading();
@@ -43,6 +56,10 @@ namespace Luzart
                 txtResponse.text = $"{LocalizationManager.Instance.Get("ui.error_try_again")} + {ex}";
             }
 
+        }
+        public void OnExportPlan()
+        {
+            PdfExporter.ExportLessonPlan();
         }
         public void OnBackToMain()
         {
@@ -68,6 +85,13 @@ namespace Luzart
             {
                 DataLevel3_7 json = JsonUtility.FromJson<DataLevel3_7>(str);
                 _data = json;
+
+                // Lưu vào Level3Data để tracking + PDF export
+                var data = Level3Manager.Instance.Data;
+                data.percentLevel2 = json.percentLevel2;
+                data.percentLevel3 = json.percentLevel3;
+                data.personalisedFeedback = json.personalisedFeedback;
+
                 OnDisplayData();
             }
             catch (Exception e)

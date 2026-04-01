@@ -43,6 +43,11 @@ namespace Luzart
         public string studentWork = "";
         public List<FeedbackSuggestion> listFeedbackSuggestions = new List<FeedbackSuggestion>();
         public List<string> listFeedbackSelected = new List<string>();
+
+        // Scene 7 — AI dashboard results (lưu để tracking + PDF export)
+        public int percentLevel2;
+        public int percentLevel3;
+        public string personalisedFeedback;
         public int totalRefineCount = 0;
 
         // ── Derived text (từ tables, KHÔNG lưu) ─────────────────────────────

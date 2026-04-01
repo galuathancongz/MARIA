@@ -436,20 +436,38 @@ namespace Luzart
 
     public class TweenAnimationTextMeshPro : TweenAnimationWorker<TextMeshProUGUI>
     {
+        private LocalizedText _localizedText;
+
+        /// <summary>
+        /// Lấy text đúng: nếu target có LocalizedText → dùng localized text, không thì dùng Target.text
+        /// </summary>
+        private string GetResolvedText()
+        {
+            if (_localizedText == null)
+                _localizedText = Target.GetComponent<LocalizedText>();
+
+            if (_localizedText != null)
+            {
+                // Force update localization trước rồi lấy text đã localized
+                _localizedText.UpdateText();
+            }
+            return Target.text;
+        }
+
         protected override void SetDefaultValues(bool isRuntime)
         {
             if (string.IsNullOrEmpty(Settings.Values.GetStringFrom()))
             {
                 if (isRuntime == Settings.Values.IsSetRuntimeFrom)
                 {
-                    Settings.Values.StringFrom = Target.text;
+                    Settings.Values.StringFrom = isRuntime ? GetResolvedText() : Target.text;
                 }
             }
             if (string.IsNullOrEmpty(Settings.Values.GetStringTo()))
             {
                 if (isRuntime == Settings.Values.IsSetRuntimeTo)
                 {
-                    Settings.Values.StringTo = Target.text;
+                    Settings.Values.StringTo = isRuntime ? GetResolvedText() : Target.text;
                 }
             }
         }
@@ -464,7 +482,17 @@ namespace Luzart
 
         protected override Tween CreateAnimationTween()
         {
-            return Target.DOText(Settings.Values.GetStringTo(), Settings.General.Duration)
+            // Nếu có LocalizedText → dùng localized text làm target cho DOText
+            string targetText = Settings.Values.GetStringTo();
+            if (_localizedText == null)
+                _localizedText = Target.GetComponent<LocalizedText>();
+            if (_localizedText != null)
+            {
+                _localizedText.UpdateText();
+                targetText = Target.text; // text đã được localize
+            }
+
+            return Target.DOText(targetText, Settings.General.Duration)
                 .SetEase(Settings.General.Easing);
         }
     }

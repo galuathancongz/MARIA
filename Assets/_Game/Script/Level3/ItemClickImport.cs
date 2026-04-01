@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
+using UnityEngine.Events;
 
 namespace Luzart
 {
@@ -12,6 +13,7 @@ namespace Luzart
     {
         public string title;
         public Action<string> onClick;
+        public UnityEvent<string> onClickEvent;
         public void Initialize( Action<string> onClick)
         {
             
@@ -20,6 +22,7 @@ namespace Luzart
         public void OnClick()
         {
             onClick?.Invoke(title);
+            onClickEvent?.Invoke(title);
         }
 
         private void OnValidate()

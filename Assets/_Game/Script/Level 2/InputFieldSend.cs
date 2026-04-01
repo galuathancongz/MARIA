@@ -34,4 +34,9 @@ public class InputFieldSend : MonoBehaviour
         OnClickHandle?.Invoke(_currentStr);
         inputField.text = "";
     }
+    public void ImportToThis(string str)
+    {
+        _currentStr = str;
+        inputField.text = str;
+    }
 }

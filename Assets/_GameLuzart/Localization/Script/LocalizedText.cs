@@ -14,6 +14,11 @@ namespace Luzart
             textComponent = GetComponent<TMP_Text>();
         }
 
+        private void OnEnable()
+        {
+            UpdateText();
+        }
+
         private void Start()
         {
             UpdateText();

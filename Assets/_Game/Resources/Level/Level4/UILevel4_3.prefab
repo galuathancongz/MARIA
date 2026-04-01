@@ -325,7 +325,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 0}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 9016770606677269045}
 --- !u!114 &9016770606677269045
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1459986285089334447}
 --- !u!1 &6725911640531656636
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8536906684387110268
 GameObject:
   m_ObjectHideFlags: 0
@@ -928,6 +928,10 @@ PrefabInstance:
       propertyPath: m_text
       value: Not at all
       objectReference: {fileID: 0}
+    - target: {fileID: 8436712772379206827, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      propertyPath: locKey
+      value: ui.section_c
+      objectReference: {fileID: 0}
     - target: {fileID: 8453187991172115489, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: str
       value: Very much so
@@ -960,7 +964,8 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 8436712772379206827, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
