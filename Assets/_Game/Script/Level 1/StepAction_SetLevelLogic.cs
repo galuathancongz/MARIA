@@ -17,7 +17,7 @@ namespace Luzart
             if(DataManager.Instance.Data.level >= level)
             {
                 CallOnComplete();
-                SyncManager.Instance.SaveToServer();  
+                SyncManager.Instance?.SaveToServer(saveTrigger: "level_complete");
                 return;
             }
             DataManager.Instance.Data.level = level;

@@ -8,10 +8,12 @@ namespace Luzart
         private const string PREF_TOKEN = "auth_token";
         private const string PREF_USERNAME = "auth_username";
         private const string PREF_USERID = "auth_userid";
+        private const string PREF_SESSIONID = "auth_sessionid";
 
         public bool IsLoggedIn => ApiClient.Instance != null && ApiClient.Instance.HasToken;
         public string CurrentUsername => PlayerPrefs.GetString(PREF_USERNAME, "");
         public int CurrentUserId => PlayerPrefs.GetInt(PREF_USERID, -1);
+        public int CurrentSessionId => PlayerPrefs.GetInt(PREF_SESSIONID, -1);
 
         public Action OnLoginSuccess;
         public Action OnLogout;
@@ -36,7 +38,7 @@ namespace Luzart
                 {
                     if (response.success)
                     {
-                        SaveAuth(response.token, response.username, response.userId);
+                        SaveAuth(response.token, response.username, response.userId, response.sessionId);
                         Debug.Log($"[AuthManager] Registered: {response.username}");
                         onSuccess?.Invoke(response);
                         OnLoginSuccess?.Invoke();
@@ -59,7 +61,7 @@ namespace Luzart
                 {
                     if (response.success)
                     {
-                        SaveAuth(response.token, response.username, response.userId);
+                        SaveAuth(response.token, response.username, response.userId, response.sessionId);
                         Debug.Log($"[AuthManager] Logged in: {response.username}");
                         onSuccess?.Invoke(response);
                         OnLoginSuccess?.Invoke();
@@ -88,7 +90,7 @@ namespace Luzart
                 SyncManager.Instance.SaveToServer(() =>
                 {
                     DoLogout(onSuccess);
-                });
+                }, saveTrigger: "logout");
             }
             else
             {
@@ -98,7 +100,8 @@ namespace Luzart
 
         private void DoLogout(Action onSuccess)
         {
-            ApiClient.Instance.Post<ApiResponse>("/api/auth/logout", "{}",
+            string body = $"{{\"sessionId\":{CurrentSessionId}}}";
+            ApiClient.Instance.Post<ApiResponse>("/api/auth/logout", body,
                 (response) =>
                 {
                     ClearAuth();
@@ -116,12 +119,13 @@ namespace Luzart
             );
         }
 
-        private void SaveAuth(string token, string username, int userId)
+        private void SaveAuth(string token, string username, int userId, int sessionId = -1)
         {
             ApiClient.Instance.SetToken(token);
             PlayerPrefs.SetString(PREF_TOKEN, token);
             PlayerPrefs.SetString(PREF_USERNAME, username);
             PlayerPrefs.SetInt(PREF_USERID, userId);
+            PlayerPrefs.SetInt(PREF_SESSIONID, sessionId);
             PlayerPrefs.Save();
         }
 
@@ -131,6 +135,7 @@ namespace Luzart
             PlayerPrefs.DeleteKey(PREF_TOKEN);
             PlayerPrefs.DeleteKey(PREF_USERNAME);
             PlayerPrefs.DeleteKey(PREF_USERID);
+            PlayerPrefs.DeleteKey(PREF_SESSIONID);
             PlayerPrefs.Save();
         }
     }

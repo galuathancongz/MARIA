@@ -24,6 +24,7 @@ namespace Luzart
         public string token;
         public int userId;
         public string username;
+        public int sessionId;
     }
 
     // ========== GAME DATA ==========
@@ -42,6 +43,8 @@ namespace Luzart
         public string skillsJson;   // SkillSaveData JSON
         public string level4Json;   // Level4Data JSON (quiz answers)
         public string analyticsJson; // AnalyticsData JSON (derived metrics)
+        public int sessionId;       // Current play session ID
+        public string saveTrigger;  // "win_game", "focus_loss", "logout", "level_complete", "manual"
     }
 
     [System.Serializable]

@@ -21,7 +21,7 @@ namespace Luzart
             // Sync to server after win
             if (SyncManager.Instance != null && AuthManager.Instance != null && AuthManager.Instance.IsLoggedIn)
             {
-                SyncManager.Instance.SaveToServer();
+                SyncManager.Instance.SaveToServer(saveTrigger: "win_game");
             }
         }
     

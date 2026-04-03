@@ -26,7 +26,7 @@ namespace Luzart
 
         // ============ SAVE TO SERVER ============
 
-        public void SaveToServer(Action onComplete = null)
+        public void SaveToServer(Action onComplete = null, string saveTrigger = "manual")
         {
             if (!AuthManager.Instance.IsLoggedIn)
             {
@@ -43,6 +43,8 @@ namespace Luzart
             isSyncing = true;
 
             var request = CollectGameData();
+            request.sessionId = AuthManager.Instance.CurrentSessionId;
+            request.saveTrigger = saveTrigger;
             string json = JsonUtility.ToJson(request);
 
             ApiClient.Instance.Post<ApiResponse>("/api/gamedata/save", json,
