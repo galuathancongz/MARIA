@@ -9,7 +9,7 @@ namespace Luzart
 {
     public class PostQuizBoardToggle : PostQuizBoard
     {
-        [Header("Description")]
+        [Space ,Header("Description")]
         public List<string> listStr = new List<string>();
         public List<ButtonClickQuiz> listBtnClickQuiz = new List<ButtonClickQuiz>();
         [Header("Button On Toggle Select")]
@@ -19,6 +19,17 @@ namespace Luzart
         public GameObject goButton;
 
         [ReadOnly] public List<int> listIndexCanPost = new List<int>();
+
+        public override void OnClickNextButton()
+        {
+            var data = new Level4QuestionToggle
+            {
+                indexQuestion = levelIndex,
+                indexAnswer = new List<int>(listIndexCanPost)
+            };
+            Level4Manager.Instance?.AddQuestion(data);
+            base.OnClickNextButton();
+        }
 
         public virtual void OnClickButton(int index)
         {

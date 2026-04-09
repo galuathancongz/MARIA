@@ -6,6 +6,8 @@ namespace Luzart
 {
     public class PostQuizBoard : MonoBehaviour
     {
+        [Header("Level Index")]
+        public int levelIndex;
         [Header("Post Quiz Board")]
         public BaseSelect bsSections;
         public int index;

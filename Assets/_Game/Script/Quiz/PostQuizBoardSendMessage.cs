@@ -7,6 +7,13 @@ namespace Luzart
 {
     public class PostQuizBoardSendMessage : PostQuizBoard
     {
-
+        public void OnClickSendString(string str)
+        {
+            Level4String data = new Level4String();
+            data.str = str;
+            data.indexQuestion = levelIndex;
+            Level4Manager.Instance.AddQuestion(data);
+            OnClickNextButton();
+        }
     }
 }

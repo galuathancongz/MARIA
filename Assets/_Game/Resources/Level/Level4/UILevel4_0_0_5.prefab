@@ -516,7 +516,7 @@ GameObject:
   - component: {fileID: 7860128097155547489}
   - component: {fileID: 5640698830962568855}
   m_Layer: 5
-  m_Name: UILevel4_1
+  m_Name: UILevel4_0_0_5
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -624,7 +624,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: strQuestion
-      value: How confident do you now feel using GenAI for lesson planning?
+      value: This AI game would be practical to use in my teaching context
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: strSections
@@ -904,7 +904,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 6129104384757446402, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_text
-      value: How confident do you now feel using GenAI for lesson planning?
+      value: This AI game would be practical to use in my teaching context
       objectReference: {fileID: 0}
     - target: {fileID: 7208487208148106994, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_AnchorMax.y

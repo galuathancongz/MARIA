@@ -13,28 +13,53 @@ namespace Luzart
 
         public void AddQuestion(Level4Question data)
         {
-            int length = Data.listQuestion.Count;
-            for (int i = 0; i < length; i++)
+            if(data is Level4QuestionToggle)
             {
-                if(Data.listQuestion[i].indexQuestion == data.indexQuestion)
-                {
-                    Data.listQuestion.RemoveAt(i);
-                    break;
-                }
+                AddQuestionToggle(data as Level4QuestionToggle);
+            }
+            else if(data is Level4String)
+            {
+                AddQuestionString(data as Level4String);
+            }
+        }
+        public void AddQuestionToggle(Level4QuestionToggle data)
+        {
+            var question = Data.listQuestion.FirstOrDefault(q => q.indexQuestion == data.indexQuestion);
+            if (question != null)
+            {
+                Data.listQuestion.Remove(question);
             }
             Data.listQuestion.Add(data);
-
+        }
+        public void AddQuestionString(Level4String data)
+        {
+            var question = Data.listString.FirstOrDefault(q => q.indexQuestion == data.indexQuestion);
+            if (question != null)
+            {
+                Data.listString.Remove(question);
+            }
+            Data.listString.Add(data);
         }
     }
     [Serializable]
     public class Level4Data
     {
-        public List<Level4Question> listQuestion = new();
+        public List<Level4QuestionToggle> listQuestion = new();
+        public List<Level4String> listString = new();
     }
     [Serializable]
     public class Level4Question
     {
         public int indexQuestion;
+    }
+    [Serializable]
+    public class Level4QuestionToggle : Level4Question
+    {
         public List<int> indexAnswer = new();
+    }
+    [Serializable]
+    public class Level4String : Level4Question
+    {
+        public string str;
     }
 }

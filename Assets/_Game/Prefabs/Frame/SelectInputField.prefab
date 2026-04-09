@@ -98,7 +98,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
       propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
       propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Target
@@ -110,11 +110,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
       propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: OnClickNextButton
+      value: OnClickSendString
       objectReference: {fileID: 0}
     - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
       propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
-      value: Luzart.PostQuizBoard, Assembly-CSharp
+      value: Luzart.PostQuizBoardSendMessage, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8693301111887738400, guid: 177ae5454bdd2564eb5c138f4d9a5869, type: 3}
       propertyPath: OnClickHandle.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_ObjectArgumentAssemblyTypeName
@@ -373,6 +373,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2fcb8257a07a55e4497d0eb555464de8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
   bsSections: {fileID: 2510261130386870170}
   index: 3
   strSections: 
