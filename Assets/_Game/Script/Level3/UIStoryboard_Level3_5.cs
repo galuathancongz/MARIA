@@ -52,6 +52,10 @@ namespace Luzart
             {
                 var studentWorkDTO = JsonUtility.FromJson<StudentWorkDTO>(str);
                 string studentWork = studentWorkDTO.studentWork;
+                // Defensive: normalize literal "\n" (2 chars) into real newlines
+                // so TMP renders line breaks instead of the raw escape sequence.
+                if (!string.IsNullOrEmpty(studentWork))
+                    studentWork = studentWork.Replace("\\n", "\n");
                 Data.studentWork= studentWork;
                 conversationItemMain.ShowText(LocalizationManager.Instance.GetFormat("ui.student_response", studentWork));
                 GenerateFeedback();
@@ -65,16 +69,23 @@ namespace Luzart
 
         }
 
+        private static string NormalizeAiText(string s)
+        {
+            // Convert literal "\n" (2 chars) into real newlines so TMP renders
+            // line breaks. No-op when the text already contains real newlines.
+            return string.IsNullOrEmpty(s) ? s : s.Replace("\\n", "\n");
+        }
+
         private void OnGetFeedbackSuggestions(string str)
         {
-            
+
             try
             {
                 var feedbackDTO = JsonUtility.FromJson<FormativeFeedbackSuggestionsDTO>(str);
                 List<FeedbackSuggestion> suggestions = new List<FeedbackSuggestion>();
-                suggestions.AddRange(feedbackDTO.strengths.Select(s => new FeedbackSuggestion(s, EFeedback.Strength)));
-                suggestions.AddRange(feedbackDTO.improvements.Select(s => new FeedbackSuggestion(s, EFeedback.Improvement)));
-                suggestions.AddRange(feedbackDTO.nextSteps.Select(s => new FeedbackSuggestion(s, EFeedback.NextStep)));
+                suggestions.AddRange((feedbackDTO.strengths ?? new string[0]).Select(s => new FeedbackSuggestion(NormalizeAiText(s), EFeedback.Strength)));
+                suggestions.AddRange((feedbackDTO.improvements ?? new string[0]).Select(s => new FeedbackSuggestion(NormalizeAiText(s), EFeedback.Improvement)));
+                suggestions.AddRange((feedbackDTO.nextSteps ?? new string[0]).Select(s => new FeedbackSuggestion(NormalizeAiText(s), EFeedback.NextStep)));
 
                 MasterHelper.InitListObj(suggestions.Count,itemPrefab, listItemClickToImport, content, (item, index) =>
                 {

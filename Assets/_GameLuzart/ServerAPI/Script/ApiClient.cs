@@ -90,6 +90,7 @@ namespace Luzart
                 string responseText = request.downloadHandler.text;
                 try
                 {
+                    Debug.Log($"Response {endpoint} :\n{responseText}");
                     TResponse response = JsonUtility.FromJson<TResponse>(responseText);
                     onSuccess?.Invoke(response);
                 }

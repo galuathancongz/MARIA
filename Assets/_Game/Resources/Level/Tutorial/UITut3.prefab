@@ -806,8 +806,8 @@ MonoBehaviour:
   actionResultType: 0
   actionOnCompleteStep: 2
   txt: {fileID: 1322310649254837369}
-  str: "Here\u2019s a little experiment, speak or type this: \"How can I make fractions
-    fun for my students? \r\""
+  str: "Here\u2019s a little experiment, speak or type this: 'How can I make fractions
+    fun for my students? '"
   timeDuration: 1
   ease: 1
   btnClick: {fileID: 0}

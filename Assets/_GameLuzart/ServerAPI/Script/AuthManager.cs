@@ -18,16 +18,11 @@ namespace Luzart
         public Action OnLoginSuccess;
         public Action OnLogout;
 
-        private void Start()
-        {
-            // Try restore token from PlayerPrefs
-            string savedToken = PlayerPrefs.GetString(PREF_TOKEN, "");
-            if (!string.IsNullOrEmpty(savedToken))
-            {
-                ApiClient.Instance.SetToken(savedToken);
-                Debug.Log($"[AuthManager] Token restored for user: {CurrentUsername}");
-            }
-        }
+        // Note: no token restore on Start(). The game flow goes Splash -> LanguageSelect
+        // -> Login on every launch (see UISplash.NextScene), so any saved token would
+        // never drive the UI into a logged-in screen. Restoring it silently would only
+        // make IsLoggedIn = true before the user actually logs in, which races with
+        // SyncManager auto-sync and risks pushing default in-RAM state up to the server.
 
         public void Register(string username, string password, string email = "", Action<AuthResponse> onSuccess = null, Action<string> onError = null)
         {

@@ -160,8 +160,16 @@ namespace Luzart
             {
                 var data = JsonUtility.FromJson<Level3_3Data>(str);
                 dataRequest = data;
-                conversationMain.ShowTextAnim(data.suggestion, UpdateScrollRect);
-                conversationTip.ShowTextAnim(data.tips);
+                // Defensive: some AI responses emit the two literal characters
+                // "\" + "n" instead of the proper JSON \n escape (which would
+                // parse to a real newline). TMP would otherwise render the
+                // literal \n. Normalize so both forms show as a real line break.
+                if (!string.IsNullOrEmpty(dataRequest.suggestion))
+                    dataRequest.suggestion = dataRequest.suggestion.Replace("\\n", "\n");
+                if (!string.IsNullOrEmpty(dataRequest.tips))
+                    dataRequest.tips = dataRequest.tips.Replace("\\n", "\n");
+                conversationMain.ShowTextAnim(dataRequest.suggestion, UpdateScrollRect);
+                conversationTip.ShowTextAnim(dataRequest.tips);
             }
             catch (Exception ex)
             {

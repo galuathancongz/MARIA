@@ -40,6 +40,10 @@ namespace Luzart
         private float  lastChangeTime   = -999f;
         private float  lastFailureTime  = -999f;
         private bool   markedDirty      = false;
+        // Must stay false until LoadFromServer has completed at least once for the
+        // current login. Prevents the client from pushing its default in-RAM state
+        // (level=0, etc.) up to the server before the real data has been loaded.
+        private bool   hasLoadedFromServer = false;
 
         // ── Public state read-only ────────────────────────────────────────
         public bool  IsSyncing          => isSyncing;
@@ -50,32 +54,45 @@ namespace Luzart
         private void Start()
         {
             if (AuthManager.Instance != null)
+            {
                 AuthManager.Instance.OnLoginSuccess += OnLoginSuccess;
+                AuthManager.Instance.OnLogout       += OnLogoutReset;
+            }
         }
 
         private void OnDestroy()
         {
             if (AuthManager.Instance != null)
+            {
                 AuthManager.Instance.OnLoginSuccess -= OnLoginSuccess;
+                AuthManager.Instance.OnLogout       -= OnLogoutReset;
+            }
         }
 
         private void OnLoginSuccess()
         {
-            // Load from server, then seed the baseline hash so we don't
-            // immediately re-sync what we just loaded.
-            LoadFromServer(() =>
-            {
-                lastSyncedHash = ComputeDataHash();
-                lastKnownHash  = lastSyncedHash;
-                lastSyncTime   = Time.unscaledTime;
-                markedDirty    = false;
-            });
+            // LoadFromServer already seeds hasLoadedFromServer and the baseline hash
+            // inside its success handler, so no post-load fixup is needed here.
+            LoadFromServer();
+        }
+
+        private void OnLogoutReset()
+        {
+            // Next login must re-load before we trust RAM state again.
+            hasLoadedFromServer = false;
+            lastSyncedHash = "";
+            lastKnownHash  = "";
+            markedDirty    = false;
         }
 
         private void Update()
         {
             if (!autoSyncEnabled) return;
             if (AuthManager.Instance == null || !AuthManager.Instance.IsLoggedIn) return;
+            // CRITICAL: never auto-save until we have pulled real data from the server at
+            // least once. Otherwise the default in-RAM state (level=0, empty persona, ...)
+            // would be pushed up and clobber the user's real progress on the server.
+            if (!hasLoadedFromServer) return;
             if (isSyncing) return;
 
             float now = Time.unscaledTime;
@@ -155,6 +172,15 @@ namespace Luzart
                 return;
             }
 
+            // Refuse to push if we never successfully loaded from server for this
+            // login — we would overwrite real progress with default in-RAM values.
+            if (!hasLoadedFromServer)
+            {
+                Debug.LogWarning($"[SyncManager] Skip save ({saveTrigger}) — server data not loaded yet");
+                onComplete?.Invoke();
+                return;
+            }
+
             if (isSyncing)
             {
                 onComplete?.Invoke();
@@ -182,7 +208,7 @@ namespace Luzart
                         lastSyncedHash = sendHash;
                         lastSyncTime   = Time.unscaledTime;
                         markedDirty    = false;
-                        Debug.Log($"[SyncManager] Saved ({saveTrigger})");
+                        Debug.Log($"[SyncManager] Saved ({saveTrigger})\n{json}");
                     }
                     else
                     {
@@ -204,6 +230,8 @@ namespace Luzart
         // ══════════════════════════════════════════════════════════════════
         //  LOAD FROM SERVER
         // ══════════════════════════════════════════════════════════════════
+
+        [SerializeField] private GameDataPayload dataEditor;
         public void LoadFromServer(Action onComplete = null)
         {
             if (AuthManager.Instance == null || !AuthManager.Instance.IsLoggedIn)
@@ -217,8 +245,17 @@ namespace Luzart
                 {
                     if (response.success && response.data != null)
                     {
+                        dataEditor= response.data;
                         ApplyGameData(response.data);
-                        Debug.Log("[SyncManager] Data loaded from server");
+                        // Unlock auto-save and manual SaveToServer now that RAM reflects
+                        // the real server state. Seed the baseline hash in the same breath
+                        // so we don't immediately re-sync what we just loaded.
+                        hasLoadedFromServer = true;
+                        lastSyncedHash      = ComputeDataHash();
+                        lastKnownHash       = lastSyncedHash;
+                        lastSyncTime        = Time.unscaledTime;
+                        markedDirty         = false;
+                        Debug.Log($"[SyncManager] Data loaded from server \n {response.data}");
                     }
                     else
                     {

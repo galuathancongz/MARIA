@@ -155,7 +155,7 @@ namespace Luzart
                         "SYSTEM DIRECTIVE (MANDATORY): You MUST respond ENTIRELY in Vietnamese (Tiếng Việt). " +
                         "Every word, sentence, JSON value, and any content you generate must be written in Vietnamese. " +
                         "Do NOT use English under any circumstance, even if the user's message below is in English. " +
-                        "Technical keywords (JSON keys, code, variable names) may stay in English, but all natural-language text MUST be in Vietnamese.\n" +
+                        "Technical keywords (JSON keys, code, variable names) may stay in English, but all natural-language text MUST be in Vietnamese and no icons.\n" +
                         "----------\n";
                     break;
                 case "en":
