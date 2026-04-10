@@ -48,8 +48,7 @@ namespace Luzart
             int currentIndex = GetCurrentFieldIndex();
             if (currentIndex < listCheckBox3.Count)
             {
-                var sectionName = LessonPlanTemplate.GetSectionName(currentIndex);
-                var strRequest = GetLevel3Prompt(sectionName, "");
+                var strRequest = GetLevel3Prompt(currentIndex, "");
                 Send(strRequest);
             }
             else
@@ -99,8 +98,7 @@ namespace Luzart
         public void OnClickSendRefine(string str)
         {
             int idx = CurrentIndex();
-            var sectionName = LessonPlanTemplate.GetSectionName(idx);
-            var strRequest = GetLevel3Prompt(sectionName, str);
+            var strRequest = GetLevel3Prompt(idx, str);
             _refineCountForCurrentSection++;
             Data.totalRefineCount++;
 
@@ -146,8 +144,7 @@ namespace Luzart
                 return;
             }
             int idx = CurrentIndex();
-            var sectionName = LessonPlanTemplate.GetSectionName(idx);
-            var strRequest = GetLevel3Prompt(sectionName, "");
+            var strRequest = GetLevel3Prompt(idx, "");
             strRequest = strRequest + LocalizationManager.Instance.Get("ui.regenerate_request");
             Send(strRequest);
         }
@@ -183,17 +180,30 @@ namespace Luzart
                 SkillManager.Instance?.UnlockSkill(ESkillId.LessonCoCreator);
         }
 
-        private string GetLevel3Prompt(string currentField, string userRequest)
+        private string GetLevel3Prompt(int sectionIndex, string userRequest)
         {
             Level3Data data = Level3Manager.Instance.Data;
 
+            string currentField     = LessonPlanTemplate.GetSectionName(sectionIndex);
+            string sectionGuidance  = LessonPlanTemplate.GetSectionGuidance(sectionIndex);
+            string filtersText      = string.IsNullOrWhiteSpace(data.FiltersText)
+                                      ? LocalizationManager.Instance.Get("level3.filter_none")
+                                      : data.FiltersText;
+
+            // Format the user-refinement line: omit entirely when empty
+            string userRequestLine = string.IsNullOrWhiteSpace(userRequest)
+                ? ""
+                : LocalizationManager.Instance.GetPrompt("prompts.level3_user_request_line",
+                    new System.Collections.Generic.Dictionary<string, string> { {"userRequest", userRequest} });
+
             return LocalizationManager.Instance.GetPrompt("prompts.level3_3_lesson", new System.Collections.Generic.Dictionary<string, string> {
-                {"topic", data.Topic},
-                {"baseObjective", data.LearningObjective},
-                {"constraints", data.DesignConstraint},
-                {"filters", data.FiltersText},
-                {"currentField", currentField},
-                {"userRequest", userRequest}
+                {"topic",           data.Topic},
+                {"baseObjective",   data.LearningObjective},
+                {"constraints",     data.DesignConstraint},
+                {"filters",         filtersText},
+                {"currentField",    currentField},
+                {"sectionGuidance", sectionGuidance},
+                {"userRequestLine", userRequestLine}
             });
         }
     }

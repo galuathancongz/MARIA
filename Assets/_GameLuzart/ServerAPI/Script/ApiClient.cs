@@ -14,7 +14,7 @@ namespace Luzart
         // Neu deploy VPS:  http://YOUR_SERVER_IP:3000
         // Neu co domain:   https://api.gameaids.org
 #if UNITY_EDITOR
-        public const string BASE_URL = "http://localhost:3000";   // ← local dev
+        public const string BASE_URL = "https://api.gameaids.org";   // ← local dev
 #else
         public const string BASE_URL = "https://api.gameaids.org"; // ← VPS production
 #endif
