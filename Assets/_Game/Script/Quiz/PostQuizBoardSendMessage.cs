@@ -14,6 +14,7 @@ namespace Luzart
             data.indexQuestion = levelIndex;
             Level4Manager.Instance.AddQuestion(data);
             OnClickNextButton();
+            SyncManager.Instance.ForceSyncNow(trigger:  "level_4_force_sync");
         }
     }
 }

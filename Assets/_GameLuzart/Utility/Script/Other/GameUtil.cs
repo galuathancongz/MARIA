@@ -1072,12 +1072,12 @@ namespace Luzart
         {
             // Trigger server save thay vì PlayerPrefs
             if (!focus && SyncManager.Instance != null)
-                SyncManager.Instance.SaveToServer(saveTrigger: "focus_loss");
+                SyncManager.Instance.ForceSyncNow(trigger: "focus_loss");
         }
         public virtual void Save()
         {
             // No-op: data chỉ ở RAM, server save qua SyncManager
-            SyncManager.Instance?.SaveToServer(saveTrigger: "manual");
+            SyncManager.Instance?.ForceSyncNow(trigger: "manual");
         }
     }
 }

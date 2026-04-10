@@ -110,12 +110,15 @@ namespace Luzart
 
         private string BuildRequestJson(string prompt)
         {
+            // Prepend language instruction so AI responds in the user's current language
+            string finalPrompt = PrependLanguageInstruction(prompt);
+
             if (string.IsNullOrEmpty(Data.currentResponseId))
             {
                 var req = new ResponsesRequestFirst
                 {
                     model = model,
-                    input = prompt,
+                    input = finalPrompt,
                     store = true
                 };
                 return JsonUtility.ToJson(req);
@@ -125,12 +128,45 @@ namespace Luzart
                 var req = new ResponsesRequestContinue
                 {
                     model = model,
-                    input = prompt,
+                    input = finalPrompt,
                     store = true,
                     previous_response_id = Data.currentResponseId
                 };
                 return JsonUtility.ToJson(req);
             }
+        }
+
+        /// <summary>
+        /// Prepend a strong language directive so OpenAI responds in the user's
+        /// selected language instead of defaulting to English.
+        /// Reads the current language from LocalizationManager.
+        /// </summary>
+        private static string PrependLanguageInstruction(string prompt)
+        {
+            string lang = "en";
+            if (LocalizationManager.Instance != null)
+                lang = LocalizationManager.Instance.CurrentLanguage;
+
+            string directive;
+            switch (lang)
+            {
+                case "vi":
+                    directive =
+                        "SYSTEM DIRECTIVE (MANDATORY): You MUST respond ENTIRELY in Vietnamese (Tiếng Việt). " +
+                        "Every word, sentence, JSON value, and any content you generate must be written in Vietnamese. " +
+                        "Do NOT use English under any circumstance, even if the user's message below is in English. " +
+                        "Technical keywords (JSON keys, code, variable names) may stay in English, but all natural-language text MUST be in Vietnamese.\n" +
+                        "----------\n";
+                    break;
+                case "en":
+                default:
+                    directive =
+                        "SYSTEM DIRECTIVE: Respond in English.\n" +
+                        "----------\n";
+                    break;
+            }
+
+            return directive + prompt;
         }
 
         [Serializable]

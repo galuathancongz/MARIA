@@ -87,10 +87,10 @@ namespace Luzart
             // Save data to server before logout
             if (SyncManager.Instance != null)
             {
-                SyncManager.Instance.SaveToServer(() =>
+                SyncManager.Instance.ForceSyncNow(() =>
                 {
                     DoLogout(onSuccess);
-                }, saveTrigger: "logout");
+                }, trigger: "logout");
             }
             else
             {

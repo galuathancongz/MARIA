@@ -14543,14 +14543,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24e223becf4b90a41a2303fa821c29c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  level: 2
+  level: 3
   onCall:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 5484445024042042267}
         m_TargetAssemblyTypeName: Luzart.SelectChangeGameObjectIndex, Assembly-CSharp
         m_MethodName: Select
-        m_Mode: 3
+        m_Mode: 0
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
