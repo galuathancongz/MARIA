@@ -81,6 +81,7 @@ namespace Luzart
         public void OnClickSubmit()
         {
             Data.listFeedbackSelected.Add(changedText);
+            SyncManager.Instance.ForceSyncNow(trigger: "level3.submit");
         }
     }
 }
