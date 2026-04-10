@@ -2022,7 +2022,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769, y: 56.43}
+  m_SizeDelta: {x: 769, y: 21.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3716348924519216038
 MonoBehaviour:
@@ -2440,6 +2440,7 @@ GameObject:
   - component: {fileID: 4604517930018385871}
   - component: {fileID: 7217393627492649779}
   - component: {fileID: 5453023028380088045}
+  - component: {fileID: 7410148574845596279}
   m_Layer: 5
   m_Name: txtStyle
   m_TagString: Untagged
@@ -2661,6 +2662,19 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &7410148574845596279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3032487090492849302}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: "level3.prederred_learning_\u200B"
 --- !u!1 &3249110522440487252
 GameObject:
   m_ObjectHideFlags: 0
@@ -3087,6 +3101,7 @@ GameObject:
   - component: {fileID: 3229964348515463404}
   - component: {fileID: 3936410792945320872}
   - component: {fileID: 3384537847845644766}
+  - component: {fileID: 5951498649916842514}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3230,6 +3245,19 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
+--- !u!114 &5951498649916842514
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4266363240390860583}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level3.responsity_menu
 --- !u!1 &4807946110988488461
 GameObject:
   m_ObjectHideFlags: 0
@@ -3241,6 +3269,7 @@ GameObject:
   - component: {fileID: 7101445515852686995}
   - component: {fileID: 6633029088098219172}
   - component: {fileID: 9030043653959323099}
+  - component: {fileID: 5673201552383339217}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3364,6 +3393,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5673201552383339217
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4807946110988488461}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level3.what_the_student_defined
 --- !u!1 &4846808670076975417
 GameObject:
   m_ObjectHideFlags: 0
@@ -3451,6 +3493,7 @@ GameObject:
   - component: {fileID: 6958746256069411926}
   - component: {fileID: 4568045273025162629}
   - component: {fileID: 3054666690958721748}
+  - component: {fileID: 7124021862610035094}
   m_Layer: 5
   m_Name: txtFeedback
   m_TagString: Untagged
@@ -3674,6 +3717,19 @@ MonoBehaviour:
   m_isRichTextEditingAllowed: 0
   m_LineLimit: 0
   m_InputValidator: {fileID: 0}
+--- !u!114 &7124021862610035094
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4909274590359949058}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level3.i_liked_the_activity_but_i_was_confused
 --- !u!1 &5264289223099613138
 GameObject:
   m_ObjectHideFlags: 0
@@ -4150,7 +4206,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769, y: 110.229996}
+  m_SizeDelta: {x: 769, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &6064261365488746747
 GameObject:
@@ -5445,7 +5501,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769, y: 110.229996}
+  m_SizeDelta: {x: 769, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7211738971626678662
 GameObject:
@@ -5483,7 +5539,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769, y: 110.229996}
+  m_SizeDelta: {x: 769, y: 70}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &7276788264084607229
 GameObject:
@@ -5907,7 +5963,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 769, y: 56.43}
+  m_SizeDelta: {x: 769, y: 21.56}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &3358976196257105883
 MonoBehaviour:

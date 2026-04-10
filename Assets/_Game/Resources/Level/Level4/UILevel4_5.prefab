@@ -966,8 +966,32 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: 5655083808711949537, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
       insertIndex: 8
       addedObject: {fileID: 3498486792021933362}
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2997297517972146507, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 3588985107555581475}
+    - targetCorrespondingSourceObject: {fileID: 8571668828073542741, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 2541139477850137276}
   m_SourcePrefab: {fileID: 100100000, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+--- !u!1 &1946027009912184383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8571668828073542741, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+  m_PrefabInstance: {fileID: 7923241469391755882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &2541139477850137276
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946027009912184383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.what_improvements_or_new_features_would
 --- !u!224 &2562520563783034507 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5655083808711949537, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
@@ -978,6 +1002,19 @@ GameObject:
   m_CorrespondingSourceObject: {fileID: 2997297517972146507, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
   m_PrefabInstance: {fileID: 7923241469391755882}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &3588985107555581475
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930746792701498145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.thanks_for_being_part_of_this_experience
 --- !u!224 &8237304079599506346 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 2280451205372758464, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}

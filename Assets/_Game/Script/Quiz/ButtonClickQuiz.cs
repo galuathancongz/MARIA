@@ -44,8 +44,9 @@ public class ButtonClickQuiz : MonoBehaviour
     {
         if (txt)
         {
-            txt.text = Loc.T(str);
+            txt.text = str;
         }
+        this.str = str;
     }
     public void Select(bool isSelect)
     {

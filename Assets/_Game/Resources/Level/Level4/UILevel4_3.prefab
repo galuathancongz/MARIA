@@ -627,6 +627,10 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      propertyPath: levelIndex
+      value: 17
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: strQuestion
       value: To what extend did the game encourage you to consider inclusion and
         accessibility in your design?
@@ -968,13 +972,92 @@ PrefabInstance:
     - {fileID: 8436712772379206827, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 683410078489302729, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1217580748927128403}
+    - targetCorrespondingSourceObject: {fileID: 6203656312735783895, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1179377171446269290}
+    - targetCorrespondingSourceObject: {fileID: 5734115621515483071, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7438418370352686901}
+    - targetCorrespondingSourceObject: {fileID: 2050403510611985161, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6300757237263710294}
   m_SourcePrefab: {fileID: 100100000, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+--- !u!1 &573256271689698035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5734115621515483071, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7438418370352686901
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573256271689698035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.not_at_all
+--- !u!1 &2193506731024139931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203656312735783895, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1179377171446269290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193506731024139931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.to_what_extend_did_the_game_encourage_yo
 --- !u!1 &4691839953080961925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 683410078489302729, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
   m_PrefabInstance: {fileID: 5217198394554359116}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1217580748927128403
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4691839953080961925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: "level4.section_c_\u2013_equity_diversity_&_gender_se"
+--- !u!1 &6058266657956781637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2050403510611985161, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6300757237263710294
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058266657956781637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.very_much_so
 --- !u!225 &8418344368688045877 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 4374334261250556537, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}

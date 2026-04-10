@@ -27,7 +27,7 @@ namespace Luzart
     [Serializable]
     public class DataTitleTeachLevel3_3
     {
-        public int    index;        // section index (0-6), maps to LessonPlanTemplate.SectionNames
+        public int    index;        // section index (0-6), maps to LessonPlanTemplate.SectionKeys
         public string content;      // AI generated content
         public string contextHash;  // topic + filters hash — để phân biệt các lần chơi khác nhau
     }
@@ -53,9 +53,9 @@ namespace Luzart
         // ── Derived text (từ tables, KHÔNG lưu) ─────────────────────────────
 
         public DesignChallenge CurrentChallenge => DesignChallengeTable.Get(subject, topicIndex);
-        public string Topic => CurrentChallenge?.topic ?? "";
-        public string LearningObjective => CurrentChallenge?.learningObjective ?? "";
-        public string DesignConstraint => CurrentChallenge?.designConstraint ?? "";
+        public string Topic => Loc.K(CurrentChallenge?.topicKey ?? "");
+        public string LearningObjective => Loc.K(CurrentChallenge?.objectiveKey ?? "");
+        public string DesignConstraint => Loc.K(CurrentChallenge?.constraintKey ?? "");
         public string SubjectName => MentorSubjectExtension.GetSubjectName(subject);
         public string MentorName => MentorSubjectExtension.GetNameMentor(subject);
 
@@ -134,7 +134,7 @@ namespace Luzart
 
         // ── Summary (dùng cho Scene 3_6 và export) ───────────────────────────
 
-        public string GetTitleSummary() => !string.IsNullOrEmpty(Topic) ? Topic : "Untitled Lesson";
+        public string GetTitleSummary() => !string.IsNullOrEmpty(Topic) ? Topic : Loc.K("level3.lesson_title");
 
         public string GetObjectiveSummary() => LearningObjective;
 
@@ -153,10 +153,10 @@ namespace Luzart
         public string GetAssessmentSummary()
         {
             StringBuilder sb = new StringBuilder();
-            sb.AppendLine($"<b>Student Work:</b>\n{studentWork}\n");
-            sb.AppendLine("<b>Your Feedback:</b>");
+            sb.AppendLine($"<b>{Loc.K("level3.student_work")}:</b>\n{studentWork}\n");
+            sb.AppendLine($"<b>{Loc.K("level3.student_feedback")}:</b>");
             if (listFeedbackSuggestions == null || listFeedbackSuggestions.Count == 0)
-                sb.AppendLine("(No feedback selected)");
+                sb.AppendLine($"({Loc.K("level3.feedback_summary")})");
             else
                 foreach (var f in listFeedbackSuggestions)
                     sb.AppendLine($"- {f.text}");

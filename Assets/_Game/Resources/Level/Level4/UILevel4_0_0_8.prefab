@@ -595,6 +595,14 @@ PrefabInstance:
     m_TransformParent: {fileID: 3089371443157482139}
     m_Modifications:
     - target: {fileID: 2165303891155860050, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: index
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165303891155860050, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: levelIndex
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 2165303891155860050, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
       propertyPath: strQuestion
       value: What is one way you would use or adapt this AI game in your classroom?
       objectReference: {fileID: 0}
@@ -710,28 +718,101 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2896534011785003937, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: _isSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3304778916715775430, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: _isSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3426932797658245158, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3760852065558900271, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
       propertyPath: m_Name
       value: SelectInputField
+      objectReference: {fileID: 0}
+    - target: {fileID: 4257752053124825470, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 4334739900067820018, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6415851539380799589, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
       propertyPath: m_text
       value: "Section A \u2013 Your Experience with the AI Game"
       objectReference: {fileID: 0}
+    - target: {fileID: 7239934305139596316, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7398873229292507633, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: _isSelect
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 7711677881884251627, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 8497602110054246528, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
       propertyPath: m_text
       value: What is one way you would use or adapt this AI game in your classroom?
       objectReference: {fileID: 0}
+    - target: {fileID: 8773108069284479193, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 2997297517972146507, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 4723499402699568407}
+    - targetCorrespondingSourceObject: {fileID: 8571668828073542741, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1695011344687245899}
   m_SourcePrefab: {fileID: 100100000, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+--- !u!1 &1946027009912184383 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8571668828073542741, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
+  m_PrefabInstance: {fileID: 7923241469391755882}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1695011344687245899
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1946027009912184383}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.what_is_one_way_you_would_use_or_adapt_t
 --- !u!1 &4930746792701498145 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2997297517972146507, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}
   m_PrefabInstance: {fileID: 7923241469391755882}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &4723499402699568407
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4930746792701498145}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: "level4.section_a_\u2013_your_experience_with_the_ai"
 --- !u!225 &8188313886440638353 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 2042310119769513467, guid: 4e76fa838c6e5e7479ec3f2562b3efcd, type: 3}

@@ -671,7 +671,6 @@ GameObject:
   - component: {fileID: 620351118553114927}
   - component: {fileID: 1364109124228842775}
   - component: {fileID: 4556514277190237646}
-  - component: {fileID: 2667886640480274376}
   m_Layer: 0
   m_Name: TxtLabel
   m_TagString: Untagged
@@ -815,19 +814,6 @@ MonoBehaviour:
   m_FlexibleWidth: -1
   m_FlexibleHeight: -1
   m_LayoutPriority: 1
---- !u!114 &2667886640480274376
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5816149328773770065}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  locKey: mentor.subject.english
 --- !u!1 &5891651322244623057
 GameObject:
   m_ObjectHideFlags: 0

@@ -7,15 +7,16 @@ namespace Luzart
     [System.Serializable]
     public class DesignChallenge
     {
-        public string topic;
-        public string learningObjective;
-        public string designConstraint;
+        public string topicKey;
+        public string objectiveKey;
+        public string constraintKey;
     }
 
     public static class DesignChallengeTable
     {
         // Index = ESubject: 0=English, 1=Math, 2=History, 3=Science
         // Mỗi subject có 2-3 topics
+        // Lưu localization key, dùng Loc.K() khi cần hiển thị
         public static readonly DesignChallenge[][] Challenges =
         {
             // ── Subject 0: English (Austen) ──────────────────────────────────
@@ -23,15 +24,15 @@ namespace Luzart
             {
                 new DesignChallenge
                 {
-                    topic = "Narrative writing",
-                    learningObjective = "Help students write from a different character's perspective",
-                    designConstraint = "Must use visual or voice-based creative prompts",
+                    topicKey = "level3.topic_narrative",
+                    objectiveKey = "level3.constraint_perspective",
+                    constraintKey = "level3.constraint_voice_prompts",
                 },
                 new DesignChallenge
                 {
-                    topic = "Persuasive language",
-                    learningObjective = "Teach students to structure arguments and counterpoints",
-                    designConstraint = "Must include a debate or roleplay component",
+                    topicKey = "level3.topic_persuasive",
+                    objectiveKey = "level3.constraint_arguments",
+                    constraintKey = "level3.constraint_debate",
                 },
             },
 
@@ -40,21 +41,21 @@ namespace Luzart
             {
                 new DesignChallenge
                 {
-                    topic = "Fractions",
-                    learningObjective = "Design a visual real world activity",
-                    designConstraint = "Must use common materials (e.g. food, money, paper shapes)",
+                    topicKey = "level3.topic_fractions",
+                    objectiveKey = "level3.constraint_visual_real",
+                    constraintKey = "level3.constraint_common_materials",
                 },
                 new DesignChallenge
                 {
-                    topic = "Algebraic thinking",
-                    learningObjective = "Help students solve and simplify expressions",
-                    designConstraint = "Must include step-by-step AI-guided practice",
+                    topicKey = "level3.topic_algebra",
+                    objectiveKey = "level3.constraint_expressions",
+                    constraintKey = "level3.constraint_ai_guided",
                 },
                 new DesignChallenge
                 {
-                    topic = "Measurement",
-                    learningObjective = "Compare perimeter and area of everyday objects",
-                    designConstraint = "Must include a hands-on physical movement activity",
+                    topicKey = "level3.topic_measurement",
+                    objectiveKey = "level3.constraint_perimeter",
+                    constraintKey = "level3.constraint_movement",
                 },
             },
 
@@ -63,21 +64,21 @@ namespace Luzart
             {
                 new DesignChallenge
                 {
-                    topic = "Ancient civilisations",
-                    learningObjective = "Compare cultural innovations between two civilisations",
-                    designConstraint = "Must use collaborative group work or presentations",
+                    topicKey = "level3.topic_ancient_civ",
+                    objectiveKey = "level3.constraint_compare_civ",
+                    constraintKey = "level3.constraint_collaborative",
                 },
                 new DesignChallenge
                 {
-                    topic = "Colonialism",
-                    learningObjective = "Critically examine impact on local cultures",
-                    designConstraint = "Must include student voice / reflection element",
+                    topicKey = "level3.topic_colonialism",
+                    objectiveKey = "level3.constraint_cultures",
+                    constraintKey = "level3.constraint_student_voice",
                 },
                 new DesignChallenge
                 {
-                    topic = "Timeline construction",
-                    learningObjective = "Sequence events in a historical period",
-                    designConstraint = "Must support students with visual and linguistic scaffolds",
+                    topicKey = "level3.timeline_construction",
+                    objectiveKey = "level3.constraint_sequence",
+                    constraintKey = "level3.constraint_scaffolds",
                 },
             },
 
@@ -86,21 +87,21 @@ namespace Luzart
             {
                 new DesignChallenge
                 {
-                    topic = "States of matter",
-                    learningObjective = "Explore how materials change form",
-                    designConstraint = "Must use low-cost materials for an experiment",
+                    topicKey = "level3.topic_states_matter",
+                    objectiveKey = "level3.constraint_materials_form",
+                    constraintKey = "level3.constraint_low_cost",
                 },
                 new DesignChallenge
                 {
-                    topic = "Ecosystems",
-                    learningObjective = "Understand food chains and interdependence",
-                    designConstraint = "Must involve a creative storytelling or role-play element",
+                    topicKey = "level3.topic_ecosystems",
+                    objectiveKey = "level3.constraint_food_chains",
+                    constraintKey = "level3.constraint_storytelling",
                 },
                 new DesignChallenge
                 {
-                    topic = "Scientific method",
-                    learningObjective = "Teach prediction, testing and reflection",
-                    designConstraint = "Must be adaptable for learners with different literacy levels",
+                    topicKey = "level3.topic_scientific_method",
+                    objectiveKey = "level3.constraint_prediction",
+                    constraintKey = "level3.constraint_literacy",
                 },
             },
         };
@@ -132,19 +133,19 @@ namespace Luzart
     /// </summary>
     public static class FilterTable
     {
-        public static readonly string[] Names =
+        public static readonly string[] Keys =
         {
-            "Differentiation required",           // 0
-            "Time-constrained lesson",            // 1
-            "Accessibility support",              // 2
-            "Multilingual classroom",             // 3
+            "level3.differentiation_required",    // 0
+            "level3.filter_time_constrained",     // 1
+            "level3.accessibility_support",       // 2
+            "level3.filter_multilingual",         // 3
         };
 
-        public static int Count => Names.Length; // 4
+        public static int Count => Keys.Length; // 4
 
         public static string GetName(int index)
         {
-            if (index >= 0 && index < Names.Length) return Names[index];
+            if (index >= 0 && index < Keys.Length) return Loc.K(Keys[index]);
             return $"Filter {index}";
         }
     }

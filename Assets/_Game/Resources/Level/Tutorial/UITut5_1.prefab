@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1936498950417188795}
   - component: {fileID: 1600658011618087735}
   - component: {fileID: 8227285441880354878}
+  - component: {fileID: 4698529317844818500}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -135,6 +136,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &4698529317844818500
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 27677629967771215}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.before_we_move_one_lets_do_a_quick_check
 --- !u!1 &92720578073517090
 GameObject:
   m_ObjectHideFlags: 0
@@ -146,7 +160,6 @@ GameObject:
   - component: {fileID: 6973538541062191305}
   - component: {fileID: 5027255741515051808}
   - component: {fileID: 5476149405364575960}
-  - component: {fileID: 3905182892857297207}
   - component: {fileID: 5379112464887505813}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -271,51 +284,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &3905182892857297207
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 92720578073517090}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 0}
-  _animation: 10
-  _showOn: 2
-  _registerScreenToggle: 1
-  _canvasGroup: {fileID: 0}
-  _image: {fileID: 0}
-  _textMeshProComponent: {fileID: 5476149405364575960}
-  _baseOptions:
-    ShowEase: 6
-    HideEase: 26
-    Duration: 0.4
-    StartDelay: 0.15
-    IgnoreTimeScale: 0
-    LoopTime: 0
-    LoopType: 0
-    DelayPerOneTimeLoop: 0
-  _vector3Options:
-    From: {x: 0, y: 0, z: 0}
-    EndTo: {x: -1, y: -1, z: -1}
-  _canvasGroupOptions:
-    From: 0
-    To: 1
-    IsControlFromTo: 0
-    BlockRaycast: 1
-  _floatOptions:
-    From: 0
-    To: 1
-  _textOptions:
-    FromStr: 
-    ToStr: 
-    RichTextEnabled: 1
-    ScrambleMode: 0
-    ScrambleChars: 
 --- !u!114 &5379112464887505813
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -16451,6 +16419,9 @@ GameObject:
   m_Component:
   - component: {fileID: 2135273112783282873}
   - component: {fileID: 4581643927092282097}
+  - component: {fileID: 2637352410069646241}
+  - component: {fileID: 3597888792867898716}
+  - component: {fileID: 6906591879638165009}
   m_Layer: 5
   m_Name: Popup
   m_TagString: Untagged
@@ -16488,6 +16459,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5123197663390358989}
   m_CullTransparentMesh: 1
+--- !u!114 &2637352410069646241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123197663390358989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 3597888792867898716}
+      Duration: 0.5
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: 0
+    Values:
+      IsSetFromInInit: 0
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 0
+      FloatTo: 1
+      StringFrom: 
+      StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+--- !u!225 &3597888792867898716
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123197663390358989}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
+--- !u!114 &6906591879638165009
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5123197663390358989}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenAnimation: {fileID: 2637352410069646241}
+  typeShow: 3
 --- !u!1 &5210086640744777154
 GameObject:
   m_ObjectHideFlags: 0
@@ -16499,8 +16539,9 @@ GameObject:
   - component: {fileID: 3403073124092588863}
   - component: {fileID: 5029413751753501575}
   - component: {fileID: 8888023351082704954}
-  - component: {fileID: 7979790108968017339}
   - component: {fileID: 8113864046622285693}
+  - component: {fileID: 2898006895263084371}
+  - component: {fileID: 1637373995403250242}
   m_Layer: 5
   m_Name: MariaAnswerAfter
   m_TagString: Untagged
@@ -16566,51 +16607,6 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!114 &7979790108968017339
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5210086640744777154}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 0}
-  _animation: 5
-  _showOn: 2
-  _registerScreenToggle: 1
-  _canvasGroup: {fileID: 8113864046622285693}
-  _image: {fileID: 0}
-  _textMeshProComponent: {fileID: 0}
-  _baseOptions:
-    ShowEase: 6
-    HideEase: 26
-    Duration: 0.3
-    StartDelay: 0
-    IgnoreTimeScale: 0
-    LoopTime: 0
-    LoopType: 0
-    DelayPerOneTimeLoop: 0
-  _vector3Options:
-    From: {x: 0, y: 0, z: 0}
-    EndTo: {x: -1, y: -1, z: -1}
-  _canvasGroupOptions:
-    From: 0
-    To: 1
-    IsControlFromTo: 0
-    BlockRaycast: 1
-  _floatOptions:
-    From: 0
-    To: 1
-  _textOptions:
-    FromStr: 
-    ToStr: 
-    RichTextEnabled: 1
-    ScrambleMode: 0
-    ScrambleChars: 
 --- !u!225 &8113864046622285693
 CanvasGroup:
   m_ObjectHideFlags: 0
@@ -16623,6 +16619,63 @@ CanvasGroup:
   m_Interactable: 1
   m_BlocksRaycasts: 1
   m_IgnoreParentGroups: 0
+--- !u!114 &2898006895263084371
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210086640744777154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  typeAnimation: 9
+  tweenAnimationSettings:
+    General:
+      Target: {fileID: 0}
+      Duration: 0.5
+      Easing: 1
+      IsIgnoreTimeScale: 0
+    Timing:
+      DelayStart: 0
+      TimeDelayPreLoop: 0
+      TimeDelayAfterLoop: 0
+    Loop:
+      IsLoop: 0
+      LoopType: 0
+      LoopCount: 0
+    Values:
+      IsSetFromInInit: 0
+      IsSetRuntimeFrom: 0
+      IsSetRuntimeTo: 0
+      Vector3From: {x: -1, y: -1, z: -1}
+      Vector3To: {x: -1, y: -1, z: -1}
+      FloatFrom: 0
+      FloatTo: 1
+      StringFrom: 
+      StringTo: 
+      OnFloatUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+      OnUnityEventInvoke:
+        m_PersistentCalls:
+          m_Calls: []
+--- !u!114 &1637373995403250242
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5210086640744777154}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  tweenAnimation: {fileID: 2898006895263084371}
+  typeShow: 3
 --- !u!1 &5285344262083632153
 GameObject:
   m_ObjectHideFlags: 0
@@ -16896,6 +16949,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction:
   - {fileID: 8879925934615960273}
+  - {fileID: 5210086640744777154}
   actionResultType: 0
   actionOnCompleteStep: 0
   mode: 0
@@ -17237,105 +17291,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   isTrue: 1
---- !u!1 &6871670179579151802
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 3284120068921058605}
-  - component: {fileID: 3515675275947333424}
-  - component: {fileID: 4488412118002304535}
-  m_Layer: 5
-  m_Name: EcoTweenAnimationStepAction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &3284120068921058605
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871670179579151802}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9103482093263133229}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &3515675275947333424
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871670179579151802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 3822821662705035131}
-  _animation: 5
-  _showOn: 2
-  _registerScreenToggle: 1
-  _canvasGroup: {fileID: 3544316283598741803}
-  _image: {fileID: 0}
-  _textMeshProComponent: {fileID: 0}
-  _baseOptions:
-    ShowEase: 6
-    HideEase: 26
-    Duration: 0.5
-    StartDelay: 0
-    IgnoreTimeScale: 0
-    LoopTime: 0
-    LoopType: 0
-    DelayPerOneTimeLoop: 0
-  _vector3Options:
-    From: {x: 0, y: 0, z: 0}
-    EndTo: {x: -1, y: -1, z: -1}
-  _canvasGroupOptions:
-    From: 1
-    To: 0
-    IsControlFromTo: 1
-    BlockRaycast: 1
-  _floatOptions:
-    From: 0
-    To: 1
-  _textOptions:
-    FromStr: 
-    ToStr: 
-    RichTextEnabled: 1
-    ScrambleMode: 0
-    ScrambleChars: 
---- !u!114 &4488412118002304535
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6871670179579151802}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed55822570992e4182f4318a8134899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetStepAction: []
-  actionResultType: 0
-  actionOnCompleteStep: 0
-  twAnimation:
-  - {fileID: 3515675275947333424}
 --- !u!1 &6953530579002414480
 GameObject:
   m_ObjectHideFlags: 0
@@ -17462,9 +17417,7 @@ RectTransform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 3736713281671123929}
-  - {fileID: 2574368572509801070}
   - {fileID: 8878200371243944377}
-  - {fileID: 3284120068921058605}
   - {fileID: 4635287581783304162}
   m_Father: {fileID: 3645691460523779118}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -17537,9 +17490,7 @@ MonoBehaviour:
   isCache: 0
   Steps:
   - {fileID: 4085428706225563365}
-  - {fileID: 8553760764505591331}
   - {fileID: 943944605231191582}
-  - {fileID: 4488412118002304535}
   _currentStep: 0
   currentStoryboard: 4
 --- !u!1 &7385683609938833749
@@ -18007,7 +17958,6 @@ GameObject:
   - component: {fileID: 3764440913308228309}
   - component: {fileID: 6295782891051616959}
   - component: {fileID: 344655504301623743}
-  - component: {fileID: 7026933914384663923}
   - component: {fileID: 135765954162145699}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -18132,51 +18082,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7026933914384663923
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8160317973019195907}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 0}
-  _animation: 10
-  _showOn: 2
-  _registerScreenToggle: 1
-  _canvasGroup: {fileID: 0}
-  _image: {fileID: 0}
-  _textMeshProComponent: {fileID: 344655504301623743}
-  _baseOptions:
-    ShowEase: 27
-    HideEase: 26
-    Duration: 0.1925
-    StartDelay: 0
-    IgnoreTimeScale: 0
-    LoopTime: 0
-    LoopType: 0
-    DelayPerOneTimeLoop: 0
-  _vector3Options:
-    From: {x: 0, y: 0, z: 0}
-    EndTo: {x: -1, y: -1, z: -1}
-  _canvasGroupOptions:
-    From: 0
-    To: 1
-    IsControlFromTo: 0
-    BlockRaycast: 1
-  _floatOptions:
-    From: 0
-    To: 1
-  _textOptions:
-    FromStr: 
-    ToStr: 
-    RichTextEnabled: 1
-    ScrambleMode: 0
-    ScrambleChars: 
 --- !u!114 &135765954162145699
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18236,7 +18141,6 @@ GameObject:
   - component: {fileID: 3080864302803633863}
   - component: {fileID: 1356264830567225495}
   - component: {fileID: 6752510815274275163}
-  - component: {fileID: 7628424652248713490}
   - component: {fileID: 4139276406470838014}
   m_Layer: 5
   m_Name: Text (TMP)
@@ -18361,51 +18265,6 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7628424652248713490
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8437962658107301955}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 09a1366293d64a8ca064c72b53f28096, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetGameObject: {fileID: 0}
-  _animation: 10
-  _showOn: 2
-  _registerScreenToggle: 1
-  _canvasGroup: {fileID: 0}
-  _image: {fileID: 0}
-  _textMeshProComponent: {fileID: 6752510815274275163}
-  _baseOptions:
-    ShowEase: 27
-    HideEase: 26
-    Duration: 0.1925
-    StartDelay: 0
-    IgnoreTimeScale: 0
-    LoopTime: 0
-    LoopType: 0
-    DelayPerOneTimeLoop: 0
-  _vector3Options:
-    From: {x: 0, y: 0, z: 0}
-    EndTo: {x: -1, y: -1, z: -1}
-  _canvasGroupOptions:
-    From: 0
-    To: 1
-    IsControlFromTo: 0
-    BlockRaycast: 1
-  _floatOptions:
-    From: 0
-    To: 1
-  _textOptions:
-    FromStr: 
-    ToStr: 
-    RichTextEnabled: 1
-    ScrambleMode: 0
-    ScrambleChars: 
 --- !u!114 &4139276406470838014
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -18872,58 +18731,3 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!1 &9171188156330953311
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 2574368572509801070}
-  - component: {fileID: 8553760764505591331}
-  m_Layer: 5
-  m_Name: EcoTweenAnimationStepAction
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &2574368572509801070
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171188156330953311}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 9103482093263133229}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
-  m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &8553760764505591331
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9171188156330953311}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2ed55822570992e4182f4318a8134899, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _targetStepAction:
-  - {fileID: 5210086640744777154}
-  actionResultType: 0
-  actionOnCompleteStep: 0
-  twAnimation:
-  - {fileID: 7979790108968017339}
-  - {fileID: 3905182892857297207}

@@ -6,23 +6,23 @@ namespace Luzart
     /// </summary>
     public static class LessonPlanTemplate
     {
-        public static readonly string[] SectionNames =
+        public static readonly string[] SectionKeys =
         {
-            "Lesson title",                      // 0
-            "Learning objective",                // 1
-            "Introduction starter activity",     // 2
-            "Main learning activity",            // 3
-            "Assessment / reflection",           // 4
-            "Differentiation / inclusion notes", // 5
-            "Materials / set up requirements",   // 6
+            "level3.lesson_title",               // 0
+            "level3.learning_objective",         // 1
+            "level3.intro_activity",             // 2
+            "level3.main_activity",              // 3
+            "level3.assessment_reflection",      // 4
+            "level3.differentiation_notes",      // 5
+            "level3.materials",                  // 6
         };
 
-        public static int SectionCount => SectionNames.Length; // 7
+        public static int SectionCount => SectionKeys.Length; // 7
 
         public static string GetSectionName(int index)
         {
-            if (index >= 0 && index < SectionNames.Length)
-                return SectionNames[index];
+            if (index >= 0 && index < SectionKeys.Length)
+                return Loc.K(SectionKeys[index]);
             return $"Section {index}";
         }
 

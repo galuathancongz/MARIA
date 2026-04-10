@@ -818,6 +818,7 @@ GameObject:
   - component: {fileID: 7839888830727759621}
   - component: {fileID: 3024594155385786758}
   - component: {fileID: 1579913437647484236}
+  - component: {fileID: 894584302520509943}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -953,10 +954,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 1465268694189170636}
+      Target: {fileID: 894584302520509943}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -974,8 +975,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -997,6 +998,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locKey: ui.creativity
+--- !u!225 &894584302520509943
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1465268694189170636}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &2252021873679639239
 GameObject:
   m_ObjectHideFlags: 0
@@ -1681,6 +1694,8 @@ GameObject:
   - component: {fileID: 3319458349404239750}
   - component: {fileID: 4385234613119960464}
   - component: {fileID: 3268133890178965983}
+  - component: {fileID: 3245738491669321388}
+  - component: {fileID: 6874355964080611767}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -1817,10 +1832,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 3574538675193107303}
+      Target: {fileID: 6874355964080611767}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -1838,8 +1853,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -1848,6 +1863,31 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &3245738491669321388
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574538675193107303}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.ai_can_support_emotional_learning_and_he
+--- !u!225 &6874355964080611767
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3574538675193107303}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3592200192660970255
 GameObject:
   m_ObjectHideFlags: 0
@@ -1934,6 +1974,7 @@ GameObject:
   - component: {fileID: 3688792259258913871}
   - component: {fileID: 1030916216833221060}
   - component: {fileID: 8006876033390813267}
+  - component: {fileID: 2488362436153802119}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -1957,8 +1998,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 11.423, y: 192.22476}
-  m_SizeDelta: {x: 1116.7, y: 70.1245}
+  m_AnchoredPosition: {x: 11.423, y: 179.69647}
+  m_SizeDelta: {x: 1116.7, y: 95.1811}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1030916216833221060
 CanvasRenderer:
@@ -2016,12 +2057,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 26
+  m_fontSize: 30
   m_fontSizeBase: 26
   m_fontWeight: 400
-  m_enableAutoSizing: 0
+  m_enableAutoSizing: 1
   m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMax: 30
   m_fontStyle: 0
   m_HorizontalAlignment: 1
   m_VerticalAlignment: 4096
@@ -2058,6 +2099,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &2488362436153802119
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3677128619436045793}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: "level1.here\u2019s_a_snapshot_of_your_teaching_mind"
 --- !u!1 &3707628135529448497
 GameObject:
   m_ObjectHideFlags: 0
@@ -2417,6 +2471,7 @@ GameObject:
   - component: {fileID: 3517700029849576090}
   - component: {fileID: 3520125059706824570}
   - component: {fileID: 1044197271460560283}
+  - component: {fileID: 3889101357494281131}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -2552,10 +2607,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 3881873360731794675}
+      Target: {fileID: 3889101357494281131}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -2573,8 +2628,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -2596,6 +2651,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locKey: ui.logic
+--- !u!225 &3889101357494281131
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3881873360731794675}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &3973942090291199651
 GameObject:
   m_ObjectHideFlags: 0
@@ -3157,6 +3224,8 @@ GameObject:
   - component: {fileID: 8090718342851293225}
   - component: {fileID: 7029641339528950113}
   - component: {fileID: 2744620170508086307}
+  - component: {fileID: 7377020302082229909}
+  - component: {fileID: 7762453308169757554}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -3292,10 +3361,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 4885249889763485455}
+      Target: {fileID: 7762453308169757554}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -3313,8 +3382,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -3323,6 +3392,31 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &7377020302082229909
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885249889763485455}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.ai_can_help_you_create_analogies_creativ
+--- !u!225 &7762453308169757554
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4885249889763485455}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &5170688986674455062
 GameObject:
   m_ObjectHideFlags: 0
@@ -3540,8 +3634,7 @@ GameObject:
   - component: {fileID: 5679290121203086312}
   - component: {fileID: 6906393264922978783}
   - component: {fileID: 8924244474479168305}
-  - component: {fileID: 204430266957784362}
-  - component: {fileID: 1367723818930944956}
+  - component: {fileID: 8998594612955880093}
   m_Layer: 5
   m_Name: Text (TMP) (2)
   m_TagString: Untagged
@@ -3666,7 +3759,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &204430266957784362
+--- !u!114 &8998594612955880093
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -3675,54 +3768,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5588714771906880884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 5588714771906880884}
-      Duration: 0.5
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 0
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
-      StringFrom: 
-      StringTo: 
-      OnFloatUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
-      OnUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &1367723818930944956
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5588714771906880884}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenAnimation: {fileID: 204430266957784362}
-  typeShow: 3
+  locKey: "level1.you_centre_students\u2019_experiences_and_emo"
 --- !u!1 &5605471733391928515
 GameObject:
   m_ObjectHideFlags: 0
@@ -4580,8 +4629,7 @@ GameObject:
   - component: {fileID: 3163647536071961986}
   - component: {fileID: 305192275411289034}
   - component: {fileID: 9184384114210631526}
-  - component: {fileID: 7046279502040853268}
-  - component: {fileID: 4234998279817738961}
+  - component: {fileID: 6039203986920479396}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -4706,7 +4754,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &7046279502040853268
+--- !u!114 &6039203986920479396
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -4715,54 +4763,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 6784682272505794755}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 6784682272505794755}
-      Duration: 0.5
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 0
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
-      StringFrom: 
-      StringTo: 
-      OnFloatUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
-      OnUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &4234998279817738961
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6784682272505794755}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenAnimation: {fileID: 7046279502040853268}
-  typeShow: 3
+  locKey: level1.you_bring_learning_to_life_with_stories
 --- !u!1 &6797219704362178615
 GameObject:
   m_ObjectHideFlags: 0
@@ -5040,6 +5044,8 @@ GameObject:
   - component: {fileID: 627502880069846874}
   - component: {fileID: 301361943436122928}
   - component: {fileID: 7059353792863155308}
+  - component: {fileID: 5835230019383311214}
+  - component: {fileID: 5053011711808569797}
   m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
@@ -5176,10 +5182,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 6890585879526550085}
+      Target: {fileID: 5053011711808569797}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -5197,8 +5203,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -5207,6 +5213,31 @@ MonoBehaviour:
       OnUnityEventInvoke:
         m_PersistentCalls:
           m_Calls: []
+--- !u!114 &5835230019383311214
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890585879526550085}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level1.you_will_love_using_ai_to_break_down_com
+--- !u!225 &5053011711808569797
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6890585879526550085}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &6951307234074077699
 GameObject:
   m_ObjectHideFlags: 0
@@ -5220,6 +5251,7 @@ GameObject:
   - component: {fileID: 2188103081068174813}
   - component: {fileID: 4283908718394101602}
   - component: {fileID: 2494808023805355495}
+  - component: {fileID: 1244434801843162777}
   m_Layer: 5
   m_Name: txtTitle
   m_TagString: Untagged
@@ -5355,10 +5387,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
+  typeAnimation: 9
   tweenAnimationSettings:
     General:
-      Target: {fileID: 6951307234074077699}
+      Target: {fileID: 1244434801843162777}
       Duration: 0.5
       Easing: 1
       IsIgnoreTimeScale: 0
@@ -5376,8 +5408,8 @@ MonoBehaviour:
       IsSetRuntimeTo: 0
       Vector3From: {x: -1, y: -1, z: -1}
       Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
+      FloatFrom: 0
+      FloatTo: 1
       StringFrom: 
       StringTo: 
       OnFloatUnityEventInvoke:
@@ -5399,6 +5431,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   locKey: ui.empathy
+--- !u!225 &1244434801843162777
+CanvasGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6951307234074077699}
+  m_Enabled: 1
+  m_Alpha: 1
+  m_Interactable: 1
+  m_BlocksRaycasts: 1
+  m_IgnoreParentGroups: 0
 --- !u!1 &7116719157957862881
 GameObject:
   m_ObjectHideFlags: 0
@@ -6250,8 +6294,7 @@ GameObject:
   - component: {fileID: 2715403383520465195}
   - component: {fileID: 7470992440476129850}
   - component: {fileID: 8872200005492182115}
-  - component: {fileID: 8236875395344315006}
-  - component: {fileID: 497735744540648239}
+  - component: {fileID: 1111954731401581504}
   m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
@@ -6376,7 +6419,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &8236875395344315006
+--- !u!114 &1111954731401581504
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -6385,54 +6428,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 8556882182388213893}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7106d1e68fceb864aaf2f3a39ef65ce5, type: 3}
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  typeAnimation: 10
-  tweenAnimationSettings:
-    General:
-      Target: {fileID: 8556882182388213893}
-      Duration: 0.5
-      Easing: 1
-      IsIgnoreTimeScale: 0
-    Timing:
-      DelayStart: 0
-      TimeDelayPreLoop: 0
-      TimeDelayAfterLoop: 0
-    Loop:
-      IsLoop: 0
-      LoopType: 0
-      LoopCount: 0
-    Values:
-      IsSetFromInInit: 0
-      IsSetRuntimeFrom: 0
-      IsSetRuntimeTo: 0
-      Vector3From: {x: -1, y: -1, z: -1}
-      Vector3To: {x: -1, y: -1, z: -1}
-      FloatFrom: -1
-      FloatTo: -1
-      StringFrom: 
-      StringTo: 
-      OnFloatUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
-      OnUnityEventInvoke:
-        m_PersistentCalls:
-          m_Calls: []
---- !u!114 &497735744540648239
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8556882182388213893}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e3e32e55a504ba64ab27e840fc43c7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  tweenAnimation: {fileID: 8236875395344315006}
-  typeShow: 3
+  locKey: level1.you_value_clarity_structure_and_strategy
 --- !u!1 &8838162626398051765
 GameObject:
   m_ObjectHideFlags: 0

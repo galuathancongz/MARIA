@@ -661,6 +661,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cda4501db34870340b4435c9a913d68c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  levelIndex: 0
   bsSections: {fileID: 159106877094563864}
   index: 0
   strSections: "Section A \u2013 Skills and Confidence with GenAI"
@@ -2599,6 +2600,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2609,6 +2614,18 @@ PrefabInstance:
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_text
       value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -2779,6 +2796,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2789,6 +2810,18 @@ PrefabInstance:
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_text
       value: Not at all
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -2963,6 +2996,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -2973,6 +3010,18 @@ PrefabInstance:
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_text
       value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -3143,6 +3192,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3153,6 +3206,18 @@ PrefabInstance:
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_text
       value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_HorizontalAlignment
@@ -3327,6 +3392,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_SizeDelta.x
+      value: 240
+      objectReference: {fileID: 0}
+    - target: {fileID: 8529621490859323276, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 0
       objectReference: {fileID: 0}
@@ -3337,6 +3406,18 @@ PrefabInstance:
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_text
       value: ' '
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSize
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_fontSizeMax
+      value: 25
+      objectReference: {fileID: 0}
+    - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
+      propertyPath: m_enableAutoSizing
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8713289006754808621, guid: fd0c20495de05fa47888acb17784cade, type: 3}
       propertyPath: m_HorizontalAlignment

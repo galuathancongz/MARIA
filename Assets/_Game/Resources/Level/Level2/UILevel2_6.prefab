@@ -1362,6 +1362,7 @@ GameObject:
   - component: {fileID: 438325004443821354}
   - component: {fileID: 6187056370306597034}
   - component: {fileID: 3042666837141388230}
+  - component: {fileID: 5751141346931365137}
   m_Layer: 5
   m_Name: txtTime
   m_TagString: Untagged
@@ -1486,6 +1487,19 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!114 &5751141346931365137
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 9212119705600727325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level2.welcome_to_the_co-creation_studio_where
 --- !u!1001 &3948344974458242142
 PrefabInstance:
   m_ObjectHideFlags: 0

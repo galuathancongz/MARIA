@@ -325,7 +325,7 @@ MonoBehaviour:
   _targetStepAction:
   - {fileID: 0}
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 9016770606677269045}
 --- !u!114 &9016770606677269045
@@ -449,7 +449,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
   twAnimation:
   - {fileID: 1459986285089334447}
 --- !u!1 &6725911640531656636
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _targetStepAction: []
   actionResultType: 0
-  isSetActiveAfter: 0
+  actionOnCompleteStep: 0
 --- !u!1 &8536906684387110268
 GameObject:
   m_ObjectHideFlags: 0
@@ -618,6 +618,10 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      propertyPath: levelIndex
+      value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: strQuestion
       value: Do you feel GenAI enhanced your creativity as an educator?
       objectReference: {fileID: 0}
@@ -627,11 +631,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: listStr.Array.data[0]
-      value: Strongly Agree
+      value: Strongly Disagree
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: listStr.Array.data[4]
-      value: Strongly Disagree
+      value: Strongly Agree
       objectReference: {fileID: 0}
     - target: {fileID: 1145237009754411098, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: onClickNextButton.m_PersistentCalls.m_Calls.Array.size
@@ -707,11 +711,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2785499833877035159, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: str
-      value: Strongly Agree
+      value: Strongly Disagree
       objectReference: {fileID: 0}
     - target: {fileID: 3999324372183492300, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_text
-      value: Strongly Disagree
+      value: Strongly Agree
       objectReference: {fileID: 0}
     - target: {fileID: 4132499776067435925, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_AnchorMax.y
@@ -895,11 +899,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7234928021629579898, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_text
-      value: Strongly Agree
+      value: Strongly Disagree
       objectReference: {fileID: 0}
     - target: {fileID: 8453187991172115489, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: str
-      value: Strongly Disagree
+      value: Strongly Agree
       objectReference: {fileID: 0}
     - target: {fileID: 8785063913961723879, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
       propertyPath: m_text
@@ -932,13 +936,76 @@ PrefabInstance:
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 6203656312735783895, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 7317604094417561366}
+    - targetCorrespondingSourceObject: {fileID: 5734115621515483071, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1490526586956313052}
+    - targetCorrespondingSourceObject: {fileID: 2050403510611985161, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 6188157578853500175}
   m_SourcePrefab: {fileID: 100100000, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+--- !u!1 &573256271689698035 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5734115621515483071, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1490526586956313052
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573256271689698035}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.strongly_disagree
+--- !u!1 &2193506731024139931 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6203656312735783895, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &7317604094417561366
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2193506731024139931}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.do_you_feel_genai_enhanced_your_creativi
 --- !u!1 &4691839953080961925 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 683410078489302729, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
   m_PrefabInstance: {fileID: 5217198394554359116}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &6058266657956781637 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 2050403510611985161, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}
+  m_PrefabInstance: {fileID: 5217198394554359116}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &6188157578853500175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6058266657956781637}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: level4.strongly_agree
 --- !u!225 &8418344368688045877 stripped
 CanvasGroup:
   m_CorrespondingSourceObject: {fileID: 4374334261250556537, guid: a57a8f1455611b34ea799fe841a0d351, type: 3}

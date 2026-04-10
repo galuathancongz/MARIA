@@ -44,8 +44,8 @@ namespace Luzart
                 base.Show(onHideDone);
                 // Build summary from current context sections
                 this.dataTitle.Clear();
-                this.dataTitle.Add(("Lesson Topic", Data.GetTitleSummary()));
-                this.dataTitle.Add(("Learning Objective", Data.GetObjectiveSummary()));
+                this.dataTitle.Add((Loc.K("level3.lesson_title"), Data.GetTitleSummary()));
+                this.dataTitle.Add((Loc.K("level3.learning_objective"), Data.GetObjectiveSummary()));
 
                 // Add each lesson section from current context
                 var sections = Data.GetCurrentSections();
@@ -55,7 +55,7 @@ namespace Luzart
                     this.dataTitle.Add((name, s.content));
                 }
 
-                this.dataTitle.Add(("Assessment & Feedback", Data.GetAssessmentSummary()));
+                this.dataTitle.Add((Loc.K("level3.feedback_summary"), Data.GetAssessmentSummary()));
                 MasterHelper.InitListObj(this.dataTitle.Count, itemFoldOut, listItemFoldOut, content, (obj, index) =>
                 {
                     obj.gameObject.SetActive(true);

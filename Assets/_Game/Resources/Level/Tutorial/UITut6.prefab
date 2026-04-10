@@ -1129,6 +1129,7 @@ GameObject:
   - component: {fileID: 6117619878024805380}
   - component: {fileID: 4166650048834936048}
   - component: {fileID: 9061048352034595833}
+  - component: {fileID: 6434503096995245542}
   m_Layer: 5
   m_Name: txtTime
   m_TagString: Untagged
@@ -1299,6 +1300,19 @@ MonoBehaviour:
     RichTextEnabled: 1
     ScrambleMode: 0
     ScrambleChars: 
+--- !u!114 &6434503096995245542
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5073565799914630631}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4a181fd36dd2bcd4f9379c41c0367b90, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  locKey: tutorial.youve_got_the_basics_now_fantasic_work
 --- !u!1 &5145223146331508431
 GameObject:
   m_ObjectHideFlags: 0
