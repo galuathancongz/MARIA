@@ -13,53 +13,14 @@ namespace Luzart
     }
 
     public static class DesignChallengeTable
-    {
-        // Index = ESubject: 0=English, 1=Math, 2=History, 3=Science
+    { 
+        // Index = ESubject: 0=History, 1=Science, 2=English, 3=Math
+        // (see Level2_PickSubject.cs — ESubject order must match this array)
         // Mỗi subject có 2-3 topics
         // Lưu localization key, dùng Loc.K() khi cần hiển thị
         public static readonly DesignChallenge[][] Challenges =
         {
-            // ── Subject 0: English (Austen) ──────────────────────────────────
-            new[]
-            {
-                new DesignChallenge
-                {
-                    topicKey = "level3.topic_narrative",
-                    objectiveKey = "level3.constraint_perspective",
-                    constraintKey = "level3.constraint_voice_prompts",
-                },
-                new DesignChallenge
-                {
-                    topicKey = "level3.topic_persuasive",
-                    objectiveKey = "level3.constraint_arguments",
-                    constraintKey = "level3.constraint_debate",
-                },
-            },
-
-            // ── Subject 1: Math (Euclidea) ───────────────────────────────────
-            new[]
-            {
-                new DesignChallenge
-                {
-                    topicKey = "level3.topic_fractions",
-                    objectiveKey = "level3.constraint_visual_real",
-                    constraintKey = "level3.constraint_common_materials",
-                },
-                new DesignChallenge
-                {
-                    topicKey = "level3.topic_algebra",
-                    objectiveKey = "level3.constraint_expressions",
-                    constraintKey = "level3.constraint_ai_guided",
-                },
-                new DesignChallenge
-                {
-                    topicKey = "level3.topic_measurement",
-                    objectiveKey = "level3.constraint_perimeter",
-                    constraintKey = "level3.constraint_movement",
-                },
-            },
-
-            // ── Subject 2: History (Thucy) ───────────────────────────────────
+            // ── Subject 0: History (Thucy) ───────────────────────────────────
             new[]
             {
                 new DesignChallenge
@@ -82,7 +43,7 @@ namespace Luzart
                 },
             },
 
-            // ── Subject 3: Science (Darwinia) ────────────────────────────────
+            // ── Subject 1: Science (Darwinia) ────────────────────────────────
             new[]
             {
                 new DesignChallenge
@@ -102,6 +63,46 @@ namespace Luzart
                     topicKey = "level3.topic_scientific_method",
                     objectiveKey = "level3.constraint_prediction",
                     constraintKey = "level3.constraint_literacy",
+                },
+            },
+
+            // ── Subject 2: English (Austen) ──────────────────────────────────
+            new[]
+            {
+                new DesignChallenge
+                {
+                    topicKey = "level3.topic_narrative",
+                    objectiveKey = "level3.constraint_perspective",
+                    constraintKey = "level3.constraint_voice_prompts",
+                },
+                new DesignChallenge
+                {
+                    topicKey = "level3.topic_persuasive",
+                    objectiveKey = "level3.constraint_arguments",
+                    constraintKey = "level3.constraint_debate",
+                },
+            },
+
+            // ── Subject 3: Math (Euclidea) ───────────────────────────────────
+            new[]
+            {
+                new DesignChallenge
+                {
+                    topicKey = "level3.topic_fractions",
+                    objectiveKey = "level3.constraint_visual_real",
+                    constraintKey = "level3.constraint_common_materials",
+                },
+                new DesignChallenge
+                {
+                    topicKey = "level3.topic_algebra",
+                    objectiveKey = "level3.constraint_expressions",
+                    constraintKey = "level3.constraint_ai_guided",
+                },
+                new DesignChallenge
+                {
+                    topicKey = "level3.topic_measurement",
+                    objectiveKey = "level3.constraint_perimeter",
+                    constraintKey = "level3.constraint_movement",
                 },
             },
         };
